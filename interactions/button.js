@@ -4,8 +4,8 @@ const { MessageEmbed, MessageButton, MessageActionRow } = require("discord.js"),
 
 module.exports = function (client, options) {
     const description = {
-        name: "ticketing",
-        filename: "ticketing.js",
+        name: "button",
+        filename: "button.js",
         version: "2.1",
     };
     console.log(

@@ -7,8 +7,8 @@ const { MessageEmbed } = require("discord.js"),
 
 module.exports = function (client) {
     const description = {
-        name: "nsfw-menu",
-        filename: "nsfw-menu.js",
+        name: "drop-down",
+        filename: "drop-down.js",
         version: "2.1",
     };
     console.log(
