@@ -223,9 +223,12 @@ module.exports = function (client, options) {
                         db.delete("tow" + user);
                 }, 5000);
 
-                // here starts the self roles 
-                // buttons
-            } else if (button.customId === 'selfrole1') {
+            }
+
+            // here starts the self roles 
+            // buttons interaction 
+
+            else if (button.customId === 'selfrole1') {
                 if (!button.guild.me.permissionsIn(button.channel).has(["MANAGE_ROLES"])) {
                     return button.reply({ content: 'I need `"MANAGE_ROLES"` permissions first', ephemeral: true })
                 }
@@ -350,6 +353,156 @@ module.exports = function (client, options) {
                     return button.reply({ content: 'I need `"MANAGE_ROLES"` permissions first', ephemeral: true })
                 }
                 let rol = db.get(`selfroles5_${button.guild.id}${button.message.id}`),
+                    role = button.guild.roles.cache.get(rol),
+                    member = button.guild.members.cache.get(button.user.id);
+                if (!role) {
+                    button.guild.roles.fetch(rol).catch(() => null);
+                }
+                if (!member) {
+                    member = button.guild.members.fetch(button.user.id).catch(() => null);
+                }
+                if (!member) {
+                    return button.reply({ content: `Unable to find the user who clicked thi button!`, ephemeral: true })
+                }
+                if (!role) {
+                    return button.reply({ content: `Unable to find the role assciated with this self role menu!`, ephemeral: true })
+                }
+                if (role.position > button.guild.me.roles.highest.position) {
+                    return button.reply({ content: `My role isnt high enogh to sive this role to you!`, ephemeral: true })
+                }
+                if (!member.roles.cache.has(role.id)) {
+                    member.roles.add(role)
+                    return button.reply({ content: `Gave you the ${role} role!`, ephemeral: true });
+                }
+                if (member.roles.cache.has(role.id)) {
+                    member.roles.remove(role)
+                    return button.reply({ content: `Took ${role} role from you!`, ephemeral: true });
+                }
+            } else if (button.customId === 'selfrole6') {
+                if (!button.guild.me.permissionsIn(button.channel).has(["MANAGE_ROLES"])) {
+                    return button.reply({ content: 'I need `"MANAGE_ROLES"` permissions first', ephemeral: true })
+                }
+                let rol = db.get(`selfroles6_${button.guild.id}${button.message.id}`),
+                    role = button.guild.roles.cache.get(rol),
+                    member = button.guild.members.cache.get(button.user.id);
+                if (!role) {
+                    button.guild.roles.fetch(rol).catch(() => null);
+                }
+                if (!member) {
+                    member = button.guild.members.fetch(button.user.id).catch(() => null);
+                }
+                if (!member) {
+                    return button.reply({ content: `Unable to find the user who clicked thi button!`, ephemeral: true })
+                }
+                if (!role) {
+                    return button.reply({ content: `Unable to find the role assciated with this self role menu!`, ephemeral: true })
+                }
+                if (role.position > button.guild.me.roles.highest.position) {
+                    return button.reply({ content: `My role isnt high enogh to sive this role to you!`, ephemeral: true })
+                }
+                if (!member.roles.cache.has(role.id)) {
+                    member.roles.add(role)
+                    return button.reply({ content: `Gave you the ${role} role!`, ephemeral: true });
+                }
+                if (member.roles.cache.has(role.id)) {
+                    member.roles.remove(role)
+                    return button.reply({ content: `Took ${role} role from you!`, ephemeral: true });
+                }
+            } else if (button.customId === 'selfrole7') {
+                if (!button.guild.me.permissionsIn(button.channel).has(["MANAGE_ROLES"])) {
+                    return button.reply({ content: 'I need `"MANAGE_ROLES"` permissions first', ephemeral: true })
+                }
+                let rol = db.get(`selfroles7_${button.guild.id}${button.message.id}`),
+                    role = button.guild.roles.cache.get(rol),
+                    member = button.guild.members.cache.get(button.user.id);
+                if (!role) {
+                    button.guild.roles.fetch(rol).catch(() => null);
+                }
+                if (!member) {
+                    member = button.guild.members.fetch(button.user.id).catch(() => null);
+                }
+                if (!member) {
+                    return button.reply({ content: `Unable to find the user who clicked thi button!`, ephemeral: true })
+                }
+                if (!role) {
+                    return button.reply({ content: `Unable to find the role assciated with this self role menu!`, ephemeral: true })
+                }
+                if (role.position > button.guild.me.roles.highest.position) {
+                    return button.reply({ content: `My role isnt high enogh to sive this role to you!`, ephemeral: true })
+                }
+                if (!member.roles.cache.has(role.id)) {
+                    member.roles.add(role)
+                    return button.reply({ content: `Gave you the ${role} role!`, ephemeral: true });
+                }
+                if (member.roles.cache.has(role.id)) {
+                    member.roles.remove(role)
+                    return button.reply({ content: `Took ${role} role from you!`, ephemeral: true });
+                }
+            } else if (button.customId === 'selfrole8') {
+                if (!button.guild.me.permissionsIn(button.channel).has(["MANAGE_ROLES"])) {
+                    return button.reply({ content: 'I need `"MANAGE_ROLES"` permissions first', ephemeral: true })
+                }
+                let rol = db.get(`selfroles8_${button.guild.id}${button.message.id}`),
+                    role = button.guild.roles.cache.get(rol),
+                    member = button.guild.members.cache.get(button.user.id);
+                if (!role) {
+                    button.guild.roles.fetch(rol).catch(() => null);
+                }
+                if (!member) {
+                    member = button.guild.members.fetch(button.user.id).catch(() => null);
+                }
+                if (!member) {
+                    return button.reply({ content: `Unable to find the user who clicked thi button!`, ephemeral: true })
+                }
+                if (!role) {
+                    return button.reply({ content: `Unable to find the role assciated with this self role menu!`, ephemeral: true })
+                }
+                if (role.position > button.guild.me.roles.highest.position) {
+                    return button.reply({ content: `My role isnt high enogh to sive this role to you!`, ephemeral: true })
+                }
+                if (!member.roles.cache.has(role.id)) {
+                    member.roles.add(role)
+                    return button.reply({ content: `Gave you the ${role} role!`, ephemeral: true });
+                }
+                if (member.roles.cache.has(role.id)) {
+                    member.roles.remove(role)
+                    return button.reply({ content: `Took ${role} role from you!`, ephemeral: true });
+                }
+            } else if (button.customId === 'selfrole9') {
+                if (!button.guild.me.permissionsIn(button.channel).has(["MANAGE_ROLES"])) {
+                    return button.reply({ content: 'I need `"MANAGE_ROLES"` permissions first', ephemeral: true })
+                }
+                let rol = db.get(`selfroles9_${button.guild.id}${button.message.id}`),
+                    role = button.guild.roles.cache.get(rol),
+                    member = button.guild.members.cache.get(button.user.id);
+                if (!role) {
+                    button.guild.roles.fetch(rol).catch(() => null);
+                }
+                if (!member) {
+                    member = button.guild.members.fetch(button.user.id).catch(() => null);
+                }
+                if (!member) {
+                    return button.reply({ content: `Unable to find the user who clicked thi button!`, ephemeral: true })
+                }
+                if (!role) {
+                    return button.reply({ content: `Unable to find the role assciated with this self role menu!`, ephemeral: true })
+                }
+                if (role.position > button.guild.me.roles.highest.position) {
+                    return button.reply({ content: `My role isnt high enogh to sive this role to you!`, ephemeral: true })
+                }
+                if (!member.roles.cache.has(role.id)) {
+                    member.roles.add(role)
+                    return button.reply({ content: `Gave you the ${role} role!`, ephemeral: true });
+                }
+                if (member.roles.cache.has(role.id)) {
+                    member.roles.remove(role)
+                    return button.reply({ content: `Took ${role} role from you!`, ephemeral: true });
+                }
+            } else if (button.customId === 'selfrole10') {
+                if (!button.guild.me.permissionsIn(button.channel).has(["MANAGE_ROLES"])) {
+                    return button.reply({ content: 'I need `"MANAGE_ROLES"` permissions first', ephemeral: true })
+                }
+                let rol = db.get(`selfroles10_${button.guild.id}${button.message.id}`),
                     role = button.guild.roles.cache.get(rol),
                     member = button.guild.members.cache.get(button.user.id);
                 if (!role) {
