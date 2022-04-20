@@ -23,7 +23,7 @@ module.exports = {
             damon = await client.users.fetch(client.config.damon_id)
         }
 
-        let pages = 21,
+        let pages = 20,
             em0 = new MessageEmbed()
                 .setTitle(`${client.user.username} Help Menu`)
                 .setColor(client.embed.cm)
