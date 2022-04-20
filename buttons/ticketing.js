@@ -259,7 +259,7 @@ module.exports = function (client, options) {
                 if (!button.guild.me.permissionsIn(button.channel).has(["MANAGE_ROLES"])) {
                     return button.reply({ content: 'I need `"MANAGE_ROLES"` permissions first', ephemeral: true })
                 }
-                let rol = db.get(`selfroles2_${button.guild.id}${button.message.id}`),
+                let rol = db.get(`selfrole2_${button.guild.id}${button.message.id}`),
                     role = button.guild.roles.cache.get(rol),
                     member = button.guild.members.cache.get(button.user.id);
                 if (!role) {
