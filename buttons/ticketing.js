@@ -316,6 +316,12 @@ module.exports = function (client, options) {
                     return button.reply({ content: `Took ${role} role from you!`, ephemeral: true })
                 }
             } else if (button.customId === 'selfrole4') {
+                if (!button.guild.me.permissionsIn(button.channel).has(["MANAGE_ROLES"])) {
+                    return button.reply({ content: 'I need `"MANAGE_ROLES"` permissions first', ephemeral: true })
+                }
+                let rol = db.get(`selfroles4_${button.guild.id}${button.message.id}`),
+                    role = button.guild.roles.cache.get(rol),
+                    member = button.guild.members.cache.get(button.user.id);
                 if (!role) {
                     button.guild.roles.fetch(rol).catch(() => null);
                 }
@@ -340,6 +346,12 @@ module.exports = function (client, options) {
                     return button.reply({ content: `Took ${role} role from you!`, ephemeral: true })
                 }
             } else if (button.customId === 'selfrole5') {
+                if (!button.guild.me.permissionsIn(button.channel).has(["MANAGE_ROLES"])) {
+                    return button.reply({ content: 'I need `"MANAGE_ROLES"` permissions first', ephemeral: true })
+                }
+                let rol = db.get(`selfroles5_${button.guild.id}${button.message.id}`),
+                    role = button.guild.roles.cache.get(rol),
+                    member = button.guild.members.cache.get(button.user.id);
                 if (!role) {
                     button.guild.roles.fetch(rol).catch(() => null);
                 }
