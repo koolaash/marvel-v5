@@ -5,9 +5,9 @@ const { MessageEmbed, MessageButton, MessageActionRow, Collection, Util } = requ
 module.exports = {
     name: "selfrole",
     aliases: ['selfroles'],
-    desciption: "helps you change role icon",
-    category: "USEFUL",
-    usage: "roleicon <@role/role_id> <emoji>",
+    description: "helps you change role icon",
+    category: "MODERATION",
+    usage: "selfrole",
     userPermissions: ["MANAGE_ROLES"],
     botPermissions: ["EMBED_LINKS", "MANAGE_ROLES"],
 
@@ -15,7 +15,7 @@ module.exports = {
         message.reply({
             embeds: [
                 new MessageEmbed({
-                    description: `${client.emoji.ar}| How many roles you want to setup must be between 1 - 5`,
+                    description: `${client.emoji.ar}| How many roles you want to setup must be between 1 - 10`,
                     color: client.embed.cm
                 })
             ]
@@ -31,7 +31,7 @@ module.exports = {
             return message.reply({
                 embeds: [
                     new MessageEmbed({
-                        desciption: `${client.emoji.fail}| You failed to provide the amount!`,
+                        description: `${client.emoji.fail}| You failed to provide the amount!`,
                         color: client.embed.cf
                     })
                 ]
@@ -41,17 +41,22 @@ module.exports = {
             return message.reply({
                 embeds: [
                     new MessageEmbed({
-                        desciption: `${client.emoji.fail}| You failed to provide the valid amount!`,
+                        description: `${client.emoji.fail}| You failed to provide the valid amount!`,
                         color: client.embed.cf
                     })
                 ]
             })
         }
-        if (amt > 5 || amt < 1) {
+        if (
+            amt !== '1' || amt !== '2' || amt !== '3' ||
+            amt !== '4' || amt !== '5' || amt !== '6' ||
+            amt !== '7' || amt !== '8' || amt !== '9' ||
+            amt !== '10'
+        ) {
             return message.reply({
                 embeds: [
                     new MessageEmbed({
-                        desciption: `${client.emoji.fail}| You failed to provide the valid amount it must be between 1 - 5!`,
+                        description: `${client.emoji.fail}| You failed to provide the valid amount it must be between 1 - 10!`,
                         color: client.embed.cf
                     })
                 ]
@@ -122,6 +127,10 @@ module.exports = {
             author: {
                 name: `Self Roles`,
                 iconURL: client.user.displayAvatarURL()
+            },
+            footer: {
+                text: `Powered By Marvel`,
+                iconURL: message.guild.iconURL({ dynamic: true })
             }
         }),
             row = new MessageActionRow(),
@@ -178,7 +187,7 @@ module.exports = {
             message.reply({
                 embeds: [
                     new MessageEmbed({
-                        description: `${client.emoji.ar}| Provide the emoji for 1st role\**Must be from this guild**!`,
+                        description: `${client.emoji.ar}| Provide the emoji for 1st role\n**Must be from this guild**!`,
                         color: client.embed.cf
                     })
                 ]
@@ -216,10 +225,10 @@ module.exports = {
                     .setStyle('SECONDARY')
                     .setCustomId('selfrole1')
             )
-            msg.push(`${emj1.first().content} - ${role1}`)
+            msg.push(`> ${emj1.first().content} => ${role1}`)
         }
         if (amt === `1`) {
-            embed.setDescription(msg.join("\n"))
+            embed.setDescription(`Cick on the button(s) below to get the corresponding role(s)${msg.join("\n")}`)
             let msgs = await chan.send({
                 embeds: [embed],
                 components: [row]
@@ -279,7 +288,7 @@ module.exports = {
             message.reply({
                 embeds: [
                     new MessageEmbed({
-                        description: `${client.emoji.ar}| Provide the emoji for 2nd role\**Must be from this guild**!`,
+                        description: `${client.emoji.ar}| Provide the emoji for 2nd role\n**Must be from this guild**!`,
                         color: client.embed.cf
                     })
                 ]
@@ -320,7 +329,7 @@ module.exports = {
             msg.push(`${emj2.first().content} - ${role2}`)
         }
         if (amt === `2`) {
-            embed.setDescription(msg.join("\n"))
+            embed.setDescription(`Cick on the button(s) below to get the corresponding role(s)${msg.join("\n")}`)
             let msgs = await chan.send({
                 embeds: [embed],
                 components: [row]
@@ -381,7 +390,7 @@ module.exports = {
             message.reply({
                 embeds: [
                     new MessageEmbed({
-                        description: `${client.emoji.ar}| Provide the emoji for 3rd role\**Must be from this guild**!`,
+                        description: `${client.emoji.ar}| Provide the emoji for 3rd role\n**Must be from this guild**!`,
                         color: client.embed.cf
                     })
                 ]
@@ -422,7 +431,7 @@ module.exports = {
             msg.push(`${emj3.first().content} - ${role3}`)
         }
         if (amt === `3`) {
-            embed.setDescription(msg.join("\n"))
+            embed.setDescription(`Cick on the button(s) below to get the corresponding role(s)${msg.join("\n")}`)
             let msgs = await chan.send({
                 embeds: [embed],
                 components: [row]
@@ -484,7 +493,7 @@ module.exports = {
             message.reply({
                 embeds: [
                     new MessageEmbed({
-                        description: `${client.emoji.ar}| Provide the emoji for 4th role\**Must be from this guild**!`,
+                        description: `${client.emoji.ar}| Provide the emoji for 4th role\n**Must be from this guild**!`,
                         color: client.embed.cf
                     })
                 ]
@@ -525,7 +534,7 @@ module.exports = {
             msg.push(`${emj4.first().content} - ${role4}`)
         }
         if (amt === `4`) {
-            embed.setDescription(msg.join("\n"))
+            embed.setDescription(`Cick on the button(s) below to get the corresponding role(s)${msg.join("\n")}`)
             let msgs = await chan.send({
                 embeds: [embed],
                 components: [row]
@@ -588,7 +597,7 @@ module.exports = {
             message.reply({
                 embeds: [
                     new MessageEmbed({
-                        description: `${client.emoji.ar}| Provide the emoji for 5th role\**Must be from this guild**!`,
+                        description: `${client.emoji.ar}| Provide the emoji for 5th role\n**Must be from this guild**!`,
                         color: client.embed.cf
                     })
                 ]
@@ -629,7 +638,7 @@ module.exports = {
             msg.push(`${emj5.first().content} - ${role5}`)
         }
         if (amt === `5`) {
-            embed.setDescription(msg.join("\n"))
+            embed.setDescription(`Cick on the button(s) below to get the corresponding role(s)${msg.join("\n")}`)
             let msgs = await chan.send({
                 embeds: [embed],
                 components: [row]
@@ -639,6 +648,546 @@ module.exports = {
                 db2.set(`selfroles3_${message.guild.id}${msgs.id}`, role3.id) &&
                 db2.set(`selfroles4_${message.guild.id}${msgs.id}`, role4.id) &&
                 db2.set(`selfroles5_${message.guild.id}${msgs.id}`, role5.id)
+            return;
+        }
+        let r6, role6, emj6, emoji6, row2 = new MessageActionRow()
+        if (amt >= '6') {
+            message.reply({
+                embeds: [
+                    new MessageEmbed({
+                        description: `${client.emoji.ar}| Provide the role6 @role or rrole_id!`,
+                        color: client.embed.cf
+                    })
+                ]
+            })
+            r6 = await message.channel.awaitMessages({
+                filter: msg_filter,
+                max: 1,
+                time: 60000
+            });
+            try {
+                if (
+                    r6.first().content.startsWith("<@&") &&
+                    r6.first().content.endsWith(">")
+                ) {
+                    let rr6 = r6.first().content.slice(3, -1);
+                    role6 = message.guild.roles.cache.get(rr6);
+                } else {
+                    role6 = message.guild.roles.cache.get(r6.first().content);
+                }
+            } catch (e) {
+                return (
+                    message.reply({
+                        embeds: [
+                            new MessageEmbed({
+                                description: `${client.emoji.fail}| Provide a valid role\nRestart the process`,
+                                color: client.embed.cf
+                            })
+                        ]
+                    }) & db.delete("inuse" + message.guild.id)
+                );
+            }
+            if (role6 === null || role6 === undefined) {
+                return (
+                    message.reply({
+                        embeds: [
+                            new MessageEmbed({
+                                description: `${client.emoji.fail}| Provide a valid role\nRestart the process`,
+                                color: client.embed.cf
+                            })
+                        ]
+                    }) & db.delete("inuse" + message.guild.id)
+                );
+            }
+            message.reply({
+                embeds: [
+                    new MessageEmbed({
+                        description: `${client.emoji.ar}| Provide the emoji for 6th role\n**Must be from this guild**!`,
+                        color: client.embed.cf
+                    })
+                ]
+            });
+            emj6 = await message.channel.awaitMessages({
+                filter: msg_filter,
+                max: 1,
+                time: 60000
+            });
+            if (!emj6.first().content.match(/<a:.+?:\d+>|<:.+?:\d+>/g)) {
+                return message.reply({
+                    embeds: [
+                        new MessageEmbed({
+                            description: `${client.emoji.fail}| You didn't provide the valid emoji.\nMake sure not to provide default emojis!`,
+                            color: client.embed.cf
+                        })
+                    ]
+                })
+            }
+            emoji6 = Util.parseEmoji(emj6.first().content)
+            let em6 = message.guild.emojis.cache.get(emoji6.id)
+            if (!em6) {
+                return message.reply({
+                    embeds: [
+                        new MessageEmbed({
+                            description: `${client.emoji.fail}| This emoji is not from this server!`,
+                            color: client.embed.cf
+                        })
+                    ]
+                })
+            }
+            row2.addComponents(
+                new MessageButton()
+                    .setEmoji(emoji6.id)
+                    .setStyle('SECONDARY')
+                    .setCustomId('selfrole6')
+            )
+            msg.push(`${emj6.first().content} - ${role6}`)
+        }
+        if (amt === `6`) {
+            embed.setDescription(`Cick on the button(s) below to get the corresponding role(s)${msg.join("\n")}`)
+            let msgs = await chan.send({
+                embeds: [embed],
+                components: [row, row2]
+            })
+            db2.set(`selfroles1_${message.guild.id}${msgs.id}`, role1.id) &&
+                db2.set(`selfroles2_${message.guild.id}${msgs.id}`, role2.id) &&
+                db2.set(`selfroles3_${message.guild.id}${msgs.id}`, role3.id) &&
+                db2.set(`selfroles4_${message.guild.id}${msgs.id}`, role4.id) &&
+                db2.set(`selfroles5_${message.guild.id}${msgs.id}`, role5.id) &&
+                db2.set(`selfroles6_${message.guild.id}${msgs.id}`, role6.id)
+            return;
+        }
+        let r7, role7, emj7, emoji7
+        if (amt >= '7') {
+            message.reply({
+                embeds: [
+                    new MessageEmbed({
+                        description: `${client.emoji.ar}| Provide the role 7 @role or rrole_id!`,
+                        color: client.embed.cf
+                    })
+                ]
+            })
+            r7 = await message.channel.awaitMessages({
+                filter: msg_filter,
+                max: 1,
+                time: 60000
+            });
+            try {
+                if (
+                    r7.first().content.startsWith("<@&") &&
+                    r7.first().content.endsWith(">")
+                ) {
+                    let rr7 = r7.first().content.slice(3, -1);
+                    role7 = message.guild.roles.cache.get(rr7);
+                } else {
+                    role7 = message.guild.roles.cache.get(r7.first().content);
+                }
+            } catch (e) {
+                return (
+                    message.reply({
+                        embeds: [
+                            new MessageEmbed({
+                                description: `${client.emoji.fail}| Provide a valid role\nRestart the process`,
+                                color: client.embed.cf
+                            })
+                        ]
+                    }) & db.delete("inuse" + message.guild.id)
+                );
+            }
+            if (role7 === null || role7 === undefined) {
+                return (
+                    message.reply({
+                        embeds: [
+                            new MessageEmbed({
+                                description: `${client.emoji.fail}| Provide a valid role\nRestart the process`,
+                                color: client.embed.cf
+                            })
+                        ]
+                    }) & db.delete("inuse" + message.guild.id)
+                );
+            }
+            message.reply({
+                embeds: [
+                    new MessageEmbed({
+                        description: `${client.emoji.ar}| Provide the emoji for 7th role\n**Must be from this guild**!`,
+                        color: client.embed.cf
+                    })
+                ]
+            });
+            emj7 = await message.channel.awaitMessages({
+                filter: msg_filter,
+                max: 1,
+                time: 60000
+            });
+            if (!emj7.first().content.match(/<a:.+?:\d+>|<:.+?:\d+>/g)) {
+                return message.reply({
+                    embeds: [
+                        new MessageEmbed({
+                            description: `${client.emoji.fail}| You didn't provide the valid emoji.\nMake sure not to provide default emojis!`,
+                            color: client.embed.cf
+                        })
+                    ]
+                })
+            }
+            emoji7 = Util.parseEmoji(emj7.first().content)
+            let em7 = message.guild.emojis.cache.get(emoji7.id)
+            if (!em7) {
+                return message.reply({
+                    embeds: [
+                        new MessageEmbed({
+                            description: `${client.emoji.fail}| This emoji is not from this server!`,
+                            color: client.embed.cf
+                        })
+                    ]
+                })
+            }
+            row2.addComponents(
+                new MessageButton()
+                    .setEmoji(emoji7.id)
+                    .setStyle('SECONDARY')
+                    .setCustomId('selfrole7')
+            )
+            msg.push(`${emj7.first().content} - ${role7}`)
+        }
+        if (amt === `7`) {
+            embed.setDescription(`Cick on the button(s) below to get the corresponding role(s)${msg.join("\n")}`)
+            let msgs = await chan.send({
+                embeds: [embed],
+                components: [row, row2]
+            })
+            db2.set(`selfroles1_${message.guild.id}${msgs.id}`, role1.id) &&
+                db2.set(`selfroles2_${message.guild.id}${msgs.id}`, role2.id) &&
+                db2.set(`selfroles3_${message.guild.id}${msgs.id}`, role3.id) &&
+                db2.set(`selfroles4_${message.guild.id}${msgs.id}`, role4.id) &&
+                db2.set(`selfroles5_${message.guild.id}${msgs.id}`, role5.id) &&
+                db2.set(`selfroles6_${message.guild.id}${msgs.id}`, role6.id) &&
+                db2.set(`selfroles7_${message.guild.id}${msgs.id}`, role7.id)
+            return;
+        }
+        let r8, role8, emj8, emoji8
+        if (amt >= '8') {
+            message.reply({
+                embeds: [
+                    new MessageEmbed({
+                        description: `${client.emoji.ar}| Provide the role 8 @role or rrole_id!`,
+                        color: client.embed.cf
+                    })
+                ]
+            })
+            r8 = await message.channel.awaitMessages({
+                filter: msg_filter,
+                max: 1,
+                time: 60000
+            });
+            try {
+                if (
+                    r8.first().content.startsWith("<@&") &&
+                    r8.first().content.endsWith(">")
+                ) {
+                    let rr8 = r8.first().content.slice(3, -1);
+                    role8 = message.guild.roles.cache.get(rr8);
+                } else {
+                    role8 = message.guild.roles.cache.get(r8.first().content);
+                }
+            } catch (e) {
+                return (
+                    message.reply({
+                        embeds: [
+                            new MessageEmbed({
+                                description: `${client.emoji.fail}| Provide a valid role\nRestart the process`,
+                                color: client.embed.cf
+                            })
+                        ]
+                    }) & db.delete("inuse" + message.guild.id)
+                );
+            }
+            if (role8 === null || role8 === undefined) {
+                return (
+                    message.reply({
+                        embeds: [
+                            new MessageEmbed({
+                                description: `${client.emoji.fail}| Provide a valid role\nRestart the process`,
+                                color: client.embed.cf
+                            })
+                        ]
+                    }) & db.delete("inuse" + message.guild.id)
+                );
+            }
+            message.reply({
+                embeds: [
+                    new MessageEmbed({
+                        description: `${client.emoji.ar}| Provide the emoji for 8th role\n**Must be from this guild**!`,
+                        color: client.embed.cf
+                    })
+                ]
+            });
+            emj8 = await message.channel.awaitMessages({
+                filter: msg_filter,
+                max: 1,
+                time: 60000
+            });
+            if (!emj8.first().content.match(/<a:.+?:\d+>|<:.+?:\d+>/g)) {
+                return message.reply({
+                    embeds: [
+                        new MessageEmbed({
+                            description: `${client.emoji.fail}| You didn't provide the valid emoji.\nMake sure not to provide default emojis!`,
+                            color: client.embed.cf
+                        })
+                    ]
+                })
+            }
+            emoji8 = Util.parseEmoji(emj8.first().content)
+            let em8 = message.guild.emojis.cache.get(emoji8.id)
+            if (!em8) {
+                return message.reply({
+                    embeds: [
+                        new MessageEmbed({
+                            description: `${client.emoji.fail}| This emoji is not from this server!`,
+                            color: client.embed.cf
+                        })
+                    ]
+                })
+            }
+            row2.addComponents(
+                new MessageButton()
+                    .setEmoji(emoji8.id)
+                    .setStyle('SECONDARY')
+                    .setCustomId('selfrole8')
+            )
+            msg.push(`${emj8.first().content} - ${role8}`)
+        }
+        if (amt === `8`) {
+            embed.setDescription(`Cick on the button(s) below to get the corresponding role(s)${msg.join("\n")}`)
+            let msgs = await chan.send({
+                embeds: [embed],
+                components: [row, row2]
+            })
+            db2.set(`selfroles1_${message.guild.id}${msgs.id}`, role1.id) &&
+                db2.set(`selfroles2_${message.guild.id}${msgs.id}`, role2.id) &&
+                db2.set(`selfroles3_${message.guild.id}${msgs.id}`, role3.id) &&
+                db2.set(`selfroles4_${message.guild.id}${msgs.id}`, role4.id) &&
+                db2.set(`selfroles5_${message.guild.id}${msgs.id}`, role5.id) &&
+                db2.set(`selfroles6_${message.guild.id}${msgs.id}`, role6.id) &&
+                db2.set(`selfroles7_${message.guild.id}${msgs.id}`, role7.id) &&
+                db2.set(`selfroles8_${message.guild.id}${msgs.id}`, role8.id)
+            return;
+        }
+        let r9, role9, emj9, emoji9
+        if (amt >= '9') {
+            message.reply({
+                embeds: [
+                    new MessageEmbed({
+                        description: `${client.emoji.ar}| Provide the role 9 @role or rrole_id!`,
+                        color: client.embed.cf
+                    })
+                ]
+            })
+            r9 = await message.channel.awaitMessages({
+                filter: msg_filter,
+                max: 1,
+                time: 60000
+            });
+            try {
+                if (
+                    r9.first().content.startsWith("<@&") &&
+                    r9.first().content.endsWith(">")
+                ) {
+                    let rr9 = r9.first().content.slice(3, -1);
+                    role9 = message.guild.roles.cache.get(rr9);
+                } else {
+                    role9 = message.guild.roles.cache.get(r9.first().content);
+                }
+            } catch (e) {
+                return (
+                    message.reply({
+                        embeds: [
+                            new MessageEmbed({
+                                description: `${client.emoji.fail}| Provide a valid role\nRestart the process`,
+                                color: client.embed.cf
+                            })
+                        ]
+                    }) & db.delete("inuse" + message.guild.id)
+                );
+            }
+            if (role9 === null || role9 === undefined) {
+                return (
+                    message.reply({
+                        embeds: [
+                            new MessageEmbed({
+                                description: `${client.emoji.fail}| Provide a valid role\nRestart the process`,
+                                color: client.embed.cf
+                            })
+                        ]
+                    }) & db.delete("inuse" + message.guild.id)
+                );
+            }
+            message.reply({
+                embeds: [
+                    new MessageEmbed({
+                        description: `${client.emoji.ar}| Provide the emoji for 9th role\n**Must be from this guild**!`,
+                        color: client.embed.cf
+                    })
+                ]
+            });
+            emj9 = await message.channel.awaitMessages({
+                filter: msg_filter,
+                max: 1,
+                time: 60000
+            });
+            if (!emj9.first().content.match(/<a:.+?:\d+>|<:.+?:\d+>/g)) {
+                return message.reply({
+                    embeds: [
+                        new MessageEmbed({
+                            description: `${client.emoji.fail}| You didn't provide the valid emoji.\nMake sure not to provide default emojis!`,
+                            color: client.embed.cf
+                        })
+                    ]
+                })
+            }
+            emoji9 = Util.parseEmoji(emj9.first().content)
+            let em9 = message.guild.emojis.cache.get(emoji9.id)
+            if (!em9) {
+                return message.reply({
+                    embeds: [
+                        new MessageEmbed({
+                            description: `${client.emoji.fail}| This emoji is not from this server!`,
+                            color: client.embed.cf
+                        })
+                    ]
+                })
+            }
+            row2.addComponents(
+                new MessageButton()
+                    .setEmoji(emoji9.id)
+                    .setStyle('SECONDARY')
+                    .setCustomId('selfrole9')
+            )
+            msg.push(`${emj9.first().content} - ${role9}`)
+        }
+        if (amt === `9`) {
+            embed.setDescription(`Cick on the button(s) below to get the corresponding role(s)${msg.join("\n")}`)
+            let msgs = await chan.send({
+                embeds: [embed],
+                components: [row, row2]
+            })
+            db2.set(`selfroles1_${message.guild.id}${msgs.id}`, role1.id) &&
+                db2.set(`selfroles2_${message.guild.id}${msgs.id}`, role2.id) &&
+                db2.set(`selfroles3_${message.guild.id}${msgs.id}`, role3.id) &&
+                db2.set(`selfroles4_${message.guild.id}${msgs.id}`, role4.id) &&
+                db2.set(`selfroles5_${message.guild.id}${msgs.id}`, role5.id) &&
+                db2.set(`selfroles6_${message.guild.id}${msgs.id}`, role6.id) &&
+                db2.set(`selfroles7_${message.guild.id}${msgs.id}`, role7.id) &&
+                db2.set(`selfroles8_${message.guild.id}${msgs.id}`, role8.id) &&
+                db2.set(`selfroles9_${message.guild.id}${msgs.id}`, role9.id)
+            return;
+        }
+        let r10, role10, emj10, emoji10
+        if (amt >= '10') {
+            message.reply({
+                embeds: [
+                    new MessageEmbed({
+                        description: `${client.emoji.ar}| Provide the role 10 @role or rrole_id!`,
+                        color: client.embed.cf
+                    })
+                ]
+            })
+            r10 = await message.channel.awaitMessages({
+                filter: msg_filter,
+                max: 1,
+                time: 60000
+            });
+            try {
+                if (
+                    r10.first().content.startsWith("<@&") &&
+                    r10.first().content.endsWith(">")
+                ) {
+                    let rr10 = r10.first().content.slice(3, -1);
+                    role10 = message.guild.roles.cache.get(rr10);
+                } else {
+                    role10 = message.guild.roles.cache.get(r10.first().content);
+                }
+            } catch (e) {
+                return (
+                    message.reply({
+                        embeds: [
+                            new MessageEmbed({
+                                description: `${client.emoji.fail}| Provide a valid role\nRestart the process`,
+                                color: client.embed.cf
+                            })
+                        ]
+                    }) & db.delete("inuse" + message.guild.id)
+                );
+            }
+            if (role10 === null || role10 === undefined) {
+                return (
+                    message.reply({
+                        embeds: [
+                            new MessageEmbed({
+                                description: `${client.emoji.fail}| Provide a valid role\nRestart the process`,
+                                color: client.embed.cf
+                            })
+                        ]
+                    }) & db.delete("inuse" + message.guild.id)
+                );
+            }
+            message.reply({
+                embeds: [
+                    new MessageEmbed({
+                        description: `${client.emoji.ar}| Provide the emoji for 10th role\n**Must be from this guild**!`,
+                        color: client.embed.cf
+                    })
+                ]
+            });
+            emj10 = await message.channel.awaitMessages({
+                filter: msg_filter,
+                max: 1,
+                time: 60000
+            });
+            if (!emj10.first().content.match(/<a:.+?:\d+>|<:.+?:\d+>/g)) {
+                return message.reply({
+                    embeds: [
+                        new MessageEmbed({
+                            description: `${client.emoji.fail}| You didn't provide the valid emoji.\nMake sure not to provide default emojis!`,
+                            color: client.embed.cf
+                        })
+                    ]
+                })
+            }
+            emoji10 = Util.parseEmoji(emj10.first().content)
+            let em10 = message.guild.emojis.cache.get(emoji10.id)
+            if (!em10) {
+                return message.reply({
+                    embeds: [
+                        new MessageEmbed({
+                            description: `${client.emoji.fail}| This emoji is not from this server!`,
+                            color: client.embed.cf
+                        })
+                    ]
+                })
+            }
+            row2.addComponents(
+                new MessageButton()
+                    .setEmoji(emoji10.id)
+                    .setStyle('SECONDARY')
+                    .setCustomId('selfrole10')
+            )
+            msg.push(`${emj10.first().content} - ${role10}`)
+        }
+        if (amt === `10`) {
+            embed.setDescription(`Cick on the button(s) below to get the corresponding role(s)${msg.join("\n")}`)
+            let msgs = await chan.send({
+                embeds: [embed],
+                components: [row, row2]
+            })
+            db2.set(`selfroles1_${message.guild.id}${msgs.id}`, role1.id) &&
+                db2.set(`selfroles2_${message.guild.id}${msgs.id}`, role2.id) &&
+                db2.set(`selfroles3_${message.guild.id}${msgs.id}`, role3.id) &&
+                db2.set(`selfroles4_${message.guild.id}${msgs.id}`, role4.id) &&
+                db2.set(`selfroles5_${message.guild.id}${msgs.id}`, role5.id) &&
+                db2.set(`selfroles6_${message.guild.id}${msgs.id}`, role6.id) &&
+                db2.set(`selfroles7_${message.guild.id}${msgs.id}`, role7.id) &&
+                db2.set(`selfroles8_${message.guild.id}${msgs.id}`, role8.id) &&
+                db2.set(`selfroles9_${message.guild.id}${msgs.id}`, role9.id) &&
+                db2.set(`selfroles10_${message.guild.id}${msgs.id}`, role10.id)
             return;
         }
     }
