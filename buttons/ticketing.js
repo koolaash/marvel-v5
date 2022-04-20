@@ -239,13 +239,13 @@ module.exports = function (client, options) {
                     member = button.guild.members.fetch(button.user.id).catch(() => null);
                 }
                 if (!member) {
-                    button.reply({ content: `Unable to find the user who clicked thi button!`, ephemeral: true })
+                    return button.reply({ content: `Unable to find the user who clicked thi button!`, ephemeral: true })
                 }
                 if (!role) {
-                    button.reply({ content: `Unable to find the role assciated with this self role menu!`, ephemeral: true })
+                    return button.reply({ content: `Unable to find the role assciated with this self role menu!`, ephemeral: true })
                 }
                 if (role.position > button.guild.me.roles.highest.position) {
-                    button.reply({ content: `My role isnt high enogh to sive this role to you!`, ephemeral: true })
+                    return button.reply({ content: `My role isnt high enogh to sive this role to you!`, ephemeral: true })
                 }
                 if (!member.roles.cache.has(role.id)) {
                     member.roles.add(role)
@@ -269,13 +269,13 @@ module.exports = function (client, options) {
                     member = button.guild.members.fetch(button.user.id).catch(() => null);
                 }
                 if (!member) {
-                    button.reply({ content: `Unable to find the user who clicked thi button!`, ephemeral: true })
+                    return button.reply({ content: `Unable to find the user who clicked thi button!`, ephemeral: true })
                 }
                 if (!role) {
-                    button.reply({ content: `Unable to find the role assciated with this self role menu!`, ephemeral: true })
+                    return button.reply({ content: `Unable to find the role assciated with this self role menu!`, ephemeral: true })
                 }
                 if (role.position > button.guild.me.roles.highest.position) {
-                    button.reply({ content: `My role isnt high enogh to sive this role to you!`, ephemeral: true })
+                    return button.reply({ content: `My role isnt high enogh to sive this role to you!`, ephemeral: true })
                 }
                 if (!member.roles.cache.has(role.id)) {
                     member.roles.add(role)
@@ -299,13 +299,13 @@ module.exports = function (client, options) {
                     member = button.guild.members.fetch(button.user.id).catch(() => null);
                 }
                 if (!member) {
-                    button.reply({ content: `Unable to find the user who clicked thi button!`, ephemeral: true })
+                    return button.reply({ content: `Unable to find the user who clicked thi button!`, ephemeral: true })
                 }
                 if (!role) {
-                    button.reply({ content: `Unable to find the role assciated with this self role menu!`, ephemeral: true })
+                    return button.reply({ content: `Unable to find the role assciated with this self role menu!`, ephemeral: true })
                 }
                 if (role.position > button.guild.me.roles.highest.position) {
-                    button.reply({ content: `My role isnt high enogh to sive this role to you!`, ephemeral: true })
+                    return button.reply({ content: `My role isnt high enogh to sive this role to you!`, ephemeral: true })
                 }
                 if (!member.roles.cache.has(role.id)) {
                     member.roles.add(role)
@@ -323,13 +323,13 @@ module.exports = function (client, options) {
                     member = button.guild.members.fetch(button.user.id).catch(() => null);
                 }
                 if (!member) {
-                    button.reply({ content: `Unable to find the user who clicked thi button!`, ephemeral: true })
+                    return button.reply({ content: `Unable to find the user who clicked thi button!`, ephemeral: true })
                 }
                 if (!role) {
-                    button.reply({ content: `Unable to find the role assciated with this self role menu!`, ephemeral: true })
+                    return button.reply({ content: `Unable to find the role assciated with this self role menu!`, ephemeral: true })
                 }
                 if (role.position > button.guild.me.roles.highest.position) {
-                    button.reply({ content: `My role isnt high enogh to sive this role to you!`, ephemeral: true })
+                    return button.reply({ content: `My role isnt high enogh to sive this role to you!`, ephemeral: true })
                 }
                 if (!member.roles.cache.has(role.id)) {
                     member.roles.add(role)
@@ -347,13 +347,13 @@ module.exports = function (client, options) {
                     member = button.guild.members.fetch(button.user.id).catch(() => null);
                 }
                 if (!member) {
-                    button.reply({ content: `Unable to find the user who clicked thi button!`, ephemeral: true })
+                    return button.reply({ content: `Unable to find the user who clicked thi button!`, ephemeral: true })
                 }
                 if (!role) {
-                    button.reply({ content: `Unable to find the role assciated with this self role menu!`, ephemeral: true })
+                    return button.reply({ content: `Unable to find the role assciated with this self role menu!`, ephemeral: true })
                 }
                 if (role.position > button.guild.me.roles.highest.position) {
-                    button.reply({ content: `My role isnt high enogh to sive this role to you!`, ephemeral: true })
+                    return button.reply({ content: `My role isnt high enogh to sive this role to you!`, ephemeral: true })
                 }
                 if (!member.roles.cache.has(role.id)) {
                     member.roles.add(role)
