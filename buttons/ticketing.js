@@ -255,7 +255,7 @@ module.exports = function (client, options) {
                     member.roles.remove(role)
                     return button.reply({ content: `Took ${role} role from you!`, ephemeral: true })
                 }
-            } else if (button.customId === 'selfroles2') {
+            } else if (button.customId === 'selfrole2') {
                 if (!button.guild.me.permissionsIn(button.channel).has(["MANAGE_ROLES"])) {
                     return button.reply({ content: 'I need `"MANAGE_ROLES"` permissions first', ephemeral: true })
                 }
