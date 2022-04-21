@@ -10,6 +10,7 @@ module.exports = {
     usage: `${nam} <category> <format_type> ex : phub amateur mp4`,
     userPermissions: [],
     botPermissions: ["EMBED_LINKS"],
+    vote: true,
 
     run: async (client, message, args) => {
 
