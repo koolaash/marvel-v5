@@ -10,6 +10,7 @@ module.exports = {
     usage: "selfrole",
     userPermissions: ["MANAGE_ROLES"],
     botPermissions: ["EMBED_LINKS", "MANAGE_ROLES"],
+    vote: true,
 
     async run(client, message, args) {
         message.reply({
