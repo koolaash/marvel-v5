@@ -54,7 +54,8 @@ module.exports = {
                     client.emoji.image + "Avatar\n" +
                     client.emoji.uptime + "Roles\n" +
                     client.emoji.auto + "Automoderation\n" +
-                    client.emoji.tourney + "Tournament**", true
+                    client.emoji.tourney + "Tournament**",
+                    true
                 )
                 .addField(
                     'NSFW COMMANDS', '**' +
@@ -167,7 +168,8 @@ module.exports = {
                     "`" +
                     p + "afk <reason>` - to set your afk\n`" +
                     p + "afk-clear <@user>` - to clear anyone's afk" + "\n**━━━━━━━━━━━━━━━━━**"
-                ),
+                )
+                .addField(`${client.emoji.ar}NOTE :`, "<> [] - DO NOT INCLUDE THESE WHILE EXECUTING A COMMAND"),
             em5 = new MessageEmbed()
                 .setColor(client.embed.cm)
                 .setFooter({
@@ -422,6 +424,7 @@ module.exports = {
                     p + "tourney-ss/ts <setup|show|active|delete>` - to setup a new tourney get details about tourney and delete the tourney\n**This tourney helps you get ss registeration from the users**\n`" +
                     p + "tourney-ss/ts` - to get more details\n" + "\n**━━━━━━━━━━━━━━━━━**"
                 )
+                .addField(`${client.emoji.ar}NOTE :`, "<> [] - DO NOT INCLUDE THESE WHILE EXECUTING A COMMAND")
                 .setImage(client.gif.tourney),
             em14 = new MessageEmbed()
                 .setColor(client.embed.cm)
