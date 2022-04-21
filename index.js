@@ -7,39 +7,38 @@ const Discord = require("discord.js"),
         "GUILDS",
         "GUILD_MESSAGE_REACTIONS",
         "DIRECT_MESSAGE_REACTIONS"
-    ]);
-require("discord-banner")();
-const client = new Client({
-    intents: [
-        Intents.FLAGS.DIRECT_MESSAGES,
-        Intents.FLAGS.GUILDS,
-        Intents.FLAGS.GUILD_MESSAGES,
-        Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
-        Intents.FLAGS.GUILD_MEMBERS,
-        Intents.FLAGS.DIRECT_MESSAGE_REACTIONS
-    ],
-    allowedMentions: { parse: ['users'], repliedUser: true },
-    presence: {
-        status: "idle",
-        activities: [{
-            name: "'help | @MARVEL",
-            type: "LISTENING"
-        }]
-    },
-    ws: { intents },
-    fetchAllMembers: false,
-    restTimeOffset: 0,
-    shards: "auto",
-    restWsBridgetimeout: 100,
-    disableEveryone: true,
-    partials: [
-        'MESSAGE',
-        'CHANNEL',
-        'REACTION',
-        'GUILD_MEMBER',
-        'USER'
-    ]
-}),
+    ]),
+    client = new Client({
+        intents: [
+            Intents.FLAGS.DIRECT_MESSAGES,
+            Intents.FLAGS.GUILDS,
+            Intents.FLAGS.GUILD_MESSAGES,
+            Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
+            Intents.FLAGS.GUILD_MEMBERS,
+            Intents.FLAGS.DIRECT_MESSAGE_REACTIONS
+        ],
+        allowedMentions: { parse: ['users'], repliedUser: true },
+        presence: {
+            status: "idle",
+            activities: [{
+                name: "'help | @MARVEL",
+                type: "LISTENING"
+            }]
+        },
+        ws: { intents },
+        fetchAllMembers: false,
+        restTimeOffset: 0,
+        shards: "auto",
+        restWsBridgetimeout: 100,
+        disableEveryone: true,
+        partials: [
+            'MESSAGE',
+            'CHANNEL',
+            'REACTION',
+            'GUILD_MEMBER',
+            'USER'
+        ]
+    }),
     colors = require("colors"),
     del = new WebhookClient({
         id: "963519810015215670",
