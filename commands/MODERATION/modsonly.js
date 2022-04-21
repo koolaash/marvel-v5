@@ -4,7 +4,7 @@ const { MessageEmbed } = require("discord.js"),
 module.exports = {
     name: "modonly",
     aliases: ["modsonly", "mods-only"],
-    desciption: "enables and disables modsonly for bot in your server",
+    description: "enables and disables modsonly for bot in your server",
     category: "MODERATION",
     usage: "modsonly <on | off>",
     userPermissions: ["ADMINISTRATOR"],

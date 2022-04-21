@@ -2,7 +2,7 @@ const discord = require("discord.js");
 
 module.exports = {
     name: "policy",
-    desciption: "shows the bots policy",
+    description: "shows the bots policy",
     category: "INFORMATION",
     usage: "policy",
     userPermissions: [],

@@ -4,7 +4,7 @@ const { MessageEmbed } = require("discord.js")
 module.exports = {
     name: "purge",
     aliases: ["delete"],
-    desciption: "helps you bulk delete messages",
+    description: "helps you bulk delete messages",
     category: "MODERATION",
     usage: "clear <amount | @user | bots | images>",
     userPermissions: ["MANAGE_MESSAGES"],

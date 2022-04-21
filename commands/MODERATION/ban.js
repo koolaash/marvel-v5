@@ -3,7 +3,7 @@ const { MessageEmbed, MessageButton, MessageActionRow } = require("discord.js");
 module.exports = {
     name: "ban",
     aliases: ["banuser"],
-    desciption: "helps you ban a user",
+    description: "helps you ban a user",
     category: "MODERATION",
     usage: "ban <@user | username | userid> [reason]",
     userPermissions: ["BAN_MEMBERS"],

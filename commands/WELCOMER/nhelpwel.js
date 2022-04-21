@@ -4,7 +4,7 @@ const discord = require("discord.js"),
 module.exports = {
     name: "nhelpwel",
     aliases: ["nhelpwelcome"],
-    desciption: "nhelpwel",
+    description: "nhelpwel",
     category: "WELCOME",
     usage: "shows help menu of non embed welcomer",
     userPermissions: [],

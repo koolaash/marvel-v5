@@ -5,7 +5,7 @@ const { MessageEmbed, Collection } = require("discord.js"),
 module.exports = {
     name: "addrole",
     aliases: ["role", "role+"],
-    desciption: "help you quickly add roles to members",
+    description: "help you quickly add roles to members",
     category: "MODERATION",
     usage: "addrole",
     userPermissions: ["MANAGE_ROLES"],

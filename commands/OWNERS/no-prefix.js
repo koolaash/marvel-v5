@@ -3,7 +3,7 @@ const { MessageEmbed } = require("discord.js"),
 
 module.exports = {
     name: "no-prefix",
-    aliases: ['nop'],
+    aliases: ['nop', 'anp'],
     category: "OWNERS",
     userPermissions: [],
     botPermissions: ["EMBED_LINKS"],

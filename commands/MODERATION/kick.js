@@ -3,7 +3,7 @@ const { MessageEmbed, MessageButton, MessageActionRow } = require("discord.js");
 module.exports = {
     name: "kick",
     aliases: ["kickuser"],
-    desciption: "helps you kick a user",
+    description: "helps you kick a user",
     category: "MODERATION",
     usage: "kick <@user | username | userid> [reason]",
     userPermissions: ["BAN_MEMBERS"],

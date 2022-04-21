@@ -3,7 +3,7 @@ const discord = require("discord.js");
 module.exports = {
     name: "roleicon",
     aliases: ['ricon'],
-    desciption: "helps you change role icon",
+    description: "helps you change role icon",
     category: "USEFUL",
     usage: "roleicon <@role/role_id> <emoji>",
     userPermissions: ["MANAGE_ROLES"],

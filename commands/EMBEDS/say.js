@@ -1,7 +1,7 @@
 module.exports = {
     name: "say",
     aliases: ["reply"],
-    desciption: "say command",
+    description: "say command",
     category: "EMBED",
     usage: "say <message>",
     userPermissions: ["ADMINISTRATOR"],
@@ -13,6 +13,6 @@ module.exports = {
             return message.reply(`${client.emoji.fail}| Where's The Messages`);
         }
         message.delete();
-        return message.reply({ content: msg });
+        return message.channel.send({ content: msg });
     }
 };

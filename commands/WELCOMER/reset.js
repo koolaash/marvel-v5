@@ -4,7 +4,7 @@ const discord = require("discord.js"),
 module.exports = {
     name: "reset",
     aliases: ["rset"],
-    desciption: "say command",
+    description: "say command",
     category: "WELCOME",
     usage: "reset <welcome | nwelcome>",
     userPermissions: ["ADMINISTRATOR"],

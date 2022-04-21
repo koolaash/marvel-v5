@@ -3,8 +3,8 @@ const { MessageEmbed } = require("discord.js"),
 
 module.exports = {
     name: "mute",
-    aliases: ["stfu", "chup-reh", "timeout"],
-    desciption: "helps you mute a user",
+    aliases: ["stfu", "chup-reh", "timeout", "m"],
+    description: "helps you mute a user",
     category: "MODERATION",
     usage: "mute <@user | username | userid> <time> [reason]",
     userPermissions: ["MODERATE_MEMBERS"],

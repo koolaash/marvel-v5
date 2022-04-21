@@ -4,7 +4,7 @@ const discord = require("discord.js"),
 module.exports = {
     name: "roleinfo",
     aliases: ['ri'],
-    desciption: "shows the information about a role of a guild",
+    description: "shows the information about a role of a guild",
     category: "INFORMATION",
     usage: "roleinfi @role/role_id",
     userPermissions: [],

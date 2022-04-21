@@ -3,7 +3,7 @@ const discord = require("discord.js");
 module.exports = {
     name: "membercount",
     aliases: ['members', 'mc', 'users', 'member-count'],
-    desciption: "shows the total members of a guild",
+    description: "shows the total members of a guild",
     category: "INFORMATION",
     usage: "membercount",
     userPermissions: [],

@@ -4,7 +4,7 @@ const discord = require("discord.js"),
 module.exports = {
     name: "set",
     //  aliases: ["reply"],
-    desciption: "say command",
+    description: "say command",
     category: "WELCOME",
     usage: "set <welcome | nwelcome>",
     userPermissions: ["ADMINISTRATOR"],

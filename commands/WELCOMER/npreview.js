@@ -3,7 +3,7 @@ const db = require("quick.db");
 module.exports = {
     name: "nwelcomeexample",
     aliases: ["nwelexample", "npreview"],
-    desciption: "show a preview of non embed welcomer",
+    description: "show a preview of non embed welcomer",
     category: "WELCOME",
     usage: "nwelcomeexample",
     userPermissions: [],

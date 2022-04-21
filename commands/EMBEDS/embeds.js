@@ -3,7 +3,7 @@ const discord = require("discord.js");
 module.exports = {
     name: "embed",
     aliases: ["emb"],
-    desciption: "quickly embed your message with default format",
+    description: "quickly embed your message with default format",
     category: "EMBED",
     usage: "embed <message>",
     userPermissions: ["ADMINISTRATOR"],
@@ -24,10 +24,10 @@ module.exports = {
 
         message.delete();
 
-        const embed = new discord.MessageEmbed()
-            .setDescription(msg)
-            .setColor(client.embed.cm);
-
+        const embed = new discord.MessageEmbed({
+            description: msg,
+            color: client.embed.cm
+        })
         return message.channel.send({ embeds: [embed] });
     }
 };

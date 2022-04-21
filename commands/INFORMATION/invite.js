@@ -3,7 +3,7 @@ const { MessageEmbed, MessageButton, MessageActionRow } = require('discord.js');
 module.exports = {
     name: "invite",
     aliases: ["support"],
-    desciption: "shows the invite/support menu of bot",
+    description: "shows the invite/support menu of bot",
     category: "INFORMATION",
     usage: "invite",
     userPermissions: [],

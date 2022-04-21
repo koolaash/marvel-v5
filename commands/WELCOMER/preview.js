@@ -6,7 +6,7 @@ const discord = require("discord.js"),
 module.exports = {
     name: "welcomeexample",
     aliases: ["wexample", "preview"],
-    desciption: "show a preview of embed welcomer",
+    description: "show a preview of embed welcomer",
     category: "WELCOME",
     usage: "welcomeexample",
     userPermissions: [],

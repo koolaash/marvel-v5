@@ -3,7 +3,7 @@ const { MessageEmbed, MessageButton, MessageActionRow } = require("discord.js");
 module.exports = {
     name: "maintenance",
     aliases: ["mm", "mmode"],
-    desciption: "enables and disables maintenance mode in the server",
+    description: "enables and disables maintenance mode in the server",
     category: "MODERATION",
     usage: "maintenance <on | off> [@role]",
     userPermissions: ["ADMINISTRATOR"],

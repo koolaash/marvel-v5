@@ -4,7 +4,7 @@ const discord = require("discord.js"),
 module.exports = {
     name: "userinfo",
     aliases: ["whois"],
-    desciption: "All the details about any user",
+    description: "All the details about any user",
     category: "INFORMATION",
     usage: "userinfo [@user]",
     userPermissions: [],

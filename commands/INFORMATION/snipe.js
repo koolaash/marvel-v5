@@ -2,7 +2,7 @@ const discord = require("discord.js");
 
 module.exports = {
     name: "snipe",
-    desciption: "helps you see the last message which got deleted",
+    description: "helps you see the last message which got deleted",
     category: "INFORMATION",
     usage: "snipe",
     botPermissions: [],

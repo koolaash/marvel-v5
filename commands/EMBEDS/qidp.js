@@ -3,7 +3,7 @@ const { MessageEmbed } = require("discord.js");
 module.exports = {
     name: "quickidp",
     aliases: ["qidp"],
-    desciption: "quickly embed your idp with default format",
+    description: "quickly embed your idp with default format",
     category: "EMBED",
     usage: "quickidp <message>",
     userPermissions: ["ADMINISTRATOR"],
