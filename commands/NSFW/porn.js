@@ -9,6 +9,7 @@ module.exports = {
   description: "shows help menu for the bot",
   userPermissions: [],
   botPermissions: ["EMBED_LINKS"],
+  vote: true,
 
   async run(client, message, args) {
 

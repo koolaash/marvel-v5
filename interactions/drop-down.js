@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js"),
+const { MessageEmbed, MessageButton, MessageActionRow } = require("discord.js"),
     NSFW = require("discord-nsfw"),
     nsfw = new NSFW(),
     nekoclient = require("nekos.life"),
@@ -20,6 +20,44 @@ module.exports = function (client) {
             if (!interaction.isSelectMenu()) return;
             let button = interaction;
             if (button.message.author.id !== client.user.id) return;
+
+            let vote = new MessageEmbed({
+                description: "You need to vote first to use this command.",
+                color: client.color.cf
+            })
+            const vb = new MessageButton()
+                .setStyle("LINK")
+                .setLabel("|  VOTE")
+                .setURL(client.config.bvote)
+                .setEmoji(client.emoji.discord_id)
+                .setDisabled(false)
+            const row = new MessageActionRow()
+                .addComponents(vb);
+            let pre = await client.qdb.get("voted" + button.user.id);
+            if (pre !== true) {
+                return button.reply({
+                    components: [row],
+                    embeds: [vote],
+                    ephemeral: true
+                });
+            }
+            const trt = await client.qdb.get("vote-time_" + button.user.id);
+            var milliseconds = trt;
+            var millisecondsInDay = 8.64e7;
+            var futureDate = new Date(milliseconds + 1 * millisecondsInDay);
+            var tit = Date.now();
+            if (futureDate - tit <= 0) {
+                return (
+                    button.reply({
+                        components: [row],
+                        embeds: [vote],
+                        ephemeral: true
+                    }) &&
+                    client.qdb.delete("votes" + button.user.id) &&
+                    client.qdb.delete("vote-time_" + button.user.id)
+                );
+            }
+
             if (button.customId === 'nsfwPage') {
                 if (!button.channel.nsfw) {
                     return button.reply({ content: 'This channel is not **`NSFW`** marked!', ephemeral: true })
