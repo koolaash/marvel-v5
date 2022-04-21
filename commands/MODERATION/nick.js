@@ -15,18 +15,7 @@ module.exports = {
             message.guild.members.cache.get(args[0])
 
         if (!member || member === undefined) {
-            try {
-                member = await message.guild.members.fetch(args[0]);
-            } catch (e) {
-                return message.reply({
-                    embeds: [
-                        new MessageEmbed({
-                            color: client.color.cf,
-                            description: `${client.emoji.fail}| Unable to find this user!`
-                        })
-                    ]
-                })
-            }
+            member = await message.guild.members.fetch(args[0]).catch(() => null)
         }
 
         if (!member) {

@@ -33,25 +33,14 @@ module.exports = {
                 )
 
             if (!kickMember || kickMember === undefined) {
-                try {
-                    kickMember = await message.guild.members.fetch(args[0]);
-                } catch (e) {
-                    return message.reply({
-                        embeds: [
-                            new MessageEmbed({
-                                description: client.emoji.fail + "| **Cannot find this user!**",
-                                color: client.embed.cf
-                            })
-                        ]
-                    })
-                }
+                kickMember = await message.guild.members.fetch(args[0]).catch(() => null);
             }
 
             if (!kickMember) {
                 return message.reply({
                     embeds: [
                         new MessageEmbed({
-                            description: client.emoji.fail + "| **Cannot find this user!**",
+                            description: `${client.emoji.fail}| **Cannot find this user!**`,
                             color: client.embed.cf
                         })
                     ]
@@ -62,7 +51,7 @@ module.exports = {
                 return message.reply({
                     embeds: [
                         new MessageEmbed({
-                            description: client.emoji.fail + "| **Cannot kick yourself!**",
+                            description: `${client.emoji.fail}| **Cannot kick yourself!**`,
                             color: client.embed.cf
                         })
                     ]
@@ -75,8 +64,7 @@ module.exports = {
                             embeds: [
                                 new discord.MessageEmbed({
                                     description:
-                                        client.emoji.fail + "| Your Role isn't High Enough to kick **``" +
-                                        kickMember.user.tag + "``**",
+                                        `${client.emoji.fail}| Your Role isn't High Enough to kick **\`\`${kickMember.user.tag}\`\`**`,
                                     color: client.color.cf
                                 })
                             ]
@@ -93,8 +81,7 @@ module.exports = {
                     embeds: [
                         new discord.MessageEmbed({
                             description:
-                                client.emoji.fail + "| My Role isn't High Enough to kick **``" +
-                                kickMember.user.tag + "``**",
+                                `${client.emoji.fail}| My Role isn't High Enough to kick **\`\`${kickMember.user.tag}\`\`**`,
                             color: client.color.cf
                         })
                     ]
@@ -104,7 +91,7 @@ module.exports = {
                 return message.reply({
                     embeds: [
                         new MessageEmbed({
-                            description: client.emoji.fail + "| **Cannot kick this user because he is my owner!**",
+                            description: `${client.emoji.fail}| **Cannot kick this user because he is my owner!**`,
                             color: client.embed.cf
                         })
                     ]
@@ -131,7 +118,7 @@ module.exports = {
                     `**${client.emoji.success}| ${kickMember.user.username}** has been kicked for ${reason || " No Reason Provided"}`
                 )
                 .setFooter({
-                    text: "Kicked By : " + message.author.tag,
+                    text: `Kicked By : ${message.author.tag}`,
                     iconURL: message.author.displayAvatarURL({ dynamic: true })
                 });
             return message.reply({ embeds: [sembed] });

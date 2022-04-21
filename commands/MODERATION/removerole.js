@@ -34,7 +34,7 @@ module.exports = {
                         .addField(name + " all", `\`${name} <Role> all\``, true)
                         .addField(name + " bots", `\`${name} <Role> bots\``, true)
                         .addField(name + " humans", `\`${name} <Role> humans\``, true)
-                        .setFooter("Aliases : role+ , addrole , role")
+                        .setFooter({ text: "Aliases : role+ , addrole , role" })
                 ]
             });
 
@@ -74,6 +74,7 @@ module.exports = {
                     });
             }
         }
+        await message.guild.members.fetch().catch(() => null);
         if (!args[1]) {
             return message.reply({
                 embeds: [

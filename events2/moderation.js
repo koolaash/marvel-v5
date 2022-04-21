@@ -16,7 +16,7 @@ module.exports = function (client, options) {
     try {
       if (message.author.bot) return;
       if (!message.member)
-        message.member = await message.guild.fetchMember(message);
+        message.member = await message.guild.fetchMember(message).cathc(() => null);
 
       let ignoreRole = db.get(`ignoreRole_${message.guild.id}`),
         ignoreChannel = db.get(`ignoreChannel.item_${message.guild.id}`);

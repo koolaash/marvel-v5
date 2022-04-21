@@ -15,7 +15,7 @@ module.exports = {
         const inprogress = db.get(name + message.guild.id);
 
         if (inprogress === true) {
-            return message.reply(client.emoji.fail + "| Command already in progress");
+            return message.reply(`${client.emoji.fail}| Command already in progress`);
         }
 
         if (!args[0]) {
@@ -27,7 +27,7 @@ module.exports = {
                         .addField(name + " all", `\`${name} <Role> all\``, true)
                         .addField(name + " bots", `\`${name} <Role> bots\``, true)
                         .addField(name + " humans", `\`${name} <Role> humans\``, true)
-                        .setFooter("Aliases : role+ , addrole , role")
+                        .setFooter({ text: "Aliases : role+ , addrole , role" })
                 ]
             });
         }
@@ -41,10 +41,7 @@ module.exports = {
                     new MessageEmbed()
                         .setColor(client.embed.cf)
                         .setDescription(
-                            client.emoji.fail +
-                            "| Cannot find [" +
-                            args[0] +
-                            "] role in this guild"
+                            `${client.emoji.fail}| Cannot find [${args[0]}] role in this guild`
                         )
                 ]
             });
@@ -72,6 +69,7 @@ module.exports = {
                     });
             }
         }
+        await message.guild.members.fetch().catch(() => null);
         if (!args[1]) {
             return message.reply({
                 embeds: [
