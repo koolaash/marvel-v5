@@ -11,15 +11,34 @@ module.exports = {
     vote: true,
 
     run: async (client, message, args) => {
+        if (!args[0]) {
+            return message.reply({
+                embeds: [
+                    new MessageEmbed({
+                        color: client.embed.cf,
+                        description:
+                            `${client.emoji.fail}| Please mention a user or provide a user id first!`,
+                    })
+                ]
+            });
+        }
         let target =
             message.guild.members.cache.get(args[0]) ||
             message.mentions.members.first();
 
         if (!target || target === undefined) {
-            target = await message.guild.members.fetch(args[0]);
+            target = await message.guild.members.fetch(args[0]).catch(() => null);
         }
-        if (!target || target === undefined) {
-            target = message.guild.members.cache.get(message.author.id);
+        if (!target) {
+            return message.reply({
+                embeds: [
+                    new MessageEmbed({
+                        color: client.embed.cf,
+                        description:
+                            `${client.emoji.fail}| Please provide valid a user first!`,
+                    })
+                ]
+            });
         }
         const bannerUrl = await getUserBannerUrl(target.id, { size: 4096 });
         async function getUserBannerUrl(userId, { dynamicFormat = true, defaultFormat = "webp", size = 4096 } = {}) {

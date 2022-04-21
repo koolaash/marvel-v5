@@ -10,30 +10,32 @@ module.exports = {
     botPermissions: ["EMBED_LINKS"],
 
     async run(client, message, args) {
-        let avatar
-        let av = new MessageEmbed();
+        let avatar,
+            av = new MessageEmbed();
 
+        if (!args[0]) {
+            return message.reply({
+                embeds: [
+                    new MessageEmbed({
+                        color: client.embed.cf,
+                        description:
+                            `${client.emoji.fail}| Please mention a user or provide a user id first!`,
+                    })
+                ]
+            });
+        }
         if (args[0]) {
             let target = message.mentions.members.first() ||
                 message.guild.members.cache.get(args[0])
 
-            try {
-                if (!target) {
-                    target = await message.guild.members.fetch(args[0])
-                }
-            } catch (e) {
-                return message.reply({
-                    embeds: [new MessageEmbed({
-                        description: client.emoji.fail + "| Unable to find this user!",
-                        color: client.color.cf
-                    })]
-                })
+            if (!target) {
+                target = await message.guild.members.fetch(args[0]).catch(() => null);
             }
 
             if (!target) {
                 return message.reply({
                     embeds: [new MessageEmbed({
-                        description: client.emoji.fail + "| Unable to find this user!",
+                        description: `${client.emoji.fail}| Unable to find this user!`,
                         color: client.color.cf
                     })]
                 })

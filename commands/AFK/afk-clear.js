@@ -13,7 +13,7 @@ module.exports = {
     run: async (client, message, args) => {
         if (!args[0]) {
             let em = new discord.MessageEmbed({
-                description: client.emoji.fail + "| Mention a user first",
+                description: `${client.emoji.fail}| Mention a user first`,
                 color: client.embed.cf
             });
             return message.reply({ embeds: [em] });
@@ -23,12 +23,12 @@ module.exports = {
             message.mentions.members.first() || message.guild.members.cache.get(args[0]);
 
         if (!user || user === undefined) {
-            user = await message.guild.members.fetch(args[0]);
+            user = await message.guild.members.fetch(args[0]).catch(() => null);
         }
 
         if (!user) {
             let em = new discord.MessageEmbed({
-                description: client.emoji.fail + "| Unable to find this user",
+                description: `${client.emoji.fail}| Unable to find this user`,
                 color: client.embed.cf
             });
             return message.reply({ embeds: [em] });
@@ -38,8 +38,7 @@ module.exports = {
             if (client.config.bowner.includes(user.id)) {
                 let em = new discord.MessageEmbed({
                     description:
-                        client.emoji.fail +
-                        "| Your current status is not high enough to clear his afk",
+                        `${client.emoji.fail}| Your current status is not high enough to clear his afk`,
                     color: client.embed.cf
                 });
                 return message.reply({ embeds: [em] });
@@ -47,9 +46,7 @@ module.exports = {
 
             if (message.member.roles.highest.position <= user.roles.highest.position) {
                 let em = new discord.MessageEmbed({
-                    description: client.emoji.fail + "| Your Role isn't higher than **``" +
-                        user.user.tag +
-                        "``**",
+                    description: `${client.emoji.fail}| Your Role isn't higher than **\`\`${user.user.tag}\`\`**`,
                     color: client.embed.cf
                 });
                 return message.reply({ embeds: [em] });

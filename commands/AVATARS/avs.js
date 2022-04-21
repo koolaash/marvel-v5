@@ -18,29 +18,26 @@ module.exports = {
                     new MessageEmbed({
                         color: client.embed.cf,
                         description:
-                            client.emoji.fail +
-                            "| Please mention a user or provide a user id first!",
+                            `${client.emoji.fail}| Please mention a user or provide a user id first!`,
                     })
                 ]
             });
         }
-        let target =
-            message.mentions.members.first() ||
-            message.guild.members.cache.get(args[0]);
+        let target = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
 
         if (!target) {
-            try {
-                target = await message.guild.members.fetch(args[0]);
-            } catch (e) {
-                return message.reply({
-                    embeds: [
-                        new MessageEmbed({
-                            color: client.embed.cf,
-                            description: client.emoji.fail + "| Unable to find this user!",
-                        })
-                    ]
-                });
-            }
+            target = await message.guild.members.fetch(args[0]).catch(() => null);
+        }
+
+        if (!target) {
+            return message.reply({
+                embeds: [
+                    new MessageEmbed({
+                        color: client.embed.cf,
+                        description: client.emoji.fail + "| Unable to find this user!",
+                    })
+                ]
+            });
         }
 
         let res = await fetch.get(`https://discord.com/api/guilds/${message.guild.id}/members/${target.id}`, {
