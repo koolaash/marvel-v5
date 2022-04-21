@@ -11,10 +11,14 @@ module.exports = {
             return;
         }
         if (!args[0]) {
-            return message.reply({ content: "ID?" })
+            return message.reply({ content: "user?" })
         }
-        client.qdb.set(`voted${args[0]}`, true)
-        client.qdb.set(`vote-time_${args[0]}`, Date.now());
-        return message.reply({ content: "Done" })
+        const mem = message.mentions.members.first() || message.guild.members.cache.get(args[0])
+        if (!mem) {
+            return message.reply({ content: "user error not found!" })
+        }
+        client.qdb.set(`voted${mem.user.id}`, true)
+        client.qdb.set(`vote-time_${mem.user.id}`, Date.now());
+        return message.reply({ content: "DONE" })
     },
 };
