@@ -39,7 +39,6 @@ const Discord = require("discord.js"),
             'USER'
         ]
     }),
-    colors = require("colors"),
     del = new WebhookClient({
         id: "963519810015215670",
         token: "vLEb5pYo6jGT3qoPGtdbe5QAk_QNG85XilbeUSE7r1YijKISTQ4mDiAoHdaegcBRhnOS"
@@ -56,6 +55,7 @@ client.links = require("./json/links.json");
 client.badge = require("./json/badges.json");
 client.error = require("./json/errors.json");
 client.del = del;
+require("colors");
 
 const { Database } = require("quickmongo"),
     errweb = new WebhookClient({
