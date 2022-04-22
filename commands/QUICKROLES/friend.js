@@ -103,7 +103,6 @@ module.exports = {
             let rol = db.delete(nam + message.guild.id),
                 ro = message.guild.roles.cache.get(rol)
             if (ro) {
-
                 if (message.guild.me.roles.highest.position <= ro.position) {
                     return message.reply({
                         embeds: [
@@ -125,7 +124,6 @@ module.exports = {
                 ]
             });
         }
-
 
         if (arg[0]) {
             let target = message.mentions.members.first() ||
