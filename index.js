@@ -72,7 +72,7 @@ mongoose.connect(client.config.DB, dbOptions);
 mongoose.set("useFindAndModify", false);
 mongoose.Promise = global.Promise;
 mongoose.connection.on("connected", () => {
-    console.log("MONGOOSE CONNECTED".yellow);
+    console.log("MONGOOSE LONG DAATABASE CONNECTED".yellow);
 });
 mongoose.connection.on("err", (err) => {
     console.log(`Mongoose connection error: \n ${err.stack}`);
@@ -88,7 +88,7 @@ const { Database } = require("quickmongo"),
 
 client.qdb = new Database(client.config.DB || process.env.DB);
 client.qdb.on("ready", async () => {
-    console.log(`QUICKMONGO CONNECTED`.yellow);
+    console.log(`MONGOOSE QUICK DAATABASE CONNECTED`.yellow);
 });
 client.errweb = errweb;
 client.prefixModel = require('./models/prefixes.js');
