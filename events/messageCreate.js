@@ -3,9 +3,7 @@ const Discord = require("discord.js"),
     db = require("quick.db"),
     discord = require("discord.js"),
     Timeout = new Collection(),
-    ms = require("ms")
-
-
+    ms = require("ms");
 
 module.exports.run = async (client, message) => {
     if (message.author.bot || !message.guild) return;
