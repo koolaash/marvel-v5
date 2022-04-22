@@ -20,7 +20,7 @@ module.exports = {
 
         let p = defprefix,
             prefix = defprefix;
-            
+
         if (!damon) {
             damon = await client.users.fetch(client.config.damon_id)
         }
@@ -275,7 +275,7 @@ module.exports = {
                     "\n**━━━━━━━━━━━━━━━━━**"
                 )
                 .addField(`${client.emoji.ar}NOTE :`, "<> [] - DO NOT INCLUDE THESE WHILE EXECUTING A COMMAND")
-                .setImage(client.gif.music),
+                .setImage(client.gif.useful),
             em10 = new MessageEmbed()
                 .setColor(client.embed.cm)
                 .setFooter({
