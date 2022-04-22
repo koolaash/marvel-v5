@@ -57,6 +57,29 @@ client.error = require("./json/errors.json");
 client.del = del;
 require("colors");
 
+
+const mongoose = require("mongoose");
+
+const dbOptions = {
+    useNewUrlParser: true,
+    autoIndex: false,
+    poolSize: 5,
+    connectTimeoutMS: 10000,
+    family: 4,
+    useUnifiedTopology: true,
+};
+mongoose.connect(client.config.DB, dbOptions);
+mongoose.set("useFindAndModify", false);
+mongoose.Promise = global.Promise;
+mongoose.connection.on("connected", () => {
+    console.log("[DB] DATABASE CONNECTED".yellow);
+});
+mongoose.connection.on("err", (err) => {
+    console.log(`Mongoose connection error: \n ${err.stack}`);
+});
+mongoose.connection.on("disconnected", () => {
+    console.log("Mongoose disconnected");
+});
 const { Database } = require("quickmongo"),
     errweb = new WebhookClient({
         id: process.env.web_id || client.config.web_id,
@@ -68,6 +91,7 @@ client.qdb.on("ready", async () => {
     console.log(`QUICKMONGO CONNECTED`.yellow);
 });
 client.errweb = errweb;
+client.prefixModel = require('./models/prefixes.js');
 
 require('events').EventEmitter.defaultMaxListeners = 100;
 process.setMaxListeners(100);

@@ -3,45 +3,35 @@ const Discord = require("discord.js"),
     db = require("quick.db"),
     discord = require("discord.js"),
     Timeout = new Collection(),
-    ms = require("ms");
+    ms = require("ms")
+
 
 
 module.exports.run = async (client, message) => {
     if (message.author.bot || !message.guild) return;
     let dis = db.get(`disabeled${message.channel.id}`),
-        d = "**No**"
-    if (dis === true) { d = "**Yes**" }
-    let prefix = client.config.prefix,
-        nprefix = await client.qdb.get(`guildPrefix_${message.guild.id}`);
-    if (nprefix !== null) {
-        prefix = nprefix;
+        prefixModel = client.prefixModel,
+        prefixData = await prefixModel.findOne({
+            GuildID: message.guild.id,
+        }).catch(err => console.log(err))
+
+    if (prefixData) {
+        var prefix = prefixData.Prefix
+    } else if (!prefixData) {
+        prefix = client.config.prefix
     }
 
     const prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);
     if (message.content.match(prefixMention)) {
-        let btn1 = new MessageButton()
-            .setStyle("LINK")
-            .setLabel("|  SUPPORT")
-            .setURL(client.config.bserver)
-            .setEmoji(client.emoji.discord_id)
-            .setDisabled(false),
-            btn2 = new MessageButton()
-                .setStyle("LINK")
-                .setLabel("|  INVITE")
-                .setURL(client.config.binvite)
-                .setEmoji(client.emoji.invite_id)
-                .setDisabled(false)
-        row = new MessageActionRow()
-            .addComponents(btn1, btn2),
-            mention = new MessageEmbed()
-                .addField(
-                    `${client.emoji.marvel}Hey Marvel Here`, `Server Prefix : \`${prefix}\``
-                )
-                .setColor(client.embed.cm)
-                .setFooter({
-                    text: message.author.tag,
-                    iconURL: message.author.displayAvatarURL({ dynamic: true })
-                });
+        let mention = new MessageEmbed()
+            .addField(
+                `${client.emoji.marvel}Hey Marvel Here`, `Server Prefix : \`${prefix}\``
+            )
+            .setColor(client.embed.cm)
+            .setFooter({
+                text: message.author.tag,
+                iconURL: message.author.displayAvatarURL({ dynamic: true })
+            });
         let p1 = ["SEND_MESSAGES", "EMBED_LINKS"]
         if (!message.guild.me.permissionsIn(message.channel).has(p1)) {
             return message.author.send({
@@ -54,10 +44,7 @@ module.exports.run = async (client, message) => {
                 ]
             }).catch(() => null)
         }
-        return message.reply({
-            embeds: [mention],
-            components: [row]
-        });
+        return message.reply({ embeds: [mention] });
     }
 
     // For user without prefix
