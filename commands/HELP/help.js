@@ -309,27 +309,27 @@ module.exports = {
                     p +
                     "selfrole` - to start interactive self role setup\n`" +
                     p +
-                    "modrole <set | show>` - to set or see mod role\n`" +
+                    "modrole <set | show | reset>` - to set or see mod role\n`" +
                     p +
-                    "admin <role @role | show | @user>` - to set, see or give admin role to any user\n`" +
+                    "admin <role @role | show | reset | @user>` - to set, see or give admin role to any user\n`" +
                     p +
-                    "friend <role @role | show | @user>` - to set, see or give friend role to any user\n`" +
+                    "friend <role @role | show | reset | @user>` - to set, see or give friend role to any user\n`" +
                     p +
-                    "girl <role @role | show | @user>` - to set, see or give girl role to any user\n`" +
+                    "girl <role @role | show | reset | @user>` - to set, see or give girl role to any user\n`" +
                     p +
-                    "guest <role @role | show | @user>` - to set, see or give guest role to any user\n`" +
+                    "guest <role @role | show | reset | @user>` - to set, see or give guest role to any user\n`" +
                     p +
-                    "headadmin <role @role | show | @user>` - to set, see or give headadmin role to any user\n`" +
+                    "headadmin <role @role | show | reset | @user>` - to set, see or give headadmin role to any user\n`" +
                     p +
-                    "headmod <role @role | show | @user>` - to set, see or give headmod role to any user\n`" +
+                    "headmod <role @role | show | reset | @user>` - to set, see or give headmod role to any user\n`" +
                     p +
-                    "mod <role @role | show | @user>` - to set, see or give mod role to any user\n`" +
+                    "mod <role @role | show | reset | @user>` - to set, see or give mod role to any user\n`" +
                     p +
-                    "official <role @role | show | @user>` - to set, see or give official role to any user\n`" +
+                    "official <role @role | show | reset | @user>` - to set, see or give official role to any user\n`" +
                     p +
-                    "staff <role @role | show | @user>` - to set, see or give staff role to any user\n`" +
+                    "staff <role @role | show | reset | @user>` - to set, see or give staff role to any user\n`" +
                     p +
-                    "vip <role @role | show | @user>` - to set, see or give vip role to any user`" +
+                    "vip <role @role | show | reset | @user>` - to set, see or give vip role to any user`" +
                     "\n**━━━━━━━━━━━━━━━━━**"
                 )
                 .addField(`${client.emoji.ar}NOTE :`, "<> [] - DO NOT INCLUDE THESE WHILE EXECUTING A COMMAND")

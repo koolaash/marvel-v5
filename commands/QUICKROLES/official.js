@@ -99,6 +99,32 @@ module.exports = {
                 ]
             });
         }
+        if (arg[0] === "delete" || arg[0] === "remove" || arg[0] === "reset") {
+            let rol = db.delete(nam + message.guild.id),
+                ro = message.guild.roles.cache.get(rol)
+            if (ro) {
+
+                if (message.guild.me.roles.highest.position <= ro.position) {
+                    return message.reply({
+                        embeds: [
+                            new MessageEmbed({
+                                color: fail,
+                                description: `${cross}| My role is below the <@&${ro.id}>!`,
+                            })
+                        ]
+                    });
+                }
+            }
+            db.delete(nam + message.guild.id);
+            return message.reply({
+                embeds: [
+                    new MessageEmbed({
+                        color: success,
+                        description: `${tick}| Removed the the role which was set for ${nam}`,
+                    })
+                ]
+            });
+        }
 
         if (arg[0]) {
             let target = message.mentions.members.first() ||
