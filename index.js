@@ -84,6 +84,7 @@ require("./events2/embedwel.js")(client);
 require("./events2/moderation.js")(client);
 
 client.login(process.env.TOKEN || client.config.TOKEN)
+module.exports = client;
 
 process.on("unhandledRejection", (error) => {
     errweb.send(`\`\`\`js\n${error.stack}\`\`\``);
