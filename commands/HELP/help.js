@@ -18,7 +18,9 @@ module.exports = {
         }),
             defprefix = data ? `${data.Prefix}` : `${client.config.prefix}`;
 
-        let p = defprefix;
+        let p = defprefix,
+            prefix = defprefix;
+            
         if (!damon) {
             damon = await client.users.fetch(client.config.damon_id)
         }

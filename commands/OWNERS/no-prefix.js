@@ -21,6 +21,16 @@ module.exports = {
                 ]
             });
         }
+
+        if (args[0] === 'reload') {
+            client.noprefix = await client.qdb.get(`noprefix.mems${message.guild.id}`)
+            return message.reply('Done');
+        }
+        if (args[0] === 'reset') {
+            client.qdb.delete(`noprefix${message.guild.id}`)
+            return message.reply('Done');
+        }
+
         let target = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
 
         if (!target) {
@@ -43,15 +53,20 @@ module.exports = {
                 .then(m = setTimeout(() => m.delete().catch(() => null), 2500))
         }
 
+        let mems = client.qdb.get(`noprefix${message.guild.id}`);
+
+        if (!mems) {
+            client.qdb.set(`noprefix${message.guild.id}`, { difficulty: 'Easy' });
+        }
+
         if (args[1] === "add") {
-            db.set(`noprefix${target.id}`, true)
+            client.qdb.set(`noprefix.mems${message.guild.id}`, target.id)
             return message.reply({ content: "Done" })
                 .then(m => setTimeout(() => m.delete().catch(() => null), 2500))
         } else if (args[1] === 'remove') {
-            db.delete(`noprefix${target.id}`)
+            client.qdb.pull(`noprefix.mems${message.guild.id}`, target.id)
             return message.reply({ content: "Done" })
                 .then(m => setTimeout(() => m.delete().catch(() => null), 2500))
         }
-
     }
 }

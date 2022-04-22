@@ -23,15 +23,11 @@ module.exports.run = async (client, message) => {
 
     const prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);
     if (message.content.match(prefixMention)) {
-        let mention = new MessageEmbed()
-            .addField(
-                `${client.emoji.marvel}Hey Marvel Here`, `Server Prefix : \`${prefix}\``
-            )
-            .setColor(client.embed.cm)
-            .setFooter({
-                text: message.author.tag,
-                iconURL: message.author.displayAvatarURL({ dynamic: true })
-            });
+        let mention = new MessageEmbed({
+            description:
+                `Hey, Marvel here!\n\nPrefix for this server is \`${prefix}\`\n\nIf you have any problem regarding bot join : \n[discord.gg/marvel](${client.config.bserver})`,
+            color: client.embed.cm
+        })
         let p1 = ["SEND_MESSAGES", "EMBED_LINKS"]
         if (!message.guild.me.permissionsIn(message.channel).has(p1)) {
             return message.author.send({
@@ -44,7 +40,8 @@ module.exports.run = async (client, message) => {
                 ]
             }).catch(() => null)
         }
-        return message.reply({ embeds: [mention] });
+        return message.reply({ embeds: [mention] })
+            .then(m => setTimeout(() => m.delete().catch(() => null), 10000));
     }
 
     // For user without prefix

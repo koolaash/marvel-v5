@@ -57,7 +57,7 @@ module.exports = {
         }
         if (args[0] === "reset") {
             if (data) {
-                await prefixModel.findOneAndRemove({
+                await client.prefixModel.findOneAndRemove({
                     GuildID: message.guild.id,
                 })
             }
@@ -72,11 +72,11 @@ module.exports = {
             })
         } else {
             if (data) {
-                await prefixModel.findOneAndRemove({
+                await client.prefixModel.findOneAndRemove({
                     GuildID: message.guild.id,
                 })
             }
-            let newData = new prefixModel({
+            let newData = new client.prefixModel({
                 Prefix: args[0],
                 GuildID: message.guild.id,
             });

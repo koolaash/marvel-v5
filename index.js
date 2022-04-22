@@ -72,7 +72,7 @@ mongoose.connect(client.config.DB, dbOptions);
 mongoose.set("useFindAndModify", false);
 mongoose.Promise = global.Promise;
 mongoose.connection.on("connected", () => {
-    console.log("[DB] DATABASE CONNECTED".yellow);
+    console.log("MONGOOSE CONNECTED".yellow);
 });
 mongoose.connection.on("err", (err) => {
     console.log(`Mongoose connection error: \n ${err.stack}`);
