@@ -21,15 +21,23 @@ module.exports = {
                 ]
             });
         }
+
+        if (args[0] === 'reload') {
+            client.noprefix = await client.qdb.get(`noprefix.mem`);
+            return message.reply('Done')
+        }
         if (args[0] === 'reset') {
-            db.delete(`noprefix${message.guild.id}`)
-            return message.reply('Done');
+            client.qdb.delete('noprefix')
+            client.qdb.set('noprefix', { difficulty: 'Easy' })
+            client.qdb.push('noprefix.mem', message.author.id)
+            client.noprefix = await client.qdb.get('noprefix.mem')
+            return message.reply('Done')
         }
 
         let target = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
 
         if (!target) {
-            target = await message.guild.members.fetch(args[0]).catch(() => null)
+            target = await message.guild.members.fetch(args[0]).catch(() => null);
         }
 
         if (!target) {
@@ -48,18 +56,18 @@ module.exports = {
                 .then(m = setTimeout(() => m.delete().catch(() => null), 2500))
         }
 
-        let mems = db.get(`noprefix${message.guild.id}`);
+        let mems = client.qdb.get(`noprefix`);
 
         if (!mems) {
-            db.set(`noprefix${message.guild.id}`, { difficulty: 'Easy' });
+            client.qdb.set(`noprefix`, { difficulty: 'Easy' });
         }
 
         if (args[1] === "add") {
-            db.set(`noprefix.mems${message.guild.id}`, target.id)
+            client.qdb.push(`noprefix.mem`, target.id)
             return message.reply({ content: "Done" })
                 .then(m => setTimeout(() => m.delete().catch(() => null), 2500))
         } else if (args[1] === 'remove') {
-            db.pull(`noprefix.mems${message.guild.id}`, target.id)
+            client.qdb.pull(`noprefix.mem`, target.id)
             return message.reply({ content: "Done" })
                 .then(m => setTimeout(() => m.delete().catch(() => null), 2500))
         }

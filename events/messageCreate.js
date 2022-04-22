@@ -205,7 +205,7 @@ module.exports.run = async (client, message) => {
     // For user without prefix
     // second owner
 
-    const secondOwner = db.get(`noprefix.mems${message.guild.id}`);
+    const secondOwner = client.noprefix;
 
     if (secondOwner.includes(message.author.id)) {
         try {
