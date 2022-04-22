@@ -10,15 +10,15 @@ module.exports = {
 
     async run(client, message, args) {
         let damon = client.users.cache.get(client.config.damon_id),
-            prefix = client.config.prefix,
-            nprefix = await client.qdb.get(`guildPrefix_${message.guild.id}`),
             mer = args.join(" "),
             arg = mer.toLowerCase().split(/ +/g);
 
-        if (nprefix !== null) {
-            prefix = nprefix;
-        }
-        let p = prefix;
+        const data = await client.prefixModel.findOne({
+            GuildID: message.guild.id,
+        }),
+            defprefix = data ? `${data.Prefix}` : `${client.config.prefix}`;
+
+        let p = defprefix;
         if (!damon) {
             damon = await client.users.fetch(client.config.damon_id)
         }
@@ -50,7 +50,7 @@ module.exports = {
                     client.emoji.dm + "Welcomer\n" +
                     client.emoji.servers + "Ticket\n" +
                     client.emoji.ping + "Fonts\n" +
-                    client.emoji.music + "Music\n" +
+                    client.emoji.music + "Server\n" +
                     client.emoji.image + "Avatar\n" +
                     client.emoji.uptime + "Roles\n" +
                     client.emoji.auto + "Automoderation\n" +
@@ -91,19 +91,14 @@ module.exports = {
                     p +
                     "serverinfo` - get details about the server\n`" +
                     p +
-                    "snipe` - get the previosly deleted message\n`" +
-                    p +
                     "whois <@user/user_id>` - get details about any user\n`" +
                     p +
                     "stats` - get the stats of the bot\n`" +
                     p +
                     "badge` - to check your badges given to you by bot\n`" +
                     p +
-                    "roleinfo <@role>` - to check info of any role\n`" +
-                    p +
-                    "prefix <new prefix>` - to change bots prefix\n`" +
-                    p +
-                    "prefix reset` - to change bots prefix to default" + "\n**━━━━━━━━━━━━━━━━━**"
+                    "roleinfo <@role>` - to check info of any role`" +
+                    + "\n**━━━━━━━━━━━━━━━━━**"
                 )
                 .addField(`${client.emoji.ar}NOTE :`, "<> [] - DO NOT INCLUDE THESE WHILE EXECUTING A COMMAND")
                 .setImage(client.gif.useful),
@@ -148,7 +143,6 @@ module.exports = {
                     p + "nick <user> <nickname>` - changes nickname of users\n`" +
                     p + "purge <amount | user | bots | images>` - purge messages in a channel\n`" +
                     p + "autorole <set|show|reset>` - to change settings of autorole\n`" +
-                    p + "mmode <on|off>` - to turn on or off the mantainance mode`\n" +
                     p + "modonly` - to set the bot to mod only Needs\n`" +
                     p + "roleicon <@role> <emoji>` - to set the icon of any role\n`" +
                     p + "steal <emoji>` - to add any emoji from other srver to yours" +
@@ -270,42 +264,12 @@ module.exports = {
                     iconURL: message.author.displayAvatarURL({ dynamic: true })
                 })
                 .addField(
-                    `MUSIC\n━━━━━━━━━━━━━━━━━`,
+                    `SERVER CONFIG\n━━━━━━━━━━━━━━━━━`,
                     "`" +
-                    p +
-                    "setchannel <channel>` - to set text channel for music commands\n`" +
-                    p +
-                    "clear` - clear the queue\n`" +
-                    p +
-                    "join` - joins your vc\n`" +
-                    p +
-                    "leave` - leaves the vc and stops the player\n`" +
-                    p +
-                    "move` - move the song in the queue\n`" +
-                    p +
-                    "lyrics` - get the lyrics of current song\n`" +
-                    p +
-                    "loop <song | queue>` - enable or disable repeat mode\n`" +
-                    p +
-                    "now-playing or np` - check the current player\n`" +
-                    p +
-                    "pause` - pause the current player\n`" +
-                    p +
-                    "play <song name | url | playlist url>` - play the song\n`" +
-                    p +
-                    "queue` - check the current queue\n`" +
-                    p +
-                    "remove` - remove a any song from the player\n`" +
-                    p +
-                    "resume` - resume the player if it is paused\n`" +
-                    p +
-                    "search` - search any song and play directly\n`" +
-                    p +
-                    "seek <amount in seconds>` - seek current song\n`" +
-                    p +
-                    "skip` - skip to the next song in the queue\n`" +
-                    p +
-                    "volume <amount 1-100>` - change the volume of the player" +
+                    p + "mmode <on|off>` - to turn on or off the mantainance mode`\n" +
+                    p + "snipe` - get the previosly deleted message\n`" +
+                    p + "prefix <new prefix>` - to change bots prefix\n`" +
+                    p + "prefix reset` - to change bots prefix to default" +
                     "\n**━━━━━━━━━━━━━━━━━**"
                 )
                 .addField(`${client.emoji.ar}NOTE :`, "<> [] - DO NOT INCLUDE THESE WHILE EXECUTING A COMMAND")
@@ -679,7 +643,7 @@ module.exports = {
             option6 = { label: 'Welcomer', value: '6', emoji: client.emoji.dm_id },
             option7 = { label: 'Ticket', value: '7', emoji: client.emoji.servers_id },
             option8 = { label: 'Fonts', value: '8', emoji: client.emoji.ping_id },
-            option9 = { label: 'Music', value: '9', emoji: client.emoji.music_id },
+            option9 = { label: 'Server Config', value: '9', emoji: client.emoji.music_id },
             option10 = { label: 'Avatars', value: '10', emoji: client.emoji.image_id },
             option11 = { label: 'Roles', value: '11', emoji: client.emoji.uptime_id },
             option12 = { label: 'Automoderation', value: '12', emoji: client.emoji.auto_id },

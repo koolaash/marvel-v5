@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js")
+const { MessageEmbed } = require("discord.js");
 
 module.exports = {
     name: "prefix",
@@ -28,11 +28,11 @@ module.exports = {
                     });
             }
         }
-        let defprefix = client.config.prefix,
-            nprefix = await client.qdb.get(`guildPrefix_${message.guild.id}`);
-        if (nprefix !== null) {
-            defprefix = nprefix;
-        }
+        const data = await client.prefixModel.findOne({
+            GuildID: message.guild.id,
+        }),
+            defprefix = data ? `${data.Prefix}` : `${client.config.prefix}`;
+
         if (!args[0]) {
             return message.reply({
                 embeds: [
@@ -56,31 +56,41 @@ module.exports = {
             });
         }
         if (args[0] === "reset") {
-            return (
-                client.qdb.delete(`guildPrefix_${message.guild.id}`) &&
-                message.reply({
-                    embeds: [
-                        new MessageEmbed()
-                            .setColor(client.embed.cr)
-                            .setDescription(
-                                `${client.emoji.success}| New Prefix For This Guild Is Now **\`${pprefix}\`**`
-                            )
-                    ]
+            if (data) {
+                await prefixModel.findOneAndRemove({
+                    GuildID: message.guild.id,
                 })
-            )
+            }
+            return message.reply({
+                embeds: [
+                    new MessageEmbed()
+                        .setColor(client.embed.cr)
+                        .setDescription(
+                            `${client.emoji.success}| New Prefix For This Guild Is Now **\`${client.config.prefix}\`**`
+                        )
+                ]
+            })
         } else {
-            return (
-                client.qdb.set(`guildPrefix_${message.guild.id}`, args[0]) &&
-                message.reply({
-                    embeds: [
-                        new MessageEmbed()
-                            .setColor(client.embed.cr)
-                            .setDescription(
-                                `${client.emoji.success}| New Prefix For This Guild Is Now **\`${args[0]}\`**`
-                            )
-                    ]
+            if (data) {
+                await prefixModel.findOneAndRemove({
+                    GuildID: message.guild.id,
                 })
-            );
+            }
+            let newData = new prefixModel({
+                Prefix: args[0],
+                GuildID: message.guild.id,
+            });
+            newData.save();
+            return message.reply({
+                embeds: [
+                    new MessageEmbed()
+                        .setColor(client.embed.cr)
+                        .setDescription(
+                            `${client.emoji.success}| New Prefix For This Guild Is Now **\`${args[0]}\`**`
+                        )
+                ]
+            })
+
         }
     }
 };

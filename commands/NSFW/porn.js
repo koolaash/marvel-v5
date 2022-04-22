@@ -17,11 +17,11 @@ module.exports = {
       return message.reply(`${client.emoji.fail}| This channel dosen't support nsfw content`);
     }
 
-    let prefix = await client.qdb.get(`guildPrefix_${message.guild.id}`);
+    const data = await client.prefixModel.findOne({
+      GuildID: message.guild.id,
+    }),
+      prefix = data ? `${data.Prefix}` : `${client.config.prefix}`;
 
-    if (!prefix) {
-      prefix = client.config.pprefix;
-    }
     const embed = new MessageEmbed()
       .setColor(client.embed.cm)
       .setTimestamp()

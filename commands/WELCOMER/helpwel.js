@@ -11,11 +11,11 @@ module.exports = {
     botPermissions: ["EMBED_LINKS"],
 
     async run(client, message, args) {
-        let defprefix = client.config.pprefix;
-        const nprefix = db.get(`guildPrefix_${message.guild.id}`);
-        if (nprefix !== null) {
-            defprefix = nprefix;
-        }
+        const data = await client.prefixModel.findOne({
+            GuildID: message.guild.id,
+        }),
+            defprefix = data ? `${data.Prefix}` : `${client.config.prefix}`;
+
         let prefix = defprefix,
             embed = new discord.MessageEmbed()
                 .setTitle(

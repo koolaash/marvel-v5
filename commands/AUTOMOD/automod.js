@@ -13,20 +13,20 @@ module.exports = {
     vote: true,
 
     run: async (client, message, args) => {
-        let defprefix = client.config.pprefix,
-            fail = client.embed.cf,
+        let fail = client.embed.cf,
             success = client.embed.cr,
             main = client.embed.cm,
             semoji = client.emoji.success + "| ",
             aemoji = client.emoji.ar + "| ",
             femoji = client.emoji.fail + "| ",
-            nprefix = await client.qdb.get(`guildPrefix_${message.guild.id}`),
             mer = args.join(" "),
             arg = mer.toLowerCase().split(/ +/g);
 
-        if (nprefix !== null) {
-            defprefix = nprefix;
-        }
+        const data = await client.prefixModel.findOne({
+            GuildID: message.guild.id,
+        }),
+            defprefix = data ? `${data.Prefix}` : `${client.config.prefix}`;
+
 
         if (!arg[0]) {
             let vr = defprefix + "am ",

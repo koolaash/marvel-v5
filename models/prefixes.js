@@ -5,4 +5,4 @@ const prefixSchema = new mongoose.Schema({
     GuildID: String,
 });
 
-const prefixModel = module.exports = mongoose.model("prefix", prefixSchema)
+const prefixModel = module.exports = mongoose.model("guildPrefix", prefixSchema)
