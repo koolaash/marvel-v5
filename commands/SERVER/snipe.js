@@ -20,15 +20,15 @@ module.exports = {
                 });
         if (msg.content) {
             embed.setDescription(
-                `${client.emoji.ar}| **${msg.author}**\n${msg.content}`
+                `${client.emoji.ar}| **${msg.author}**\n${client.emoji.ar}| ${msg.content}`
             )
         } else if (msg.image) {
             embed.setDescription(
-                `${client.emoji.ar}| **${msg.author}**\n${msg.content || 'No Message'}`
+                `${client.emoji.ar}| **${msg.author}**\n${client.emoji.ar}| ${msg.content || 'No Message'}`
             )
             embed.setImage(msg.image);
         } else {
-            return message.lineReply(
+            return message.reply(
                 `${client.emoji.fail}| Maybe There's No Deleted Message Here`
             );
         }
