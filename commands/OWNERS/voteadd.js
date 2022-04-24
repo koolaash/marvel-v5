@@ -13,7 +13,7 @@ module.exports = {
         if (!args[0]) {
             return message.reply({ content: "user?" })
         }
-        const mem = message.mentions.members.first() || message.guild.members.cache.get(args[0])
+        const mem = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
         if (!mem) {
             return message.reply({ content: "user error not found!" })
         }
