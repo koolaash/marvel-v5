@@ -12,6 +12,11 @@ module.exports.run = async (client, message) => {
         prefixData = await prefixModel.findOne({
             GuildID: message.guild.id,
         }).catch(err => console.log(err))
+    if (prefixData) {
+        var prefix = prefixData.Prefix
+    } else if (!prefixData) {
+        prefix = client.config.prefix
+    }
     let desc = `Hey, Marvel here!\n\nPrefix for this server is \`${prefix}\`\n\n` +
         `If you have any problem regarding bot join : \n[discord.gg/marvel](${client.config.bserver})`
     if (dis === true) {
@@ -21,11 +26,6 @@ module.exports.run = async (client, message) => {
     }
 
 
-    if (prefixData) {
-        var prefix = prefixData.Prefix
-    } else if (!prefixData) {
-        prefix = client.config.prefix
-    }
 
     const prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);
     if (message.content.match(prefixMention)) {
