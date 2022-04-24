@@ -31,7 +31,7 @@ module.exports = {
             vip = db.get("vip" + target.user.id),
             superr = db.get("super-" + target.id),
             beta = db.get('beta-' + target.id),
-            voted = await client.qdb.get(`votes${message.author.id}`);
+            voted = await client.qdb.get(`voted${message.author.id}`);
 
         let badges = [],
             memName;
@@ -141,7 +141,7 @@ module.exports = {
                 `__**${client.emoji.marvel} BETA TESTER**__`
             )
         }
-        if (voted === true || voted !== false) {
+        if (voted === true) {
             badges.push(
                 `__**${client.emoji.voted} VOTER**__`
             )
