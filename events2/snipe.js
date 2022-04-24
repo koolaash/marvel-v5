@@ -15,7 +15,7 @@ module.exports = function (client, options) {
     try {
       if (message.webhookID) return;
       if (!message.member) {
-        await message.guild.fetchMember(message).catch(() => null);
+        message.member = await message.guild.fetchMember(message).catch(() => null);
       }
       if (message.author.bot || !message.guild) return;
       client.snipes.set(message.channel.id, {
