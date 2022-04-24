@@ -14,10 +14,11 @@ module.exports = function (client, options) {
   );
   client.on("messageCreate", async (message) => {
     try {
-      if (message.author.bot) return;
-      if (!message.member)
+      if (message.author.bot || !message.guild) return;
+      if (!message.member) {
         message.member = await message.guild.fetchMember(message).cathc(() => null);
-
+      }
+      if (!message.member) return;
       let ignoreRole = db.get(`ignoreRole_${message.guild.id}`),
         ignoreChannel = db.get(`ignoreChannel.item_${message.guild.id}`);
 

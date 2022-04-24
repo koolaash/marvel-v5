@@ -11,6 +11,16 @@ module.exports = {
     botPermissions: ["EMBED_LINKS", "MANAGE_ROLES"],
 
     async run(client, message, args) {
+        if (!args[0]) {
+            return message.reply({
+                embeds: [
+                    new MessageEmbed({
+                        color: fail,
+                        description: `${cross}| Missed the argument <role | show | reset | @user>`,
+                    })
+                ]
+            });
+        }
         const fail = client.embed.cf,
             success = client.embed.cr,
             main = client.embed.cm,
@@ -19,31 +29,12 @@ module.exports = {
             arrow = client.emoji.ar,
             arg = args[0].toLowerCase();
 
-        if (!client.config.bowner.includes(message.author.id)) {
-            if (message.guild.owner !== message.member) {
-                if (
-                    message.member.roles.highest.position <=
-                    message.guild.me.roles.highest.position
-                ) {
-                    return message.reply({
-                        embeds: [
-                            new MessageEmbed({
-                                color: fail,
-                                description:
-                                    cross + "| You need a higher role than me to use this command",
-                            })
-                        ]
-                    });
-                }
-            }
-        }
-
         if (!arg[0]) {
             return message.reply({
                 embeds: [
                     new MessageEmbed({
                         color: fail,
-                        description: cross + "| Missed the argument <set | show>",
+                        description: `${cross}| Missed the argument <role | show | reset | @user>`,
                     })
                 ]
             });

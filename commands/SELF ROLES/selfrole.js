@@ -27,7 +27,7 @@ module.exports = {
                 max: 1,
                 time: 30000
             }), amt = amount.first().content
-        if (!amount) {
+        if (!amount || !amt) {
             return message.reply({
                 embeds: [
                     new MessageEmbed({

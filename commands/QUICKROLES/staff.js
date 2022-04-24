@@ -13,6 +13,16 @@ module.exports = {
     modRole: true,
 
     async run(client, message, args) {
+        if (!args[0]) {
+            return message.reply({
+                embeds: [
+                    new MessageEmbed({
+                        color: fail,
+                        description: `${cross}| Missed the argument <role | show | reset | @user>`,
+                    })
+                ]
+            });
+        }
         const fail = client.embed.cf,
             success = client.embed.cr,
             main = client.embed.cm,
@@ -26,7 +36,7 @@ module.exports = {
                 embeds: [
                     new MessageEmbed({
                         color: fail,
-                        description: `${cross}| Missed the argument <role | show | @user>`,
+                        description: `${cross}| Missed the argument <role | show | reset | @user>`,
                     })
                 ]
             });
