@@ -54,7 +54,7 @@ module.exports = {
             partner === null && sup === null && bug === null &&
             superr === null && one === null && early === null &&
             admin === null && mod === null && vip === null &&
-            beta === null && vote === true
+            beta === null && vote === null
         ) {
             embed.setDescription("__**You Don't Have Any Badge Yet!**__");
             embed.addField(
@@ -142,7 +142,7 @@ module.exports = {
                 `__**${client.emoji.marvel} BETA TESTER**__`
             )
         }
-        if (vote === true) {
+        if (vote !== null) {
             badges.push(
                 `__**${client.emoji.voted} VOTED**__`
             )
