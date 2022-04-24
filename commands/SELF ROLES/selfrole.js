@@ -223,7 +223,7 @@ module.exports = {
             msg.push(`> ${emj1.first().content} => ${role1}`)
         }
         if (amt === `1`) {
-            embed.setDescription(`Cick on the button(s) below to get the corresponding role(s)${msg.join("\n")}`)
+            embed.setDescription(`Cick on the button(s) below to get the corresponding role(s)\n${msg.join("\n")}`)
             let msgs = await chan.send({
                 embeds: [embed],
                 components: [row]
@@ -321,10 +321,10 @@ module.exports = {
                     .setStyle('SECONDARY')
                     .setCustomId('selfrole2')
             )
-            msg.push(`${emj2.first().content} - ${role2}`)
+            msg.push(`> ${emj2.first().content} - ${role2}`)
         }
         if (amt === `2`) {
-            embed.setDescription(`Cick on the button(s) below to get the corresponding role(s)${msg.join("\n")}`)
+            embed.setDescription(`Cick on the button(s) below to get the corresponding role(s)\n${msg.join("\n")}`)
             let msgs = await chan.send({
                 embeds: [embed],
                 components: [row]
@@ -423,10 +423,10 @@ module.exports = {
                     .setStyle('SECONDARY')
                     .setCustomId('selfrole3')
             )
-            msg.push(`${emj3.first().content} - ${role3}`)
+            msg.push(`> ${emj3.first().content} - ${role3}`)
         }
         if (amt === `3`) {
-            embed.setDescription(`Cick on the button(s) below to get the corresponding role(s)${msg.join("\n")}`)
+            embed.setDescription(`Cick on the button(s) below to get the corresponding role(s)\n${msg.join("\n")}`)
             let msgs = await chan.send({
                 embeds: [embed],
                 components: [row]
@@ -526,10 +526,10 @@ module.exports = {
                     .setStyle('SECONDARY')
                     .setCustomId('selfrole4')
             )
-            msg.push(`${emj4.first().content} - ${role4}`)
+            msg.push(`> ${emj4.first().content} - ${role4}`)
         }
         if (amt === `4`) {
-            embed.setDescription(`Cick on the button(s) below to get the corresponding role(s)${msg.join("\n")}`)
+            embed.setDescription(`Cick on the button(s) below to get the corresponding role(s)\n${msg.join("\n")}`)
             let msgs = await chan.send({
                 embeds: [embed],
                 components: [row]
@@ -630,10 +630,10 @@ module.exports = {
                     .setStyle('SECONDARY')
                     .setCustomId('selfrole5')
             )
-            msg.push(`${emj5.first().content} - ${role5}`)
+            msg.push(`> ${emj5.first().content} - ${role5}`)
         }
         if (amt === `5`) {
-            embed.setDescription(`Cick on the button(s) below to get the corresponding role(s)${msg.join("\n")}`)
+            embed.setDescription(`Cick on the button(s) below to get the corresponding role(s)\n${msg.join("\n")}`)
             let msgs = await chan.send({
                 embeds: [embed],
                 components: [row]
@@ -735,10 +735,10 @@ module.exports = {
                     .setStyle('SECONDARY')
                     .setCustomId('selfrole6')
             )
-            msg.push(`${emj6.first().content} - ${role6}`)
+            msg.push(`> ${emj6.first().content} - ${role6}`)
         }
         if (amt === `6`) {
-            embed.setDescription(`Cick on the button(s) below to get the corresponding role(s)${msg.join("\n")}`)
+            embed.setDescription(`Cick on the button(s) below to get the corresponding role(s)\n${msg.join("\n")}`)
             let msgs = await chan.send({
                 embeds: [embed],
                 components: [row, row2]
@@ -841,10 +841,10 @@ module.exports = {
                     .setStyle('SECONDARY')
                     .setCustomId('selfrole7')
             )
-            msg.push(`${emj7.first().content} - ${role7}`)
+            msg.push(`> ${emj7.first().content} - ${role7}`)
         }
         if (amt === `7`) {
-            embed.setDescription(`Cick on the button(s) below to get the corresponding role(s)${msg.join("\n")}`)
+            embed.setDescription(`Cick on the button(s) below to get the corresponding role(s)\n${msg.join("\n")}`)
             let msgs = await chan.send({
                 embeds: [embed],
                 components: [row, row2]
@@ -948,10 +948,10 @@ module.exports = {
                     .setStyle('SECONDARY')
                     .setCustomId('selfrole8')
             )
-            msg.push(`${emj8.first().content} - ${role8}`)
+            msg.push(`> ${emj8.first().content} - ${role8}`)
         }
         if (amt === `8`) {
-            embed.setDescription(`Cick on the button(s) below to get the corresponding role(s)${msg.join("\n")}`)
+            embed.setDescription(`Cick on the button(s) below to get the corresponding role(s)\n${msg.join("\n")}`)
             let msgs = await chan.send({
                 embeds: [embed],
                 components: [row, row2]
@@ -1056,10 +1056,10 @@ module.exports = {
                     .setStyle('SECONDARY')
                     .setCustomId('selfrole9')
             )
-            msg.push(`${emj9.first().content} - ${role9}`)
+            msg.push(`> ${emj9.first().content} - ${role9}`)
         }
         if (amt === `9`) {
-            embed.setDescription(`Cick on the button(s) below to get the corresponding role(s)${msg.join("\n")}`)
+            embed.setDescription(`Cick on the button(s) below to get the corresponding role(s)\n${msg.join("\n")}`)
             let msgs = await chan.send({
                 embeds: [embed],
                 components: [row, row2]
@@ -1165,10 +1165,10 @@ module.exports = {
                     .setStyle('SECONDARY')
                     .setCustomId('selfrole10')
             )
-            msg.push(`${emj10.first().content} - ${role10}`)
+            msg.push(`> ${emj10.first().content} - ${role10}`)
         }
         if (amt === `10`) {
-            embed.setDescription(`Cick on the button(s) below to get the corresponding role(s)${msg.join("\n")}`)
+            embed.setDescription(`Cick on the button(s) below to get the corresponding role(s)\n${msg.join("\n")}`)
             let msgs = await chan.send({
                 embeds: [embed],
                 components: [row, row2]
