@@ -38,16 +38,16 @@ module.exports = {
                 ]
             })
         }
-        if (isNaN(amt)) {
-            return message.reply({
-                embeds: [
-                    new MessageEmbed({
-                        description: `${client.emoji.fail}| You failed to provide the valid amount!`,
-                        color: client.embed.cf
-                    })
-                ]
-            })
-        }
+        // if (isNaN(amt)) {
+        //     return message.reply({
+        //         embeds: [
+        //             new MessageEmbed({
+        //                 description: `${client.emoji.fail}| You failed to provide the valid amount!`,
+        //                 color: client.embed.cf
+        //             })
+        //         ]
+        //     })
+        // }
         if (
             amt !== '1' || amt !== '2' || amt !== '3' ||
             amt !== '4' || amt !== '5' || amt !== '6' ||
