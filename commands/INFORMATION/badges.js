@@ -9,7 +9,6 @@ module.exports = {
     description: "shows the badges you own with this bot",
     usage: "badge",
     botPermissions: ["EMBED_LINKS"],
-    vote: true,
 
     run: async (client, message, args) => {
 
