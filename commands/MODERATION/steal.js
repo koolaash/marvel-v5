@@ -1,5 +1,6 @@
 const { MessageEmbed } = require("discord.js"),
-    { parse } = require("twemoji-parser");
+    { parse } = require("twemoji-parser"),
+    discord = require("discord.js");
 
 module.exports = {
     name: "steal",

@@ -1,4 +1,5 @@
-const { MessageEmbed, MessageButton, MessageActionRow } = require("discord.js");
+const { MessageEmbed, MessageButton, MessageActionRow } = require("discord.js"),
+    discord = require("discord.js");
 
 module.exports = {
     name: "ban",
