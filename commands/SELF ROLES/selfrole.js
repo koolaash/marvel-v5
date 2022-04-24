@@ -38,7 +38,7 @@ module.exports = {
                 ]
             })
         }
-        // if (isNaN(amt)) {
+        // if (isNaN(amt.first().content)) {
         //     return message.reply({
         //         embeds: [
         //             new MessageEmbed({
@@ -49,10 +49,10 @@ module.exports = {
         //     })
         // }
         if (
-            amt !== '1' || amt !== '2' || amt !== '3' ||
-            amt !== '4' || amt !== '5' || amt !== '6' ||
-            amt !== '7' || amt !== '8' || amt !== '9' ||
-            amt !== '10'
+            amt.first().content !== '1' || amt.first().content !== '2' || amt.first().content !== '3' ||
+            amt.first().content !== '4' || amt.first().content !== '5' || amt.first().content !== '6' ||
+            amt.first().content !== '7' || amt.first().content !== '8' || amt.first().content !== '9' ||
+            amt.first().content !== '10'
         ) {
             return message.reply({
                 embeds: [
