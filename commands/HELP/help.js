@@ -700,7 +700,7 @@ module.exports = {
         collector.on('collect', async (b) => {
             if (b.user.id !== message.author.id) {
                 let emm = new MessageEmbed({
-                    description: client.emoji.fail + client.error.menu,
+                    description: `❎ ` + client.error.menu,
                     color: client.embed.cf
                 })
                 return b.reply({ ephemeral: true, embeds: [emm] })
