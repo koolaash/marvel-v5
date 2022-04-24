@@ -11,7 +11,15 @@ module.exports.run = async (client, message) => {
         prefixModel = client.prefixModel,
         prefixData = await prefixModel.findOne({
             GuildID: message.guild.id,
-        }).catch(err => console.log(err))
+        }).catch(err => console.log(err)),
+        desc = `Hey, Marvel here!\n\nPrefix for this server is \`${prefix}\`\n\n` +
+            `If you have any problem regarding bot join : \n[discord.gg/marvel](${client.config.bserver})`
+    if (dis === true) {
+        desc = `Hey, Marvel here!\n\nPrefix for this server is \`${prefix}\`\n\n` +
+            `If you have any problem regarding bot join : \n[discord.gg/marvel](${client.config.bserver})` +
+            `This channel is disabled for bot commands`
+    }
+
 
     if (prefixData) {
         var prefix = prefixData.Prefix
@@ -22,8 +30,7 @@ module.exports.run = async (client, message) => {
     const prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);
     if (message.content.match(prefixMention)) {
         let mention = new MessageEmbed({
-            description:
-                `Hey, Marvel here!\n\nPrefix for this server is \`${prefix}\`\n\nIf you have any problem regarding bot join : \n[discord.gg/marvel](${client.config.bserver})`,
+            description: desc,
             color: client.embed.cm
         })
         let p1 = ["SEND_MESSAGES", "EMBED_LINKS"]

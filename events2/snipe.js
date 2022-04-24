@@ -17,7 +17,7 @@ module.exports = function (client, options) {
       if (!message.member) {
         await message.guild.members.fetch(message.author.id)
       }
-      if (!message.guild || message.author.bot) return;
+      if (message.author.bot || !message.guild) return;
       client.snipes.set(message.channel.id, {
         content: message.content,
         author: message.author.tag,
