@@ -26,7 +26,7 @@ module.exports = {
                 filter: msg_filter,
                 max: 1,
                 time: 30000
-            })
+            }), amt = amount.first().content
         if (!amount) {
             return message.reply({
                 embeds: [
@@ -37,22 +37,17 @@ module.exports = {
                 ]
             })
         }
-        // if (isNaN(amount.first().content)) {
-        //     return message.reply({
-        //         embeds: [
-        //             new MessageEmbed({
-        //                 description: `${client.emoji.fail}| You failed to provide the valid amount!`,
-        //                 color: client.embed.cf
-        //             })
-        //         ]
-        //     })
-        // }
-        if (
-            amount.first().content !== '1' || amount.first().content !== '2' || amount.first().content !== '3' ||
-            amount.first().content !== '4' || amount.first().content !== '5' || amount.first().content !== '6' ||
-            amount.first().content !== '7' || amount.first().content !== '8' || amount.first().content !== '9' ||
-            amount.first().content !== '10'
-        ) {
+        if (isNaN(amt)) {
+            return message.reply({
+                embeds: [
+                    new MessageEmbed({
+                        description: `${client.emoji.fail}| You failed to provide the valid amount!`,
+                        color: client.embed.cf
+                    })
+                ]
+            })
+        }
+        if (amt > 10 || amt < 1) {
             return message.reply({
                 embeds: [
                     new MessageEmbed({
