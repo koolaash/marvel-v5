@@ -303,8 +303,8 @@ module.exports = {
                     text: `${message.author.tag} : Page 11/${pages}`,
                     iconURL: message.author.displayAvatarURL({ dynamic: true })
                 })
-                .addField(
-                    "ROLES" + "\n━━━━━━━━━━━━━━━━━",
+                .setDescription(
+                    "**ROLES" + "\n━━━━━━━━━━━━━━━━━**\n" +
                     "`" +
                     p +
                     "selfrole` - to start interactive self role setup\n`" +
