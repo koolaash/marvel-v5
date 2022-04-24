@@ -32,7 +32,7 @@ module.exports = {
             vip = db.get("vip" + target.user.id),
             superr = db.get("super-" + target.id),
             beta = db.get('beta-' + target.id),
-            vote = await client.qdb.get(`votes${message.author.id}`);
+            voted = await client.qdb.get(`votes${message.author.id}`);
 
         let badges = [],
             memName;
@@ -54,7 +54,7 @@ module.exports = {
             partner === null && sup === null && bug === null &&
             superr === null && one === null && early === null &&
             admin === null && mod === null && vip === null &&
-            beta === null && vote === null
+            beta === null && voted === null
         ) {
             embed.setDescription("__**You Don't Have Any Badge Yet!**__");
             embed.addField(
@@ -142,9 +142,9 @@ module.exports = {
                 `__**${client.emoji.marvel} BETA TESTER**__`
             )
         }
-        if (vote !== null) {
+        if (voted !== null) {
             badges.push(
-                `__**${client.emoji.voted} VOTED**__`
+                `__**${client.emoji.voted} VOTER**__`
             )
         }
         embed.setDescription(badges.join("\n"))
