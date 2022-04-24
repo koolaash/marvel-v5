@@ -8,7 +8,7 @@ module.exports = {
     botPermissions: ["EMBED_LINKS"],
 
     run: async (client, message, args) => {
-        setTimeout(() => message.delete(), 2000)
+        setTimeout(() => message.delete().catch(() => null), 2000)
         if (!client.config.bowner.includes(message.author.id)) return;
         if (!args[0]) {
             return message.reply({
