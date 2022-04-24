@@ -13,6 +13,7 @@ module.exports = function (client, options) {
 
   client.on("messageDelete", async (message) => {
     try {
+      if (message.webhookID) return;
       if (!message.member) {
         await message.guild.members.fetch(message.author.id)
       }
