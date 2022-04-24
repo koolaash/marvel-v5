@@ -5,7 +5,7 @@ module.exports = {
     description: "helps you see the last message which got deleted",
     category: "INFORMATION",
     usage: "snipe",
-    botPermissions: [],
+    botPermissions: ["MANAGE_MESSAGES"],
     userPermissions: ["EMBED_LINKS"],
 
     async run(client, message, args) {
