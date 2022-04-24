@@ -12,9 +12,11 @@ module.exports = function (client, options) {
   );
 
   client.on("messageDelete", async (message) => {
-    if (!message.guild || message.author.bot) return;
-
     try {
+      if (!message.member) {
+        await message.guild.members.fetch(message.author.id)
+      }
+      if (!message.guild || message.author.bot) return;
       client.snipes.set(message.channel.id, {
         content: message.content,
         author: message.author.tag,
