@@ -20,11 +20,11 @@ module.exports = {
                 });
         if (msg.content) {
             embed.setDescription(
-                `${client.emoji.ar}| **${msg.author}**\n${client.emoji.ar}| ${msg.content}`
+                `Author : **${msg.author}**\nContent : ${msg.content}`
             )
         } else if (msg.image) {
             embed.setDescription(
-                `${client.emoji.ar}| **${msg.author}**\n${client.emoji.ar}| ${msg.content || 'No Message'}`
+                `Author : **${msg.author}**\nContent : ${msg.content || 'No Message'}`
             )
             embed.setImage(msg.image);
         } else {
