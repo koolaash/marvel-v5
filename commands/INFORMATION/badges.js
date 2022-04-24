@@ -141,7 +141,7 @@ module.exports = {
                 `__**${client.emoji.marvel} BETA TESTER**__`
             )
         }
-        if (voted || voted === true || voted !== false) {
+        if (voted === true || voted !== false) {
             badges.push(
                 `__**${client.emoji.voted} VOTER**__`
             )
