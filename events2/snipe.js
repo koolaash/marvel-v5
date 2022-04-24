@@ -13,11 +13,8 @@ module.exports = function (client, options) {
 
   client.on("messageDelete", async (message) => {
     try {
-      if (message.webhookID) return;
-      if (!message.member) {
-        message.member = await message.guild.fetchMember(message).catch(() => null);
-      }
-      if (message.author.bot || !message.guild || !message.member) return;
+      if (message.webhookId) return;
+      if (message.author.bot || !message.guild) return;
       client.snipes.set(message.channel.id, {
         content: message.content,
         author: message.author.tag,
