@@ -105,7 +105,7 @@ module.exports = {
               "hentai <pussy>"
             )
             .setColor(client.embed.cf)
-            .setFooter("<> are not required")
+            .setFooter({ text: "<> are not required", iconURL: message.author.displayAvatarURL({ dynamic: true }) })
         ]
       });
     }

@@ -102,7 +102,7 @@ module.exports = {
               "porn <gif>"
             )
             .setColor(client.embed.cf)
-            .setFooter("<> are not required")
+            .setFooter({ text: "<> are not required", iconURL: message.author.displayAvatarURL({ dynamic: true }) })
         ]
       });
     }
