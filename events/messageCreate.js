@@ -11,9 +11,9 @@ module.exports.run = async (client, message) => {
         prefixModel = client.prefixModel,
         prefixData = await prefixModel.findOne({
             GuildID: message.guild.id,
-        }).catch(err => console.log(err)),
-        desc = `Hey, Marvel here!\n\nPrefix for this server is \`${prefix}\`\n\n` +
-            `If you have any problem regarding bot join : \n[discord.gg/marvel](${client.config.bserver})`
+        }).catch(err => console.log(err))
+    let desc = `Hey, Marvel here!\n\nPrefix for this server is \`${prefix}\`\n\n` +
+        `If you have any problem regarding bot join : \n[discord.gg/marvel](${client.config.bserver})`
     if (dis === true) {
         desc = `Hey, Marvel here!\n\nPrefix for this server is \`${prefix}\`\n\n` +
             `If you have any problem regarding bot join : \n[discord.gg/marvel](${client.config.bserver})` +
