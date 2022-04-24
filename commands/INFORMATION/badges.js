@@ -31,7 +31,7 @@ module.exports = {
             vip = db.get("vip" + target.user.id),
             superr = db.get("super-" + target.id),
             beta = db.get('beta-' + target.id),
-            voted = await client.qdb.get(`voted${message.author.id}`);
+            voted = await client.qdb.get(`voted${target.id}`);
 
         let badges = [],
             memName;
