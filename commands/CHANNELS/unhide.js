@@ -23,7 +23,7 @@ module.exports = {
                     return message.reply({
                         embeds: [
                             new discord.MessageEmbed({
-                                description: client.emoji.fail + "| Cant find any user or role revelent to " + args[0],
+                                description: `${client.emoji.fail}| Cant find any user or role revelent to ${args[0]}`,
                                 color: client.color.cf
                             })
                         ]
@@ -36,7 +36,7 @@ module.exports = {
                     embeds: [
                         new discord.MessageEmbed()
                             .setDescription(
-                                client.emoji.fail + "| Cannot Find This User Or Role"
+                                `${client.emoji.fail}| Cannot Find This User Or Role`
                             )
                             .setColor(client.embed.cf)
                     ]
@@ -44,9 +44,7 @@ module.exports = {
             }
             const nembed = new discord.MessageEmbed()
                 .setDescription(
-                    client.emoji.success + "| <#" +
-                    message.channel +
-                    "> Is Now Visible For Targated Role Or User`.!"
+                    `${client.emoji.success}| <#${message.channel}> Is Now Visible For Targated Role Or User\`.!`
                 )
                 .setColor(client.embed.cr)
             return (
@@ -59,9 +57,7 @@ module.exports = {
         } else {
             const embed = new discord.MessageEmbed()
                 .setDescription(
-                    client.emoji.success + "| <#" +
-                    message.channel +
-                    "> Is Now Visible For Everyone.!"
+                    `${client.emoji.success}| <#${message.channel}> Is Now Visible For Everyone.!`
                 )
                 .setColor(client.embed.cr)
             return (

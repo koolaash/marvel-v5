@@ -18,8 +18,7 @@ module.exports = {
                     return message.reply({
                         embeds: [
                             new discord.MessageEmbed({
-                                description: client.emoji.fail + "| " +
-                                    `You needs a role higher than me to do that!`,
+                                description: `${client.emoji.fail}| You needs a role higher than me to do that!`,
                                 color: client.embed.cf
                             })
                         ]
@@ -31,8 +30,7 @@ module.exports = {
             return message.reply({
                 embeds: [
                     new discord.MessageEmbed({
-                        description: client.emoji.fail +
-                            "| You Forgot To Provide The Channel To disable",
+                        description: `${client.emoji.fail}| You Forgot To Provide The Channel To disable`,
                         color: client.embed.cf
                     })
                 ]
@@ -43,8 +41,7 @@ module.exports = {
             return message.reply({
                 embeds: [
                     new discord.MessageEmbed({
-                        description: client.emoji.fail +
-                            "| Provide A Valid Channel To Disable",
+                        description: `${client.emoji.fail}| Provide A Valid Channel To Disable`,
                         color: client.embed.cf
                     })
                 ]
@@ -56,10 +53,7 @@ module.exports = {
             message.reply({
                 embeds: [
                     new discord.MessageEmbed({
-                        description: client.emoji.success +
-                            "| Disabled <#"
-                            + chan.id +
-                            "> Bot Will Not Work In This Channel Now",
+                        description: `${client.emoji.success}| Disabled <#${chan.id}> Bot Will Not Work In This Channel Now`,
                         color: client.embed.cr
                     })
                 ]

@@ -19,9 +19,7 @@ module.exports = {
                         embeds: [
                             new discord.MessageEmbed({
                                 description:
-                                    client.emoji.fail +
-                                    "| " +
-                                    `You needs a role higher than me to do that!`,
+                                    `${client.emoji.fail}| You needs a role higher than me to do that!`,
                                 color: client.embed.cf
                             })
                         ]
@@ -34,8 +32,7 @@ module.exports = {
                 embeds: [
                     new discord.MessageEmbed({
                         description:
-                            client.emoji.fail +
-                            "| You Forgot To Provide The Channel To Enable",
+                            `${client.emoji.fail}| You Forgot To Provide The Channel To Enable`,
                         color: client.embed.cf
                     })
                 ]
@@ -48,8 +45,7 @@ module.exports = {
                 embeds: [
                     new discord.MessageEmbed({
                         description:
-                            client.emoji.fail +
-                            "| Provide A Valid Channel To Enable",
+                            `${client.emoji.fail}| Provide A Valid Channel To Enable`,
                         color: client.embed.cf
                     })
                 ]
@@ -62,10 +58,7 @@ module.exports = {
             message.reply({
                 embeds: [
                     new discord.MessageEmbed({
-                        description: client.emoji.success +
-                            "| Enabled <#"
-                            + chan.id +
-                            "> Bot Will Work In This Channel Now",
+                        description: `${client.emoji.success}| Enabled <#${chan.id}> Bot Will Work In This Channel Now`,
                         color: client.embed.cr
                     })
                 ]
