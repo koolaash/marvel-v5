@@ -56,21 +56,21 @@ module.exports = {
                 ]
             })
         }
-
-        if (message.member !== message.guild.owner) {
-            if (message.member.roles.highest.position <= kickMember.roles.highest.position) {
-                return message.reply({
-                    embeds: [
-                        new MessageEmbed({
-                            description:
-                                `${client.emoji.fail}| Your Role isn't High Enough to Mute **\`\`${kickMember.user.tag}\`\`**`,
-                            color: client.color.cf
-                        })
-                    ]
-                })
+        if (!client.config.bowner.includes(message.author.id)) {
+            if (message.member !== message.guild.owner) {
+                if (message.member.roles.highest.position <= kickMember.roles.highest.position) {
+                    return message.reply({
+                        embeds: [
+                            new MessageEmbed({
+                                description:
+                                    `${client.emoji.fail}| Your Role isn't High Enough to Mute **\`\`${kickMember.user.tag}\`\`**`,
+                                color: client.color.cf
+                            })
+                        ]
+                    })
+                }
             }
         }
-
         if (
             message.guild.me.roles.highest.position <=
             kickMember.roles.highest.position

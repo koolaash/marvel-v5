@@ -21,7 +21,7 @@ module.exports = {
                             new MessageEmbed({
                                 color: client.embed.cf,
                                 description:
-                                    client.emoji.fail + "| Your Role isn't High Enough"
+                                    `${client.emoji.fail}| Your Role isn't High Enough`
                             })
                         ]
                     });
