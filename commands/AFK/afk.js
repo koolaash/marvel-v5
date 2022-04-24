@@ -23,9 +23,8 @@ module.exports = {
                 db.set(`afkUser_${message.guild.id + message.author.id}`, true);
                 db.set(`afkMsg_${message.guild.id + message.author.id}`, afkmsg);
                 db.set(`afkTime_${message.guild.id + message.author.id}`, Date.now());
-                return message.reply(
-                    "You are now afk\nReason : " + afkmsg
-                )
+                return message.reply(`You are now afk\nReason : ${afkmsg}`)
+                    .then(m => setTimeout(() => m.delete().catch(() => null), 3000))
             }, 300);
         } catch (e) {
             return console.log(e)
