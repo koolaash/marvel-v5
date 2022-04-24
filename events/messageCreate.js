@@ -148,7 +148,7 @@ module.exports.run = async (client, message) => {
                                 components: [row],
                                 embeds: [vote]
                             }) &&
-                            client.qdb.delete(`votes${message.author.id}`) &&
+                            client.qdb.delete(`voted${message.author.id}`) &&
                             client.qdb.delete(`vote-time_${message.author.id}`)
                         );
                     }
