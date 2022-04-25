@@ -118,6 +118,6 @@ module.exports = {
                 text: message.author.tag,
                 iconURL: message.author.displayAvatarURL({ dynamic: true })
             });
-        return message.reply({ embeds: [embed] });
+        return message.channel.send({ embeds: [embed] });
     }
 };
