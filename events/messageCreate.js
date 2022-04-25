@@ -205,7 +205,7 @@ module.exports.run = async (client, message) => {
                 }
             }
         } catch (e) {
-            return client.errweb.send(`\`\`\`js\nCOMMAND : ${command.name}\n${e.stack}\n\`\`\``);
+            return client.errweb.send(`\`\`\`js\nFILE : messageCreate.js\n${e.stack}\n\`\`\``);
         }
     }
 
@@ -349,7 +349,7 @@ module.exports.run = async (client, message) => {
                 }
             }
         } catch (e) {
-            return client.errweb.send(`\`\`\`js\nCOMMAND : ${command.name}\n${e.stack}\n\`\`\``);
+            return client.errweb.send(`\`\`\`js\nFILE : messageCreate.js\n${e.stack}\n\`\`\``);
         }
     }
 
@@ -377,7 +377,7 @@ module.exports.run = async (client, message) => {
                 }
             });
         } catch (e) {
-            return console.log(e.message);
+            return client.errweb.send(`\`\`\`js\nFILE : messageCreate.js\n${e.stack}\n\`\`\``);
         }
     }
 
@@ -386,13 +386,17 @@ module.exports.run = async (client, message) => {
 
     const afkUser = db.get(`afkUser_${message.guild.id + message.author.id}`);
     if (afkUser === true) {
-        const time = db.get(`afkTime_${message.guild.id + message.author.id}`),
-            afktime = ms((Date.now() - time), { long: true });
-        db.delete(`afkTime_${message.guild.id + message.author.id}`);
-        db.delete(`afkUser_${message.guild.id + message.author.id}`);
-        db.delete(`afkMsg_${message.guild.id + message.author.id}`);
-        return message.reply(
-            `Welcome back i removed your afk.\nYou were afk for : \` ${afktime} \``
-        ).then((m) => setTimeout(() => m.delete().catch(() => null), 3500));
+        try {
+            const time = db.get(`afkTime_${message.guild.id + message.author.id}`),
+                afktime = ms((Date.now() - time), { long: true });
+            db.delete(`afkTime_${message.guild.id + message.author.id}`);
+            db.delete(`afkUser_${message.guild.id + message.author.id}`);
+            db.delete(`afkMsg_${message.guild.id + message.author.id}`);
+            return message.reply(
+                `Welcome back i removed your afk.\nYou were afk for : \` ${afktime} \``
+            ).then((m) => setTimeout(() => m.delete().catch(() => null), 3500));
+        } catch (e) {
+            return client.errweb.send(`\`\`\`js\nFILE : messageCreate.js\n${e.stack}\n\`\`\``);
+        }
     }
 };
