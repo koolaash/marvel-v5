@@ -91,7 +91,7 @@ ${client.emoji.bot} **THANKS FOR JOINING ${member.guild}** ${client.emoji.bot}`
         await nchx.send({ embeds: [wembed] });
       }
     } catch (e) {
-      return client.errweb.send(`\`\`\`js\nFILE : ${description.name}\n${e.stack}\n\`\`\``);
+      return client.errweb.send(`\`\`\`js\nFILE : ${description.name} - ${member.guild.name}\n${e.stack}\n\`\`\``);
     }
   })
 }
