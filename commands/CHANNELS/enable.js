@@ -58,7 +58,7 @@ module.exports = {
             message.reply({
                 embeds: [
                     new discord.MessageEmbed({
-                        description: `${client.emoji.success}| Enabled <#${chan.id}> Bot Will Work In This Channel Now`,
+                        description: `${client.emoji.success}| Enabled ${chan} Bot Will Work In This Channel Now`,
                         color: client.embed.cr
                     })
                 ]

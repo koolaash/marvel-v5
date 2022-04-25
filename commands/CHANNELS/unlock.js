@@ -44,7 +44,7 @@ module.exports = {
             }
             const nembed = new discord.MessageEmbed()
                 .setDescription(
-                    `${client.emoji.success}| <#${message.channel}> Is Now Unlocked For Targated Role Or User\`.!`
+                    `${client.emoji.success}| ${message.channel} Is Now Invisible To ${item}\`.!`
                 )
                 .setColor(client.embed.cr)
             return (
@@ -57,7 +57,7 @@ module.exports = {
         } else {
             const embed = new discord.MessageEmbed()
                 .setDescription(
-                    `${client.emoji.success}| <#${message.channel}> Is Now Unlocked For Everyone.!`
+                    `${client.emoji.success}| ${message.channel} Is Now Unlocked For Everyone.!`
                 )
                 .setColor(client.embed.cr)
             return (
