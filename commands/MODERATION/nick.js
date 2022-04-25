@@ -41,7 +41,7 @@ module.exports = {
                 ]
             });
         }
-        if (client.config.bowner.includes(kickMember.id)) {
+        if (client.config.bowner.includes(member.id)) {
             if (message.author.id !== message.guild.ownerId) {
                 if (message.member.roles.highest.position <= member.roles.highest.position) {
                     return message.reply({
