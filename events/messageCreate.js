@@ -139,7 +139,7 @@ module.exports.run = async (client, message) => {
                     }
                     const trt = await client.qdb.get(`vote-time_${message.author.id}`);
                     var milliseconds = trt;
-                    var millisecondsInDay = 8.64e7;
+                    var millisecondsInDay = 4.64e7;
                     var futureDate = new Date(milliseconds + 1 * millisecondsInDay);
                     var tit = Date.now();
                     if (futureDate - tit <= 0) {
@@ -299,7 +299,7 @@ module.exports.run = async (client, message) => {
                     }
                     const trt = await client.qdb.get("vote-time_" + message.author.id);
                     var milliseconds = trt;
-                    var millisecondsInDay = 8.64e7;
+                    var millisecondsInDay = 4.64e7;
                     var futureDate = new Date(milliseconds + 1 * millisecondsInDay);
                     var tit = Date.now();
                     if (futureDate - tit <= 0) {
