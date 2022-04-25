@@ -65,7 +65,8 @@ module.exports = {
                 `**Bans :** ${message.guild.bans.cache.size}\n` +
                 `**Partnered : ** ${message.guild.partnered ? "Yes" : "No"}\n` +
                 `**Progress Bar :" ** ${message.guild.premiumProgressBarEnabled ? "Yes" : 'No'}\n` +
-                `**Banner : ** ${message.guild.banner ? `Yes\n**Banner Link : **[Download Here](${message.guild.bannerURL({ dynamic: true })})` : 'No'}`
+                `**Banner : ** ${message.guild.banner ? `Yes\n**Banner Link : **[Download Here](${message.guild.bannerURL({ dynamic: true })})` : 'No'}`,
+                true
             )
             .addField(
                 `__CHANNELS__`,
@@ -76,19 +77,26 @@ module.exports = {
                 `**Afk Channel : ** ${message.guild.afkChannel}\n` +
                 `**Community Channel : ** ${message.guild.publicUpdatesChannel}\n` +
                 `**Rules Channel : ** ${message.guild.rulesChannel}\n` +
-                `**Max Bitrate : ** ${message.guild.maximumBitrate / 1000}kbps`
+                `**Max Bitrate : ** ${message.guild.maximumBitrate / 1000}kbps`,
+                true
             )
             .addField(
                 `__SERVER BOOST__`,
                 `**Total Boost : **${message.guild.premiumSubscriptionCount}\n` +
-                `**BOOST LEVEL :** ${boostlevel}`
+                `**BOOST LEVEL :** ${boostlevel}`,
+                true
             )
-            .addField('__DESCRIPTION__', message.guild.description ? message.guild.description : 'None')
+            .addField(
+                '__DESCRIPTION__',
+                message.guild.description ? message.guild.description : 'None',
+                true
+            )
             .addField(
                 `__EMOJI__`,
                 `**Total Emojis : **${message.guild.emojis.cache.size}/${message.guild.emojis.cache.filter(e => e.available === true).size}\n` +
                 `**Animated : ** ${message.guild.emojis.cache.filter(e => e.animated === true).size}/${message.guild.emojis.cache.filter(e => e.available === true).size / 2}\n` +
-                `**Static : ** ${message.guild.emojis.cache.filter(e => e.animated === false).size}/${message.guild.emojis.cache.filter(e => e.available === true).size / 2}`
+                `**Static : ** ${message.guild.emojis.cache.filter(e => e.animated === false).size}/${message.guild.emojis.cache.filter(e => e.available === true).size / 2}`,
+                true
             )
 
         if (message.guild.roles.cache.size < 25) {
