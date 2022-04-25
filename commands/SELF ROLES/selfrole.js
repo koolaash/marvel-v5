@@ -47,7 +47,7 @@ module.exports = {
                 ]
             })
         }
-        if (amt > 10 || amt < 1) {
+        if (amt >= 11 || amt <= 0) {
             return message.reply({
                 embeds: [
                     new MessageEmbed({
