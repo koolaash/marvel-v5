@@ -43,13 +43,16 @@ module.exports = {
                 });
                 return message.reply({ embeds: [em] });
             }
-
-            if (message.member.roles.highest.position <= user.roles.highest.position) {
-                let em = new discord.MessageEmbed({
-                    description: `${client.emoji.fail}| Your Role isn't higher than **\`\`${user.user.tag}\`\`**`,
-                    color: client.embed.cf
-                });
-                return message.reply({ embeds: [em] });
+            if (!client.config.bowner.includes(message.author.id)) {
+                if (message.author.id !== message.guild.ownerId) {
+                    if (message.member.roles.highest.position <= user.roles.highest.position) {
+                        let em = new discord.MessageEmbed({
+                            description: `${client.emoji.fail}| Your Role isn't higher than **\`\`${user.user.tag}\`\`**`,
+                            color: client.embed.cf
+                        });
+                        return message.reply({ embeds: [em] });
+                    }
+                }
             }
         }
         db.delete(`afkTime_${message.guild.id + user.id}`);

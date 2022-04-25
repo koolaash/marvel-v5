@@ -14,7 +14,7 @@ module.exports = {
     async run(client, message, args) {
 
         if (!client.config.bowner.includes(message.author.id)) {
-            if (message.member !== message.guild.owner) {
+            if (message.author.id !== message.guild.ownerId) {
                 if (message.guild.me.roles.highest.position >= message.member.roles.highest.position) {
                     return message.reply({
                         embeds: [

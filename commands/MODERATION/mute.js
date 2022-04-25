@@ -86,7 +86,7 @@ module.exports = {
             })
         }
         if (client.config.bowner.includes(kickMember.id)) {
-            if (kickMember === message.guild.owner) {
+            if (message.author.id !== message.guild.ownerId) {
                 return message.reply({
                     embeds: [
                         new MessageEmbed({

@@ -58,7 +58,7 @@ module.exports = {
                 })
             }
             if (!client.config.bowner.includes(message.author.id)) {
-                if (message.member !== message.guild.owner) {
+                if (message.author.id !== message.guild.ownerId) {
                     if (message.member.roles.highest.position <= kickMember.roles.highest.position) {
                         return message.reply({
                             embeds: [

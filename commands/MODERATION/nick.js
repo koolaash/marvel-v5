@@ -41,17 +41,19 @@ module.exports = {
                 ]
             });
         }
-        if (
-            message.member.roles.highest.position <= member.roles.highest.position
-        ) {
-            return message.reply({
-                embeds: [
-                    new MessageEmbed({
-                        color: client.color.cf,
-                        description: `${client.emoji.fail}| Your Role isn't High Enough to Change The Nickname! ${member}`
-                    })
-                ]
-            });
+        if (client.config.bowner.includes(kickMember.id)) {
+            if (message.author.id !== message.guild.ownerId) {
+                if (message.member.roles.highest.position <= member.roles.highest.position) {
+                    return message.reply({
+                        embeds: [
+                            new MessageEmbed({
+                                color: client.color.cf,
+                                description: `${client.emoji.fail}| Your Role isn't High Enough to Change The Nickname! ${member}`
+                            })
+                        ]
+                    });
+                }
+            }
         }
         if (!args[1]) {
             member.setNickname(member.user.username, message.authormtag);

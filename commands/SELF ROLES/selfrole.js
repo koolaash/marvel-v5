@@ -8,7 +8,7 @@ module.exports = {
     description: "helps you change role icon",
     category: "MODERATION",
     usage: "selfrole",
-    userPermissions: ["MANAGE_ROLES"],
+    userPermissions: ["ADMINISTRATOR"],
     botPermissions: ["EMBED_LINKS", "MANAGE_ROLES"],
     vote: true,
 
