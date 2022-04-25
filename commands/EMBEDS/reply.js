@@ -12,7 +12,7 @@ module.exports = {
         if (!msg) {
             return message.reply(`${client.emoji.fail}| Where's The Messages`);
         }
-        let m = await message.channel.messages.fetch(message.reference.messageID).catch(() => null)
+        let m = await message.channel.messages.fetch(message.reference.messageId).catch(() => null)
         if (!m) return message.reply("You need to reply to a message while using this command!")
         message.delete();
         return m.reply({ content: msg });
