@@ -13,17 +13,6 @@ module.exports = {
         let avatar,
             av = new MessageEmbed();
 
-        if (!args[0]) {
-            return message.reply({
-                embeds: [
-                    new MessageEmbed({
-                        color: client.embed.cf,
-                        description:
-                            `${client.emoji.fail}| Please mention a user or provide a user id first!`,
-                    })
-                ]
-            });
-        }
         if (args[0]) {
             let target = message.mentions.members.first() ||
                 message.guild.members.cache.get(args[0])
