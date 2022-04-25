@@ -65,7 +65,7 @@ module.exports = {
                 `**Bans :** ${message.guild.bans.cache.size}\n` +
                 `**Partnered : ** ${message.guild.partnered ? "Yes" : "No"}\n` +
                 `**Progress Bar :" ** ${message.guild.premiumProgressBarEnabled ? "Yes" : 'No'}\n` +
-                `**Banner : ** ${message.guild.banner ? `Yes\n**Banner Link : **[Download Here](${role.bannerURL({ size: '2048', dynamic: true })})` : 'No'}`
+                `**Banner : ** ${message.guild.banner ? `Yes\n**Banner Link : **[Download Here](${message.guild.bannerURL({ size: '2048', dynamic: true })})` : 'No'}`
             )
             .addField(
                 `__CHANNELS__`,
