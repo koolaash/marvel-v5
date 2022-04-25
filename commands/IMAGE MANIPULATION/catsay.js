@@ -23,7 +23,7 @@ module.exports = {
         }
         let im = `https://cataas.com/cat/cute/says/${msg}`;
         message.channel.sendTyping();
-        message.reply({
+        message.channel.send({
             files: [
                 {
                     attachment: im,

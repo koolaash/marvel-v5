@@ -17,6 +17,6 @@ module.exports = {
         message.channel.sendTyping();
         let output = await new DIG.Rip().getImage(img),
             attach = new Discord.MessageAttachment(output, `${nam}.png`);
-        return message.reply({ files: [attach] });
+        return message.channel.send({ files: [attach] });
     }
 };

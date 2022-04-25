@@ -19,6 +19,16 @@ module.exports = {
             img = m.user.displayAvatarURL({ size: 2048, format: 'png' })
         }
         if (args[0] && isNaN(args[0])) {
+            if (args[1]) {
+                return message.reply({
+                    embeds: [
+                        new Discord.MessageEmbed({
+                            description: `${client.emoji.fail}| Provide a effect amount in numbers!`,
+                            color: client.embed.cf
+                        })
+                    ]
+                });
+            }
             img = args[0]
             amt = args[1]
             if (!/\.(png)$/i.test(img)) {
@@ -43,10 +53,10 @@ module.exports = {
                 ]
             });
         }
-        ;
+
         message.channel.sendTyping();
         let output = await new DIG.Blur().getImage(img, amt),
             attach = new Discord.MessageAttachment(output, "blur.png");
-        return message.reply({ files: [attach] });
+        return message.channel.send({ files: [attach] });
     }
 };

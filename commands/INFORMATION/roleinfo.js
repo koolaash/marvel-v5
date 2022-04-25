@@ -63,6 +63,6 @@ module.exports = {
             }
         })
             .setThumbnail(role.iconURL() || message.guild.iconURL({ dynamic: true }));
-        return message.reply({ embeds: [embed] })
+        return message.channel.send({ embeds: [embed] })
     }
 };

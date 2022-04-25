@@ -14,10 +14,8 @@ module.exports = {
     aliases: ['about', 'ping', 'info'],
 
     run: async (client, message) => {
+        message.channel.sendTyping();
         cpuStat.usagePercent(async function (err, percent, seconds) {
-            if (err) {
-                return console.log(err);
-            }
             const duration = moment
                 .duration(message.client.uptime)
                 .format(
