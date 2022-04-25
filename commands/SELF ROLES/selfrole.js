@@ -1076,7 +1076,7 @@ module.exports = {
             return;
         }
         let r10, role10, emj10, emoji10
-        if (amt >= '10') {
+        if (amt === '10') {
             message.reply({
                 embeds: [
                     new MessageEmbed({
