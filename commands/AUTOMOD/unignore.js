@@ -88,7 +88,7 @@ module.exports = {
             return message.reply({
                 embeds: [
                     new discord.MessageEmbed({
-                        description: `${semoji}Removed <#${chx.id}> from ignored channels list!`,
+                        description: `${semoji}Removed ${chx} from ignored channels list!`,
                         color: success,
                     })
                 ]

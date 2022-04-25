@@ -67,7 +67,7 @@ module.exports = {
                 embeds: [
                     new MessageEmbed({
                         description:
-                            `${semoji}Now ignoring <@&${role.id}> from automod!`,
+                            `${semoji}Now ignoring ${role} from automod!`,
                         color: success,
                     })
                 ]
@@ -102,7 +102,7 @@ module.exports = {
             return message.reply({
                 embeds: [
                     new MessageEmbed({
-                        description: `${semoji}Now ignoring <#${chan.id}> from automod!`,
+                        description: `${semoji}Now ignoring ${chan} from automod!`,
                         color: success,
                     })
                 ]
