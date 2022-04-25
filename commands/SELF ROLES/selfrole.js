@@ -232,7 +232,7 @@ module.exports = {
             return;
         }
         let r2, role2, emj2, emoji2
-        if (amt >= '2') {
+        if (amt >= '2' || amt === '10') {
             message.reply({
                 embeds: [
                     new MessageEmbed({
@@ -334,7 +334,7 @@ module.exports = {
             return;
         }
         let r3, role3, emj3, emoji3
-        if (amt >= '3') {
+        if (amt >= '3' || amt === '10') {
             message.reply({
                 embeds: [
                     new MessageEmbed({
@@ -437,7 +437,7 @@ module.exports = {
             return;
         }
         let r4, role4, emj4, emoji4
-        if (amt >= '4') {
+        if (amt >= '4' || amt === '10') {
             message.reply({
                 embeds: [
                     new MessageEmbed({
@@ -541,7 +541,7 @@ module.exports = {
             return;
         }
         let r5, role5, emj5, emoji5
-        if (amt >= '5') {
+        if (amt >= '5' || amt === '10') {
             message.reply({
                 embeds: [
                     new MessageEmbed({
@@ -646,7 +646,7 @@ module.exports = {
             return;
         }
         let r6, role6, emj6, emoji6, row2 = new MessageActionRow()
-        if (amt >= '6') {
+        if (amt >= '6' || amt === '10') {
             message.reply({
                 embeds: [
                     new MessageEmbed({
@@ -752,7 +752,7 @@ module.exports = {
             return;
         }
         let r7, role7, emj7, emoji7
-        if (amt >= '7') {
+        if (amt >= '7' || amt === '10') {
             message.reply({
                 embeds: [
                     new MessageEmbed({
@@ -859,7 +859,7 @@ module.exports = {
             return;
         }
         let r8, role8, emj8, emoji8
-        if (amt >= '8') {
+        if (amt >= '8' || amt === '10') {
             message.reply({
                 embeds: [
                     new MessageEmbed({
@@ -967,7 +967,7 @@ module.exports = {
             return;
         }
         let r9, role9, emj9, emoji9
-        if (amt >= '9') {
+        if (amt >= '9' || amt === '10') {
             message.reply({
                 embeds: [
                     new MessageEmbed({
@@ -1076,7 +1076,7 @@ module.exports = {
             return;
         }
         let r10, role10, emj10, emoji10
-        if (amt = '10') {
+        if (amt >= '10') {
             message.reply({
                 embeds: [
                     new MessageEmbed({
