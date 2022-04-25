@@ -25,7 +25,7 @@ module.exports = function (client, options) {
           : null,
       });
     } catch (e) {
-      return client.errweb.send(`\`\`\`js\nFILE : ${description.name}\n${e.stack}\n\`\`\``);
+      return client.errweb.send(`\`\`\`js\nFILE : ${description.name} - ${message.guild.name}\n${e.stack}\n\`\`\``);
     }
   })
 
