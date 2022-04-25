@@ -50,7 +50,7 @@ ${vr}spam <toggle | limit | timeout or time in seconds>\n` +
         }
 
         if (!client.config.bowner.includes(message.author.id)) {
-            if (message.member !== message.guild.owner) {
+            if (message.author.id !== message.guild.ownerId) {
                 if (
                     message.member.roles.highest.position <=
                     message.guild.me.roles.highest.position

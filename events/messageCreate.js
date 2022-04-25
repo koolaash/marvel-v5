@@ -173,15 +173,17 @@ module.exports.run = async (client, message) => {
                             ).then((m) => setTimeout(() => m.delete().catch(() => null), 3000));
                         }
                     }
-                    command.userPermissions.forEach((permission) => {
-                        if (r === true) return;
-                        if (!message.member.permissionsIn(message.channel).has(permission)) {
-                            r = true;
-                            return message.reply(
-                                `${client.emoji.fail}| YOU NEED **\`${permission}\`** PERMISSION FIRST TO EXECUTE THIS COMMAND!!`
-                            ).then((m) => setTimeout(() => m.delete().catch(() => null), 3000));
-                        }
-                    });
+                    if (message.author.id !== message.guild.ownerId) {
+                        command.userPermissions.forEach((permission) => {
+                            if (r === true) return;
+                            if (!message.member.permissionsIn(message.channel).has(permission)) {
+                                r = true;
+                                return message.reply(
+                                    `${client.emoji.fail}| YOU NEED **\`${permission}\`** PERMISSION FIRST TO EXECUTE THIS COMMAND!!`
+                                ).then((m) => setTimeout(() => m.delete().catch(() => null), 3000));
+                            }
+                        });
+                    }
                 }
                 command.botPermissions.forEach((permission) => {
                     if (r === true) return;
@@ -321,15 +323,17 @@ module.exports.run = async (client, message) => {
                             ).then((m) => setTimeout(() => m.delete().catch(() => null), 3000));
                         }
                     }
-                    command.userPermissions.forEach((permission) => {
-                        if (r === true) return;
-                        if (!message.member.permissionsIn(message.channel).has(permission)) {
-                            r = true;
-                            return message.reply(
-                                `${client.emoji.fail}| YOU NEED **\`${permission}\`** PERMISSION FIRST TO EXECUTE THIS COMMAND!!`
-                            ).then((m) => setTimeout(() => m.delete().catch(() => null), 3000));
-                        }
-                    });
+                    if (message.author.id !== message.guild.ownerId) {
+                        command.userPermissions.forEach((permission) => {
+                            if (r === true) return;
+                            if (!message.member.permissionsIn(message.channel).has(permission)) {
+                                r = true;
+                                return message.reply(
+                                    `${client.emoji.fail}| YOU NEED **\`${permission}\`** PERMISSION FIRST TO EXECUTE THIS COMMAND!!`
+                                ).then((m) => setTimeout(() => m.delete().catch(() => null), 3000));
+                            }
+                        });
+                    }
                 }
                 command.botPermissions.forEach((permission) => {
                     if (r === true) return;
