@@ -179,7 +179,8 @@ module.exports = {
                     p + "emb <message>` - to send quick embed in same channel\n`" +
                     p + "idp #channel`- to announce something in embed with modefied way\n`" +
                     p + "qidp [room-id] [room-pass]` - to send quick idp in message channel\n`" +
-                    p + "say <message>` - to send any message via bot in non embed form`" +
+                    p + "say <message>` - to send any message via bot in non embed form/n`" +
+                    p + "reply <message>` - to send any message via bot in non embed form`" +
                     "\n**━━━━━━━━━━━━━━━━━**"
                 )
                 .addField(`${client.emoji.ar}NOTE :`, "<> [] - DO NOT INCLUDE THESE WHILE EXECUTING A COMMAND"),

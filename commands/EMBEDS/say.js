@@ -1,6 +1,6 @@
 module.exports = {
     name: "say",
-    aliases: ["reply"],
+  //  aliases: ["reply"],
     description: "say command",
     category: "EMBED",
     usage: "say <message>",
