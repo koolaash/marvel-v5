@@ -78,8 +78,8 @@ module.exports = {
                         })
                     ]
                 }).then(m => setTimeout(() => m.delete().catch(() => null), 2500));
-            } else if (typeof parseInt(args[0]) == "number") {
-                if (parseInt(args[0]) > 100) {
+            } else if (!isNaN(args[0])) {
+                if (args[0] > 100) {
                     return message.channel.send({
                         embeds: [
                             new MessageEmbed({
@@ -90,7 +90,7 @@ module.exports = {
                     }).then(m => setTimeout(() => m.delete().catch(() => null), 2500));
                 }
                 let md = await message.channel.messages.fetch({
-                    limit: parseInt(args[0]),
+                    limit: args[0],
                 });
                 await message.channel.bulkDelete(md)
                 message.channel.send({
@@ -101,7 +101,7 @@ module.exports = {
                         })
                     ]
                 }).then(m => setTimeout(() => m.delete().catch(() => null), 2500));
-            } else if (args[0] !== "images" || args[0] !== "bots" || typeof parseInt(args[0]) !== "number" || (message.mentions.users.size <= 0)) {
+            } else if (args[0] !== "images" || args[0] !== "bots" || !isNaN(args[0]) || (message.mentions.users.size <= 0)) {
                 return message.channel.send({
                     embeds: [
                         new MessageEmbed({
@@ -109,7 +109,7 @@ module.exports = {
                             description: `${client.emoji.fail}| Mention a \`<user>\` or \`<bots | images | amount>\``
                         })
                     ]
-                }).then(m => setTimeout(() => m.delete().catch(() => null), 2500));
+                }).then(m => setTimeout(() => m.delete().catch(() => null), 3500));
             }
         } catch (e) {
             console.log(e);
