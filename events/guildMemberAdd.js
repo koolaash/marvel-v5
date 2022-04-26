@@ -26,7 +26,7 @@ module.exports.run = async (client, member) => {
         await cchh.send(msg);
     } catch (e) {
         client.errweb.send(
-            `\`\`\`js\n${e.stack}\n in ${member.guild.name} in non embed welcomer\n\`\`\``
+            `\`\`\`js\n${e.stack}\n in ${member.guild.name} - ${member.guild.id} in non embed welcomer\n\`\`\``
         )
     }
 

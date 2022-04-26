@@ -202,12 +202,12 @@ module.exports.run = async (client, message) => {
                                 Timeout.delete(`cooldown${message.author.id}`);
                             }, cooldown);
                     } catch (e) {
-                        return client.errweb.send(`\`\`\`js\nCOMMAND : ${command.name} - ${message.guild.name}\n${e.stack}\n\`\`\``);
+                        return client.errweb.send(`\`\`\`js\nCOMMAND : ${command.name} - ${message.guild.name} - ${message.guild.id}\n${e.stack}\n\`\`\``);
                     }
                 }
             }
         } catch (e) {
-            return client.errweb.send(`\`\`\`js\nFILE : messageCreate.js - ${message.guild.name}\n${e.stack}\n\`\`\``);
+            return client.errweb.send(`\`\`\`js\nFILE : messageCreate.js - ${message.guild.name} - ${message.guild.id}\n${e.stack}\n\`\`\``);
         }
     }
 
@@ -348,12 +348,12 @@ module.exports.run = async (client, message) => {
                     try {
                         command.run(client, message, args)
                     } catch (e) {
-                        return client.errweb.send(`\`\`\`js\nCOMMAND : ${command.name} - ${message.guild.name}\n${e.stack}\n\`\`\``);
+                        return client.errweb.send(`\`\`\`js\nCOMMAND : ${command.name} - ${message.guild.name} - ${message.guild.id}\n${e.stack}\n\`\`\``);
                     }
                 }
             }
         } catch (e) {
-            return client.errweb.send(`\`\`\`js\nFILE : messageCreate.js - ${message.guild.name}\n${e.stack}\n\`\`\``);
+            return client.errweb.send(`\`\`\`js\nFILE : messageCreate.js - ${message.guild.name} - ${message.guild.id}\n${e.stack}\n\`\`\``);
         }
     }
 
@@ -381,7 +381,7 @@ module.exports.run = async (client, message) => {
                 }
             });
         } catch (e) {
-            return client.errweb.send(`\`\`\`js\nFILE : messageCreate.js - ${message.guild.name}\n${e.stack}\n\`\`\``);
+            return client.errweb.send(`\`\`\`js\nFILE : messageCreate.js - ${message.guild.name} - ${message.guild.id}\n${e.stack}\n\`\`\``);
         }
     }
 
@@ -400,7 +400,7 @@ module.exports.run = async (client, message) => {
                 `Welcome back i removed your afk.\nYou were afk for : \` ${afktime} \``
             ).then((m) => setTimeout(() => m.delete().catch(() => null), 3500));
         } catch (e) {
-            return client.errweb.send(`\`\`\`js\nFILE : messageCreate.js - ${message.guild.name}\n${e.stack}\n\`\`\``);
+            return client.errweb.send(`\`\`\`js\nFILE : messageCreate.js - ${message.guild.name} - ${message.guild.id}\n${e.stack}\n\`\`\``);
         }
     }
 };
