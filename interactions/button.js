@@ -104,7 +104,7 @@ module.exports = function (client, options) {
                     duser = button.guild.members.cache.get(tow);
 
                 if (!duser) {
-                    await button.guild.members.fetch(tow).catch(() => null)
+                    duser = await button.guild.members.fetch(tow).catch(() => null)
                 }
 
                 if (!duser) {
@@ -177,7 +177,7 @@ module.exports = function (client, options) {
                     Channel = button.guild.channels.cache.get(button.channel.id);
 
                 if (!duser) {
-                    duser = await button.guild.members.fetch(tow).catch(() => null)
+                    duser = await button.guild.members.fetch(tow).catch(() => null);
                 }
                 if (!duser) {
                     button.reply({
