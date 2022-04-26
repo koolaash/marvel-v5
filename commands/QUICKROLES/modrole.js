@@ -11,6 +11,13 @@ module.exports = {
     botPermissions: ["EMBED_LINKS", "MANAGE_ROLES"],
 
     async run(client, message, args) {
+        const fail = client.embed.cf,
+            success = client.embed.cr,
+            main = client.embed.cm,
+            cross = client.emoji.fail,
+            tick = client.emoji.success,
+            arrow = client.emoji.ar
+
         if (!args[0]) {
             return message.reply({
                 embeds: [
@@ -21,13 +28,8 @@ module.exports = {
                 ]
             });
         }
-        const fail = client.embed.cf,
-            success = client.embed.cr,
-            main = client.embed.cm,
-            cross = client.emoji.fail,
-            tick = client.emoji.success,
-            arrow = client.emoji.ar,
-            arg = args[0].toLowerCase();
+
+        let arg = args[0].toLowerCase();
 
         if (!arg[0]) {
             return message.reply({
