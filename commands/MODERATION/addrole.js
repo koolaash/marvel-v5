@@ -33,7 +33,10 @@ module.exports = {
         }
 
         let count = 0,
-            role = message.mentions.roles.first() || message.guild.roles.cache.get(args[0]);
+            role = message.mentions.roles.first() || message.guild.roles.cache.get(args[0]) ||
+                message.guild.roles.cache.find(
+                    r => r.name.toLowerCase() === args[0].toLocaleLowerCase()
+                )
 
         if (!role) {
             return message.reply({

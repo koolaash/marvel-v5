@@ -41,7 +41,10 @@ module.exports = {
         }
         if (arg[0] === "set") {
             let ro = message.mentions.roles.first() ||
-                message.guild.roles.cache.get(args[1]);
+                message.guild.roles.cache.get(args[1]) ||
+                message.guild.roles.cache.find(
+                    r => r.name.toLowerCase() === args[0].toLocaleLowerCase()
+                );
 
             if (!ro) {
                 return message.reply({

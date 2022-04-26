@@ -14,6 +14,12 @@ module.exports = {
 
         const target = message.mentions.members.first() ||
             message.guild.members.cache.get(args[0]) ||
+            message.guild.members.cache.find(
+                r => r.user.username.toLowerCase() === args[0].toLocaleLowerCase()
+            ) ||
+            message.guild.members.cache.find(
+                ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase()
+            ) ||
             message.guild.members.cache.get(message.author.id),
             team = db.get("team-" + target.user.id),
             partner = db.get("partner-" + target.user.id),

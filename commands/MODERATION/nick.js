@@ -12,7 +12,13 @@ module.exports = {
     async run(client, message, args) {
         let member =
             message.mentions.members.first() ||
-            message.guild.members.cache.get(args[0])
+            message.guild.members.cache.get(args[0]) ||
+            message.guild.members.cache.find(
+                r => r.user.username.toLowerCase() === args[0].toLocaleLowerCase()
+            ) ||
+            message.guild.members.cache.find(
+                ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase()
+            )
 
         if (!member || member === undefined) {
             member = await message.guild.members.fetch(args[0]).catch(() => null)
@@ -41,18 +47,16 @@ module.exports = {
                 ]
             });
         }
-        if (client.config.bowner.includes(member.id)) {
-            if (message.author.id !== message.guild.ownerId) {
-                if (message.member.roles.highest.position <= member.roles.highest.position) {
-                    return message.reply({
-                        embeds: [
-                            new MessageEmbed({
-                                color: client.color.cf,
-                                description: `${client.emoji.fail}| Your Role isn't High Enough to Change The Nickname! ${member}`
-                            })
-                        ]
-                    });
-                }
+        if (message.author.id !== message.guild.ownerId) {
+            if (message.member.roles.highest.position <= member.roles.highest.position) {
+                return message.reply({
+                    embeds: [
+                        new MessageEmbed({
+                            color: client.color.cf,
+                            description: `${client.emoji.fail}| Your Role isn't High Enough to Change The Nickname! ${member}`
+                        })
+                    ]
+                });
             }
         }
         if (!args[1]) {

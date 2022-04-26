@@ -1,5 +1,5 @@
 const { MessageEmbed, MessageButton, MessageActionRow } = require("discord.js"),
-  discord = require('discord.js');
+    discord = require('discord.js');
 
 module.exports = {
     name: "eval",
@@ -34,12 +34,11 @@ module.exports = {
             row = new MessageActionRow()
                 .addComponents(back, next, extra);
 
-        let m = await message.channel
-            .send({
-                embeds: [embed],
-                components: [row],
-            }),
-            collector = m.createMessageComponentCollector({ time: 30000 });
+        let m = await message.channel.send({
+            embeds: [embed],
+            components: [row],
+        })
+        let collector = m.createMessageComponentCollector({ time: 30000 });
 
         collector.on('collect', async (button) => {
             if (button.user.id !== message.author.id) {
@@ -64,7 +63,7 @@ module.exports = {
                     back.setDisabled(true);
                     let row = new MessageActionRow()
                         .addComponents(back, next, extra);
-                    await m.edit({
+                    return button.update({
                         embeds: [embed],
                         components: [row],
                     });
@@ -81,20 +80,13 @@ module.exports = {
                     extra.setDisabled(true);
                     let row = new MessageActionRow()
                         .addComponents(back, next, extra);
-                    await m.edit({
+                    button.update({
                         embeds: [embed],
                         components: [row],
                     });
-                    try {
-                        await button.reply({ content: result, ephemeral: true });
-                    } catch (e) {
-                        button.reply({
-                            content: "```js\n[object Promise]\n```",
-                            ephemeral: true
-                        });
-                    }
+                    return button.reply({ content: `\`\`\`js\n${result}\n\`\`\``, ephemeral: true });
                 } catch (e) {
-                    return button.reply({ content: `\`\`\`\n${e}\n\`\`\``, ephemeral: true });
+                    return button.reply({ content: `\`\`\`js\n${e}\n\`\`\``, ephemeral: true });
                 }
             }
         });

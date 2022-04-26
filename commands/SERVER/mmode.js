@@ -108,7 +108,7 @@ module.exports = {
                             ]
                         }).then(
                             message.guild.channels.create("maintenance-chat", {
-                                type: "text",
+                                type: "GUILD_TEXT",
                                 position: 0,
                                 permissionOverwrites: [
                                     {
@@ -124,7 +124,7 @@ module.exports = {
                         )
                             .then(
                                 message.guild.channels.create("MAINTENANCE VOICE", {
-                                    type: "voice",
+                                    type: "GUILD_VOICE",
                                     position: 1,
                                     permissionOverwrites: [
                                         {
@@ -150,7 +150,7 @@ module.exports = {
                     return message.reply({
                         embeds: [
                             new MessageEmbed({
-                                description: client.emoji.fail + "| Command timed out!",
+                                description: `${client.emoji.fail}| Command timed out!`,
                                 color: client.embed.cf
                             })
                         ]
@@ -168,7 +168,7 @@ module.exports = {
             col.on('collect', async (b) => {
                 if (b.user.id !== message.author.id) {
                     let emm = new MessageEmbed({
-                        description: `❎ ` + client.error.menu,
+                        description: `❎ ${client.error.menu}`,
                         color: client.embed.cf
                     })
                     return b.reply({ ephemeral: true, embeds: [emm] })
@@ -184,7 +184,7 @@ module.exports = {
                         message.reply({
                             embeds: [
                                 new MessageEmbed({
-                                    description: client.emoji.success + `| Maintenance Mode OFF`,
+                                    description: `${client.emoji.success}| Maintenance Mode OFF`,
                                     color: client.embed.cr
                                 })
                             ]

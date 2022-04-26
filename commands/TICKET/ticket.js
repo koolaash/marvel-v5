@@ -108,7 +108,10 @@ module.exports = {
                 rool = message.guild.roles.cache.get(prevrole);
             if (!rool || !prevrole) {
                 const modRole = message.mentions.roles.first() ||
-                    message.guild.roles.cache.get(args[1]);
+                    message.guild.roles.cache.get(args[1]) ||
+                    message.guild.roles.cache.find(
+                        r => r.name.toLowerCase() === args[0].toLocaleLowerCase()
+                    );
                 if (!modRole) {
                     return message.reply({
                         embeds: [
@@ -125,13 +128,16 @@ module.exports = {
                     embeds: [
                         new MessageEmbed({
                             color: client.embed.cr,
-                            description: `${client.emoji.success}| Set ticket mod role to <@&${modRole.id}>`,
+                            description: `${client.emoji.success}| Set ticket mod role to ${modRole}`,
                         })
                     ]
                 });
             } else {
                 const modRole = message.mentions.roles.first() ||
-                    message.guild.roles.cache.get(args[1]);
+                    message.guild.roles.cache.get(args[1]) ||
+                    message.guild.roles.cache.find(
+                        r => r.name.toLowerCase() === args[0].toLocaleLowerCase()
+                    );
                 if (!modRole) {
                     return message.reply({
                         embeds: [
@@ -148,7 +154,7 @@ module.exports = {
                         new MessageEmbed({
                             color: client.embed.cr,
                             description:
-                                `${client.emoji.success}| Changed ticket mod role to <@&${modRole.id}>`,
+                                `${client.emoji.success}| Changed ticket mod role to ${modRole.id}`,
                         })
                     ]
                 });

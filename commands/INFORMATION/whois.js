@@ -15,6 +15,12 @@ module.exports = {
             member =
                 message.mentions.members.first() ||
                 message.guild.members.cache.get(args[0]) ||
+                message.guild.members.cache.find(
+                    r => r.user.username.toLowerCase() === args[0].toLocaleLowerCase()
+                ) ||
+                message.guild.members.cache.find(
+                    ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase()
+                ) ||
                 message.member,
             bot = 'No'
 

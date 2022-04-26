@@ -90,7 +90,7 @@ module.exports = {
                 return message.reply({
                     embeds: [
                         new MessageEmbed({
-                            description: `${client.emoji.fail}| **Cannot mute this user because he is my owner!**`,
+                            description: `${client.emoji.fail}| My Role isn't High Enough to Mute **\`\`${kickMember.user.tag}\`\`**`,
                             color: client.embed.cf
                         })
                     ]

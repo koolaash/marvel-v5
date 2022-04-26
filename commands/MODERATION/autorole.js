@@ -33,7 +33,10 @@ module.exports = {
                     content: `${client.emoji.fail}| Usage: \`autorole set @role/role-id\``
                 })
             }
-            let role = message.mentions.roles.first() || message.guild.roles.cache.get(args[1])
+            let role = message.mentions.roles.first() || message.guild.roles.cache.get(args[1]) ||
+                message.guild.roles.cache.find(
+                    r => r.name.toLowerCase() === args[0].toLocaleLowerCase()
+                )
             if (!role) {
                 return message.reply({
                     embeds: [

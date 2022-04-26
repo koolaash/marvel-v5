@@ -1,5 +1,5 @@
 const { MessageEmbed, MessageButton, MessageActionRow } = require("discord.js"),
-discord = require("discord.js");
+    discord = require("discord.js");
 
 module.exports = {
     name: "kick",
@@ -92,7 +92,8 @@ module.exports = {
                 return message.reply({
                     embeds: [
                         new MessageEmbed({
-                            description: `${client.emoji.fail}| **Cannot kick this user because he is my owner!**`,
+                            description:
+                                `${client.emoji.fail}| Your Role isn't High Enough to kick **\`\`${kickMember.user.tag}\`\`**`,
                             color: client.embed.cf
                         })
                     ]

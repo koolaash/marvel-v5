@@ -82,17 +82,15 @@ module.exports = {
                 ]
             })
         }
-        if (client.config.bowner.includes(kickMember.id)) {
-            if (kickMember === message.guild.owner) {
-                return message.reply({
-                    embeds: [
-                        new MessageEmbed({
-                            description: `${client.emoji.fail}| **Cannot unmute this user because he is my owner!**`,
-                            color: client.embed.cf
-                        })
-                    ]
-                })
-            }
+        if (kickMember === message.guild.owner) {
+            return message.reply({
+                embeds: [
+                    new MessageEmbed({
+                        description: `${client.emoji.fail}| My Role isn't High Enough to unmute **\`\`${kickMember.user.tag}\`\`**`,
+                        color: client.embed.cf
+                    })
+                ]
+            })
         }
         if (kickMember.permissionsIn(message.channel).has("ADMINISTRATOR")) {
             return message.reply({

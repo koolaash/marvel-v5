@@ -20,7 +20,10 @@ module.exports = {
                 ]
             })
         }
-        let role = await message.mentions.roles.first() || await message.guild.roles.cache.find(r => r.id === args[0]);
+        let role = await message.mentions.roles.first() || await message.guild.roles.cache.find(r => r.id === args[0]) ||
+            message.guild.roles.cache.find(
+                r => r.name.toLowerCase() === args[0].toLocaleLowerCase()
+            )
 
         if (!role) {
             return message.reply({
