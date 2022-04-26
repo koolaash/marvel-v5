@@ -228,7 +228,8 @@ module.exports = {
                 embeds: [embed],
                 components: [row]
             })
-            db2.set(`selfroles1_${message.guild.id}${msgs.id}`, role1.id)
+            db2.set(`selfroles1_${message.guild.id}${msgs.id}`, role1.id) &&
+                message.reply({ content: `${client.emoji.success}| Setup done in ${chan}` })
             return;
         }
         let r2, role2, emj2, emoji2
@@ -330,7 +331,8 @@ module.exports = {
                 components: [row]
             })
             db2.set(`selfroles1_${message.guild.id}${msgs.id}`, role1.id) &&
-                db2.set(`selfroles2_${message.guild.id}${msgs.id}`, role2.id)
+                db2.set(`selfroles2_${message.guild.id}${msgs.id}`, role2.id) &&
+                message.reply({ content: `${client.emoji.success}| Setup done in ${chan}` })
             return;
         }
         let r3, role3, emj3, emoji3
@@ -433,7 +435,8 @@ module.exports = {
             })
             db2.set(`selfroles1_${message.guild.id}${msgs.id}`, role1.id) &&
                 db2.set(`selfroles2_${message.guild.id}${msgs.id}`, role2.id) &&
-                db2.set(`selfroles3_${message.guild.id}${msgs.id}`, role3.id)
+                db2.set(`selfroles3_${message.guild.id}${msgs.id}`, role3.id) &&
+                message.reply({ content: `${client.emoji.success}| Setup done in ${chan}` })
             return;
         }
         let r4, role4, emj4, emoji4
@@ -537,7 +540,8 @@ module.exports = {
             db2.set(`selfroles1_${message.guild.id}${msgs.id}`, role1.id) &&
                 db2.set(`selfroles2_${message.guild.id}${msgs.id}`, role2.id) &&
                 db2.set(`selfroles3_${message.guild.id}${msgs.id}`, role3.id) &&
-                db2.set(`selfroles4_${message.guild.id}${msgs.id}`, role4.id)
+                db2.set(`selfroles4_${message.guild.id}${msgs.id}`, role4.id) &&
+                message.reply({ content: `${client.emoji.success}| Setup done in ${chan}` })
             return;
         }
         let r5, role5, emj5, emoji5
@@ -642,7 +646,8 @@ module.exports = {
                 db2.set(`selfroles2_${message.guild.id}${msgs.id}`, role2.id) &&
                 db2.set(`selfroles3_${message.guild.id}${msgs.id}`, role3.id) &&
                 db2.set(`selfroles4_${message.guild.id}${msgs.id}`, role4.id) &&
-                db2.set(`selfroles5_${message.guild.id}${msgs.id}`, role5.id)
+                db2.set(`selfroles5_${message.guild.id}${msgs.id}`, role5.id) &&
+                message.reply({ content: `${client.emoji.success}| Setup done in ${chan}` })
             return;
         }
         let r6, role6, emj6, emoji6, row2 = new MessageActionRow()
@@ -748,7 +753,8 @@ module.exports = {
                 db2.set(`selfroles3_${message.guild.id}${msgs.id}`, role3.id) &&
                 db2.set(`selfroles4_${message.guild.id}${msgs.id}`, role4.id) &&
                 db2.set(`selfroles5_${message.guild.id}${msgs.id}`, role5.id) &&
-                db2.set(`selfroles6_${message.guild.id}${msgs.id}`, role6.id)
+                db2.set(`selfroles6_${message.guild.id}${msgs.id}`, role6.id) &&
+                message.reply({ content: `${client.emoji.success}| Setup done in ${chan}` })
             return;
         }
         let r7, role7, emj7, emoji7
@@ -855,7 +861,8 @@ module.exports = {
                 db2.set(`selfroles4_${message.guild.id}${msgs.id}`, role4.id) &&
                 db2.set(`selfroles5_${message.guild.id}${msgs.id}`, role5.id) &&
                 db2.set(`selfroles6_${message.guild.id}${msgs.id}`, role6.id) &&
-                db2.set(`selfroles7_${message.guild.id}${msgs.id}`, role7.id)
+                db2.set(`selfroles7_${message.guild.id}${msgs.id}`, role7.id) &&
+                message.reply({ content: `${client.emoji.success}| Setup done in ${chan}` })
             return;
         }
         let r8, role8, emj8, emoji8
@@ -963,7 +970,8 @@ module.exports = {
                 db2.set(`selfroles5_${message.guild.id}${msgs.id}`, role5.id) &&
                 db2.set(`selfroles6_${message.guild.id}${msgs.id}`, role6.id) &&
                 db2.set(`selfroles7_${message.guild.id}${msgs.id}`, role7.id) &&
-                db2.set(`selfroles8_${message.guild.id}${msgs.id}`, role8.id)
+                db2.set(`selfroles8_${message.guild.id}${msgs.id}`, role8.id) &&
+                message.reply({ content: `${client.emoji.success}| Setup done in ${chan}` })
             return;
         }
         let r9, role9, emj9, emoji9
@@ -1072,7 +1080,8 @@ module.exports = {
                 db2.set(`selfroles6_${message.guild.id}${msgs.id}`, role6.id) &&
                 db2.set(`selfroles7_${message.guild.id}${msgs.id}`, role7.id) &&
                 db2.set(`selfroles8_${message.guild.id}${msgs.id}`, role8.id) &&
-                db2.set(`selfroles9_${message.guild.id}${msgs.id}`, role9.id)
+                db2.set(`selfroles9_${message.guild.id}${msgs.id}`, role9.id) &&
+                message.reply({ content: `${client.emoji.success}| Setup done in ${chan}` })
             return;
         }
         let r10, role10, emj10, emoji10
@@ -1182,7 +1191,8 @@ module.exports = {
                 db2.set(`selfroles7_${message.guild.id}${msgs.id}`, role7.id) &&
                 db2.set(`selfroles8_${message.guild.id}${msgs.id}`, role8.id) &&
                 db2.set(`selfroles9_${message.guild.id}${msgs.id}`, role9.id) &&
-                db2.set(`selfroles10_${message.guild.id}${msgs.id}`, role10.id)
+                db2.set(`selfroles10_${message.guild.id}${msgs.id}`, role10.id) &&
+                message.reply({ content: `${client.emoji.success}| Setup done in ${chan}` })
             return;
         }
     }
