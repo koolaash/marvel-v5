@@ -11,17 +11,19 @@ module.exports = {
     botPermissions: ["EMBED_LINKS"],
 
     run: async (client, message, args) => {
-
-        const target = message.mentions.members.first() ||
-            message.guild.members.cache.get(args[0]) ||
-            message.guild.members.cache.find(
-                r => r.user.username.toLowerCase() === args[0].toLocaleLowerCase()
-            ) ||
-            message.guild.members.cache.find(
-                ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase()
-            ) ||
-            message.guild.members.cache.get(message.author.id),
-            team = db.get("team-" + target.user.id),
+        if (!args[0]) {
+            var target = message.guild.members.cache.get(message.author.id)
+        } else {
+            target = message.mentions.members.first() ||
+                message.guild.members.cache.get(args[0]) ||
+                message.guild.members.cache.find(
+                    r => r.user.username.toLowerCase() === args[0].toLocaleLowerCase()
+                ) ||
+                message.guild.members.cache.find(
+                    ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase()
+                )
+        }
+        let team = db.get("team-" + target.user.id),
             partner = db.get("partner-" + target.user.id),
             sup = db.get("supporter-" + target.user.id),
             spec = db.get("special-" + target.user.id),
