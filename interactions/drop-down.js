@@ -16,10 +16,10 @@ module.exports = function (client) {
     );
 
     client.on("interactionCreate", async interaction => {
+        if (!interaction.isSelectMenu()) return;
+        let button = interaction;
+        if (button.message.author.id !== client.user.id) return;
         try {
-            if (!interaction.isSelectMenu()) return;
-            let button = interaction;
-            if (button.message.author.id !== client.user.id) return;
             if (button.customId === 'nsfwPage') {
                 let vote = new MessageEmbed({
                     description: "You need to vote first to use this command.",
@@ -173,7 +173,7 @@ module.exports = function (client) {
                 }
             }
         } catch (e) {
-            return client.errweb.send(`\`\`\`js\nFILE : ${description.name}\n${e.stack}\n\`\`\``);
+            return client.errweb.send(`\`\`\`js\nFILE : ${description.name} - ${button.guild.name} - ${button.guild.id}\n${e.stack}\n\`\`\``);
         }
     })
 }

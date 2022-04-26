@@ -530,7 +530,7 @@ module.exports = function (client, options) {
                 }
             }
         } catch (e) {
-            return client.errweb.send(`\`\`\`js\nFILE : ${description.name}\n${e.stack}\n\`\`\``);
+            return client.errweb.send(`\`\`\`js\nFILE : ${description.name} - ${button.guild.name} - ${button.guild.id}\n${e.stack}\n\`\`\``);
         }
     });
 };
