@@ -22,6 +22,12 @@ module.exports = {
                 message.guild.members.cache.find(
                     ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase()
                 )
+            if (!target) {
+                target = await message.guild.members.fetch(args[0]).catch(() => null)
+            }
+            if (!target) {
+                target = message.guild.members.cache.get(message.author.id)
+            }
         }
         let team = db.get("team-" + target.user.id),
             partner = db.get("partner-" + target.user.id),
