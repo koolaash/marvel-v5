@@ -43,14 +43,19 @@ module.exports = {
         if (role.members.size > 50) {
             mem = `Members Size Exceeds The Value OF [50]`
         }
+        if (role.hexColor === "#000000") {
+            var hex = `#303136`
+        } else {
+            hex = role.hexColor
+        }
 
         const embed = new discord.MessageEmbed({
-            color: role.hexColor || client.embed.cm,
+            color: hex,
             title: `${role.name}'s Information`,
             description: `**Role ID : **${role.id}\n` +
                 `**Role Display Name : **${role.name}\n` +
                 `**Role Mentionable : **${role.mentionable ? 'Yes' : 'No'}\n` +
-                `**Role Color : **${role.hexColor || 'Default'}\n` +
+                `**Role Color : **${role.hexColor}\n` +
                 `**Role Display Saperately : **${role.hoist ? 'Yes' : 'No'}\n` +
                 `**Role Position : **${role.position}\n` +
                 `**Role Members : **${role.members.size || '0'}\n` +
