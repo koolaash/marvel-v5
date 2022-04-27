@@ -58,7 +58,7 @@ module.exports = {
                 .then(m = setTimeout(() => m.delete().catch(() => null), 2500))
         }
 
-        let mems = client.qdb.get(`noprefix`);
+        let mems = await client.qdb.get(`noprefix`);
 
         if (!mems) {
             client.qdb.set(`noprefix`, { difficulty: 'Easy' });
