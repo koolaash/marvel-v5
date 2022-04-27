@@ -77,14 +77,7 @@ module.exports = {
                 try {
                     let cmd = args.join(" "),
                         result = eval(cmd);
-                    extra.setDisabled(true);
-                    let row = new MessageActionRow()
-                        .addComponents(back, next, extra);
-                    button.update({
-                        embeds: [embed],
-                        components: [row],
-                    }) && button.reply({ content: `\`\`\`js\n${result}\n\`\`\``, ephemeral: true });
-                    return;
+                    return button.reply({ content: `\`\`\`js\n${result}\n\`\`\``, ephemeral: true });
                 } catch (e) {
                     return button.reply({ content: `\`\`\`js\n${e}\n\`\`\``, ephemeral: true });
                 }
