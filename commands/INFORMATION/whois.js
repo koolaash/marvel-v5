@@ -24,11 +24,7 @@ module.exports = {
         if (member.user.bot === true) {
             bot = "Yes";
         }
-        if (member.user.displayHexColor === "#000000") {
-            var hex = `#303136`
-        } else {
-            hex = member.user.displayHexColor
-        }
+        var hex = client.embed.cm
         var flags = member.user.flags.toArray().join(" "),
             eperms = [
                 "ADMINISTRATOR", "MANAGE_CHANNELS", "MANAGE_GUILD",
@@ -67,7 +63,7 @@ module.exports = {
                 .replace('DISCORD_CERTIFIED_MODERATOR', client.badge.dmod)
                 .replace('BOT_HTTP_INTERACTIONS', client.badge.http)
         let embed = new discord.MessageEmbed()
-            .setTitle(`About ${member.user.username}`)
+            .setTitle(`__About ${member.user.username}__`)
             .setFooter({
                 text: message.author.tag,
                 iconURL: message.author.displayAvatarURL({ dynamic: true })
@@ -77,9 +73,9 @@ module.exports = {
             )
             .setColor(hex)
             .setDescription(m)
-            .addField("Key Permissions", `\`${per.join(', ') || "None"}\``)
+            .addField("__Key Permissions__", `\`${per.join(', ') || "None"}\``)
             .addField(
-                `Roles`,
+                `__Roles__`,
                 member.roles.cache.map(roles => `${roles}`).join(', '), true
             );
         return message.reply({ embeds: [embed] });

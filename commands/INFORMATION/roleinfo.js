@@ -63,7 +63,7 @@ module.exports = {
                 `**Role Deletable : **${role.editable ? 'Yes' : 'No'}\n` +
                 `**Role Created : **<t:${Math.round(moment.utc(role.createdTimestamp) / 1000)}:R>\n` +
                 `**Role Custom Icon : **${role.iconURL() ? `Yes\n**Role Icon : **[Download Here](${role.iconURL({ format: 'png' })})` : "No"}\n` +
-                `**Role Permissions : **\n\`${role.permissions.toArray().join("', '") || "None"}\`\n` +
+                `**Role Permissions : **\n\`${role.permissions.toArray().join(", ") || "None"}\`\n` +
                 `**Members [${role.members.size || '0'}] : **\n${mem}`,
             footer: {
                 text: message.author.tag,
