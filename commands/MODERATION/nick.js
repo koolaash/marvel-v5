@@ -10,6 +10,16 @@ module.exports = {
     botPermissions: ["MANAGE_NICKNAMES", "EMBED_LINKS"],
 
     async run(client, message, args) {
+        if (!args[0]) {
+            return message.reply({
+                embeds: [
+                    new MessageEmbed({
+                        color: client.color.cf,
+                        description: `${client.emoji.fail}| Whose nickname you wanna change!`
+                    })
+                ]
+            })
+        }
         let member =
             message.mentions.members.first() ||
             message.guild.members.cache.get(args[0]) ||
