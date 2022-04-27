@@ -25,6 +25,7 @@ module.exports = {
         if (args[0] === 'reload') {
             client.noprefix = await client.qdb.get(`noprefix.mem`);
             return message.reply('Done')
+                .then((m) => setTimeout(() => m.delete().catch(() => null), 2500));
         }
         if (args[0] === 'reset') {
             client.qdb.delete('noprefix')
@@ -32,6 +33,7 @@ module.exports = {
             client.qdb.push('noprefix.mem', message.author.id)
             client.noprefix = await client.qdb.get('noprefix.mem')
             return message.reply('Done')
+                .then((m) => setTimeout(() => m.delete().catch(() => null), 2500));
         }
 
         let target = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
