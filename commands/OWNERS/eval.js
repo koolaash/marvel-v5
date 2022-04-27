@@ -83,8 +83,8 @@ module.exports = {
                     button.update({
                         embeds: [embed],
                         components: [row],
-                    });
-                    return button.reply({ content: `\`\`\`js\n${result}\n\`\`\``, ephemeral: true });
+                    }) && button.reply({ content: `\`\`\`js\n${result}\n\`\`\``, ephemeral: true });
+                    return;
                 } catch (e) {
                     return button.reply({ content: `\`\`\`js\n${e}\n\`\`\``, ephemeral: true });
                 }
