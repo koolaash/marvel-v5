@@ -72,7 +72,6 @@ module.exports = {
                     });
             }
         }
-        await message.guild.members.fetch().catch(() => null);
         if (!args[1]) {
             return message.reply({
                 embeds: [
@@ -82,6 +81,7 @@ module.exports = {
                 ]
             });
         } else if (args[1] === "bots") {
+            await message.guild.members.fetch().catch(() => null);
             db.set(name + message.guild.id, true);
             await message.guild.members.cache
                 .forEach((member) => {
@@ -112,6 +112,7 @@ module.exports = {
                 db.delete(name + message.guild.id);
             }, count + "000");
         } else if (args[1] === `humans`) {
+            await message.guild.members.fetch().catch(() => null);
             db.set(name + message.guild.id, true);
             await message.guild.members.cache
                 .forEach((member) => {
@@ -143,6 +144,7 @@ module.exports = {
                 db.delete(name + message.guild.id);
             }, count + "000");
         } else if (args[1] === `all`) {
+            await message.guild.members.fetch().catch(() => null);
             db.set(name + message.guild.id, true);
             message.guild.members.cache.forEach((member) => {
                 if (!member.roles.cache.get(role.id)) {
