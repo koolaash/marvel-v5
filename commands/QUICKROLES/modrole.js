@@ -23,25 +23,26 @@ module.exports = {
                 embeds: [
                     new MessageEmbed({
                         color: fail,
-                        description: `${cross}| Missed the argument <role | show | reset | @user>`,
+                        description: `${cross}| Missed the argument <set | show | reset | @user>`,
                     })
                 ]
             });
         }
 
-        let arg = args[0].toLowerCase();
+        let mer = args.join(" "),
+            arg = mer.toLowerCase().split(/ +/g);
 
         if (!arg[0]) {
             return message.reply({
                 embeds: [
                     new MessageEmbed({
                         color: fail,
-                        description: `${cross}| Missed the argument <role | show | reset | @user>`,
+                        description: `${cross}| Missed the argument <set | show | reset | @user>`,
                     })
                 ]
             });
         }
-        if (arg[0] === "set") {
+        if (arg[0] === "role" || arg[0] === "set") {
             let ro = message.mentions.roles.first() ||
                 message.guild.roles.cache.get(args[1]) ||
                 message.guild.roles.cache.find(
@@ -125,6 +126,16 @@ module.exports = {
                     new MessageEmbed({
                         color: success,
                         description: `${tick}| Removed the the role which was set for ${nam}`,
+                    })
+                ]
+            });
+        }
+        if (arg[0]) {
+            return message.reply({
+                embeds: [
+                    new MessageEmbed({
+                        color: fail,
+                        description: `${cross}| Missed the argument <set | show | reset | @user>`,
                     })
                 ]
             });

@@ -31,8 +31,9 @@ module.exports = {
             });
         }
 
-        let arg = args[0].toLowerCase();
-
+        let mer = args.join(" "),
+            arg = mer.toLowerCase().split(/ +/g);
+            
         if (!arg[0]) {
             return message.reply({
                 embeds: [
