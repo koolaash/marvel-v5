@@ -25,7 +25,7 @@ module.exports = {
             damon = await client.users.fetch(client.config.damon_id)
         }
 
-        let pages = 20,
+        let pages = 19,
             em0 = new MessageEmbed()
                 .setTitle(`${client.user.username} Help Menu`)
                 .setColor(client.embed.cm)
@@ -378,24 +378,6 @@ module.exports = {
             em13 = new MessageEmbed()
                 .setColor(client.embed.cm)
                 .setFooter({
-                    text: `${message.author.tag} : Page 13/${pages}`,
-                    iconURL: message.author.displayAvatarURL({ dynamic: true })
-                })
-                .setDescription("**THESE COMMAND REQUIRES MANAGE ROLES PERMISSION BECAUSE THEY WILL ADD ROLE TO MEMBERS AFTER VERIFICATION THAT YOU PROVIDE**")
-                .addField(
-                    "TOURNAMENT MANAGER" +
-                    "\n━━━━━━━━━━━━━━━━━",
-                    "`" +
-                    p + "tourney/t <setup|show|active|delete>` - to setup a new tourney get details about tourney and delete the tourney\n`" +
-                    p + "tourney/t` - to get more details \n`" +
-                    p + "tourney-ss/ts <setup|show|active|delete>` - to setup a new tourney get details about tourney and delete the tourney\n**This tourney helps you get ss registeration from the users**\n`" +
-                    p + "tourney-ss/ts` - to get more details\n" + "\n**━━━━━━━━━━━━━━━━━**"
-                )
-                .addField(`${client.emoji.ar}NOTE :`, "<> [] - DO NOT INCLUDE THESE WHILE EXECUTING A COMMAND")
-                .setImage(client.gif.tourney),
-            em14 = new MessageEmbed()
-                .setColor(client.embed.cm)
-                .setFooter({
                     text: `${message.author.tag} : Page 14/${pages}`,
                     iconURL: message.author.displayAvatarURL({ dynamic: true })
                 })
@@ -418,7 +400,7 @@ module.exports = {
                 "\n**━━━━━━━━━━━━━━━━━**"
                 )
                 .addField(`${client.emoji.ar}NOTE :`, "<> [] - DO NOT INCLUDE THESE WHILE EXECUTING A COMMAND"),
-            em15 = new MessageEmbed()
+            em14 = new MessageEmbed()
                 .setColor(client.embed.cm)
                 .setFooter({
                     text: `${message.author.tag} : Page 15/${pages}`,
@@ -453,7 +435,7 @@ module.exports = {
                 "\n**━━━━━━━━━━━━━━━━━**"
                 )
                 .addField(`${client.emoji.ar}NOTE :`, "<> [] - DO NOT INCLUDE THESE WHILE EXECUTING A COMMAND"),
-            em16 = new MessageEmbed()
+            em15 = new MessageEmbed()
                 .setColor(client.embed.cm)
                 .setFooter({
                     text: `${message.author.tag} : Page 16/${pages}`,
@@ -481,7 +463,7 @@ module.exports = {
                     "porn <thigh>" + "` - get a real nsfw image/gif of this category\n**━━━━━━━━━━━━━━━━━**"
                 )
                 .addField(`${client.emoji.ar}NOTE :`, "<> [] - DO NOT INCLUDE THESE WHILE EXECUTING A COMMAND"),
-            em17 = new MessageEmbed()
+            em16 = new MessageEmbed()
                 .setColor(client.embed.cm)
                 .setFooter({
                     text: `${message.author.tag} : Page 17/${pages}`,
@@ -500,7 +482,7 @@ module.exports = {
                     p + "tickle @user` - tickle them an spread some giggles\n**━━━━━━━━━━━━━━━━━**"
                 )
                 .addField(`${client.emoji.ar}NOTE :`, "<> [] - DO NOT INCLUDE THESE WHILE EXECUTING A COMMAND"),
-            em18 = new MessageEmbed()
+            em17 = new MessageEmbed()
                 .setColor(client.embed.cm)
                 .setFooter({
                     text: `${message.author.tag} : Page 18/${pages}`,
@@ -517,7 +499,7 @@ module.exports = {
                     p + "howgay @user` - check how much of a gay they are\n**━━━━━━━━━━━━━━━━━**"
                 )
                 .addField(`${client.emoji.ar}NOTE :`, "<> [] - DO NOT INCLUDE THESE WHILE EXECUTING A COMMAND"),
-            em19 = new MessageEmbed()
+            em18 = new MessageEmbed()
                 .setColor(client.embed.cm)
                 .setFooter({
                     text: `${message.author.tag} : Page 19/${pages}`,
@@ -539,7 +521,7 @@ module.exports = {
                     p + "wallpaper` - get a random image of this category\n**━━━━━━━━━━━━━━━━━**"
                 )
                 .addField(`${client.emoji.ar}NOTE :`, "<> [] - DO NOT INCLUDE THESE WHILE EXECUTING A COMMAND"),
-            em20 = new MessageEmbed()
+            em19 = new MessageEmbed()
                 .setColor(client.embed.cm)
                 .setFooter({
                     text: `${message.author.tag} : Page 20/${pages}`,
@@ -650,14 +632,13 @@ module.exports = {
             option10 = { label: 'Avatars', value: '10', emoji: client.emoji.image_id },
             option11 = { label: 'Roles', value: '11', emoji: client.emoji.uptime_id },
             option12 = { label: 'Automoderation', value: '12', emoji: client.emoji.auto_id },
-            option13 = { label: 'Tournament', value: '13', emoji: client.emoji.tourney_id },
-            option14 = { label: 'Hentai', value: '14', emoji: client.emoji.extra_id },
-            option15 = { label: 'Neko', value: '15', emoji: client.emoji.image_id },
-            option16 = { label: 'Porn', value: '16', emoji: client.emoji.servers_id },
-            option17 = { label: 'Actions', value: '17', emoji: client.emoji.extra_id },
-            option18 = { label: 'Fun', value: '18', emoji: client.emoji.ping_id },
-            option19 = { label: 'Random Image', value: '19', emoji: client.emoji.image_id },
-            option20 = { label: 'Image Filter/Manipulation', value: '20', emoji: client.emoji.image_id }
+            option14 = { label: 'Hentai', value: '13', emoji: client.emoji.extra_id },
+            option15 = { label: 'Neko', value: '14', emoji: client.emoji.image_id },
+            option16 = { label: 'Porn', value: '15', emoji: client.emoji.servers_id },
+            option17 = { label: 'Actions', value: '16', emoji: client.emoji.extra_id },
+            option18 = { label: 'Fun', value: '17', emoji: client.emoji.ping_id },
+            option19 = { label: 'Random Image', value: '18', emoji: client.emoji.image_id },
+            option20 = { label: 'Image Filter/Manipulation', value: '19', emoji: client.emoji.image_id }
 
         options.push(
             option0, option1, option2, option3, option4,
