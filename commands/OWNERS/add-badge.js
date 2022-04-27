@@ -202,6 +202,26 @@ module.exports = {
                 return message.reply(client.emoji.success)
                     .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
             }
+        } else if (args[1] === 'reset') {
+            team = db.delete(`team-${target.id}`)
+            partner = db.delete(`partner-${target.id}`)
+            sup = db.delete(`supporter-${target.id}`)
+            spec = db.delete(`special-${target.id}`)
+            codev = db.delete(`codev-${target.id}`)
+            dev = db.delete(`developer-${target.id}`)
+            owner = db.delete(`owner-${target.id}`)
+            coow = db.delete(`coowner-${target.id}`)
+            bug = db.delete(`bug-${target.id}`)
+            one = db.delete(`one-${target.id}`)
+            early = db.delete(`early-${target.id}`)
+            admin = db.delete(`admin-${target.id}`)
+            mod = db.delete(`mod-${target.id}`)
+            vip = db.delete(`vip-${target.id}`)
+            superr = db.delete(`super-${target.id}`)
+            beta = db.delete(`beta-${target.id}`)
+            voted = await client.qdb.delete(`voted${target.id}`);
+            return message.reply(client.emoji.success)
+                .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
         } else if (args[1]) {
             return message.reply({
                 embeds: [
