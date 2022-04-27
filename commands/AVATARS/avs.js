@@ -130,7 +130,7 @@ module.exports = {
             } else if (button.customId === "avs_chans") {
                 return button.reply({ embeds: [sav] });
             } else if (button.customId === "avs_dmg") {
-                return button.reply({ ephemeral: true, embeds: [sav] });
+                return button.reply({ ephemeral: true, embeds: [gav] });
             } else if (button.customId === "avs_chang") {
                 return button.reply({ embeds: [gav] });
             }
