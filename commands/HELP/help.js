@@ -632,20 +632,20 @@ module.exports = {
             option10 = { label: 'Avatars', value: '10', emoji: client.emoji.image_id },
             option11 = { label: 'Roles', value: '11', emoji: client.emoji.uptime_id },
             option12 = { label: 'Automoderation', value: '12', emoji: client.emoji.auto_id },
-            option14 = { label: 'Hentai', value: '13', emoji: client.emoji.extra_id },
-            option15 = { label: 'Neko', value: '14', emoji: client.emoji.image_id },
-            option16 = { label: 'Porn', value: '15', emoji: client.emoji.servers_id },
-            option17 = { label: 'Actions', value: '16', emoji: client.emoji.extra_id },
-            option18 = { label: 'Fun', value: '17', emoji: client.emoji.ping_id },
-            option19 = { label: 'Random Image', value: '18', emoji: client.emoji.image_id },
-            option20 = { label: 'Image Filter/Manipulation', value: '19', emoji: client.emoji.image_id }
+            option13 = { label: 'Hentai', value: '13', emoji: client.emoji.extra_id },
+            option14 = { label: 'Neko', value: '14', emoji: client.emoji.image_id },
+            option15 = { label: 'Porn', value: '15', emoji: client.emoji.servers_id },
+            option16 = { label: 'Actions', value: '16', emoji: client.emoji.extra_id },
+            option17 = { label: 'Fun', value: '17', emoji: client.emoji.ping_id },
+            option18 = { label: 'Random Image', value: '18', emoji: client.emoji.image_id },
+            option19 = { label: 'Image Filter/Manipulation', value: '19', emoji: client.emoji.image_id }
 
         options.push(
             option0, option1, option2, option3, option4,
             option5, option6, option7, option8, option9,
             option10, option11, option12, option13, option14,
-            option15, option16, option17, option18, option19,
-            option20
+            option15, option16, option17, option18, option19
+
         );
 
         let menu = new MessageSelectMenu()
@@ -672,7 +672,7 @@ module.exports = {
             embeds = [
                 em0, em1, em2, em3, em4, em5, em6, em7,
                 em8, em9, em10, em11, em12, em13, em14,
-                em15, em16, em17, em18, em19, em20
+                em15, em16, em17, em18, em19
             ]
 
         for (let i = 0; i < 0; i++) embeds.push(new MessageEmbed().setColor(client.embed.cm).setFooter(i))
