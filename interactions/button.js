@@ -156,7 +156,7 @@ module.exports = function (client, options) {
                         .addComponents(reopen, del),
                     embed = new discord.MessageEmbed()
                         .setDescription(
-                            "Ticket is now closed.\nClosed By : <@" + button.user.id + ">"
+                            `Ticket is now closed.\nClosed By : <@${button.user.id}>`
                         )
                         .setColor(client.color.cm)
                         .setFooter({
