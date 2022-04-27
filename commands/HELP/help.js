@@ -55,8 +55,7 @@ module.exports = {
                     client.emoji.music + "Server\n" +
                     client.emoji.image + "Avatar\n" +
                     client.emoji.uptime + "Roles\n" +
-                    client.emoji.auto + "Automoderation\n" +
-                    client.emoji.tourney + "Tournament**",
+                    client.emoji.auto + "Automoderation",
                     true
                 )
                 .addField(
