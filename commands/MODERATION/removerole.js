@@ -180,9 +180,9 @@ module.exports = {
                         new MessageEmbed()
                             .setColor(client.embed.cm)
                             .addField(name, `\`${name} <Role> <User(s)>\``, true)
-                            .addField(name + " all", `\`${name} <Role> all\``, true)
-                            .addField(name + " bots", `\`${name} <Role> bots\``, true)
-                            .addField(name + " humans", `\`${name} <Role> humans\``, true)
+                            .addField(`${name} all`, `\`${name} <Role> all\``, true)
+                            .addField(`${name} bots`, `\`${name} <Role> bots\``, true)
+                            .addField(`${name} humans`, `\`${name} <Role> humans\``, true)
                             .setFooter({ text: "Aliases : role+ , addrole , role" })
                     ]
                 });
