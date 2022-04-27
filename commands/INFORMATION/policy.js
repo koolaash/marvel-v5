@@ -31,7 +31,7 @@ module.exports = {
             )
             .addField(
                 `${client.emoji.support}| Support Server`,
-                `[marvel.gg/support](${bserver})`
+                `[marvel.gg/support](${client.config.bserver})`
             )
             .setColor(client.embed.cm)
             .setThumbnail(message.guild.iconURL({ dynamic: true }))
