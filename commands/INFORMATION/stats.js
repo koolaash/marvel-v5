@@ -7,11 +7,12 @@ require('moment-duration-format'),
 
 module.exports = {
     name: 'stats',
+    aliases: ['about', 'bi'],
     description: 'Shows the bot information',
     category: "INFORMATION",
     userPermissions: [],
     botPermissions: ["EMBED_LINKS"],
-    aliases: ['about', 'ping', 'info'],
+
 
     run: async (client, message) => {
         message.channel.sendTyping();
