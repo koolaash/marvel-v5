@@ -69,7 +69,7 @@ module.exports = {
                     });
                 } catch (e) {
                     return button.reply({
-                        content: "```js\n" + e + "\n```",
+                        content: `\`\`\`js\n${e}\n\`\`\``,
                         ephemeral: true
                     });
                 }
