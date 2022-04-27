@@ -7,8 +7,8 @@ module.exports = {
     description: "helps you kick a user",
     category: "MODERATION",
     usage: "kick <@user | username | userid> [reason]",
-    userPermissions: ["BAN_MEMBERS"],
-    botPermissions: ["EMBED_LINKS", "BAN_MEMBERS"],
+    userPermissions: ["KICK_MEMBERS"],
+    botPermissions: ["EMBED_LINKS", "KICK_MEMBERS"],
 
     async run(client, message, args) {
         try {
