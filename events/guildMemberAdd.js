@@ -4,7 +4,9 @@ const discord = require("discord.js"),
 module.exports.run = async (client, member) => {
     try {
         const nchx = db.get(`nwelchannel_${member.guild.id}`);
-        if (nchx === null) return;
+        if (nchx === null || nchx === undefined) {
+            return db.delete(`nwelchannel_${member.guild.id}`);
+        }
         let cchh = member.guild.channels.cache.get(nchx);
         let default_msg = `**Welcome {member} To ${member.guild}** <a:vshield:764199958257336321> 
 

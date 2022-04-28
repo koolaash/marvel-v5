@@ -19,8 +19,8 @@ module.exports = function (client) {
         ment = db.get("mention" + member.guild.id),
         ust = db.get("userinfo" + member.guild.id)
 
-      if (chx === null) {
-        return;
+      if (chx === null || chx === undefined) {
+        return db.delete(`welchannel_${member.guild.id}`);
       }
       let nchx = member.guild.channels.cache.get(chx),
         default_url = client.gif.wel,
@@ -67,11 +67,11 @@ module.exports = function (client) {
           "━━━━━━━━━━━━━━━━━",
           `
 
-${client.emoji.ar} **MEMBER USERNAME :-** __**${member.user.tag}**__
+${client.emoji.ar} **MEMBER USERNAME :- __${member.user.tag}**__
 
-${client.emoji.ar} **MEMBER JOINED AT :-** __**${createdate}**__
+${client.emoji.ar} **MEMBER JOINED AT :- __${createdate}**__
 
-${client.emoji.ar} **MEMBER COUNT :-** **__${member.guild.memberCount}__**
+${client.emoji.ar} **MEMBER COUNT :- __${member.guild.memberCount}__**
 
 `
         )
