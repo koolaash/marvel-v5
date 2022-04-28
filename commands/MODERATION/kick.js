@@ -115,7 +115,7 @@ module.exports = {
             var sembed = new MessageEmbed()
                 .setColor(client.embed.cr)
                 .setTitle("Kicked")
-                .setImage(av)
+                .setThumbnail(av)
                 .setDescription(
                     `**${client.emoji.success}| ${kickMember.user.username}** has been kicked for ${reason || " No Reason Provided"}`
                 )
