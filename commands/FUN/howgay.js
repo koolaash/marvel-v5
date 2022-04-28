@@ -12,7 +12,7 @@ module.exports = {
         if (!args[0]) {
             return message.reply({
                 embeds: [
-                    new MessageEmbed({
+                    new Discord.MessageEmbed({
                         description: `${client.emoji.fail}| Woah.... Slow Down!! Who's gaytest are we doing..??`,
                         color: client.embed.cf
                     })
@@ -24,7 +24,7 @@ module.exports = {
         if (!target) {
             return message.reply({
                 embeds: [
-                    new MessageEmbed({
+                    new Discord.MessageEmbed({
                         description: `${client.emoji.fail}| Woah.... Slow Down!! Mention an actual member!`,
                         color: client.embed.cf
                     })
