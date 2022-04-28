@@ -81,7 +81,7 @@ module.exports = {
                     `**${client.emoji.success}| ${kickMember.user.username}** has been unbanned for ${reason || " No Reason Provided"}`
                 )
                 .setFooter({
-                    text: `Banned By : ${message.author.tag}`,
+                    text: `Unbanned By : ${message.author.tag}`,
                     iconURL: message.author.displayAvatarURL({ dynamic: true })
                 });
             return message.reply({ embeds: [sembed] });
