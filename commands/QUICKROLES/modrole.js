@@ -65,7 +65,7 @@ module.exports = {
                 embeds: [
                     new MessageEmbed({
                         color: success,
-                        description: tick + "| Set " + nam + " role to <@&" + ro.id + ">",
+                        description: `${tick}| Set ${nam} role to <@&${ro.id}>`,
                     })
                 ]
             });

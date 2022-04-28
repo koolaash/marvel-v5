@@ -165,7 +165,7 @@ module.exports = {
                     embeds: [
                         new MessageEmbed({
                             color: fail,
-                            description: `${cross}| My role is below the <@${role.id}>!`,
+                            description: `${cross}| My role is below the <@&${role.id}>!`,
                         })
                     ]
                 });

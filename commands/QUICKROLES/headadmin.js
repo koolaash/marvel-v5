@@ -33,7 +33,7 @@ module.exports = {
 
         let mer = args.join(" "),
             arg = mer.toLowerCase().split(/ +/g);
-            
+
         if (!arg[0]) {
             return message.reply({
                 embeds: [
@@ -159,13 +159,12 @@ module.exports = {
                     ]
                 });
             }
-
             if (message.guild.me.roles.highest.position <= role.position) {
                 return message.reply({
                     embeds: [
                         new MessageEmbed({
                             color: fail,
-                            description: `${cross}| My role is below the <@${role.id}>!`,
+                            description: `${cross}| My role is below the <@&${role.id}>!`,
                         })
                     ]
                 });
