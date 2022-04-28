@@ -20,11 +20,11 @@ module.exports = {
                 });
         if (msg.content) {
             embed.setDescription(
-                `Author : **${msg.author}**\nContent : ${msg.content}`
+                `Author : **${msg.author}**\nContent : ${msg.content || 'Content Unavailable'}`
             )
         } else if (msg.image) {
             embed.setDescription(
-                `Author : **${msg.author}**\nContent : ${msg.content || 'No Message'}`
+                `Author : **${msg.author}**\nContent : ${msg.content || 'Content Unavailable'}`
             )
             embed.setImage(msg.image);
         } else {
