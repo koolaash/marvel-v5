@@ -113,7 +113,7 @@ module.exports = {
 
             var sembed = new MessageEmbed()
                 .setColor(client.embed.cr)
-                .setImage(av)
+                .setThumbnail(av)
                 .setTitle("Banned")
                 .setDescription(
                     `**${client.emoji.success}| ${kickMember.user.username}** has been banned for ${reason || " No Reason Provided"}`
