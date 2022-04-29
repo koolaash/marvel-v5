@@ -25,10 +25,11 @@ module.exports = {
         let customemoji = discord.Util.parseEmoji(emoji);
 
         if (customemoji.id) {
-            const Link = `https://cdn.discordapp.com/emojis/${customemoji.id}.${customemoji.animated ? "gif" : "png"
-                }`,
+            const Link =
+                `https://cdn.discordapp.com/emojis/${customemoji.id}.${customemoji.animated ? "gif" : "png"}`,
                 name = args.slice(1).join(" ");
             try {
+                message.reply("Please wait...");
                 await message.guild.emojis.create(
                     `${Link}`,
                     `${name || customemoji.name}`
