@@ -378,7 +378,7 @@ module.exports = {
             em13 = new MessageEmbed()
                 .setColor(client.embed.cm)
                 .setFooter({
-                    text: `${message.author.tag} : Page 14/${pages}`,
+                    text: `${message.author.tag} : Page 13/${pages}`,
                     iconURL: message.author.displayAvatarURL({ dynamic: true })
                 })
                 .setImage(client.gif.nsfw)
@@ -403,7 +403,7 @@ module.exports = {
             em14 = new MessageEmbed()
                 .setColor(client.embed.cm)
                 .setFooter({
-                    text: `${message.author.tag} : Page 15/${pages}`,
+                    text: `${message.author.tag} : Page 14/${pages}`,
                     iconURL: message.author.displayAvatarURL({ dynamic: true })
                 })
                 .setImage(client.gif.nsfw)
@@ -438,7 +438,7 @@ module.exports = {
             em15 = new MessageEmbed()
                 .setColor(client.embed.cm)
                 .setFooter({
-                    text: `${message.author.tag} : Page 16/${pages}`,
+                    text: `${message.author.tag} : Page 15/${pages}`,
                     iconURL: message.author.displayAvatarURL({ dynamic: true })
                 })
                 .setImage(client.gif.nsfw)
@@ -466,7 +466,7 @@ module.exports = {
             em16 = new MessageEmbed()
                 .setColor(client.embed.cm)
                 .setFooter({
-                    text: `${message.author.tag} : Page 17/${pages}`,
+                    text: `${message.author.tag} : Page 16/${pages}`,
                     iconURL: message.author.displayAvatarURL({ dynamic: true })
                 })
                 .setImage(client.gif.fun)
@@ -485,7 +485,7 @@ module.exports = {
             em17 = new MessageEmbed()
                 .setColor(client.embed.cm)
                 .setFooter({
-                    text: `${message.author.tag} : Page 18/${pages}`,
+                    text: `${message.author.tag} : Page 17/${pages}`,
                     iconURL: message.author.displayAvatarURL({ dynamic: true })
                 })
                 .setImage(client.gif.fun)
@@ -502,7 +502,7 @@ module.exports = {
             em18 = new MessageEmbed()
                 .setColor(client.embed.cm)
                 .setFooter({
-                    text: `${message.author.tag} : Page 19/${pages}`,
+                    text: `${message.author.tag} : Page 18/${pages}`,
                     iconURL: message.author.displayAvatarURL({ dynamic: true })
                 })
                 .setImage(client.gif.fun)
@@ -524,7 +524,7 @@ module.exports = {
             em19 = new MessageEmbed()
                 .setColor(client.embed.cm)
                 .setFooter({
-                    text: `${message.author.tag} : Page 20/${pages}`,
+                    text: `${message.author.tag} : Page 19/${pages}`,
                     iconURL: message.author.displayAvatarURL({ dynamic: true })
                 })
                 .setImage(client.gif.fun)
@@ -673,16 +673,16 @@ module.exports = {
                 em0, em1, em2, em3, em4, em5, em6, em7,
                 em8, em9, em10, em11, em12, em13, em14,
                 em15, em16, em17, em18, em19
-            ]
+            ];
 
-        for (let i = 0; i < 0; i++) embeds.push(new MessageEmbed().setColor(client.embed.cm).setFooter(i))
+        for (let i = 0; i < 0; i++) embeds.push(new MessageEmbed().setColor(client.embed.cm).setFooter(i));
 
-        let currentPage = 0
+        let currentPage = 0;
 
         collector.on('collect', async (b) => {
             if (b.user.id !== message.author.id) {
                 let emm = new MessageEmbed({
-                    description: `❎ ` + client.error.menu,
+                    description: `❎ ${client.error.menu}`,
                     color: client.embed.cf
                 })
                 return b.reply({ ephemeral: true, embeds: [emm] })
