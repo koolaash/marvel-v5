@@ -15,13 +15,34 @@ module.exports = {
         if (args[0] === "welcome") {
             if (args[1] === "message" || args[1] === "msg") {
                 db.delete(`msg_${message.guild.id}`);
-                return message.reply(client.emoji.success + "| " + "Welcome Message Set To Default");
+                return message.reply({
+                    embeds: [
+                        new discord.MessageEmbed({
+                            description: `${client.emoji.success}| Welcome Message Set To Default`,
+                            color: client.embed.cf
+                        })
+                    ]
+                });
             } else if (args[1] === "image" || args[1] === "img") {
                 db.delete(`url_${message.guild.id}`);
-                return message.reply(`${client.emoji.success}| Welcome Image Set To Default`);
+                return message.reply({
+                    embeds: [
+                        new discord.MessageEmbed({
+                            description: `${client.emoji.success}| Welcome Image Set To Default`,
+                            color: client.embed.cf
+                        })
+                    ]
+                });
             } else if (args[1] === "channel" || args[1] === "chan") {
                 db.delete(`welchannel_${message.guild.id}`);
-                return message.reply(`${client.emoji.success}| Embed Welcomer Disabled`);
+                return message.reply({
+                    embeds: [
+                        new discord.MessageEmbed({
+                            description: `${client.emoji.success}| Embed Welcomer Disabled`,
+                            color: client.embed.cf
+                        })
+                    ]
+                });
             } else if (args[1] || !args[1]) {
                 return message.reply({
                     embeds: [
@@ -35,10 +56,24 @@ module.exports = {
         } else if (args[0] === "nwelcome") {
             if (args[1] === "message" || args[1] === "msg") {
                 db.delete(`nmsg_${message.guild.id}`);
-                return message.reply(`${client.emoji.success}| Welcome Message Set To Default`);
+                return message.reply({
+                    embeds: [
+                        new discord.MessageEmbed({
+                            description: `${client.emoji.success}| Welcome Message Set To Default`,
+                            color: client.embed.cf
+                        })
+                    ]
+                });
             } else if (args[1] === "channel" || args[1] === "chan") {
                 db.delete(`nwelchannel_${message.guild.id}`);
-                return message.reply(`${client.emoji.success}| Embed Welcomer Disabled`);
+                return message.reply({
+                    embeds: [
+                        new discord.MessageEmbed({
+                            description: `${client.emoji.success}| Embed Welcomer Disabled`,
+                            color: client.embed.cf
+                        })
+                    ]
+                });
             } else if (args[1] || !args[1]) {
                 return message.reply({
                     embeds: [
