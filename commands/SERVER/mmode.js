@@ -61,7 +61,7 @@ module.exports = {
 
         const mode = new MessageEmbed({
             color: client.embed.cm,
-            description: "Ar you sure you want to\n**TOGGLE MAINTENANCE MODE**"
+            description: "Are you sure you want to\n**TOGGLE MAINTENANCE MODE**"
         }),
             ok = new MessageButton()
                 .setStyle("SUCCESS")
