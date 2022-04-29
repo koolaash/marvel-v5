@@ -29,22 +29,23 @@ module.exports = {
                 target = message.guild.members.cache.get(message.author.id)
             }
         }
-        let team = db.get("team-" + target.user.id),
-            partner = db.get("partner-" + target.user.id),
-            sup = db.get("supporter-" + target.user.id),
-            spec = db.get("special-" + target.user.id),
-            codev = db.get("codev-" + target.user.id),
-            dev = db.get("developer-" + target.user.id),
-            owner = db.get("owner-" + target.user.id),
-            coow = db.get("coowner-" + target.user.id),
-            bug = db.get("bug-" + target.user.id),
-            one = db.get("one-" + target.user.id),
-            early = db.get("early-" + target.user.id),
-            admin = db.get("admin-" + target.user.id),
-            mod = db.get("mod-" + target.user.id),
-            vip = db.get("vip-" + target.user.id),
-            superr = db.get("super-" + target.id),
-            beta = db.get('beta-' + target.id),
+        let team = db.get(`team-${target.user.id}`),
+            partner = db.get(`partner-${target.user.id}`),
+            sup = db.get(`supporter-${target.user.id}`),
+            spec = db.get(`special-${target.user.id}`),
+            codev = db.get(`codev-${target.user.id}`),
+            dev = db.get(`developer-${target.user.id}`),
+            owner = db.get(`owner-${target.user.id}`),
+            coow = db.get(`coowner-${target.user.id}`),
+            bug = db.get(`bug-${target.user.id}`),
+            one = db.get(`one-${target.user.id}`),
+            early = db.get(`early-${target.user.id}`),
+            admin = db.get(`admin-${target.user.id}`),
+            mod = db.get(`mod-${target.user.id}`),
+            vip = db.get(`vip-${target.user.id}`),
+            superr = db.get(`super-${target.id}`),
+            beta = db.get(`beta-${target.id}`),
+            staff = db.get(`staff-${target.id}`),
             voted = await client.qdb.get(`voted${target.id}`);
 
         let badges = [],
@@ -67,7 +68,7 @@ module.exports = {
             partner === null && sup === null && bug === null &&
             superr === null && one === null && early === null &&
             admin === null && mod === null && vip === null &&
-            beta === null && voted === null
+            beta === null && voted === null && staff === null
         ) {
             embed.setDescription("__**You Don't Have Any Badge Yet!**__");
             embed.addField(
@@ -83,6 +84,11 @@ module.exports = {
         if (admin === true) {
             badges.push(
                 `__**${client.badge.admin} ADMIN**__`
+            );
+        }
+        if (staff === true) {
+            badges.push(
+                `__**${client.badge.dmod} STAFF**__`
             );
         }
         if (mod === true) {
