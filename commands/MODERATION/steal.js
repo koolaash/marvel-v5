@@ -12,16 +12,16 @@ module.exports = {
     botPermissions: ["EMBED_LINKS", "MANAGE_EMOJIS"],
 
     async run(client, message, args) {
-        const emoji = args[0];
-        if (!emoji) return message.reply({
+
+        if (!args[0]) return message.reply({
             embeds: [
-                new MessageEmbeds({
+                new MessageEmbed({
                     description: `${client.emoji.fail}| steal <emoji> [name]`,
                     color: client.embed.cf
                 })
             ]
         });
-
+        const emoji = args[0];
         let customemoji = discord.Util.parseEmoji(emoji);
 
         if (customemoji.id) {
@@ -29,7 +29,7 @@ module.exports = {
                 }`,
                 name = args.slice(1).join(" ");
             try {
-                message.guild.emojis.create(
+                await message.guild.emojis.create(
                     `${Link}`,
                     `${name || customemoji.name}`
                 )
@@ -38,7 +38,7 @@ module.exports = {
                     embeds: [
                         new MessageEmbed({
                             color: client.embed.cf,
-                            description: `${client.emoji.fail}| Maybe your max emoji limit reached or its on timeout!`
+                            description: `${client.emoji.fail}| ${e.message}`
                         })
                     ]
                 })
