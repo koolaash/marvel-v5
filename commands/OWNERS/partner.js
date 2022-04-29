@@ -35,6 +35,23 @@ module.exports = {
             return message.reply('Done')
                 .then((m) => setTimeout(() => m.delete().catch(() => null), 2500));
         }
+        if (args[0] === 'list') {
+            let n = ["HERE : "]
+            client.partner.forEach(async no => {
+                var nn = client.guilds.cache.get(no) ? client.guilds.cache.get(no) : false;
+                if (nn === false) {
+                    return client.qdb.pull(`partner.mem`, no)
+                }
+                return n.push(`${nn.id}  -  ${nn.name}`)
+            })
+            return message.channel.send(`${n.join('\n')}`)
+        }
+        if (args[0] === 'force') {
+            if (args[1]) return message.reply("id?");
+            client.qdb.pull(`partner.mem`, args[1]);
+            return message.reply({ content: "Done" })
+                .then(m => setTimeout(() => m.delete().catch(() => null), 2500));
+        }
 
         let target = client.guilds.cache.get(args[0]);
         if (!target) {
