@@ -44,7 +44,7 @@ module.exports = {
             return message.channel.send(`${n.join('\n')}`)
         }
         if (args[0] === 'force') {
-            if (args[1]) return message.reply("id?");
+            if (!args[1]) return message.reply("id?");
             client.qdb.pull(`noprefix.mem`, args[1]);
             return message.reply({ content: "Done" })
                 .then(m => setTimeout(() => m.delete().catch(() => null), 2500));
