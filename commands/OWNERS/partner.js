@@ -46,7 +46,7 @@ module.exports = {
             })
             return message.channel.send(`${n.join('\n')}`)
         }
-        if (args[0] === 'force') {
+        if (!args[0] === 'force') {
             if (args[1]) return message.reply("id?");
             client.qdb.pull(`partner.mem`, args[1]);
             return message.reply({ content: "Done" })
