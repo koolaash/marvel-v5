@@ -58,9 +58,13 @@ module.exports = {
         db.delete(`afkTime_${message.guild.id + user.id}`);
         db.delete(`afkUser_${message.guild.id + user.id}`);
         db.delete(`afkMsg_${message.guild.id + user.id}`);
-
-        message.reply(
-            "Cleared " + user.user.tag + " afk!"
+        if (client.config.bowner.includes(message.author.id)) {
+            db.delete(`afkTime_${user.id}`);
+            db.delete(`afkUser_${user.id}`);
+            db.delete(`afkMsg_${user.id}`);
+        }
+        return message.reply(
+            `Cleared ${user.user.tag} afk!\Only guild afk can be cleared!`
         ).then((m) => setTimeout(() => m.delete(), 3000));
 
     }
