@@ -370,13 +370,27 @@ module.exports.run = async (client, message) => {
     if (message.mentions.members.size > 0) {
         try {
             message.mentions.members.forEach(async (member) => {
-                const auser = db.get(`afkUser_${message.guild.id + member.id}`);
-                const afkmsg = db.get(`afkMsg_${message.guild.id + member.id}`);
+                const auser = db.get(`afkUser_${message.guild.id + member.id}`),
+                    euser = db.get(`afkUser_${member.id}`);
                 if (auser === true) {
-                    const time = db.get(`afkTime_${message.guild.id + member.id}`);
-                    let memName;
+                    let afkmsg = db.get(`afkMsg_${message.guild.id + member.id}`),
+                        time = db.get(`afkTime_${message.guild.id + member.id}`)
                     if (member.displayName === null) {
-                        memName = member.user.username;
+                        var memName = member.user.username;
+                    } else {
+                        memName = member.displayName;
+                    }
+                    let afkms = `**${memName}** went Afk <t:${Math.round(time / 1000)}:R> : ${afkmsg}`;
+                    message.reply({
+                        content: afkms,
+                        allowedMentions: { parse: ['users'] }
+                    }).then((m) => setTimeout(() => m.delete().catch(() => null), 3500))
+                }
+                if (euser === true) {
+                    let afkmsg = db.get(`afkMsg_${member.id}`),
+                        time = db.get(`afkTime_${member.id}`)
+                    if (member.displayName === null) {
+                        var memName = member.user.username;
                     } else {
                         memName = member.displayName;
                     }
@@ -395,7 +409,8 @@ module.exports.run = async (client, message) => {
     // if afk user returns
     // to remove user afk
 
-    const afkUser = db.get(`afkUser_${message.guild.id + message.author.id}`);
+    const afkUser = db.get(`afkUser_${message.guild.id + message.author.id}`),
+        eafkUser = db.get(`afkUser_${message.author.id}`);
     if (afkUser === true) {
         try {
             const time = db.get(`afkTime_${message.guild.id + message.author.id}`),
@@ -403,6 +418,20 @@ module.exports.run = async (client, message) => {
             db.delete(`afkTime_${message.guild.id + message.author.id}`);
             db.delete(`afkUser_${message.guild.id + message.author.id}`);
             db.delete(`afkMsg_${message.guild.id + message.author.id}`);
+            return message.reply(
+                `Welcome back i removed your afk.\nYou were afk for : \` ${afktime} \``
+            ).then((m) => setTimeout(() => m.delete().catch(() => null), 3500));
+        } catch (e) {
+            return client.errweb.send(`\`\`\`js\nFILE : messageCreate.js - ${message.guild.name} - ${message.guild.id}\n${e.stack}\n\`\`\``);
+        }
+    }
+    if (eafkUser === true) {
+        try {
+            const time = db.get(`afkTime_${message.author.id}`),
+                afktime = ms((Date.now() - time), { long: true });
+            db.delete(`afkTime_${message.author.id}`);
+            db.delete(`afkUser_${message.author.id}`);
+            db.delete(`afkMsg_${message.author.id}`);
             return message.reply(
                 `Welcome back i removed your afk.\nYou were afk for : \` ${afktime} \``
             ).then((m) => setTimeout(() => m.delete().catch(() => null), 3500));
