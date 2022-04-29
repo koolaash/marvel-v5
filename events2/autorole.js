@@ -41,8 +41,7 @@ module.exports = function (client, options) {
       if (t === true) {
         return;
       }
-
-      member.roles.add(ree).catch(() => null);
+      await member.roles.add(ree).catch(() => null);
     } catch (e) {
       return client.errweb.send(`\`\`\`js\nFILE : ${description.name} - ${member.guild.name} - ${member.guild.id}\n${e.stack}\n\`\`\``);
     }
