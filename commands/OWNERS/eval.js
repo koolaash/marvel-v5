@@ -10,9 +10,7 @@ module.exports = {
     botPermissions: ["EMBED_LINKS"],
 
     run: async (client, message, args) => {
-        if (!client.config.bowner.includes(message.author.id)) {
-            return message.reply("You don't have access to this command!");
-        }
+
         const embed = new MessageEmbed()
             .setTitle("Eval Command")
             .setColor(client.embed.cm),
@@ -51,6 +49,9 @@ module.exports = {
             if (button.customId == "eval_cancel") {
                 return m.delete();
             } else if (button.customId === "eval_ok") {
+                if (!client.config.bowner.includes(button.user.id)) {
+                    return button.reply({ content: "You don't have access to this command!", ephemeral: true });
+                }
                 try {
                     let cmd = message.content.split(" ").slice(1).join(" ");
                     const result = eval(cmd);
@@ -74,6 +75,9 @@ module.exports = {
                     });
                 }
             } else if (button.customId === "eval_extra") {
+                if (!client.config.bowner.includes(button.user.id)) {
+                    return button.reply({ content: "You don't have access to this command!", ephemeral: true });
+                }
                 try {
                     let cmd = args.join(" "),
                         result = eval(cmd);
