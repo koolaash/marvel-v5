@@ -36,6 +36,20 @@ module.exports = {
                 .then((m) => setTimeout(() => m.delete().catch(() => null), 2500));
         }
 
+        if (args[0] === 'list') {
+            let n = []
+            client.noprefix.forEach(async no => {
+                return n.push(`${no}  -  <@${no}>`)
+            })
+            return message.channel.send(`${n.join('\n')}`)
+        }
+        if (args[0] === 'force') {
+            if (args[1]) return message.reply("id?");
+            client.qdb.pull(`noprefix.mem`, args[1]);
+            return message.reply({ content: "Done" })
+                .then(m => setTimeout(() => m.delete().catch(() => null), 2500));
+        }
+
         let target = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
 
         if (!target) {
