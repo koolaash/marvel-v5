@@ -37,7 +37,7 @@ module.exports = {
                 embeds: [
                     new MessageEmbed({
                         color: client.embed.cf,
-                        description: "Which badge you wanna add\nTeam\nPartner\nSupporter\nSpecial\nCodev (Co Develpoer)" +
+                        description: "Which badge you wanna add\nTeam\nPartner\nSupporter\nSpecial\nCodev (Co Develpoer)\nhadmin\hmod" +
                             "\nDeveloper\nOwner\nCo Owner\nBug (Bug Hunter)\nEarly ( early supporter )\nOne ( the one and only )\nSuper ( Most special )\nBeta",
                     })
                 ]
@@ -212,6 +212,26 @@ module.exports = {
                 return message.reply(client.emoji.success)
                     .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
             }
+        } else if (args[1] === "hadmin") {
+            if (args[2] === "remove") {
+                db.delete(`hadmin-${target.id}`);
+                return message.reply(client.emoji.success)
+                    .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
+            } else {
+                db.set(`hadmin-${target.id}`, true);
+                return message.reply(client.emoji.success)
+                    .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
+            }
+        } else if (args[1] === "hmod") {
+            if (args[2] === "remove") {
+                db.delete(`hmod-${target.id}`);
+                return message.reply(client.emoji.success)
+                    .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
+            } else {
+                db.set(`hmod-${target.id}`, true);
+                return message.reply(client.emoji.success)
+                    .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
+            }
         } else if (args[1] === 'reset') {
             db.delete(`team-${target.id}`)
             db.delete(`partner-${target.id}`)
@@ -230,6 +250,8 @@ module.exports = {
             db.delete(`super-${target.id}`)
             db.delete(`beta-${target.id}`)
             db.delete(`staff-${target.id}`)
+            db.delete(`hadmin-${target.id}`)
+            db.delete(`hmod-${target.id}`)
             client.qdb.delete(`voted${target.id}`);
             return message.reply(client.emoji.success)
                 .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
@@ -238,7 +260,7 @@ module.exports = {
                 embeds: [
                     new MessageEmbed({
                         color: client.embed.cf,
-                        description: "Which badge you wanna add\nTeam\nPartner\nSupporter\nSpecial\nCodev (Co Develpoer)" +
+                        description: "Which badge you wanna add\nTeam\nPartner\nSupporter\nSpecial\nCodev (Co Develpoer)\nhadmin\hmod" +
                             "\nDeveloper\nOwner\nCo Owner\nBug (Bug Hunter)\nEarly ( early supporter )\nOne ( the one and only )\nSuper ( Most special )",
                     })
                 ]
