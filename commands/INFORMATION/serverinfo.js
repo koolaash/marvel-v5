@@ -102,7 +102,7 @@ module.exports = {
         if (message.guild.roles.cache.size < 25) {
             embed.addField(
                 `__ROLES__[${message.guild.roles.cache.size}]`,
-                `** TOTAL ROLES: **\n ${member.roles.cache.map(roles => `${roles}`).join(', ')} `
+                `** TOTAL ROLES: **\n${message.guild.roles.cache.map(roles => `${roles}`).join(', ')} `
             )
         } else {
             embed.addField(
