@@ -47,7 +47,7 @@ module.exports = {
             beta = db.get(`beta-${target.id}`),
             staff = db.get(`staff-${target.id}`),
             hadmin = db.get(`hadmin-${target.id}`),
-            hmod = db.get(`mod-${target.id}`),
+            hmod = db.get(`hmod-${target.id}`),
             voted = await client.qdb.get(`voted${target.id}`);
 
         let badges = [],
