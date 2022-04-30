@@ -16,9 +16,9 @@ module.exports = {
         let fail = client.embed.cf,
             success = client.embed.cr,
             main = client.embed.cm,
-            semoji = client.emoji.success + "| ",
-            aemoji = client.emoji.ar + "| ",
-            femoji = client.emoji.fail + "| ",
+            semoji = `${client.emoji.success}| `,
+            aemoji = `${client.emoji.ar}| `,
+            femoji = `${client.emoji.fail}| `,
             mer = args.join(" "),
             arg = mer.toLowerCase().split(/ +/g);
 
