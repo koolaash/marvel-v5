@@ -44,7 +44,7 @@ module.exports = {
             }
             const nembed = new discord.MessageEmbed()
                 .setDescription(
-                    `${client.emoji.success}| ${message.channel} Is Now Invisible To ${item}\`.!`
+                    `${client.emoji.success}| ${message.channel} Is Now Visible To ${item}\`.!`
                 )
                 .setColor(client.embed.cr)
             return (

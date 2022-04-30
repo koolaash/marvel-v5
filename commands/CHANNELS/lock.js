@@ -44,7 +44,7 @@ module.exports = {
             }
             const nembed = new discord.MessageEmbed()
                 .setDescription(
-                    `${client.emoji.success}| ${message.channel} Is Now Invisible To ${item}\`.!`
+                    `${client.emoji.success}| ${message.channel} Is Now Locked For ${item}\`.!`
                 )
                 .setColor(client.embed.cr)
             return (
@@ -57,7 +57,7 @@ module.exports = {
         } else {
             const embed = new discord.MessageEmbed()
                 .setDescription(
-                    `${client.emoji.success}| ${message.channel} Is Now Locked To Everyone.!`
+                    `${client.emoji.success}| ${message.channel} Is Now Locked For Everyone.!`
                 )
                 .setColor(client.embed.cr)
             return (
