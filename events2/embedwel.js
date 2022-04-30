@@ -31,8 +31,11 @@ module.exports = function (client) {
 <a:op2_:764200161793540106> **ENJOY YOUR STAY HERE**
 
 `;
-      let createdate = moment.utc(member.createdAt).format("ddd, Do MMMM YYYY");
-      let m1 = db.get(`msg_${member.guild.id}`);
+      if (chx === null || chx === undefined) {
+        return db.delete(`welchannel_${member.guild.id}`);
+      }
+      let createdate = moment.utc(member.createdAt).format("ddd, Do MMMM YYYY"),
+        m1 = db.get(`msg_${member.guild.id}`);
       if (!m1 || m1 === null) { m1 = default_msg; }
       const msg = m1
         .replace("{joined}", createdate)
@@ -46,7 +49,7 @@ module.exports = function (client) {
 
       let url = db.get(`url_${member.guild.id}`);
       if (url === null) url = default_url;
-      let colour = db.get("welClr" + member.guild.id)
+      let colour = db.get(`welClr${member.guild.id}`)
       if (!colour) {
         colour = client.embed.cm
       }
