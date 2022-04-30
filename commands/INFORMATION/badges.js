@@ -84,11 +84,6 @@ module.exports = {
                 `__**${client.badge.owner} OWNER**__`
             );
         }
-        if (admin === true) {
-            badges.push(
-                `__**${client.badge.admin} ADMIN**__`
-            );
-        }
         if (hadmin === true) {
             badges.push(
                 `__**${client.badge.hadmin} HEAD ADMIN**__`
