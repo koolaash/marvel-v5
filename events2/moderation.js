@@ -14,13 +14,14 @@ module.exports = function (client, options) {
   );
   client.on("messageCreate", async (message) => {
 
-    //   blacklist check function
 
-    if (client.blguilds.includes(message.guild.id)) {
-      return;
-    }
     try {
       if (message.author.bot || !message.guild) return;
+      //   blacklist check function
+
+      if (client.blguilds.includes(message.guild.id)) {
+        return;
+      }
       if (!message.member) {
         message.member = await message.guild.fetchMember(message).catch(() => null);
       }
