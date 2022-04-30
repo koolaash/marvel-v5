@@ -83,22 +83,15 @@ module.exports = {
                 .addField(
                     "INFORMATION" + "\n━━━━━━━━━━━━━━━━━",
                     "`" +
-                    p +
-                    "invite` - bots invite & support\n`" +
-                    p +
-                    "ping ` - check the ping of the bot\n`" +
-                    p +
-                    "policy` - know about our policy and data security\n`" +
-                    p +
-                    "serverinfo` - get details about the server\n`" +
-                    p +
-                    "whois <@user/user_id>` - get details about any user\n`" +
-                    p +
-                    "stats` - get the stats of the bot\n`" +
-                    p +
-                    "badge` - to check your badges given to you by bot\n`" +
-                    p +
-                    "roleinfo <@role>` - to check info of any role`" +
+                    p + "invite` - bots invite & support\n`" +
+                    p + "ping ` - check the ping of the bot\n`" +
+                    p + "vote @user` - check the votes of the any user\n`" +
+                    p + "policy` - know about our policy and data security\n`" +
+                    p + "serverinfo` - get details about the server\n`" +
+                    p + "whois <@user/user_id>` - get details about any user\n`" +
+                    p + "stats` - get the stats of the bot\n`" +
+                    p + "badge` - to check your badges given to you by bot\n`" +
+                    p + "roleinfo <@role>` - to check info of any role`" +
                     + "\n**━━━━━━━━━━━━━━━━━**"
                 )
                 .addField(`${client.emoji.ar}NOTE :`, "<> [] - DO NOT INCLUDE THESE WHILE EXECUTING A COMMAND")
