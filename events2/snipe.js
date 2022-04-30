@@ -13,14 +13,17 @@ module.exports = function (client, options) {
 
   client.on("messageDelete", async (message) => {
 
-    if (client.blguilds.includes(message.guild.id)) {
-      return;
-    }
+
     try {
       if (!message.author) return;
       let m = await message.guild.members.fetch(message.author.id).catch(() => null);
       if (!m) return;
       if (message.author.bot || !message.guild) return;
+
+      if (client.blguilds.includes(message.guild.id)) {
+        return;
+      }
+
       client.snipes.set(message.channel.id, {
         content: message.content,
         author: message.author.tag,
