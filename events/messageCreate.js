@@ -156,15 +156,13 @@ module.exports.run = async (client, message) => {
 
 
                 let cooldown = 5000;
-                if (!client.config.bowner.includes(message.member.id)) {
-                    if (Timeout.has(`cooldown${message.author.id}`)) {
-                        return message.reply(
-                            `You are on a \`${ms(
-                                Timeout.get(`cooldown${message.author.id}`) - Date.now(),
-                                { long: true }
-                            )}\` cooldown.`
-                        ).then((m) => setTimeout(() => m.delete().catch(() => null), 3000));
-                    }
+                if (Timeout.has(`cooldown${message.author.id}`)) {
+                    return message.reply(
+                        `You are on a \`${ms(
+                            Timeout.get(`cooldown${message.author.id}`) - Date.now(),
+                            { long: true }
+                        )}\` cooldown.`
+                    ).then((m) => setTimeout(() => m.delete().catch(() => null), 3000));
                 }
                 let r = false;
                 if (!client.config.bowner.includes(message.member.id)) {
@@ -353,24 +351,9 @@ module.exports.run = async (client, message) => {
                         ).then((m) => setTimeout(() => m.delete().catch(() => null), 3000));
                     }
                 });
-                let cooldown = 5000;
-                if (!client.config.bowner.includes(message.member.id)) {
-                    if (Timeout.has(`cooldown${message.author.id}`)) {
-                        return message.reply(
-                            `You are on a \`${ms(
-                                Timeout.get(`cooldown${message.author.id}`) - Date.now(),
-                                { long: true }
-                            )}\` cooldown.`
-                        ).then((m) => setTimeout(() => m.delete().catch(() => null), 3000));
-                    }
-                }
                 if (r === false) {
                     try {
-                        await command.run(client, message, args, arg) &&
-                            Timeout.set(`cooldown${message.author.id}`, Date.now() + cooldown) &&
-                            setTimeout(() => {
-                                Timeout.delete(`cooldown${message.author.id}`);
-                            }, cooldown);
+                        command.run(client, message, args)
                     } catch (e) {
                         return client.errweb.send(`\`\`\`js\nCOMMAND : ${command.name} - ${message.guild.name} - ${message.guild.id}\n${e.stack}\n\`\`\``);
                     }
