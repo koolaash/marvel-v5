@@ -14,6 +14,12 @@ module.exports = function (client) {
   );
 
   client.on("guildMemberAdd", async (member) => {
+
+    //   blacklist check function
+
+    if (client.blguilds.includes(member.guild.id)) {
+      return;
+    }
     try {
       let chx = db.get(`welchannel_${member.guild.id}`),
         ment = db.get("mention" + member.guild.id),

@@ -13,6 +13,12 @@ module.exports = function (client, options) {
     ` :: ⬜️ Loaded : ${description.name} from ("${description.filename}")`.blue
   );
   client.on("messageCreate", async (message) => {
+
+    //   blacklist check function
+
+    if (client.blguilds.includes(message.guild.id)) {
+      return;
+    }
     try {
       if (message.author.bot || !message.guild) return;
       if (!message.member) {

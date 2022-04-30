@@ -12,6 +12,12 @@ module.exports = function (client, options) {
   );
 
   client.on("guildMemberAdd", async (member) => {
+    //   blacklist check function
+
+  if (client.blguilds.includes(member.guild.id)) {
+      return;
+  }
+
     try {
       const roleAdd = db.get("autorole" + member.guild.id);
       if (roleAdd === null || roleAdd === undefined) return;
