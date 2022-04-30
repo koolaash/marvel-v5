@@ -77,13 +77,17 @@ module.exports = {
         }
 
         if (args[1] === "add") {
-            client.qdb.push(`partner.mem`, target.id)
+            if (client.partner.includes(target.id)) {
+                return message.reply({ content: "Already in list!" })
+                    .then(m => setTimeout(() => m.delete().catch(() => null), 2500));
+            }
+            client.qdb.push(`partner.mem`, target.id);
             return message.reply({ content: "Done" })
-                .then(m => setTimeout(() => m.delete().catch(() => null), 2500))
+                .then(m => setTimeout(() => m.delete().catch(() => null), 2500));
         } else if (args[1] === 'remove') {
-            client.qdb.pull(`partner.mem`, target.id)
+            client.qdb.pull(`partner.mem`, target.id);
             return message.reply({ content: "Done" })
-                .then(m => setTimeout(() => m.delete().catch(() => null), 2500))
+                .then(m => setTimeout(() => m.delete().catch(() => null), 2500));
         }
     }
 }
