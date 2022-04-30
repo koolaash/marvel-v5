@@ -84,7 +84,26 @@ module.exports.run = async (client, message) => {
                         ]
                     }).catch(() => null)
                 }
-
+                if (client.bluser.includes(message.author.id)) {
+                    return message.reply({
+                        embeds: [
+                            new MessageEmbed({
+                                color: client.color.bl,
+                                description: `You are blacklisted from using this bot\n[Click Here To Join Support](${client.config.bserver})`
+                            })
+                        ]
+                    })
+                }
+                if (client.blguilds.includes(message.guild.id)) {
+                    return message.reply({
+                        embeds: [
+                            new MessageEmbed({
+                                color: client.color.bl,
+                                description: `This server is blacklisted from using this bot\n[Click Here To Join Support](${client.config.bserver})`
+                            })
+                        ]
+                    })
+                }
                 if (command.modRole === true) {
                     const modRol = db.get("modrole" + message.guild.id);
                     if (!modRol || modRol === null) {
@@ -252,6 +271,26 @@ module.exports.run = async (client, message) => {
                             })
                         ]
                     }).catch(() => null)
+                }
+                if (client.bluser.includes(message.author.id)) {
+                    return message.reply({
+                        embeds: [
+                            new MessageEmbed({
+                                color: client.color.bl,
+                                description: `You are blacklisted from using this bot\n[Click Here To Join Support](${client.config.bserver})`
+                            })
+                        ]
+                    })
+                }
+                if (client.blguilds.includes(message.guild.id)) {
+                    return message.reply({
+                        embeds: [
+                            new MessageEmbed({
+                                color: client.color.bl,
+                                description: `This server is blacklisted from using this bot\n[Click Here To Join Support](${client.config.bserver})`
+                            })
+                        ]
+                    })
                 }
                 if (command.modRole === true) {
                     const modRol = db.get(`modrole${message.guild.id}`);
@@ -422,6 +461,18 @@ module.exports.run = async (client, message) => {
             return client.errweb.send(`\`\`\`js\nFILE : messageCreate.js - ${message.guild.name} - ${message.guild.id}\n${e.stack}\n\`\`\``);
         }
     }
+
+
+    //   blacklist check function
+
+
+    if (client.bluser.includes(message.author.id)) {
+        return;
+    }
+    if (client.blguilds.includes(message.guild.id)) {
+        return;
+    }
+
 
     // if afk user returns
     // to remove user afk

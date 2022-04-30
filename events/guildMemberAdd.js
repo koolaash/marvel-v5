@@ -2,6 +2,13 @@ const discord = require("discord.js"),
     db = require("quick.db");
 
 module.exports.run = async (client, member) => {
+   
+    //   blacklist check function
+
+    if (client.blguilds.includes(member.guild.id)) {
+        return;
+    }
+
     try {
         const nchx = db.get(`nwelchannel_${member.guild.id}`);
         if (nchx === null || nchx === undefined) {
