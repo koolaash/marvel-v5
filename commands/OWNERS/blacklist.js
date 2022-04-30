@@ -86,7 +86,7 @@ module.exports = {
                 client.qdb.push(`blguilds.mem`, target.id);
                 return message.reply({ content: "Done" })
                     .then(m => setTimeout(() => m.delete().catch(() => null), 2500));
-            } else if (args[1] === 'remove') {
+            } else if (args[2] === 'remove') {
                 client.qdb.pull(`blguilds.mem`, target.id);
                 return message.reply({ content: "Done" })
                     .then(m => setTimeout(() => m.delete().catch(() => null), 2500));
