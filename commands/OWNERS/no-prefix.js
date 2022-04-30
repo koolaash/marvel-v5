@@ -39,9 +39,9 @@ module.exports = {
         if (args[0] === 'list') {
             let n = []
             client.noprefix.forEach(async no => {
-                return n.push(`${no}  -  <@${no}>`)
+                return n.push(`${no}  -  <@${no}>`);
             })
-            return message.channel.send(`${n.join('\n')}`)
+            return message.channel.send(`${n.join('\n')}`);
         }
         if (args[0] === 'force') {
             if (!args[1]) return message.reply("id?");
@@ -69,7 +69,7 @@ module.exports = {
 
         if (!args[1]) {
             return message.reply({ content: "Add or Remove" })
-                .then(m = setTimeout(() => m.delete().catch(() => null), 2500))
+                .then(m = setTimeout(() => m.delete().catch(() => null), 2500));
         }
 
         let mems = await client.qdb.get(`noprefix`);
@@ -79,13 +79,17 @@ module.exports = {
         }
 
         if (args[1] === "add") {
-            client.qdb.push(`noprefix.mem`, target.id)
+            if (client.noprefix.includes(target.id)) {
+                return message.reply({ content: "Already in list!" })
+                    .then(m => setTimeout(() => m.delete().catch(() => null), 2500));
+            }
+            client.qdb.push(`noprefix.mem`, target.id);
             return message.reply({ content: "Done" })
-                .then(m => setTimeout(() => m.delete().catch(() => null), 2500))
+                .then(m => setTimeout(() => m.delete().catch(() => null), 2500));
         } else if (args[1] === 'remove') {
-            client.qdb.pull(`noprefix.mem`, target.id)
+            client.qdb.pull(`noprefix.mem`, target.id);
             return message.reply({ content: "Done" })
-                .then(m => setTimeout(() => m.delete().catch(() => null), 2500))
+                .then(m => setTimeout(() => m.delete().catch(() => null), 2500));
         }
     }
 }
