@@ -33,7 +33,7 @@ module.exports = {
 
         let mer = args.join(" "),
             arg = mer.toLowerCase().split(/ +/g);
-            
+
         if (!arg[0]) {
             return message.reply({
                 embeds: [
@@ -142,17 +142,14 @@ module.exports = {
         }
 
         if (arg[0]) {
-            let target = message.mentions.members.first() ||
-                message.guild.members.cache.get(args[0]);
-            if (!target) {
-                target = await message.guild.members.fetch(args[0]).catch(() => null);
-            }
-            if (!target) {
+            let targett = message.mentions.members.first();
+
+            if (!targett) {
                 return message.reply({
                     embeds: [
                         new MessageEmbed({
                             color: fail,
-                            description: `${cross}| Unable to find this user!`,
+                            description: `${cross}| Please mentions the users first!`,
                         })
                     ]
                 });
@@ -169,28 +166,30 @@ module.exports = {
                 });
             }
 
-            if (target) {
-                if (!target.roles.cache.has(role.id)) {
-                    target.roles.add(role, message.author.tag);
-                    return message.reply({
-                        embeds: [
-                            new MessageEmbed({
-                                color: success,
-                                description: `${tick}| Gave <@&${role.id}> to <@${target.user.id}>!`,
-                            })
-                        ]
-                    });
-                } else if (target.roles.cache.has(role.id)) {
-                    target.roles.remove(role, message.author.tag);
-                    return message.reply({
-                        embeds: [
-                            new MessageEmbed({
-                                color: fail,
-                                description: `${cross}| Removed <@&${role.id}> from <@${target.user.id}>!`,
-                            })
-                        ]
-                    });
-                }
+            if (targett) {
+                message.mentions.forEach(async target => {
+                    if (!target.roles.cache.has(role.id)) {
+                        await target.roles.add(role, message.author.tag);
+                        return message.reply({
+                            embeds: [
+                                new MessageEmbed({
+                                    color: success,
+                                    description: `${tick}| Gave <@&${role.id}> to <@${target.user.id}>!`,
+                                })
+                            ]
+                        }).then((m) => setTimeout(() => m.delete().catch(() => null), 2500));
+                    } else if (target.roles.cache.has(role.id)) {
+                        await target.roles.remove(role, message.author.tag);
+                        return message.reply({
+                            embeds: [
+                                new MessageEmbed({
+                                    color: fail,
+                                    description: `${cross}| Removed <@&${role.id}> from <@${target.user.id}>!`,
+                                })
+                            ]
+                        }).then((m) => setTimeout(() => m.delete().catch(() => null), 2500));
+                    }
+                })
             }
         }
     },
