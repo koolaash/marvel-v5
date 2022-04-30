@@ -74,10 +74,17 @@ module.exports = {
             .setColor(hex)
             .setDescription(m)
             .addField("__Key Permissions__", `\`${per.join(', ') || "None"}\``)
-            .addField(
-                `__Roles__`,
-                member.roles.cache.map(roles => `${roles}`).join(', '), true
-            );
+        if (message.guild.roles.cache.size < 25) {
+            embed.addField(
+                `__ROLES__[${member.roles.cache.size}]`,
+                `** TOTAL ROLES: **\n${member.roles.cache.map(roles => `${roles}`).join(', ')} `
+            )
+        } else {
+            embed.addField(
+                `__ROLES__[${member.roles.cache.size}]`,
+                `** TOTAL ROLES: ** To many roles to show here!`
+            )
+        }
         return message.reply({ embeds: [embed] });
     }
 };
