@@ -79,12 +79,12 @@ module.exports = {
                     ]
                 }).then(m => setTimeout(() => m.delete().catch(() => null), 2500));
             } else if (!isNaN(args[0])) {
-                if (args[0] > 100) {
+                if (args[0] > 100 || args[0] < 1) {
                     return message.channel.send({
                         embeds: [
                             new MessageEmbed({
                                 color: client.embed.cf,
-                                description: `${client.emoji.fail}| Amount of message to be deleted must not exceed 100`
+                                description: `${client.emoji.fail}| Amount should be betweed 1 - 100`
                             })
                         ]
                     }).then(m => setTimeout(() => m.delete().catch(() => null), 2500));
