@@ -46,6 +46,8 @@ module.exports = {
             superr = db.get(`super-${target.id}`),
             beta = db.get(`beta-${target.id}`),
             staff = db.get(`staff-${target.id}`),
+            hadmin = db.get(`hadmin-${target.id}`),
+            hmod = db.get(`hadmin-${target.id}`),
             voted = await client.qdb.get(`voted${target.id}`);
 
         let badges = [],
@@ -68,7 +70,8 @@ module.exports = {
             partner === null && sup === null && bug === null &&
             superr === null && one === null && early === null &&
             admin === null && mod === null && vip === null &&
-            beta === null && voted === null && staff === null
+            beta === null && voted === null && staff === null &&
+            hadmin === null && hmod === null
         ) {
             embed.setDescription("__**You Don't Have Any Badge Yet!**__");
             embed.addField(
@@ -86,9 +89,24 @@ module.exports = {
                 `__**${client.badge.admin} ADMIN**__`
             );
         }
+        if (hadmin === true) {
+            badges.push(
+                `__**${client.badge.hadmin} HEAD ADMIN**__`
+            );
+        }
+        if (admin === true) {
+            badges.push(
+                `__**${client.badge.admin} ADMIN**__`
+            );
+        }
         if (staff === true) {
             badges.push(
                 `__**${client.badge.dmod} STAFF**__`
+            );
+        }
+        if (hmod === true) {
+            badges.push(
+                `__**${client.badge.hmod} HEAD MOD**__`
             );
         }
         if (mod === true) {
