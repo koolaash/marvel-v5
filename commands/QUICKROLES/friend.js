@@ -167,7 +167,7 @@ module.exports = {
             }
 
             if (targett) {
-                message.mentions.forEach(async target => {
+                message.mentions.members.forEach(async target => {
                     if (!target.roles.cache.has(role.id)) {
                         await target.roles.add(role, message.author.tag);
                         return message.reply({
