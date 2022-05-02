@@ -420,6 +420,16 @@ module.exports.run = async (client, message) => {
         }
     }
 
+    //   blacklist check function
+
+
+    if (client.bluser.includes(message.author.id)) {
+        return;
+    }
+    if (client.blguilds.includes(message.guild.id)) {
+        return;
+    }
+
     // afk system starts here
     // AFK HERE
 
@@ -462,16 +472,6 @@ module.exports.run = async (client, message) => {
         }
     }
 
-
-    //   blacklist check function
-
-
-    if (client.bluser.includes(message.author.id)) {
-        return;
-    }
-    if (client.blguilds.includes(message.guild.id)) {
-        return;
-    }
 
 
     // if afk user returns
