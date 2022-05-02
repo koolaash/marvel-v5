@@ -57,17 +57,16 @@ client.error = require("./json/errors.json");
 client.del = del;
 require("colors");
 
+const mongoose = require("mongoose"),
+    dbOptions = {
+        useNewUrlParser: true,
+        autoIndex: false,
+        poolSize: 5,
+        connectTimeoutMS: 10000,
+        family: 4,
+        useUnifiedTopology: true,
+    };
 
-const mongoose = require("mongoose");
-
-const dbOptions = {
-    useNewUrlParser: true,
-    autoIndex: false,
-    poolSize: 5,
-    connectTimeoutMS: 10000,
-    family: 4,
-    useUnifiedTopology: true,
-};
 mongoose.connect(client.config.DB, dbOptions);
 mongoose.set("useFindAndModify", false);
 mongoose.Promise = global.Promise;
@@ -80,6 +79,7 @@ mongoose.connection.on("err", (err) => {
 mongoose.connection.on("disconnected", () => {
     console.log("Mongoose disconnected");
 });
+
 const { Database } = require("quickmongo"),
     errweb = new WebhookClient({
         id: process.env.web_id || client.config.web_id,
