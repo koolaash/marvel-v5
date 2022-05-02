@@ -25,7 +25,7 @@ module.exports = {
             .replace("{member}", member.user)
             .replace("{member.guild}", message.guild);
         try {
-            message.reply({ embeds: [msg] });
+            message.reply({ content: msg });
         } catch (e) {
             return console.log(e);
         }
