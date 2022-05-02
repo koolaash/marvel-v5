@@ -112,12 +112,11 @@ module.exports = {
                 }).then(m => setTimeout(() => m.delete().catch(() => null), 3500));
             }
         } catch (e) {
-            console.log(e);
             return message.channel.send({
                 embeds: [
                     new MessageEmbed({
                         color: client.embed.cf,
-                        description: `${client.emoji.fail}| Cannot purge messages older than 14 days!`
+                        description: `${client.emoji.fail}| ${e}!`
                     })
                 ]
             }).then(m => setTimeout(() => m.delete().catch(() => null), 2500));
