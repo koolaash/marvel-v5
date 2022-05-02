@@ -51,11 +51,9 @@ module.exports = {
             `/${res.data.avatar}.webp?size=2048`;
         if (url.includes("null")) {
             return message.lineReply(
-                new discord.MessageEmbed({
+                new MessageEmbed({
                     color: client.embed.cf,
-                    description:
-                        client.emoji.fail +
-                        "| This user don't have a saperate server avatar!",
+                    description: `${client.emoji.fail}| This user don't have a saperate server avatar!`,
                 })
             );
         }
