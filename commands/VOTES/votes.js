@@ -14,7 +14,7 @@ module.exports = {
             let voteUser = message.mentions.members.first() || message.member,
                 votes = await client.qdb.get(`vote-total${voteUser.id}`),
                 vote = new MessageEmbed({
-                    description: `You Have A Total Of ${votes} Votes\nClick on the button to vote or [here](${client.config.bvote})`,
+                    description: `${voteUser} Have A Total Of ${votes} Votes\nClick on the button to vote or [here](${client.config.bvote})`,
                     color: client.color.cm,
                 }),
                 vb = new MessageButton()
