@@ -17,8 +17,19 @@ module.exports = {
         if (!mem) {
             return message.reply({ content: "user error not found!" })
         }
-        client.qdb.set(`voted${mem.user.id}`, true)
-        client.qdb.set(`vote-time_${mem.user.id}`, Date.now());
-        return message.reply({ content: "DONE" })
+        if (!args[1]) {
+            client.qdb.set(`voted${mem.user.id}`, true)
+            client.qdb.set(`vote-time_${mem.user.id}`, Date.now());
+            return message.reply({ content: "DONE" })
+        }
+        if (isNaN(args[1])) {
+            return message.reply("Must be a number")
+        }
+        if (args[1]) {
+            client.qdb.set(`voted${mem.user.id}`, true)
+            client.qdb.set(`vote-time_${mem.user.id}`, Date.now());
+            client.qdb.add(`vote-total${target.id}`, agrs[1]);
+            return message.reply({ content: "DONE" })
+        }
     },
 };
