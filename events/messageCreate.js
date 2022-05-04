@@ -448,9 +448,8 @@ module.exports.run = async (client, message) => {
                     }
                     let afkms = `**${memName}** went Afk <t:${Math.round(time / 1000)}:R> : ${afkmsg}`;
                     message.reply({
-                        content: afkms,
-                        allowedMentions: { parse: ['users'] }
-                    }).then((m) => setTimeout(() => m.delete().catch(() => null), 3500))
+                        content: afkms, allowedMentions: { parse: ['users'] }
+                    }).then((m) => setTimeout(() => m.delete().catch(() => null), 10000))
                 }
                 if (euser === true) {
                     let afkmsg = db.get(`afkMsg_${member.id}`),
@@ -462,9 +461,8 @@ module.exports.run = async (client, message) => {
                     }
                     let afkms = `**${memName}** went Afk <t:${Math.round(time / 1000)}:R> : ${afkmsg}`;
                     message.reply({
-                        content: afkms,
-                        allowedMentions: { parse: ['users'] }
-                    }).then((m) => setTimeout(() => m.delete().catch(() => null), 3500))
+                        content: afkms, allowedMentions: { parse: ['users'] }
+                    }).then((m) => setTimeout(() => m.delete().catch(() => null), 10000))
                 }
             });
         } catch (e) {
@@ -488,7 +486,7 @@ module.exports.run = async (client, message) => {
             db.delete(`afkMsg_${message.guild.id + message.author.id}`);
             return message.reply(
                 `Welcome back i removed your afk.\nYou were afk for : \` ${afktime} \``
-            ).then((m) => setTimeout(() => m.delete().catch(() => null), 3500));
+            ).then((m) => setTimeout(() => m.delete().catch(() => null), 10000));
         } catch (e) {
             return client.errweb.send(`\`\`\`js\nFILE : messageCreate.js - ${message.guild.name} - ${message.guild.id}\n${e.stack}\n\`\`\``);
         }
@@ -502,7 +500,7 @@ module.exports.run = async (client, message) => {
             db.delete(`afkMsg_${message.author.id}`);
             return message.reply(
                 `Welcome back i removed your afk.\nYou were afk for : \` ${afktime} \``
-            ).then((m) => setTimeout(() => m.delete().catch(() => null), 3500));
+            ).then((m) => setTimeout(() => m.delete().catch(() => null), 10000));
         } catch (e) {
             return client.errweb.send(`\`\`\`js\nFILE : messageCreate.js - ${message.guild.name} - ${message.guild.id}\n${e.stack}\n\`\`\``);
         }
