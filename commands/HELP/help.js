@@ -85,14 +85,17 @@ module.exports = {
                     "`" +
                     p + "invite` - bots invite & support\n`" +
                     p + "ping ` - check the ping of the bot\n`" +
-                    p + "vote @user` - check the votes of the any user\n`" +
                     p + "policy` - know about our policy and data security\n`" +
                     p + "serverinfo` - get details about the server\n`" +
                     p + "whois <@user/user_id>` - get details about any user\n`" +
                     p + "stats` - get the stats of the bot\n`" +
                     p + "badge` - to check your badges given to you by bot\n`" +
-                    p + "roleinfo <@role>` - to check info of any role`" +
-                    + "\n**━━━━━━━━━━━━━━━━━**"
+                    p + "roleinfo <@role>` - to check info of any role" +
+                    "\n**━━━━━━━━━━━━━━━━━**\n`" +
+                    p + "vote` - check the votes\n`" +
+                    p + "vote @user` - check the votes of the any user\n`" +
+                    p + "vote transfer <amount> <@user>` - to transfer your votes to someone\n`" +
+                    p + "vote redeem` - to buy 1 month permium of the bot"
                 )
                 .addField(`${client.emoji.ar}NOTE :`, "<> [] - DO NOT INCLUDE THESE WHILE EXECUTING A COMMAND")
                 .setImage(client.gif.useful),
@@ -114,7 +117,8 @@ module.exports = {
                     p +
                     "unlock or unlock @user/@role` - hide the channel command is used in for any role or member\nYou Can Provide Id Also Instead Of Mention\n`" +
                     p +
-                    "enable #channel/channel_id` - to enable bot commands in that channel\n`" + p + "disable #channel/channel_id` - to disable bot commands in that channel" +
+                    "enable #channel/channel_id` - to enable bot commands in that channel\n`" +
+                    p + "disable #channel/channel_id` - to disable bot commands in that channel" +
                     "\n**━━━━━━━━━━━━━━━━━**"
                 )
                 .addField(`${client.emoji.ar}NOTE :`, "<> [] - DO NOT INCLUDE THESE WHILE EXECUTING A COMMAND")
