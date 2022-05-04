@@ -12,18 +12,23 @@ module.exports = {
     async run(client, message, args) {
         message.channel.sendTyping()
 
-        let boostlevel = message.guild.premiumTier
+        let boostlevel = message.guild.premiumTier,
+            emojisAva = '100'
         if (boostlevel === "0") {
             boostlevel = "None";
+            emojisAva = '100'
         }
         if (boostlevel === "TIER_1") {
-            boostlevel = "Level 1 <a:boost:764236056697503805>";
+            boostlevel = "Level 1 <a:boosters:971417714717495356>";
+            emojisAva = '200'
         }
         if (boostlevel === "TIER_2") {
-            boostlevel = "Level 2 <a:BOOST:952282055536967750>";
+            boostlevel = "Level 2 <a:boosters:971417714717495356>";
+            emojisAva = '350'
         }
         if (boostlevel === "TIER_3") {
-            boostlevel = "Level 3 <a:VLG_boost:764235935952273438>";
+            boostlevel = "Level 3 <a:boosts:971417636577632287>";
+            emojisAva = '500'
         }
 
         if (message.guild.region === "india") message.guild.region = "🇮🇳 India";
@@ -93,13 +98,13 @@ module.exports = {
             )
             .addField(
                 `__EMOJI__`,
-                `**Total Emojis : **${message.guild.emojis.cache.size}/${message.guild.emojis.cache.filter(e => e.available === true).size}\n` +
-                `**Animated : **${message.guild.emojis.cache.filter(e => e.animated === true).size}/${message.guild.emojis.cache.filter(e => e.available === true).size / 2}\n` +
-                `**Static : **${message.guild.emojis.cache.filter(e => e.animated === false).size}/${message.guild.emojis.cache.filter(e => e.available === true).size / 2}`,
+                `**Total Emojis : **${message.guild.emojis.cache.size}/${emojisAva}\n` +
+                `**Animated : **${message.guild.emojis.cache.filter(e => e.animated === true).size}/${emojisAva / 2}\n` +
+                `**Static : **${message.guild.emojis.cache.filter(e => e.animated === false).size}/${emojisAva / 2}`,
                 true
             )
 
-        if (message.guild.roles.cache.size < 25) {
+        if (message.guild.roles.cache.size < 20) {
             embed.addField(
                 `__ROLES__[${message.guild.roles.cache.size}]`,
                 `** TOTAL ROLES: **\n${message.guild.roles.cache.map(roles => `${roles}`).join(', ')} `
