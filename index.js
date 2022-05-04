@@ -42,6 +42,10 @@ const Discord = require("discord.js"),
     del = new WebhookClient({
         id: "963519810015215670",
         token: "vLEb5pYo6jGT3qoPGtdbe5QAk_QNG85XilbeUSE7r1YijKISTQ4mDiAoHdaegcBRhnOS"
+    }),
+    welweb = new WebhookClient({
+        id: '948234227000942622',
+        token: 'Yr4qzFRYpS_Sh8KPQW6RcNWrQ7MlZYQkI6_bkhtuVz-L1w3ktYrOceRKAgJwt4Lfun_I'
     });
 
 client.commands = new Collection();
@@ -55,6 +59,7 @@ client.links = require("./json/links.json");
 client.badge = require("./json/badges.json");
 client.error = require("./json/errors.json");
 client.del = del;
+client.welweb = welweb;
 require("colors");
 
 const mongoose = require("mongoose"),
