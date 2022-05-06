@@ -74,7 +74,7 @@ module.exports = {
             .setColor(hex)
             .setDescription(m)
             .addField("__Key Permissions__", `\`${per.join(', ') || "None"}\``)
-        if (message.guild.roles.cache.size < 25) {
+        if (member.roles.cache.size < 25) {
             embed.addField(
                 `__ROLES__[${member.roles.cache.size}]`,
                 `** TOTAL ROLES: **\n${member.roles.cache.map(roles => `${roles}`).join(', ')} `
