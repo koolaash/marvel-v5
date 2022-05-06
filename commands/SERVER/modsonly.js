@@ -20,7 +20,7 @@ module.exports = {
                     return message.reply({
                         embeds: [
                             new MessageEmbed({
-                                desciption: `${client.emoji.fail}| Your Role isn't High Enough to change modsonly setting!`,
+                                description: `${client.emoji.fail}| Your Role isn't High Enough to change modsonly setting!`,
                                 color: client.embed.cf
                             })
                         ]
@@ -34,7 +34,7 @@ module.exports = {
                 return message.reply({
                     embeds: [
                         new MessageEmbed({
-                            desciption: `${client.emoji.fail}| Already On`,
+                            description: `${client.emoji.fail}| Already On`,
                             color: client.embed.cf
                         })
                     ]
@@ -46,7 +46,7 @@ module.exports = {
                     embeds: [
                         new MessageEmbed({
                             color: client.embed.cf,
-                            desciption: `${client.emoji.success}| Mods Only Is Now On`
+                            description: `${client.emoji.success}| Mods Only Is Now On`
                         })
                     ]
                 })
@@ -57,7 +57,7 @@ module.exports = {
                     embeds: [
                         new MessageEmbed({
                             color: client.embed.cf,
-                            desciption: `${client.emoji.fail}| Already Off`
+                            description: `${client.emoji.fail}| Already Off`
                         })]
                 })
             }
@@ -67,7 +67,7 @@ module.exports = {
                     embeds: [
                         new MessageEmbed({
                             color: client.embed.cf,
-                            desciption: `${client.emoji.success}| Mods Only Is Now Off`
+                            description: `${client.emoji.success}| Mods Only Is Now Off`
                         })]
                 })
             );
