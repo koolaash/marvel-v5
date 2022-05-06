@@ -204,9 +204,10 @@ module.exports = {
                     if (pre === null) {
                         client.qdb.set(`premium_${message.author.id}`, '0');
                     }
-                    client.qdb.add(`vote-total${message.author.id}`, -70);
+                    let newVote = votes - 70;
+                    client.qdb.set(`vote-total${message.author.id}`, newVote);
                     client.qdb.add(`premium_${message.author.id}`, +1);
-                    await button.message.reply({
+                    await button.reply({
                         embeds: [
                             new MessageEmbed({
                                 color: client.embed.cr,
