@@ -1,7 +1,5 @@
 const discord = require("discord.js"),
-    db = require("quick.db"),
-    moment = require("moment"),
-    ms = require("ms");
+    db = require("quick.db");
 
 module.exports = {
     name: "welcomeexample",
@@ -12,13 +10,7 @@ module.exports = {
     userPermissions: [],
     botPermissions: ["EMBED_LINKS"],
 
-    async run(client, message, args) {
-        let defprefix = client.config.pprefix;
-        const nprefix = db.get(`guildPrefix_${message.guild.id}`);
-        if (nprefix !== null) {
-            defprefix = nprefix;
-        }
-        let prefix = defprefix
+    async run(client, message) {
         let member = message.guild.members.cache.get(message.author.id);
 
         const ment = db.get("mention" + message.guild.id),
@@ -48,7 +40,7 @@ module.exports = {
             .replace("{membercount}", member.user.usercount);
 
         let url = db.get(`url_${message.guild.id}`);
-        if (url === null) url = default_url; let colour = db.get("welClr" + message.guild.id)
+        if (url === null) url = default_url; let colour = db.get(`welClr${message.guild.id}`)
         if (!colour) {
             colour = client.embed.cm
         }
@@ -68,13 +60,13 @@ module.exports = {
                 "━━━━━━━━━━━━━━━━━",
                 `
 
-${client.emoji.ar} **MEMBER USERNAME :-** __**${member.user.tag}**__
+${client.emoji.ar} **MEMBER USERNAME :- __${member.user.tag}**__
 
-${client.emoji.ar} **MEMBER JOINED DISCORD AT :-** __**${createdate}**__
+${client.emoji.ar} **MEMBER JOINED DISCORD AT :- __${createdate}**__
 
-${client.emoji.ar} **MEMBER JOINED SERVER AT :-** __**${joindate}**__
+${client.emoji.ar} **MEMBER JOINED SERVER AT :- __${joindate}**__
 
-${client.emoji.ar} **MEMBER COUNT :-** **__${message.guild.memberCount}__**
+${client.emoji.ar} **MEMBER COUNT :- __${message.guild.memberCount}__**
 
 `
             )
@@ -88,14 +80,21 @@ ${client.emoji.bot} **THANKS FOR JOINING ${message.guild}** ${client.emoji.bot}`
         try {
             if (ment === true) {
                 message.channel.send({
-                    contemt: `**<@${member.user.id}> Welcome To ${message.guild.name}**`,
+                    content: `<@${member.user.id}>`,
                     embeds: [wembed]
                 });
             } else {
                 message.channel.send({ embeds: [wembed] });
             }
         } catch (e) {
-            return console.log(e);
+            return message.channel.send({
+                embeds: [
+                    new discord.MessageEmbed({
+                        description: `${client.emoji.fail}| ${e}`,
+                        color: client.embed.cf
+                    })
+                ]
+            })
         }
     }
 };
