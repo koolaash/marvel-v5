@@ -11,25 +11,25 @@ module.exports = {
             return;
         }
         if (!args[0]) {
-            return message.reply({ content: "user?" })
+            return message.reply({ content: "user?" });
         }
         const mem = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
         if (!mem) {
-            return message.reply({ content: "User error not found!" })
+            return message.reply({ content: "User error not found!" });
         }
         if (!args[1]) {
-            client.qdb.set(`voted${mem.user.id}`, true)
+            client.qdb.set(`voted${mem.user.id}`, true);
             client.qdb.set(`vote-time_${mem.user.id}`, Date.now());
             return message.reply({ content: "DONE" })
         }
         if (isNaN(args[1])) {
-            return message.reply("Must be a number")
+            return message.reply("Must be a number");
         }
         if (args[1]) {
-            client.qdb.set(`voted${mem.user.id}`, true)
+            client.qdb.set(`voted${mem.user.id}`, true);
             client.qdb.set(`vote-time_${mem.user.id}`, Date.now());
             client.qdb.set(`vote-total${mem.user.id}`, args[1]);
-            return message.reply({ content: "DONE" })
+            return message.reply({ content: "DONE" });
         }
     },
 };
