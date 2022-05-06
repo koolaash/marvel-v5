@@ -10,7 +10,7 @@ module.exports = {
     botPermissions: ["EMBED_LINKS"],
 
     async run(client, message, args) {
-        if (!args[0] || message.mentions.members.size > 0 && !args[1]) {
+        if (!args[0] || message.mentions.members.size > 0 && !args[1] || message.mentions.roles.size > 0) {
             let voteUser = message.mentions.members.first() || message.member,
                 votes = await client.qdb.get(`vote-total${voteUser.id}`),
                 vote = new MessageEmbed({
@@ -30,7 +30,7 @@ module.exports = {
                 components: [row],
                 embeds: [vote]
             });
-        } else if (args[0] === 'send' || 'transfer') {
+        } else if (args[0] === 'send' || args[0] === 'transfer') {
             if (!args[1]) {
                 return message.reply({
                     embeds: [
@@ -184,7 +184,7 @@ module.exports = {
                     .addComponents(btn1, btn2),
                 embed = new MessageEmbed({
                     color: client.color.cm,
-                    description: `Do you want to transfer your ${amt} votes to ${target}!`
+                    description: `Do you want redeem 1 month premium with 70 votes!`
                 })
 
             let m = await message.reply({ components: [row], embeds: [embed] }),
