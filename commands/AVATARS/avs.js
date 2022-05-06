@@ -50,12 +50,16 @@ module.exports = {
             `${message.guild.id}/users/${target.id}/avatars` +
             `/${res.data.avatar}.webp?size=2048`;
         if (url.includes("null")) {
-            return message.lineReply(
-                new MessageEmbed({
-                    color: client.embed.cf,
-                    description: `${client.emoji.fail}| This user don't have a saperate server avatar!`,
-                })
-            );
+            return message.reply({
+                embeds: [
+                    new discord.MessageEmbed({
+                        color: client.embed.cf,
+                        description:
+                            client.emoji.fail +
+                            "| This user don't have a saperate server avatar!",
+                    })
+                ]
+            });
         }
 
         let avsdms = new MessageButton()
