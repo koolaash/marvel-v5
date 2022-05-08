@@ -3,7 +3,9 @@ const { MessageEmbed, MessageButton, MessageActionRow } = require("discord.js"),
     nsfw = new NSFW(),
     nekoclient = require("nekos.life"),
     neko = new nekoclient(),
-    superagent = require('superagent');
+    superagent = require('superagent'),
+    { RandomPHUB } = require('discord-phub'),
+    phub = new RandomPHUB(unique = true);
 
 module.exports = function (client) {
     const description = {
@@ -66,108 +68,58 @@ module.exports = function (client) {
                     return button.reply({ content: image, ephemeral: true })
                 }
                 if (choice === '1') {
-                    const { body } = await superagent.get(
-                        "https://nekos.life/api/v2/img/anal"
-                    );
-                    return button.reply({ content: body.url, ephemeral: true })
-                }
-                if (choice === '2') {
-                    const { body } = await superagent.get(
-                        "https://nekos.life/api/v2/img/pussy"
-                    );
-                    return button.reply({ content: body.url, ephemeral: true })
-                }
-                if (choice === '3') {
                     const image = await nsfw.hmidriff();
                     return button.reply({ content: image, ephemeral: true })
                 }
-                if (choice === '4') {
-                    const { body } = await superagent.get(
-                        "https://nekos.life/api/v2/img/boobs"
-                    );
-                    return button.reply({ content: body.url, ephemeral: true })
-                }
-                if (choice === '5') {
+                if (choice === '2') {
                     const image = await nsfw.hentaithigh();
                     return button.reply({ content: image, ephemeral: true })
                 }
-                if (choice === '6') {
+                if (choice === '3') {
                     const image = await nsfw.hentai();
                     return button.reply({ content: image, ephemeral: true })
                 }
-                if (choice === '7') {
-                    const image = await nsfw.erokemo();
-                    return button.reply({ content: image, ephemeral: true })
-                }
-                if (choice === '8') {
-                    const image = await nsfw.nekofeet();
-                    return button.reply({ content: image, ephemeral: true })
-                }
-                if (choice === '9') {
-                    const image = await nsfw.lewd();
-                    return button.reply({ content: image, ephemeral: true })
-                }
-                if (choice === '10') {
-                    const image = await nsfw.nekopussy();
-                    return button.reply({ content: image, ephemeral: true })
-                }
-                if (choice === '11') {
-                    const image = await nsfw.solo();
-                    return button.reply({ content: image, ephemeral: true })
-                }
-                if (choice === '12') {
-                    const image = await neko.nsfw.bJ();
-                    return button.reply({ content: image.url, ephemeral: true })
-                }
-                if (choice === '13') {
-                    const image = await neko.nsfw.cumArts();
-                    return button.reply({ content: image.url, ephemeral: true })
-                }
-                if (choice === '14') {
-                    const image = await neko.nsfw.cumsluts();
-                    return button.reply({ content: image.url, ephemeral: true })
-                }
-                if (choice === '15') {
-                    const image = await neko.nsfw.futanari();
-                    return button.reply({ content: image.url, ephemeral: true })
-                }
-                if (choice === '16') {
-                    const image = await neko.nsfw.lesbian();
-                    return button.reply({ content: image.url, ephemeral: true })
-                }
-                if (choice === '17') {
-                    const image = await nsfw.nekotits();
-                    return button.reply({ content: image, ephemeral: true })
-                }
-                if (choice === '18') {
+                if (choice === '4') {
                     const image = await nsfw.anal();
                     return button.reply({ content: image, ephemeral: true })
                 }
-                if (choice === '19') {
+                if (choice === '5') {
                     const image = await nsfw.ass();
                     return button.reply({ content: image, ephemeral: true })
                 }
-                if (choice === '20') {
+                if (choice === '6') {
                     const image = await nsfw.boobs();
                     return button.reply({ content: image, ephemeral: true })
                 }
-                if (choice === '21') {
+                if (choice === '7') {
                     const image = await nsfw.fourk();
                     return button.reply({ content: image, ephemeral: true })
                 }
-                if (choice === '22') {
+                if (choice === '8') {
                     const image = await nsfw.pussy();
                     return button.reply({ content: image, ephemeral: true })
                 }
-                if (choice === '23') {
+                if (choice === '9') {
                     const image = await nsfw.pgif();
                     return button.reply({ content: image, ephemeral: true })
                 }
-                if (choice === '24') {
+                if (choice === '10') {
                     const image = await nsfw.thigh();
                     return button.reply({ content: image, ephemeral: true })
                 }
-                if (choice === '25') {
+                if (choice === '11') {
+                    const img = phub.getRandom('jpeg')
+                    return button.reply({ content: img.url, ephemeral: true })
+                }
+                if (choice === '12') {
+                    const img = phub.getRandom('gif')
+                    return button.reply({ content: img.url, ephemeral: true })
+                }
+                if (choice === '13') {
+                    const img = phub.getRandom('mp4')
+                    return button.reply({ content: img.url, ephemeral: true })
+                }
+                if (choice === '14') {
                     const image = await nsfw.gonewild();
                     return button.reply({ content: image, ephemeral: true })
                 }
