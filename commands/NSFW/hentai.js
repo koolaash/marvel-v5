@@ -51,27 +51,6 @@ module.exports = {
       embed.setTitle("Hentai Thigh");
       embed.setImage(image);
       return message.channel.send({ embeds: [embed] });
-    } else if (args[0] === "pussy") {
-      const { body } = await superagent.get(
-        "https://nekos.life/api/v2/img/pussy"
-      );
-      embed.setTitle("Hentai Pussy");
-      embed.setImage(body.url);
-      return message.channel.send({ embeds: [embed] });
-    } else if (args[0] === "anal") {
-      const { body } = await superagent.get(
-        "https://nekos.life/api/v2/img/anal"
-      );
-      embed.setTitle("Hentai Anal");
-      embed.setImage(body.url);
-      return message.channel.send({ embeds: [embed] });
-    } else if (args[0] === "boob" || args[0] === "boobs") {
-      const { body } = await superagent.get(
-        "https://nekos.life/api/v2/img/boobs"
-      );
-      embed.setTitle("Hentai Boobs");
-      embed.setImage(body.url);
-      return message.channel.send({ embeds: [embed] });
     } else if (args[0] || !args[0]) {
       return message.channel.send({
         embeds: [
@@ -92,17 +71,11 @@ module.exports = {
               prefix +
               "hentai <midriff/riff>\n2. " +
               prefix +
-              "hentai <anal>\n3. " +
+              "hentai <ass>\n3. " +
               prefix +
-              "hentai <ass>\n4. " +
+              "hentai <random>\n4. " +
               prefix +
-              "hentai <random>\n5. " +
-              prefix +
-              "hentai <thigh>\n6." +
-              prefix +
-              "hentai <boob>\n7." +
-              prefix +
-              "hentai <pussy>"
+              "hentai <thigh>"
             )
             .setColor(client.embed.cf)
             .setFooter({ text: "<> are not required", iconURL: message.author.displayAvatarURL({ dynamic: true }) })
