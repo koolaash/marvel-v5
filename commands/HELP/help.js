@@ -25,7 +25,7 @@ module.exports = {
             damon = await client.users.fetch(client.config.damon_id)
         }
 
-        let pages = 19,
+        let pages = 18,
             em0 = new MessageEmbed()
                 .setTitle(`${client.user.username} Help Menu`)
                 .setColor(client.embed.cm)
@@ -61,7 +61,6 @@ module.exports = {
                 .addField(
                     'NSFW COMMANDS', '**' +
                     client.emoji.servers + 'Hentai\n' +
-                    client.emoji.image + 'Neko\n' +
                     client.emoji.extra + 'Porn\n' +
                     client.emoji.channels + " " + p + 'nsfw-setup for quick commands system**',
                     true
@@ -385,13 +384,9 @@ module.exports = {
                     prefix +
                     "hentai <midriff/riff>` - get a hentai nsfw image/gif of this category\n`" +
                     prefix +
-                    "hentai <anal>` - get a hentai nsfw image/gif of this category\n`" +
-                    prefix +
                     "hentai <ass>` - get a hentai nsfw image/gif of this category\n`" +
                     prefix +
                     "hentai <random>` - get a hentai nsfw image/gif of this category\n`" +
-                    prefix +
-                    "hentai <pussy>` - get a hentai nsfw image/gif of this category\n`" +
                     prefix +
                     "hentai <thigh>` - get a hentai nsfw image/gif of this category" +
                 "\n**━━━━━━━━━━━━━━━━━**"
@@ -401,41 +396,6 @@ module.exports = {
                 .setColor(client.embed.cm)
                 .setFooter({
                     text: `${message.author.tag} : Page 14/${pages}`,
-                    iconURL: message.author.displayAvatarURL({ dynamic: true })
-                })
-                .setImage(client.gif.nsfw)
-                .addField(
-                    "NEKO COMMANDS", "**━━━━━━━━━━━━━━━━━**\n" +
-                    "`" +
-                    prefix +
-                    "neko <boobs/boob>` - get a neko nsfw image/gif of this category\n`" +
-                    prefix +
-                    "neko <nero>` - get a neko nsfw image/gif of this category\n`" +
-                    prefix +
-                    "neko <feet>` - get a neko nsfw image/gif of this category\n`" +
-                    prefix +
-                    "neko <lewd>` - get a neko nsfw image/gif of this category\n`" +
-                    prefix +
-                    "neko <pussy>` - get a neko nsfw image/gif of this category\n`" +
-                    prefix +
-                    "neko <solo>` - get a neko nsfw image/gif of this category\n`" +
-                    prefix +
-                    "neko <blowjob/bj>` - get a neko nsfw image/gif of this category\n`" +
-                    prefix +
-                    "neko <cumart>` - get a neko nsfw image/gif of this category\n`" +
-                    prefix +
-                    "neko <cumslit/cs>` - get a neko nsfw image/gif of this category\n`" +
-                    prefix +
-                    "neko <futanari>` - get a neko nsfw image/gif of this category\n`" +
-                    prefix +
-                    "neko <lesbian/lesbo>` - get a neko nsfw image/gif of this category" +
-                "\n**━━━━━━━━━━━━━━━━━**"
-                )
-                .addField(`${client.emoji.ar}NOTE :`, "<> [] - DO NOT INCLUDE THESE WHILE EXECUTING A COMMAND"),
-            em15 = new MessageEmbed()
-                .setColor(client.embed.cm)
-                .setFooter({
-                    text: `${message.author.tag} : Page 15/${pages}`,
                     iconURL: message.author.displayAvatarURL({ dynamic: true })
                 })
                 .setImage(client.gif.nsfw)
@@ -460,10 +420,10 @@ module.exports = {
                     "porn <thigh>" + "` - get a real nsfw image/gif of this category\n**━━━━━━━━━━━━━━━━━**"
                 )
                 .addField(`${client.emoji.ar}NOTE :`, "<> [] - DO NOT INCLUDE THESE WHILE EXECUTING A COMMAND"),
-            em16 = new MessageEmbed()
+            em15 = new MessageEmbed()
                 .setColor(client.embed.cm)
                 .setFooter({
-                    text: `${message.author.tag} : Page 16/${pages}`,
+                    text: `${message.author.tag} : Page 15/${pages}`,
                     iconURL: message.author.displayAvatarURL({ dynamic: true })
                 })
                 .setImage(client.gif.fun)
@@ -479,10 +439,10 @@ module.exports = {
                     p + "tickle @user` - tickle them an spread some giggles\n**━━━━━━━━━━━━━━━━━**"
                 )
                 .addField(`${client.emoji.ar}NOTE :`, "<> [] - DO NOT INCLUDE THESE WHILE EXECUTING A COMMAND"),
-            em17 = new MessageEmbed()
+            em16 = new MessageEmbed()
                 .setColor(client.embed.cm)
                 .setFooter({
-                    text: `${message.author.tag} : Page 17/${pages}`,
+                    text: `${message.author.tag} : Page 16/${pages}`,
                     iconURL: message.author.displayAvatarURL({ dynamic: true })
                 })
                 .setImage(client.gif.fun)
@@ -496,10 +456,10 @@ module.exports = {
                     p + "howgay @user` - check how much of a gay they are\n**━━━━━━━━━━━━━━━━━**"
                 )
                 .addField(`${client.emoji.ar}NOTE :`, "<> [] - DO NOT INCLUDE THESE WHILE EXECUTING A COMMAND"),
-            em18 = new MessageEmbed()
+            em17 = new MessageEmbed()
                 .setColor(client.embed.cm)
                 .setFooter({
-                    text: `${message.author.tag} : Page 18/${pages}`,
+                    text: `${message.author.tag} : Page 17/${pages}`,
                     iconURL: message.author.displayAvatarURL({ dynamic: true })
                 })
                 .setImage(client.gif.fun)
@@ -518,10 +478,10 @@ module.exports = {
                     p + "wallpaper` - get a random image of this category\n**━━━━━━━━━━━━━━━━━**"
                 )
                 .addField(`${client.emoji.ar}NOTE :`, "<> [] - DO NOT INCLUDE THESE WHILE EXECUTING A COMMAND"),
-            em19 = new MessageEmbed()
+            em18 = new MessageEmbed()
                 .setColor(client.embed.cm)
                 .setFooter({
-                    text: `${message.author.tag} : Page 19/${pages}`,
+                    text: `${message.author.tag} : Page 18/${pages}`,
                     iconURL: message.author.displayAvatarURL({ dynamic: true })
                 })
                 .setImage(client.gif.fun)
@@ -630,18 +590,17 @@ module.exports = {
             option11 = { label: 'Roles', value: '11', emoji: client.emoji.uptime_id },
             option12 = { label: 'Automoderation', value: '12', emoji: client.emoji.auto_id },
             option13 = { label: 'Hentai', value: '13', emoji: client.emoji.extra_id },
-            option14 = { label: 'Neko', value: '14', emoji: client.emoji.image_id },
-            option15 = { label: 'Porn', value: '15', emoji: client.emoji.servers_id },
-            option16 = { label: 'Actions', value: '16', emoji: client.emoji.extra_id },
-            option17 = { label: 'Fun', value: '17', emoji: client.emoji.ping_id },
-            option18 = { label: 'Random Image', value: '18', emoji: client.emoji.image_id },
-            option19 = { label: 'Image Filter/Manipulation', value: '19', emoji: client.emoji.image_id }
+            option14 = { label: 'Porn', value: '14', emoji: client.emoji.servers_id },
+            option15 = { label: 'Actions', value: '15', emoji: client.emoji.extra_id },
+            option16 = { label: 'Fun', value: '16', emoji: client.emoji.ping_id },
+            option17 = { label: 'Random Image', value: '17', emoji: client.emoji.image_id },
+            option18 = { label: 'Image Filter/Manipulation', value: '18', emoji: client.emoji.image_id }
 
         options.push(
             option0, option1, option2, option3, option4,
             option5, option6, option7, option8, option9,
             option10, option11, option12, option13, option14,
-            option15, option16, option17, option18, option19
+            option15, option16, option17, option18
 
         );
 
@@ -669,7 +628,7 @@ module.exports = {
             embeds = [
                 em0, em1, em2, em3, em4, em5, em6, em7,
                 em8, em9, em10, em11, em12, em13, em14,
-                em15, em16, em17, em18, em19
+                em15, em16, em17, em18
             ];
 
         for (let i = 0; i < 0; i++) embeds.push(new MessageEmbed().setColor(client.embed.cm).setFooter(i));
