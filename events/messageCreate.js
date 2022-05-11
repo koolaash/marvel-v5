@@ -182,7 +182,7 @@ module.exports.run = async (client, message) => {
                                 Timeout.get(`cooldown${message.author.id}`) - Date.now(),
                                 { long: true }
                             )}\` cooldown.`
-                        ).then((m) => setTimeout(() => m.delete().catch(() => null), 3000));
+                        ).then((m) => setTimeout(() => m.delete().catch(() => null), 5000));
                     }
                 }
                 let r = false;
@@ -191,7 +191,7 @@ module.exports.run = async (client, message) => {
                         if (!message.member.permissionsIn(message.channel).has(Permissions.FLAGS.ADMINISTRATOR)) {
                             return message.reply(
                                 `${client.emoji.fail}| Bot is mod only in this guild that means you need \`ADMINISTRATOR\``
-                            ).then((m) => setTimeout(() => m.delete().catch(() => null), 3000));
+                            ).then((m) => setTimeout(() => m.delete().catch(() => null), 5000));
                         }
                     }
                     if (message.author.id !== message.guild.ownerId) {
@@ -200,8 +200,8 @@ module.exports.run = async (client, message) => {
                             if (!message.member.permissionsIn(message.channel).has(permission)) {
                                 r = true;
                                 return message.reply(
-                                    `${client.emoji.fail}| YOU NEED **\`${permission}\`** PERMISSION FIRST TO EXECUTE THIS COMMAND!!`
-                                ).then((m) => setTimeout(() => m.delete().catch(() => null), 3000));
+                                    `${client.emoji.fail}| YOU NEED **\`${command.userPermissions}\`** PERMISSION FIRST TO EXECUTE THIS COMMAND!!`
+                                ).then((m) => setTimeout(() => m.delete().catch(() => null), 5000));
                             }
                         });
                     }
@@ -211,8 +211,8 @@ module.exports.run = async (client, message) => {
                     if (!message.guild.me.permissionsIn(message.channel).has(permission)) {
                         r = true;
                         return message.reply(
-                            `${client.emoji.fail}| I NEED **\`${permission}\`** PERMISSION FIRST TO EXECUTE THIS COMMAND!!`
-                        ).then((m) => setTimeout(() => m.delete().catch(() => null), 3000));
+                            `${client.emoji.fail}| I NEED **\`${command.botPermissions}\`** PERMISSION FIRST TO EXECUTE THIS COMMAND!!`
+                        ).then((m) => setTimeout(() => m.delete().catch(() => null), 5000));
                     }
                 });
                 if (r === false) {
