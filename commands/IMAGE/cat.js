@@ -13,7 +13,7 @@ module.exports = {
 
         superagent
             .get("https://nekos.life/api/v2/img/meow")
-            .end((err, response) => {
+            .end(async (err, response) => {
                 const lewdembed = new Discord.MessageEmbed()
                     .setTitle("Random Cat")
                     .setImage(response.body.url)
@@ -23,7 +23,7 @@ module.exports = {
                         iconURL: message.author.displayAvatarURL({ dynamic: true })
                     })
                     .setURL(response.body.url);
-                message.reply({ embeds: [lewdembed] });
+                return message.reply({ embeds: [lewdembed] });
             });
     }
 };

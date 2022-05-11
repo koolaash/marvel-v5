@@ -10,10 +10,10 @@ module.exports = {
     botPermissions: ["EMBED_LINKS"],
 
     run: async (client, message, args) => {
-        
+
         superagent
             .get("https://nekos.life/api/v2/img/woof")
-            .end((err, response) => {
+            .end(async (err, response) => {
                 const lewdembed = new Discord.MessageEmbed()
                     .setTitle("Random Dog")
                     .setImage(response.body.url)
@@ -23,7 +23,7 @@ module.exports = {
                         iconURL: message.author.displayAvatarURL({ dynamic: true })
                     })
                     .setURL(response.body.url);
-                message.reply({ embeds: [lewdembed] });
+                return message.reply({ embeds: [lewdembed] });
             });
     }
 };

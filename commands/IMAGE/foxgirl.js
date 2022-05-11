@@ -12,7 +12,7 @@ module.exports = {
 
         let NEKO = require('nekos.life'),
             { sfw } = new NEKO();
-        await sfw.foxGirl().then(response => {
+        await sfw.foxGirl().then(async response => {
             const lewdembed = new Discord.MessageEmbed()
                 .setTitle("Random Foxgirl")
                 .setImage(response.url)
@@ -22,7 +22,7 @@ module.exports = {
                     iconURL: message.author.displayAvatarURL({ dynamic: true })
                 })
                 .setURL(response.url);
-            message.reply({ embeds: [lewdembed] });
+            return message.reply({ embeds: [lewdembed] });
         });
     }
 };

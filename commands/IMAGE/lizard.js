@@ -11,7 +11,7 @@ module.exports = {
     run: async (client, message, args) => {
         let NEKO = require('nekos.life'),
             { sfw } = new NEKO();
-        await sfw.lizard().then(response => {
+        await sfw.lizard().then(async response => {
             const lewdembed = new Discord.MessageEmbed()
                 .setTitle("Random Lizard")
                 .setImage(response.url)
@@ -21,7 +21,7 @@ module.exports = {
                     iconURL: message.author.displayAvatarURL({ dynamic: true })
                 })
                 .setURL(response.url);
-            message.reply({ embeds: [lewdembed] });
+            return message.reply({ embeds: [lewdembed] });
         });
     }
 };
