@@ -470,12 +470,8 @@ module.exports = {
                     p + "foxgirf` - get a random image of this category\n`" +
                     p + "gecg` - get a random image of this category\n`" +
                     p + "goose` - get a random image of this category\n`" +
-                    p + "holo` - get a random image of this category\n`" +
                     p + "lizard` - get a random image of this category\n`" +
-                    p + "mimi` - get a random image of this category\n`" +
-                    p + "nitro` - fake someone with nitro\n`" +
-                    p + "waifu` - get a random image of this category\n`" +
-                    p + "wallpaper` - get a random image of this category\n**━━━━━━━━━━━━━━━━━**"
+                    p + "waifu` - get a random image of this category**━━━━━━━━━━━━━━━━━**"
                 )
                 .addField(`${client.emoji.ar}NOTE :`, "<> [] - DO NOT INCLUDE THESE WHILE EXECUTING A COMMAND"),
             em18 = new MessageEmbed()
