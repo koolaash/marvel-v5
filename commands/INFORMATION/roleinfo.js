@@ -40,8 +40,8 @@ module.exports = {
             })
         }
         let mem = role.members.map(m => m);
-        if (role.members.size > 50) {
-            mem = `Members Size Exceeds The Value OF [50]`
+        if (role.members.size > 25) {
+            mem = `Members Size Exceeds The Value OF [25]`
         }
         if (role.hexColor === "#000000") {
             var hex = `#303136`
