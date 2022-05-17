@@ -53,7 +53,6 @@ module.exports = {
             color: hex,
             title: `${role.name}'s Information`,
             description: `**Role ID : **${role.id}\n` +
-                `**Role Display Name : **${role.name}\n` +
                 `**Role Mentionable : **${role.mentionable ? 'Yes' : 'No'}\n` +
                 `**Role Color : **${role.hexColor}\n` +
                 `**Role Display Saperately : **${role.hoist ? 'Yes' : 'No'}\n` +
