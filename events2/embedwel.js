@@ -65,10 +65,6 @@ module.exports = function (client) {
         wembed.setImage(url)
         .setTimestamp()
         .setDescription(msg)
-        .setFooter({
-          text: member.user.tag,
-          iconURL: member.user.displayAvatarURL({ dynamic: true })
-        })
 
       if (ust === true) {
         wembed.setAuthor(member.guild)
@@ -85,7 +81,10 @@ ${client.emoji.ar} **MEMBER COUNT :- __${member.guild.memberCount}__**
 
 `
         )
-      
+      .setFooter({
+          text: member.user.tag,
+          iconURL: member.user.displayAvatarURL({ dynamic: true })
+        })
       wembed.addField(
         "━━━━━━━━━━━━━━━━━",
         `
