@@ -45,15 +45,9 @@ module.exports = {
             colour = client.embed.cm
         }
         let wembed = new discord.MessageEmbed()
-            .setAuthor(message.guild)
-            .setTitle("━━━━━━━━━━━━━━━━━")
-            .setColor(colour)
-            .setImage(url)
+            try { wembed.setColor(colour) } catch (e) { wembed.setColor("WHITE") }
+            wembed.setImage(url)
             .setDescription(msg)
-            .setFooter({
-                text: member.user.tag,
-                iconURL: member.user.displayAvatarURL({ dynamic: true })
-            })
 
         if (ust === true) {
             wembed.addField(
@@ -70,13 +64,20 @@ ${client.emoji.ar} **MEMBER COUNT :- __${message.guild.memberCount}__**
 
 `
             )
-        }
-        wembed.addField(
+.setFooter({
+                text: member.user.tag,
+                iconURL: member.user.displayAvatarURL({ dynamic: true })
+            })
+.setAuthor(message.guild)
+            .setTitle("━━━━━━━━━━━━━━━━━")
+            
+        .addField(
             "━━━━━━━━━━━━━━━━━",
             `
 
 ${client.emoji.bot} **THANKS FOR JOINING ${message.guild}** ${client.emoji.bot}`
         );
+}
         try {
             if (ment === true) {
                 message.channel.send({
