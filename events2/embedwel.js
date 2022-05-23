@@ -61,8 +61,8 @@ module.exports = function (client) {
       }
       let wembed = new discord.MessageEmbed()
         
-        .setColor(colour)
-        .setImage(url)
+        try { wembed.setColor(colour) } catch (e) { wembed.setColor("WHITE") }
+        wembed.setImage(url)
         .setTimestamp()
         .setDescription(msg)
         .setFooter({
