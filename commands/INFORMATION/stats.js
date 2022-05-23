@@ -20,7 +20,7 @@ module.exports = {
             const duration = moment
                 .duration(message.client.uptime)
                 .format(
-                    ' D[ day(s)], H[ hour(s)], m[ minute(s)], s[ second(s)]'
+                    ' D[ day], H[ hour], m[ minute], s[ second]'
                 );
             let mem = process.memoryUsage(),
                 ar = mem.heapUsed + mem.heapTotal + mem.external + mem.arrayBuffers + mem.rss;
