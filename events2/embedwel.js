@@ -60,8 +60,7 @@ module.exports = function (client) {
         colour = client.embed.cm
       }
       let wembed = new discord.MessageEmbed()
-        .setAuthor(member.guild)
-        .setTitle("━━━━━━━━━━━━━━━━━")
+        
         .setColor(colour)
         .setImage(url)
         .setTimestamp()
@@ -72,7 +71,9 @@ module.exports = function (client) {
         })
 
       if (ust === true) {
-        wembed.addField(
+        wembed.setAuthor(member.guild)
+        .setTitle("━━━━━━━━━━━━━━━━━")
+.addField(
           "━━━━━━━━━━━━━━━━━",
           `
 
@@ -84,13 +85,14 @@ ${client.emoji.ar} **MEMBER COUNT :- __${member.guild.memberCount}__**
 
 `
         )
-      }
+      
       wembed.addField(
         "━━━━━━━━━━━━━━━━━",
         `
 
 ${client.emoji.bot} **THANKS FOR JOINING ${member.guild}** ${client.emoji.bot}`
       );
+}
       if (ment === true) {
         await nchx.send({
           content: `**<@${member.user.id}> Welcome To ${member.guild.name}**`,
