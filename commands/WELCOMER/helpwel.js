@@ -27,7 +27,7 @@ module.exports = {
                 )
                 .addField(
                     `${client.emoji.ar}| Welcome Example`,
-                    `\`${prefix}welcomeexample or ${prefix}wexample\` to see how the welcomer looks like`
+                    `\`${prefix}preview or ${prefix}wexample\` to see how the welcomer looks like`
                 )
                 .addField(
                     `${client.emoji.ar}| Set Channel`,
@@ -39,7 +39,7 @@ module.exports = {
                 )
                 .addField(
                     `${client.emoji.ar}| Set Message`,
-                    `\`${prefix}set welcomd msg <msg>\` to set welcome message make sure to use\` ${prefix}wexample\` before setting up`
+                    `\`${prefix}set welcome msg <msg>\` to set welcome message make sure to use\` ${prefix}wexample\` before setting up`
                 )
                 .addField(
                     `${client.emoji.ar}| Set Image`,
@@ -59,11 +59,11 @@ module.exports = {
                 )
                 .addField(
                     `${client.emoji.ar}| Mention Toggle`,
-                    `\`${prefix}mention\` - to turn Off/On mention user outside the welcomer`
+                    `\`${prefix}set welcome mention\` - to turn Off/On mention user outside the welcomer`
                 )
                 .addField(
                     `${client.emoji.ar}| UserInfo Toggle`,
-                    `\`${prefix}userinfo/ui\` - to toggle userinfo in welcomer`
+                    `\`${prefix}set welcome userinfo/ui\` - to toggle userinfo in welcomer`
                 )
                 .addField(
                     client.emoji.ar + "| Miscellaneous Settings",
