@@ -136,7 +136,7 @@ module.exports.run = async (client, message) => {
                     }
                 }
 
-             /*   if (command.vote === true) {
+                if (command.vote === true) {
                     let vote = new discord.MessageEmbed({
                         description: "You need to vote first to use this command.",
                         color: client.color.cf
@@ -171,8 +171,7 @@ module.exports.run = async (client, message) => {
                             client.qdb.delete(`vote-time_${message.author.id}`)
                         );
                     }
-                }*/
-
+                }
 
                 let cooldown = 5000;
                 if (!client.config.bowner.includes(message.member.id)) {
@@ -325,7 +324,8 @@ module.exports.run = async (client, message) => {
                         }
                     }
                 }
-           /*     if (command.vote === true) {
+
+                if (command.vote === true) {
                     let vote = new discord.MessageEmbed({
                         description: "You need to vote first to use this command.",
                         color: client.color.cf
@@ -360,7 +360,8 @@ module.exports.run = async (client, message) => {
                             client.qdb.delete("vote-time_" + message.author.id)
                         );
                     }
-                }*/
+                }
+
                 let cooldown = 5000;
                 if (!client.config.bowner.includes(message.member.id)) {
                     if (Timeout.has(`cooldown${message.author.id}`)) {
