@@ -27,7 +27,7 @@ module.exports = {
                 )
                 .addField(
                     `${client.emoji.ar}| Welcome Example`,
-                    `\`${prefix}nwelcomeexample or ${prefix}nwelexample\` to see how the welcomer looks like`
+                    `\`${prefix}npreview or ${prefix}nwelexample\` to see how the welcomer looks like`
                 )
                 .addField(
                     `${client.emoji.ar}| Set Channel`,
