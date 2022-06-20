@@ -1,4 +1,5 @@
-const discord = require("discord.js");
+const discord = require("discord.js"),
+    db = require(`quick.db`);
 
 module.exports = {
     name: "snipe",
@@ -10,7 +11,11 @@ module.exports = {
 
     async run(client, message, args) {
 
-        const msg = client.snipes.get(message.channel.id),
+        const msg = {
+            content: db.get(`content${message.channel.id}`),
+            author: db.get(`author${message.channel.id}`),
+            image: db.get(`image${message.channel.id}`)
+        },
             embed = new discord.MessageEmbed()
                 .setTitle(`Deleted Message:`)
                 .setColor(client.embed.cm)
@@ -19,18 +24,13 @@ module.exports = {
                     iconURL: message.author.displayAvatarURL({ dynamic: true })
                 });
         if (msg.content) {
-            embed.setDescription(
-                `Author : **${msg.author}**\nContent : ${msg.content || 'Content Unavailable'}`
-            )
-        } else if (msg.image) {
-            embed.setDescription(
-                `Author : **${msg.author}**\nContent : ${msg.content || 'Content Unavailable'}`
-            )
-            embed.setImage(msg.image);
+            embed.setDescription(`Author : **<@${msg.author}>**\nContent : ${msg.content || 'Content Unavailable'}`)
         } else {
-            return message.reply(
-                `${client.emoji.fail}| Maybe There's No Deleted Message Here`
-            );
+            embed.setDescription(`Author : **<@${msg.author}>**`)
+        }
+        if (msg.image !== null) { embed.setImage(msg.image); }
+        if (!msg.content && !msg.image) {
+            return message.reply(`${client.emoji.fail}| Maybe There's No Deleted Message Here`);
         }
         return message.channel.send({ embeds: [embed] });
     }
