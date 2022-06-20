@@ -10,7 +10,7 @@ module.exports = {
     description: `set ${nam} role to quick add/remove ${nam} role to users`,
     userPermissions: ["ADMINISTRATOR"],
     botPermissions: ["EMBED_LINKS", "MANAGE_ROLES"],
-    //  modRole: true,
+    modRole: true,
 
     async run(client, message, args) {
         const fail = client.embed.cf,
