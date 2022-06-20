@@ -1,4 +1,5 @@
-const { Collection } = require("discord.js");
+const { Collection } = require("discord.js"),
+  db = require(`quick.db`);
 
 module.exports = function (client, options) {
   const description = {
@@ -23,13 +24,9 @@ module.exports = function (client, options) {
         return;
       }
 
-      client.snipes.set(message.channel.id, {
-        content: message.content,
-        author: message.author.tag,
-        image: message.attachments.first()
-          ? message.attachments.first().proxyURL
-          : null,
-      });
+      db.set(`content${message.channel.id}`, message.content)
+      db.set(`author${message.channel.id}`, message.author.id)
+      db.set(`image${message.channel.id}`, message.attachments.first() ? message.attachments.first().proxyURL : null)
     } catch (e) {
       return client.errweb.send(`\`\`\`js\nFILE : ${description.name} - ${message.guild.name} - ${message.guild.id}\n${e.stack}\n\`\`\``);
     }
