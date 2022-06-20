@@ -8,6 +8,7 @@ module.exports = {
     usage: "maintenance <on | off> [@role]",
     userPermissions: ["ADMINISTRATOR"],
     botPermissions: ["EMBED_LINKS", "MANAGE_CHANNELS", "MANAGE_ROLES", "VIEW_CHANNELS"],
+    vote: true,
 
     async run(client, message, args) {
         if (!client.config.bowner.includes(message.author.id)) {
