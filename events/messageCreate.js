@@ -134,6 +134,15 @@ module.exports.run = async (client, message) => {
                             }
                         }
                     }
+                    if (message.guild.me.roles.highest.position >= t.roles.highest.position) {
+                        return message.reply({
+                            embeds: [
+                                new MessageEmbed({
+                                    description: `${client.emoji.fail}| Your role isnt high enough to execute this command!`
+                                })
+                            ]
+                        })
+                    }
                 }
 
                 if (command.vote === true) {
@@ -322,6 +331,15 @@ module.exports.run = async (client, message) => {
                                 return message.reply({ embeds: [emb] });
                             }
                         }
+                    }
+                    if (message.guild.me.roles.highest.position >= t.roles.highest.position) {
+                        return message.reply({
+                            embeds: [
+                                new MessageEmbed({
+                                    description: `${client.emoji.fail}| Your role isnt high enough to execute this command!`
+                                })
+                            ]
+                        })
                     }
                 }
 
