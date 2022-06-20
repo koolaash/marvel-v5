@@ -42,7 +42,6 @@ module.exports = {
         const bannerUrl = await getUserBannerUrl(target.id, { size: 4096 });
         async function getUserBannerUrl(userId, { dynamicFormat = true, defaultFormat = "webp", size = 4096 } = {}) {
 
-            // Supported image sizes, inspired by 'https://discord.js.org/#/docs/main/stable/typedef/ImageURLOptions'.
             if (![16, 32, 64, 128, 256, 512, 1024, 2048, 4096].includes(size)) {
                 throw new Error(`The size '${size}' is not supported!`);
             }
