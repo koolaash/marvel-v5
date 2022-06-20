@@ -9,7 +9,6 @@ module.exports = {
     usage: "avs [@user]",
     userPermissions: [],
     botPermissions: ["EMBED_LINKS"],
-    vote: true,
 
     run: async (client, message, args) => {
         if (!args[0]) {
