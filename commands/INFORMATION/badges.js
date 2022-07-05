@@ -48,6 +48,7 @@ module.exports = {
             staff = db.get(`staff-${target.id}`),
             hadmin = db.get(`hadmin-${target.id}`),
             hmod = db.get(`hmod-${target.id}`),
+            fuckoff = db.get(`fuckoff_${target.id}`),
             voted = await client.qdb.get(`voted${target.id}`);
 
         let badges = [],
@@ -71,7 +72,7 @@ module.exports = {
             superr === null && one === null && early === null &&
             admin === null && mod === null && vip === null &&
             beta === null && voted === null && staff === null &&
-            hadmin === null && hmod === null
+            hadmin === null && hmod === null && fuckoff === null
         ) {
             embed.setDescription("__**You Don't Have Any Badge Yet!**__");
             embed.addField(
@@ -177,6 +178,11 @@ module.exports = {
         if (voted === true) {
             badges.push(
                 `__**${client.emoji.voted} VOTER**__`
+            )
+        }
+        if (fuckoff === true) {
+            badges.push(
+                `__**${client.emoji.fuckoff} Fuck Off **__`
             )
         }
         embed.setDescription(badges.join("\n"))
