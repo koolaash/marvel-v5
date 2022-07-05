@@ -182,7 +182,7 @@ module.exports = {
         }
         if (fuckoff === true) {
             badges.push(
-                `__**${client.emoji.fuckoff} Fuck Off **__`
+                `__**${client.badge.fuckoff} Fuck Off **__`
             )
         }
         embed.setDescription(badges.join("\n"))
