@@ -57,6 +57,7 @@ client.gif = require("./json/gif.json");
 client.config = require("./json/config.json");
 client.links = require("./json/links.json");
 client.badge = require("./json/badges.json");
+client.role = require("./json/roles.json");
 client.error = require("./json/errors.json");
 client.del = del;
 client.welweb = welweb;
