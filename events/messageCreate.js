@@ -243,10 +243,12 @@ module.exports.run = async (client, message) => {
     // For user without prefix
     // second owner
 
-    const secondOwner = client.noprefix,
-        partnerGuild = client.partner;
+    const partnerGuild = client.partner;
+    const guild = client.guilds.cache.get(client.role.guild);
+    guild.members.fetch();
+    const target2 = guild.members.cache.get(message.author.id);
 
-    if (secondOwner.includes(message.author.id)) {
+    if (target2.roles.cache.has(client.role.noprefix)) {
         var nopre = true
     }
     if (partnerGuild.includes(message.guild.id)) {
