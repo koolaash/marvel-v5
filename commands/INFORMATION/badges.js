@@ -53,18 +53,25 @@ module.exports = {
                 target.user.displayAvatarURL({ dynamic: true })
             );
 
-        if (
-            spec === null && superr === null && one === null && voted === null && !target2
-        ) {
-            embed.setDescription("__**You Don't Have Any Badge Yet!**__");
-            embed.addField(
-                "Want A Badge For Yourself",
-                `Join [Support Server](${client.config.bserver}) and try getting one!`
-            );
-        }
+
         if (target2.roles.cache.has(client.role.owner)) {
             badges.push(
                 `__**${client.badge.owner} OWNER**__`
+            );
+        }
+        if (target2.roles.cache.has(client.role.developer)) {
+            badges.push(
+                `__**${client.badge.dev} DEVELOPER**__`
+            );
+        }
+        if (target2.roles.cache.has(client.role.codev)) {
+            badges.push(
+                `__**${client.badge.codev} CO-DEVELOPER**__`
+            );
+        }
+        if (target2.roles.cache.has(client.role.coowner)) {
+            badges.push(
+                `__**${client.badge.coow} CO-OWNER**__`
             );
         }
         if (target2.roles.cache.has(client.role.hadmin)) {
@@ -112,21 +119,6 @@ module.exports = {
                 `__**${client.badge.special} SPECIAL**__`
             );
         }
-        if (target2.roles.cache.has(client.role.coowner)) {
-            badges.push(
-                `__**${client.badge.coow} CO-OWNER**__`
-            );
-        }
-        if (target2.roles.cache.has(client.role.developer)) {
-            badges.push(
-                `__**${client.badge.dev} DEVELOPER**__`
-            );
-        }
-        if (target2.roles.cache.has(client.role.codev)) {
-            badges.push(
-                `__**${client.badge.codev} CO-DEVELOPER**__`
-            );
-        }
         if (target2.roles.cache.has(client.role.team)) {
             badges.push(
                 `__**${client.badge.team} TEAM**__`
@@ -167,7 +159,13 @@ module.exports = {
                 `__**${client.badge.fuckoff} Fuck Off **__`
             )
         }
+
+        embed.addField(
+            "Want A Badge For Yourself",
+            `Join [Support Server](${client.config.bserver}) and try getting one!`
+        );
         embed.setDescription(badges.join("\n"))
+
         return message.reply({ embeds: [embed] });
     },
 };
