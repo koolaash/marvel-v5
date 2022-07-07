@@ -44,225 +44,225 @@ module.exports = {
             }).then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
         } else if (args[1] === "early") {
             if (args[2] === "remove") {
-                db.delete("early-" + target.id);
+                db.delete("early-1" + target.id);
                 return message.reply(client.emoji.success)
                     .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
             } else {
-                db.set("early-" + target.id, true);
+                db.set("early-1" + target.id, true);
                 return message.reply(client.emoji.success)
                     .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
             }
         } else if (args[1] === "admin") {
             if (args[2] === "remove") {
-                db.delete("admin-" + target.id);
+                db.delete("admin-1" + target.id);
                 return message.reply(client.emoji.success)
                     .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
             } else {
-                db.set("admin-" + target.id, true);
+                db.set("admin-1" + target.id, true);
                 return message.reply(client.emoji.success)
                     .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
             }
         } else if (args[1] === "mod") {
             if (args[2] === "remove") {
-                db.delete("mod-" + target.id);
+                db.delete("mod-1" + target.id);
                 return message.reply(client.emoji.success)
                     .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
             } else {
-                db.set("mod-" + target.id, true);
+                db.set("mod-1" + target.id, true);
                 return message.reply(client.emoji.success)
                     .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
             }
         } else if (args[1] === "one") {
             if (args[2] === "remove") {
-                db.delete("one-" + target.id);
+                db.delete("one-1" + target.id);
                 return message.reply(client.emoji.success)
                     .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
             } else {
-                db.set("one-" + target.id, true);
+                db.set("one-1" + target.id, true);
                 return message.reply(client.emoji.success)
                     .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
             }
         } else if (args[1] === "team") {
             if (args[2] === "remove") {
-                db.delete("team-" + target.id);
+                db.delete("team-1" + target.id);
                 return message.reply(client.emoji.success)
                     .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
             } else {
-                db.set("team-" + target.id, true);
+                db.set("team-1" + target.id, true);
                 return message.reply(client.emoji.success)
                     .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
             }
         } else if (args[1] === "partner") {
             if (args[2] === "remove") {
-                db.delete("partner-" + target.id);
+                db.delete("partner-1" + target.id);
                 return message.reply(client.emoji.success)
                     .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
             } else {
-                db.set("partner-" + target.id, true);
+                db.set("partner-1" + target.id, true);
                 return message.reply(client.emoji.success)
                     .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
             }
         } else if (args[1] === "supporter") {
             if (args[2] === "remove") {
-                db.delete("supporter-" + target.id);
+                db.delete("supporter-1" + target.id);
                 return message.reply(client.emoji.success)
                     .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
             } else {
-                db.set("supporter-" + target.id, true);
+                db.set("supporter-1" + target.id, true);
                 return message.reply(client.emoji.success)
                     .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
             }
         } else if (args[1] === "special") {
             if (args[2] === "remove") {
-                db.delete("special-" + target.id);
+                db.delete("special-1" + target.id);
                 return message.reply(client.emoji.success)
                     .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
             } else {
-                db.set("special-" + target.id, true);
+                db.set("special-1" + target.id, true);
                 return message.reply(client.emoji.success)
                     .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
             }
         } else if (args[1] === "codev") {
             if (args[2] === "remove") {
-                db.delete("codev-" + target.id);
+                db.delete("codev-1" + target.id);
                 return message.reply(client.emoji.success)
                     .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
             } else {
-                db.set("codev-" + target.id, true);
+                db.set("codev-1" + target.id, true);
                 return message.reply(client.emoji.success)
                     .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
             }
         } else if (args[1] === "dev" || args[1] === "developer") {
             if (args[2] === "remove") {
-                db.delete("developer-" + target.id);
+                db.delete("developer-1" + target.id);
                 return message.reply(client.emoji.success)
                     .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
             } else {
-                db.set("developer-" + target.id, true);
+                db.set("developer-1" + target.id, true);
                 return message.reply(client.emoji.success)
                     .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
             }
         } else if (args[1] === "owner") {
             if (args[2] === "remove") {
-                db.delete("owner-" + target.id);
+                db.delete("owner-1" + target.id);
                 return message.reply(client.emoji.success)
                     .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
             } else {
-                db.set("owner-" + target.id, true);
+                db.set("owner-1" + target.id, true);
                 return message.reply(client.emoji.success)
                     .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
             }
         } else if (args[1] === "vip") {
             if (args[2] === "remove") {
-                db.delete("vip-" + target.id);
+                db.delete("vip-1" + target.id);
                 return message.reply(client.emoji.success)
                     .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
             } else {
-                db.set("vip-" + target.id, true);
+                db.set("vip-1" + target.id, true);
                 return message.reply(client.emoji.success)
                     .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
             }
         } else if (args[1] === "coowner") {
             if (args[2] === "remove") {
-                db.delete("coowner-" + target.id);
+                db.delete("coowner-1" + target.id);
                 return message.reply(client.emoji.success)
                     .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
             } else {
-                db.set("coowner-" + target.id, true);
+                db.set("coowner-1" + target.id, true);
                 return message.reply(client.emoji.success)
                     .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
             }
         } else if (args[1] === "bug") {
             if (args[2] === "remove") {
-                db.delete("bug-" + target.id);
+                db.delete("bug-1" + target.id);
                 return message.reply(client.emoji.success)
                     .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
             } else {
-                db.set("bug-" + target.id, true);
+                db.set("bug-1" + target.id, true);
                 return message.reply(client.emoji.success)
                     .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
             }
         } else if (args[1] === "super") {
             if (args[2] === "remove") {
-                db.delete("super-" + target.id);
+                db.delete("super-1" + target.id);
                 return message.reply(client.emoji.success)
                     .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
             } else {
-                db.set("super-" + target.id, true);
+                db.set("super-1" + target.id, true);
                 return message.reply(client.emoji.success)
                     .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
             }
         } else if (args[1] === "beta") {
             if (args[2] === "remove") {
-                db.delete(`beta-${target.id}`);
+                db.delete(`beta-1${target.id}`);
                 return message.reply(client.emoji.success)
                     .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
             } else {
-                db.set(`beta-${target.id}`, true);
+                db.set(`beta-1${target.id}`, true);
                 return message.reply(client.emoji.success)
                     .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
             }
         } else if (args[1] === "staff") {
             if (args[2] === "remove") {
-                db.delete(`staff-${target.id}`);
+                db.delete(`staff-1${target.id}`);
                 return message.reply(client.emoji.success)
                     .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
             } else {
-                db.set(`staff-${target.id}`, true);
+                db.set(`staff-1${target.id}`, true);
                 return message.reply(client.emoji.success)
                     .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
             }
         } else if (args[1] === "hadmin") {
             if (args[2] === "remove") {
-                db.delete(`hadmin-${target.id}`);
+                db.delete(`hadmin-1${target.id}`);
                 return message.reply(client.emoji.success)
                     .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
             } else {
-                db.set(`hadmin-${target.id}`, true);
+                db.set(`hadmin-1${target.id}`, true);
                 return message.reply(client.emoji.success)
                     .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
             }
         } else if (args[1] === "hmod") {
             if (args[2] === "remove") {
-                db.delete(`hmod-${target.id}`);
+                db.delete(`hmod-1${target.id}`);
                 return message.reply(client.emoji.success)
                     .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
             } else {
-                db.set(`hmod-${target.id}`, true);
+                db.set(`hmod-1${target.id}`, true);
                 return message.reply(client.emoji.success)
                     .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
             }
         } else if (args[1] === "fuck") {
             if (args[2] === "remove") {
-                db.delete(`fuckoff-${target.id}`);
+                db.delete(`fuckoff-1${target.id}`);
                 return message.reply(client.emoji.success)
                     .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
             } else {
-                db.set(`fuckoff-${target.id}`, true);
+                db.set(`fuckoff-1${target.id}`, true);
                 return message.reply(client.emoji.success)
                     .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
             }
         } else if (args[1] === 'reset') {
-            db.delete(`team-${target.id}`);
-            db.delete(`partner-${target.id}`);
-            db.delete(`supporter-${target.id}`);
-            db.delete(`special-${target.id}`);
-            db.delete(`codev-${target.id}`);
-            db.delete(`developer-${target.id}`);
-            db.delete(`owner-${target.id}`);
-            db.delete(`coowner-${target.id}`);
-            db.delete(`bug-${target.id}`);
-            db.delete(`one-${target.id}`);
-            db.delete(`early-${target.id}`);
-            db.delete(`admin-${target.id}`);
-            db.delete(`mod-${target.id}`);
-            db.delete(`vip-${target.id}`);
-            db.delete(`super-${target.id}`);
-            db.delete(`beta-${target.id}`);
-            db.delete(`staff-${target.id}`);
-            db.delete(`hadmin-${target.id}`);
-            db.delete(`hmod-${target.id}`);
-            db.delete(`fuckoff-${target.id}`);
+            db.delete(`team-1${target.id}`);
+            db.delete(`partner-1${target.id}`);
+            db.delete(`supporter-1${target.id}`);
+            db.delete(`special-1${target.id}`);
+            db.delete(`codev-1${target.id}`);
+            db.delete(`developer-1${target.id}`);
+            db.delete(`owner-1${target.id}`);
+            db.delete(`coowner-1${target.id}`);
+            db.delete(`bug-1${target.id}`);
+            db.delete(`one-1${target.id}`);
+            db.delete(`early-1${target.id}`);
+            db.delete(`admin-1${target.id}`);
+            db.delete(`mod-1${target.id}`);
+            db.delete(`vip-1${target.id}`);
+            db.delete(`super-1${target.id}`);
+            db.delete(`beta-1${target.id}`);
+            db.delete(`staff-1${target.id}`);
+            db.delete(`hadmin-1${target.id}`);
+            db.delete(`hmod-1${target.id}`);
+            db.delete(`fuckoff-1${target.id}`);
             client.qdb.delete(`voted${target.id}`);
             return message.reply(client.emoji.success)
                 .then((m) => setTimeout(() => m.delete().catch(() => null), 2000));
