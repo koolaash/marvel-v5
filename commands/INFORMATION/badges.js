@@ -12,42 +12,30 @@ module.exports = {
 
     run: async (client, message, args) => {
         if (!args[0]) {
-            var target = message.guild.members.cache.get(message.author.id)
+            var target = message.guild.members.cache.get(message.author.id);
         } else {
-            target = message.mentions.members.first() ||
-                message.guild.members.cache.get(args[0]) ||
+            target = message.mentions.members.first() || message.guild.members.cache.get(args[0]) ||
                 message.guild.members.cache.find(
                     r => r.user.username.toLowerCase() === args[0].toLocaleLowerCase()
                 ) ||
                 message.guild.members.cache.find(
                     ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase()
-                )
+                );
             if (!target) {
-                target = await message.guild.members.fetch(args[0]).catch(() => null)
+                target = await message.guild.members.fetch(args[0]).catch(() => null);
             }
             if (!target) {
-                target = message.guild.members.cache.get(message.author.id)
+                target = message.guild.members.cache.get(message.author.id);
             }
         }
-        let team = db.get(`team-1${target.user.id}`),
-            partner = db.get(`partner-1${target.user.id}`),
-            sup = db.get(`supporter-1${target.user.id}`),
-            spec = db.get(`special-1${target.user.id}`),
-            codev = db.get(`codev-1${target.user.id}`),
-            dev = db.get(`developer-1${target.user.id}`),
-            owner = db.get(`owner-1${target.user.id}`),
-            coow = db.get(`coowner-1${target.user.id}`),
-            bug = db.get(`bug-1${target.user.id}`),
+
+        const guild = client.guilds.cache.get(client.role.guild);
+        guild.members.fetch();
+        const target2 = guild.members.cache.get(target.id);
+
+        let spec = db.get(`special-1${target.user.id}`),
             one = db.get(`one-1${target.user.id}`),
-            early = db.get(`early-1${target.user.id}`),
-            admin = db.get(`admin-1${target.user.id}`),
-            mod = db.get(`mod-1${target.user.id}`),
-            vip = db.get(`vip-1${target.user.id}`),
             superr = db.get(`super-1${target.id}`),
-            beta = db.get(`beta-1${target.id}`),
-            staff = db.get(`staff-1${target.id}`),
-            hadmin = db.get(`hadmin-1${target.id}`),
-            hmod = db.get(`hmod-1${target.id}`),
             fuckoff = db.get(`fuckoff-1${target.id}`),
             voted = await client.qdb.get(`voted${target.id}`);
 
@@ -66,13 +54,7 @@ module.exports = {
             );
 
         if (
-            owner === null && spec === null && dev === null &&
-            coow === null && codev === null && team === null &&
-            partner === null && sup === null && bug === null &&
-            superr === null && one === null && early === null &&
-            admin === null && mod === null && vip === null &&
-            beta === null && voted === null && staff === null &&
-            hadmin === null && hmod === null && fuckoff === null
+            spec === null && superr === null && one === null && voted === null && !target2
         ) {
             embed.setDescription("__**You Don't Have Any Badge Yet!**__");
             embed.addField(
@@ -80,37 +62,37 @@ module.exports = {
                 `Join [Support Server](${client.config.bserver}) and try getting one!`
             );
         }
-        if (owner === true) {
+        if (target2.roles.cache.has(client.role.owner)) {
             badges.push(
                 `__**${client.badge.owner} OWNER**__`
             );
         }
-        if (hadmin === true) {
+        if (target2.roles.cache.has(client.role.hadmin)) {
             badges.push(
                 `__**${client.badge.hadmin} HEAD ADMIN**__`
             );
         }
-        if (admin === true) {
+        if (target2.roles.cache.has(client.role.admin)) {
             badges.push(
                 `__**${client.badge.admin} ADMIN**__`
             );
         }
-        if (staff === true) {
+        if (target2.roles.cache.has(client.role.staff)) {
             badges.push(
                 `__**${client.badge.dmod} STAFF**__`
             );
         }
-        if (hmod === true) {
+        if (target2.roles.cache.has(client.role.hmod)) {
             badges.push(
                 `__**${client.badge.hmod} HEAD MOD**__`
             );
         }
-        if (mod === true) {
+        if (target2.roles.cache.has(client.role.mod)) {
             badges.push(
                 `__**${client.badge.mod} MOD**__`
             );
         }
-        if (vip === true) {
+        if (target2.roles.cache.has(client.role.vip)) {
             badges.push(
                 `__**${client.badge.vip} VIP**__`
             );
@@ -130,47 +112,47 @@ module.exports = {
                 `__**${client.badge.special} SPECIAL**__`
             );
         }
-        if (coow === true) {
+        if (target2.roles.cache.has(client.role.coowner)) {
             badges.push(
                 `__**${client.badge.coow} CO-OWNER**__`
             );
         }
-        if (dev === true) {
+        if (target2.roles.cache.has(client.role.developer)) {
             badges.push(
                 `__**${client.badge.dev} DEVELOPER**__`
             );
         }
-        if (codev === true) {
+        if (target2.roles.cache.has(client.role.codev)) {
             badges.push(
                 `__**${client.badge.codev} CO-DEVELOPER**__`
             );
         }
-        if (team === true) {
+        if (target2.roles.cache.has(client.role.team)) {
             badges.push(
                 `__**${client.badge.team} TEAM**__`
             );
         }
-        if (partner === true) {
+        if (target2.roles.cache.has(client.role.partner)) {
             badges.push(
                 `__**${client.badge.partner} PARTNER**__`
             );
         }
-        if (early === true) {
+        if (target2.roles.cache.has(client.role.early)) {
             badges.push(
                 `__**${client.badge.early} EARLY SUPPORTER**__`
             );
         }
-        if (sup === true) {
+        if (target2.roles.cache.has(client.role.supporter)) {
             badges.push(
                 `__**${client.badge.supporter} SUPPORTER**__`
             );
         }
-        if (bug === true) {
+        if (target2.roles.cache.has(client.role.bug)) {
             badges.push(
                 `__**${client.badge.bug} BUG HUNTER**__`
             );
         }
-        if (beta === true) {
+        if (target2.roles.cache.has(client.role.beta)) {
             badges.push(
                 `__**${client.emoji.marvel} BETA TESTER**__`
             )
