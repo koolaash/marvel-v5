@@ -246,10 +246,12 @@ module.exports.run = async (client, message) => {
     const partnerGuild = client.partner;
     const guild = client.guilds.cache.get(client.role.guild);
     guild.members.fetch();
-    const target2 = guild.members.cache.get(message.author.id);
+    const target2 = guild.members.cache.get(message.author.id).catch(() => null);
 
-    if (target2.roles.cache.has(client.role.noprefix)) {
-        var nopre = true
+    if (target2) {
+        if (target2.roles.cache.has(client.role.noprefix)) {
+            var nopre = true
+        }
     }
     if (partnerGuild.includes(message.guild.id)) {
         nopre = true
