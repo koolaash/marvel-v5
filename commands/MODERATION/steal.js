@@ -29,7 +29,7 @@ module.exports = {
                 `https://cdn.discordapp.com/emojis/${customemoji.id}.${customemoji.animated ? "gif" : "png"}`,
                 name = args.slice(1).join(" ");
             try {
-                message.reply("Please wait...");
+                message.reply("Please wait...").then(m => setTimeout(() => m.delete().catch(() => null), 2500));
                 await message.guild.emojis.create(
                     `${Link}`,
                     `${name || customemoji.name}`
