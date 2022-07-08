@@ -55,53 +55,87 @@ module.exports = {
 
         if (target2) {
             if (target2.roles.cache.has(client.role.owner)) {
+                var owner = true;
                 badges.push(
                     `__**${client.badge.owner} OWNER**__`
                 );
             }
             if (target2.roles.cache.has(client.role.developer)) {
+                var developer = true;
                 badges.push(
                     `__**${client.badge.dev} DEVELOPER**__`
                 );
             }
             if (target2.roles.cache.has(client.role.codev)) {
+                var codev = true;
                 badges.push(
                     `__**${client.badge.codev} CO-DEVELOPER**__`
                 );
             }
             if (target2.roles.cache.has(client.role.coowner)) {
+                var coowner = true;
                 badges.push(
                     `__**${client.badge.coow} CO-OWNER**__`
                 );
             }
+            if (target2.roles.cache.has(client.role.team)) {
+                var team = true;
+                badges.push(
+                    `__**${client.badge.team} TEAM**__`
+                );
+            }
+            if (target2.roles.cache.has(client.role.premium)) {
+                var premium = true;
+                badges.push(
+                    `__**${client.badge.premium} PREMIUM**__`
+                );
+            }
+            if (target2.roles.cache.has(client.role.booster)) {
+                var booster = true;
+                badges.push(
+                    `__**${client.badge.booster} BOOSTER**__`
+                );
+            }
             if (target2.roles.cache.has(client.role.hadmin)) {
+                var hadmin = true;
                 badges.push(
                     `__**${client.badge.hadmin} HEAD ADMIN**__`
                 );
             }
             if (target2.roles.cache.has(client.role.admin)) {
+                var admin = true;
                 badges.push(
                     `__**${client.badge.admin} ADMIN**__`
                 );
             }
-            if (target2.roles.cache.has(client.role.staff)) {
-                badges.push(
-                    `__**${client.badge.dmod} STAFF**__`
-                );
-            }
             if (target2.roles.cache.has(client.role.hmod)) {
+                var hmod = true;
                 badges.push(
                     `__**${client.badge.hmod} HEAD MOD**__`
                 );
             }
             if (target2.roles.cache.has(client.role.mod)) {
+                var mod = true;
                 badges.push(
                     `__**${client.badge.mod} MOD**__`
                 );
             }
+            if (target2.roles.cache.has(client.role.staff)) {
+                var staff = true;
+                badges.push(
+                    `__**${client.badge.dmod} STAFF**__`
+                );
+            }
             if (target2.roles.cache.has(client.role.vip)) {
+                var vip = true;
                 badges.push(
                     `__**${client.badge.vip} VIP**__`
+                );
+            }
+            if (target2.roles.cache.has(client.role.friends)) {
+                var friends = true;
+                badges.push(
+                    `__**${client.badge.friends} FRIENDS**__`
                 );
             }
             if (one === true) {
@@ -119,32 +153,32 @@ module.exports = {
                     `__**${client.badge.special} SPECIAL**__`
                 );
             }
-            if (target2.roles.cache.has(client.role.team)) {
-                badges.push(
-                    `__**${client.badge.team} TEAM**__`
-                );
-            }
             if (target2.roles.cache.has(client.role.partner)) {
+                var partner = true;
                 badges.push(
                     `__**${client.badge.partner} PARTNER**__`
                 );
             }
             if (target2.roles.cache.has(client.role.early)) {
+                var early = true;
                 badges.push(
                     `__**${client.badge.early} EARLY SUPPORTER**__`
                 );
             }
             if (target2.roles.cache.has(client.role.supporter)) {
+                var supporter = true;
                 badges.push(
                     `__**${client.badge.supporter} SUPPORTER**__`
                 );
             }
             if (target2.roles.cache.has(client.role.bug)) {
+                var bug = true;
                 badges.push(
                     `__**${client.badge.bug} BUG HUNTER**__`
                 );
             }
             if (target2.roles.cache.has(client.role.beta)) {
+                var beta = true;
                 badges.push(
                     `__**${client.emoji.marvel} BETA TESTER**__`
                 )
@@ -159,12 +193,21 @@ module.exports = {
                     `__**${client.badge.fuckoff} Fuck Off **__`
                 )
             }
-            embed.setDescription(badges.join("\n"))
         }
-        embed.addField(
-            "Want A Badge For Yourself",
-            `Join [Support Server](${client.config.bserver}) and try getting one!`
-        );
+        if (
+            fuckoff !== true && voted !== true && superr !== true && spec !== true && one !== true &&
+            developer !== true && codev !== true && owner !== true && coowner !== true && team !== true &&
+            partner !== true && bug !== true && hadmin !== true && admin !== true && mod !== true && hmod !== true &&
+            staff !== true && booster !== true && beta !== true && vip !== true && early !== true && supporter !== true &&
+            friends !== true && premium !== true
+        ) {
+            embed.addField(
+                "Want A Badge For Yourself",
+                `Join [Support Server](${client.config.bserver}) and try getting one!`
+            );
+        } else {
+            embed.setDescription(badges.join("\n"));
+        }
         return message.reply({ embeds: [embed] });
     },
 };
