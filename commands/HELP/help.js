@@ -116,6 +116,8 @@ module.exports = {
                     p +
                     "unlock or unlock @user/@role` - hide the channel command is used in for any role or member\nYou Can Provide Id Also Instead Of Mention\n`" +
                     p +
+                    "slomode off or slowmode <amount>` - changes the slowmode settings of the channel command is used in\n`" +
+                    p +
                     "enable #channel/channel_id` - to enable bot commands in that channel\n`" +
                     p + "disable #channel/channel_id` - to disable bot commands in that channel" +
                     "\n**━━━━━━━━━━━━━━━━━**"
