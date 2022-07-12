@@ -117,8 +117,7 @@ module.exports = {
             if (args[1] === 'force') {
                 if (!args[2]) return message.reply("id?");
                 client.qdb.pull(`bluser.mem`, args[2]);
-                return message.reply({ content: "Done" })
-                    .then(m => setTimeout(() => m.delete().catch(() => null), 2500));
+                return message.reply({ content: "Done" }).then(m => setTimeout(() => m.delete().catch(() => null), 2500));
             }
 
             let target = message.mentions.members.first() || message.guild.members.cache.get(args[1]);
@@ -139,8 +138,7 @@ module.exports = {
             }
 
             if (!args[2]) {
-                return message.reply({ content: "Add or Remove" })
-                    .then(m = setTimeout(() => m.delete().catch(() => null), 2500));
+                return message.reply({ content: "Add or Remove" }).then(m = setTimeout(() => m.delete().catch(() => null), 2500));
             }
 
             let mems = await client.qdb.get(`bluser`);
