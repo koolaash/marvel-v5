@@ -15,7 +15,7 @@ module.exports = {
             return message.channel.send({
                 embeds: [
                     new discord.MessageEmbed({
-                        description: client.emoji.fail + "| Cannot send an empty message.",
+                        description: `${client.emoji.fail}| Cannot send an empty message.`,
                         color: client.embed.cf
                     })
                 ]
