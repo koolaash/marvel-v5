@@ -17,18 +17,7 @@ module.exports = {
                 message.guild.roles.cache.get(args[0])
 
             if (!item) {
-                try {
-                    item = await message.guild.members.fetch(args[0])
-                } catch (e) {
-                    return message.reply({
-                        embeds: [
-                            new discord.MessageEmbed({
-                                description: `${client.emoji.fail}| Cant find any user or role revelent to ${args[0]}`,
-                                color: client.color.cf
-                            })
-                        ]
-                    })
-                }
+                item = await message.guild.members.fetch(args[0]).catch(() => null)
             }
 
             if (!item) {
