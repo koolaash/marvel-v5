@@ -8,7 +8,7 @@ module.exports = {
     category: "CHANNELS",
     usage: 'hide [@role | @user]',
     userPermissions: ["MANAGE_ROLES", "MANAGE_CHANNELS", "EMBED_LINKS"],
-    botPermissions: ["MANAGE_ROLES", "EMBED_LINKS"],
+    botPermissions: ["MANAGE_ROLES", "EMBED_LINKS", "ADD_REACTIONS"],
 
     async run(client, message, args) {
 
@@ -22,6 +22,7 @@ module.exports = {
                 ]
             });
         };
+
         if (args[0] === 'off') {
             await message.channel.setRateLimitPerUser('0');
             return message.react(client.emoji.success);
