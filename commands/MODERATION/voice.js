@@ -62,7 +62,7 @@ module.exports = {
                     ]
                 });
             };
-            return vc.members.forEach(mem => mem.voice.setMute(true));
+            return vc.members.forEach(mem => mem.voice.setMute(true)) && message.react(client.emoji.success);
         } else if (args[0] === 'unmute') {
             if (!args[1]) {
                 return message.reply({
@@ -385,6 +385,9 @@ module.exports = {
                     CONNECT: false
                 }, message.author.tag) && message.react(client.emoji.success)
             } else {
+                let { channel } = message.member.voice,
+                    vc = channel;
+
                 return vc.permissionOverwrites.edit(message.channel.guild.roles.everyone, {
                     CONNECT: false
                 }, message.author.tag) && message.react(client.emoji.success);
@@ -427,6 +430,9 @@ module.exports = {
                     CONNECT: true
                 }, message.author.tag) && message.react(client.emoji.success)
             } else {
+                let { channel } = message.member.voice,
+                    vc = channel;
+
                 return vc.permissionOverwrites.edit(message.channel.guild.roles.everyone, {
                     CONNECT: true
                 }, message.author.tag) && message.react(client.emoji.success);
@@ -469,6 +475,9 @@ module.exports = {
                     VIEW_CHANNEL: false
                 }, message.author.tag) && message.react(client.emoji.success)
             } else {
+                let { channel } = message.member.voice,
+                    vc = channel;
+
                 return vc.permissionOverwrites.edit(message.channel.guild.roles.everyone, {
                     VIEW_CHANNEL: false
                 }, message.author.tag) && message.react(client.emoji.success);
@@ -511,6 +520,9 @@ module.exports = {
                     VIEW_CHANNEL: true
                 }, message.author.tag) && message.react(client.emoji.success)
             } else {
+                let { channel } = message.member.voice,
+                    vc = channel;
+
                 return vc.permissionOverwrites.edit(message.channel.guild.roles.everyone, {
                     VIEW_CHANNEL: true
                 }, message.author.tag) && message.react(client.emoji.success);
