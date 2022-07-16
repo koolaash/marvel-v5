@@ -35,7 +35,8 @@ module.exports = {
                     ]
                 });
             };
-            let vc = user.voiceChannel;
+            let { channel } = user.voice,
+                vc = channel;
 
             if (!vc) {
                 return message.reply({
@@ -47,9 +48,10 @@ module.exports = {
                     ]
                 });
             }
-            return user.voice.setMute(true);
+            return user.voice.setMute(true) && message.react(client.emoji.success);
         } else if (args[0] === 'muteall') {
-            let vc = message.member.voiceChannel;
+            let { channel } = message.member.voice,
+                vc = channel;
             if (!vc) {
                 return message.reply({
                     embeds: [
@@ -88,7 +90,9 @@ module.exports = {
             };
             return user.voice.setMute(false) && message.react(client.emoji.success);
         } else if (args[0] === 'unmuteall') {
-            let vc = message.member.voiceChannel;
+            let { channel } = message.member.voice,
+                vc = channel;
+
             if (!vc) {
                 return message.reply({
                     embeds: [
@@ -125,7 +129,8 @@ module.exports = {
                     ]
                 });
             };
-            let vc = user.voiceChannel;
+            let { channel } = user.voice,
+                vc = channel;
 
             if (!vc) {
                 return message.reply({
@@ -139,7 +144,9 @@ module.exports = {
             }
             return user.voice.setDeaf(true) && message.react(client.emoji.success);
         } else if (args[0] === 'deafall') {
-            let vc = message.member.voiceChannel;
+            let { channel } = message.member.voice,
+                vc = channel;
+
             if (!vc) {
                 return message.reply({
                     embeds: [
@@ -176,7 +183,8 @@ module.exports = {
                     ]
                 });
             };
-            let vc = user.voiceChannel;
+            let { channel } = user.voice,
+                vc = channel;
 
             if (!vc) {
                 return message.reply({
@@ -190,7 +198,9 @@ module.exports = {
             }
             return user.voice.setDeaf(false) && message.react(client.emoji.success);
         } else if (args[0] === 'undeafall') {
-            let vc = message.member.voiceChannel;
+            let { channel } = message.member.voice,
+                vc = channel;
+
             if (!vc) {
                 return message.reply({
                     embeds: [
@@ -322,7 +332,8 @@ module.exports = {
                 });
             };
 
-            let vc = user.voiceChannel;
+            let { channel } = user.voice,
+                vc = channel;
 
             if (!vc) {
                 return message.reply({
@@ -358,7 +369,8 @@ module.exports = {
                     })
                 }
 
-                let vc = message.author.voiceChannel;
+                let { channel } = message.member.voice,
+                    vc = channel;
 
                 if (!vc) {
                     return message.reply({
@@ -399,7 +411,8 @@ module.exports = {
                     })
                 }
 
-                let vc = message.author.voiceChannel;
+                let { channel } = message.member.voice,
+                    vc = channel;
 
                 if (!vc) {
                     return message.reply({
@@ -440,7 +453,8 @@ module.exports = {
                     })
                 }
 
-                let vc = message.author.voiceChannel;
+                let { channel } = message.member.voice,
+                    vc = channel;
 
                 if (!vc) {
                     return message.reply({
@@ -481,7 +495,8 @@ module.exports = {
                     })
                 }
 
-                let vc = message.author.voiceChannel;
+                let { channel } = message.member.voice,
+                    vc = channel;
 
                 if (!vc) {
                     return message.reply({
@@ -501,7 +516,8 @@ module.exports = {
                 }, message.author.tag) && message.react(client.emoji.success);
             }
         } else if (args[0] === 'bitrate' || args[0] === 'bit') {
-            let vc = message.author.voiceChannel;
+            let { channel } = message.member.voice,
+                vc = channel;
 
             if (!vc) {
                 return message.reply({
@@ -568,7 +584,8 @@ module.exports = {
 
             return vc.setBitrate(initBitrate + '000') && message.react(client.emoji.success);
         } else if (args[0] === 'limit') {
-            let vc = message.author.voiceChannel;
+            let { channel } = message.member.voice,
+                vc = channel;
 
             if (!vc) {
                 return message.reply({
