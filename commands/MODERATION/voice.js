@@ -14,7 +14,7 @@ module.exports = {
             if (!args[1]) {
                 return message.reply({
                     embeds: [
-                        new MesssageEmbed({
+                        new MessageEmbed({
                             description: `${client.emoji.fail}| Mention a user or provide user id first!`,
                             color: client.embed.cf
                         })
@@ -28,7 +28,7 @@ module.exports = {
             if (!user) {
                 return message.reply({
                     embeds: [
-                        new MesssageEmbed({
+                        new MessageEmbed({
                             description: `${client.emoji.fail}| Unable to find this user!`,
                             color: client.embed.cf
                         })
@@ -40,7 +40,7 @@ module.exports = {
             if (!vc) {
                 return message.reply({
                     embeds: [
-                        new MesssageEmbed({
+                        new MessageEmbed({
                             description: `${client.emoji.fail}| User is not in a voice channel!`,
                             color: client.embed.cf
                         })
@@ -53,7 +53,7 @@ module.exports = {
             if (!vc) {
                 return message.reply({
                     embeds: [
-                        new MesssageEmbed({
+                        new MessageEmbed({
                             description: `${client.emoji.fail}| You are not in a vc!`,
                             color: client.embed.cf
                         })
@@ -65,7 +65,7 @@ module.exports = {
             if (!args[1]) {
                 return message.reply({
                     embeds: [
-                        new MesssageEmbed({
+                        new MessageEmbed({
                             description: `${client.emoji.fail}| Mention a user or provide user id first!`,
                             color: client.embed.cf
                         })
@@ -79,7 +79,7 @@ module.exports = {
             if (!user) {
                 return message.reply({
                     embeds: [
-                        new MesssageEmbed({
+                        new MessageEmbed({
                             description: `${client.emoji.fail}| Unable to find this user!`,
                             color: client.embed.cf
                         })
@@ -92,7 +92,7 @@ module.exports = {
             if (!vc) {
                 return message.reply({
                     embeds: [
-                        new MesssageEmbed({
+                        new MessageEmbed({
                             description: `${client.emoji.fail}| You are not in a vc!`,
                             color: client.embed.cf
                         })
@@ -104,7 +104,7 @@ module.exports = {
             if (!args[1]) {
                 return message.reply({
                     embeds: [
-                        new MesssageEmbed({
+                        new MessageEmbed({
                             description: `${client.emoji.fail}| Mention a user or provide user id first!`,
                             color: client.embed.cf
                         })
@@ -118,7 +118,7 @@ module.exports = {
             if (!user) {
                 return message.reply({
                     embeds: [
-                        new MesssageEmbed({
+                        new MessageEmbed({
                             description: `${client.emoji.fail}| Unable to find this user!`,
                             color: client.embed.cf
                         })
@@ -130,7 +130,7 @@ module.exports = {
             if (!vc) {
                 return message.reply({
                     embeds: [
-                        new MesssageEmbed({
+                        new MessageEmbed({
                             description: `${client.emoji.fail}| User is not in a voice channel!`,
                             color: client.embed.cf
                         })
@@ -143,7 +143,7 @@ module.exports = {
             if (!vc) {
                 return message.reply({
                     embeds: [
-                        new MesssageEmbed({
+                        new MessageEmbed({
                             description: `${client.emoji.fail}| You are not in a vc!`,
                             color: client.embed.cf
                         })
@@ -155,7 +155,7 @@ module.exports = {
             if (!args[1]) {
                 return message.reply({
                     embeds: [
-                        new MesssageEmbed({
+                        new MessageEmbed({
                             description: `${client.emoji.fail}| Mention a user or provide user id first!`,
                             color: client.embed.cf
                         })
@@ -169,7 +169,7 @@ module.exports = {
             if (!user) {
                 return message.reply({
                     embeds: [
-                        new MesssageEmbed({
+                        new MessageEmbed({
                             description: `${client.emoji.fail}| Unable to find this user!`,
                             color: client.embed.cf
                         })
@@ -181,7 +181,7 @@ module.exports = {
             if (!vc) {
                 return message.reply({
                     embeds: [
-                        new MesssageEmbed({
+                        new MessageEmbed({
                             description: `${client.emoji.fail}| User is not in a voice channel!`,
                             color: client.embed.cf
                         })
@@ -194,7 +194,7 @@ module.exports = {
             if (!vc) {
                 return message.reply({
                     embeds: [
-                        new MesssageEmbed({
+                        new MessageEmbed({
                             description: `${client.emoji.fail}| You are not in a vc!`,
                             color: client.embed.cf
                         })
@@ -206,7 +206,7 @@ module.exports = {
             if (!args[1]) {
                 return message.reply({
                     embeds: [
-                        new MesssageEmbed({
+                        new MessageEmbed({
                             description: `${client.emoji.fail}| Mention a user or provide user id first!`,
                             color: client.embed.cf
                         })
@@ -216,7 +216,7 @@ module.exports = {
             if (!args[2]) {
                 return message.reply({
                     embeds: [
-                        new MesssageEmbed({
+                        new MessageEmbed({
                             description: `${client.emoji.fail}| Mention a user or provide user id first!`,
                             color: client.embed.cf
                         })
@@ -231,7 +231,7 @@ module.exports = {
             if (!user) {
                 return message.reply({
                     embeds: [
-                        new MesssageEmbed({
+                        new MessageEmbed({
                             description: `${client.emoji.fail}| Unable to find this user!`,
                             color: client.embed.cf
                         })
@@ -244,7 +244,7 @@ module.exports = {
             if (!vc) {
                 return message.reply({
                     embeds: [
-                        new MesssageEmbed({
+                        new MessageEmbed({
                             description: `${client.emoji.fail}| Cannot find this vc!`,
                             color: client.embed.cf
                         })
@@ -258,7 +258,7 @@ module.exports = {
             if (!args[1]) {
                 return message.reply({
                     embeds: [
-                        new MesssageEmbed({
+                        new MessageEmbed({
                             description: `${client.emoji.fail}| Mention a channel or provide id/name first!`,
                             color: client.embed.cf
                         })
@@ -271,7 +271,7 @@ module.exports = {
             if (!vc) {
                 return message.reply({
                     embeds: [
-                        new MesssageEmbed({
+                        new MessageEmbed({
                             description: `${client.emoji.fail}| Provied channel id/name to move into!`,
                             color: client.embed.cf
                         })
@@ -283,7 +283,7 @@ module.exports = {
             if (!args[1]) {
                 return message.reply({
                     embeds: [
-                        new MesssageEmbed({
+                        new MessageEmbed({
                             description: `${client.emoji.fail}| Mention a cahnnel or provide id/name first!`,
                             color: client.embed.cf
                         })
@@ -297,7 +297,7 @@ module.exports = {
             if (!vc) {
                 return message.reply({
                     embeds: [
-                        new MesssageEmbed({
+                        new MessageEmbed({
                             description: `${client.emoji.fail}| Join a vc first or provie channel id/name!`,
                             color: client.embed.cf
                         })
@@ -314,7 +314,7 @@ module.exports = {
             if (!user) {
                 return message.reply({
                     embeds: [
-                        new MesssageEmbed({
+                        new MessageEmbed({
                             description: `${client.emoji.fail}| Unable to find this user!`,
                             color: client.embed.cf
                         })
@@ -327,7 +327,7 @@ module.exports = {
             if (!vc) {
                 return message.reply({
                     embeds: [
-                        new MesssageEmbed({
+                        new MessageEmbed({
                             description: `${client.emoji.fail}| User is not in a voice channel!`,
                             color: client.embed.cf
                         })
@@ -558,7 +558,7 @@ module.exports = {
             if (args[1] > initBitrate || args[1] < "64") {
                 return message.reply({
                     embeds: [
-                        new MesssageEmbed({
+                        new MessageEmbed({
                             description: `${client.emoji.fail}| Minimum bitrate for this guild is 64kbps\nMaximum bitrate for this guild is ${initBitrate}kbps!`,
                             color: client.embed.cf
                         })
