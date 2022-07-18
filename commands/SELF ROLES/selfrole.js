@@ -26,7 +26,20 @@ module.exports = {
                 filter: msg_filter,
                 max: 1,
                 time: 30000
-            }), amt = amount.first().content
+            });
+
+        if (!amount.length) {
+            return message.reply({
+                embeds: [
+                    new MessageEmbed({
+                        color: client.embed.cf,
+                        description: `${client.emoji.fail}| Failed to provided a valid amount!`
+                    })
+                ]
+            })
+        }
+
+        let amt = amount.first().content
         if (!amount || !amt) {
             return message.reply({
                 embeds: [
@@ -70,7 +83,20 @@ module.exports = {
             filter: msg_filter,
             max: 1,
             time: 30000
-        }), chan;
+        });
+
+        if (!ch.length) {
+            return message.reply({
+                embeds: [
+                    new MessageEmbed({
+                        color: client.embed.cf,
+                        description: `${client.emoji.fail}| Failed to provided a valid channel!`
+                    })
+                ]
+            })
+        }
+
+        let chan;
         try {
             if (
                 ch.first().content.startsWith("<#") &&
@@ -93,7 +119,7 @@ module.exports = {
                 }) & db.delete("inuse" + message.guild.id)
             );
         }
-        if (chan === null || chan === undefined) {
+        if (!chan) {
             return (
                 message.reply({
                     embeds: [
@@ -116,7 +142,7 @@ module.exports = {
                 })
             )
         }
-        db.set('inuse' + message.guild.id)
+        db.set(`inuse${message.guild.id}`)
         let embed = new MessageEmbed({
             color: client.embed.cm,
             author: {
@@ -145,6 +171,18 @@ module.exports = {
                 max: 1,
                 time: 60000
             });
+
+            if (!r1.length) {
+                return message.reply({
+                    embeds: [
+                        new MessageEmbed({
+                            color: client.embed.cf,
+                            description: `${client.emoji.fail}| Failed to provided a valid role!`
+                        })
+                    ]
+                })
+            }
+
             try {
                 if (
                     r1.first().content.startsWith("<@&") &&
@@ -192,6 +230,18 @@ module.exports = {
                 max: 1,
                 time: 60000
             });
+
+            if (!emj1.length) {
+                return message.reply({
+                    embeds: [
+                        new MessageEmbed({
+                            color: client.embed.cf,
+                            description: `${client.emoji.fail}| Failed to provided a valid emoji!`
+                        })
+                    ]
+                })
+            }
+
             if (!emj1.first().content.match(/<a:.+?:\d+>|<:.+?:\d+>/g)) {
                 return message.reply({
                     embeds: [
@@ -247,6 +297,18 @@ module.exports = {
                 max: 1,
                 time: 60000
             });
+
+            if (!r2.length) {
+                return message.reply({
+                    embeds: [
+                        new MessageEmbed({
+                            color: client.embed.cf,
+                            description: `${client.emoji.fail}| Failed to provided a valid role!`
+                        })
+                    ]
+                })
+            }
+
             try {
                 if (
                     r2.first().content.startsWith("<@&") &&
@@ -294,6 +356,18 @@ module.exports = {
                 max: 1,
                 time: 60000
             });
+
+            if (!emj2.length) {
+                return message.reply({
+                    embeds: [
+                        new MessageEmbed({
+                            color: client.embed.cf,
+                            description: `${client.emoji.fail}| Failed to provided a valid emoji!`
+                        })
+                    ]
+                })
+            }
+
             if (!emj2.first().content.match(/<a:.+?:\d+>|<:.+?:\d+>/g)) {
                 return message.reply({
                     embeds: [
@@ -350,6 +424,18 @@ module.exports = {
                 max: 1,
                 time: 60000
             });
+
+            if (!r3.length) {
+                return message.reply({
+                    embeds: [
+                        new MessageEmbed({
+                            color: client.embed.cf,
+                            description: `${client.emoji.fail}| Failed to provided a valid role!`
+                        })
+                    ]
+                })
+            }
+
             try {
                 if (
                     r3.first().content.startsWith("<@&") &&
@@ -397,6 +483,18 @@ module.exports = {
                 max: 1,
                 time: 60000
             });
+
+            if (!emj3.length) {
+                return message.reply({
+                    embeds: [
+                        new MessageEmbed({
+                            color: client.embed.cf,
+                            description: `${client.emoji.fail}| Failed to provided a valid emoji!`
+                        })
+                    ]
+                })
+            }
+
             if (!emj3.first().content.match(/<a:.+?:\d+>|<:.+?:\d+>/g)) {
                 return message.reply({
                     embeds: [
@@ -454,6 +552,18 @@ module.exports = {
                 max: 1,
                 time: 60000
             });
+
+            if (!r4.length) {
+                return message.reply({
+                    embeds: [
+                        new MessageEmbed({
+                            color: client.embed.cf,
+                            description: `${client.emoji.fail}| Failed to provided a valid role!`
+                        })
+                    ]
+                })
+            }
+
             try {
                 if (
                     r4.first().content.startsWith("<@&") &&
@@ -501,6 +611,18 @@ module.exports = {
                 max: 1,
                 time: 60000
             });
+
+            if (!emj4.length) {
+                return message.reply({
+                    embeds: [
+                        new MessageEmbed({
+                            color: client.embed.cf,
+                            description: `${client.emoji.fail}| Failed to provided a valid emoji!`
+                        })
+                    ]
+                })
+            }
+
             if (!emj4.first().content.match(/<a:.+?:\d+>|<:.+?:\d+>/g)) {
                 return message.reply({
                     embeds: [
@@ -559,6 +681,18 @@ module.exports = {
                 max: 1,
                 time: 60000
             });
+
+            if (!r5.length) {
+                return message.reply({
+                    embeds: [
+                        new MessageEmbed({
+                            color: client.embed.cf,
+                            description: `${client.emoji.fail}| Failed to provided a valid role!`
+                        })
+                    ]
+                })
+            }
+
             try {
                 if (
                     r5.first().content.startsWith("<@&") &&
@@ -606,6 +740,18 @@ module.exports = {
                 max: 1,
                 time: 60000
             });
+
+            if (!emj5.length) {
+                return message.reply({
+                    embeds: [
+                        new MessageEmbed({
+                            color: client.embed.cf,
+                            description: `${client.emoji.fail}| Failed to provided a valid emoji!`
+                        })
+                    ]
+                })
+            }
+
             if (!emj5.first().content.match(/<a:.+?:\d+>|<:.+?:\d+>/g)) {
                 return message.reply({
                     embeds: [
@@ -665,6 +811,18 @@ module.exports = {
                 max: 1,
                 time: 60000
             });
+
+            if (!r6.length) {
+                return message.reply({
+                    embeds: [
+                        new MessageEmbed({
+                            color: client.embed.cf,
+                            description: `${client.emoji.fail}| Failed to provided a valid role!`
+                        })
+                    ]
+                })
+            }
+
             try {
                 if (
                     r6.first().content.startsWith("<@&") &&
@@ -712,6 +870,18 @@ module.exports = {
                 max: 1,
                 time: 60000
             });
+
+            if (!emj6.length) {
+                return message.reply({
+                    embeds: [
+                        new MessageEmbed({
+                            color: client.embed.cf,
+                            description: `${client.emoji.fail}| Failed to provided a valid emoji!`
+                        })
+                    ]
+                })
+            }
+
             if (!emj6.first().content.match(/<a:.+?:\d+>|<:.+?:\d+>/g)) {
                 return message.reply({
                     embeds: [
@@ -772,6 +942,18 @@ module.exports = {
                 max: 1,
                 time: 60000
             });
+
+            if (!r7.length) {
+                return message.reply({
+                    embeds: [
+                        new MessageEmbed({
+                            color: client.embed.cf,
+                            description: `${client.emoji.fail}| Failed to provided a valid role!`
+                        })
+                    ]
+                })
+            }
+
             try {
                 if (
                     r7.first().content.startsWith("<@&") &&
@@ -819,6 +1001,18 @@ module.exports = {
                 max: 1,
                 time: 60000
             });
+
+            if (!emj7.length) {
+                return message.reply({
+                    embeds: [
+                        new MessageEmbed({
+                            color: client.embed.cf,
+                            description: `${client.emoji.fail}| Failed to provided a valid emoji!`
+                        })
+                    ]
+                })
+            }
+
             if (!emj7.first().content.match(/<a:.+?:\d+>|<:.+?:\d+>/g)) {
                 return message.reply({
                     embeds: [
@@ -880,6 +1074,18 @@ module.exports = {
                 max: 1,
                 time: 60000
             });
+
+            if (!r8.length) {
+                return message.reply({
+                    embeds: [
+                        new MessageEmbed({
+                            color: client.embed.cf,
+                            description: `${client.emoji.fail}| Failed to provided a valid role!`
+                        })
+                    ]
+                })
+            }
+
             try {
                 if (
                     r8.first().content.startsWith("<@&") &&
@@ -927,6 +1133,18 @@ module.exports = {
                 max: 1,
                 time: 60000
             });
+
+            if (!emj8.length) {
+                return message.reply({
+                    embeds: [
+                        new MessageEmbed({
+                            color: client.embed.cf,
+                            description: `${client.emoji.fail}| Failed to provided a valid emoji!`
+                        })
+                    ]
+                })
+            }
+
             if (!emj8.first().content.match(/<a:.+?:\d+>|<:.+?:\d+>/g)) {
                 return message.reply({
                     embeds: [
@@ -989,6 +1207,18 @@ module.exports = {
                 max: 1,
                 time: 60000
             });
+
+            if (!r9.length) {
+                return message.reply({
+                    embeds: [
+                        new MessageEmbed({
+                            color: client.embed.cf,
+                            description: `${client.emoji.fail}| Failed to provided a valid role!`
+                        })
+                    ]
+                })
+            }
+
             try {
                 if (
                     r9.first().content.startsWith("<@&") &&
@@ -1036,6 +1266,18 @@ module.exports = {
                 max: 1,
                 time: 60000
             });
+
+            if (!emj9.length) {
+                return message.reply({
+                    embeds: [
+                        new MessageEmbed({
+                            color: client.embed.cf,
+                            description: `${client.emoji.fail}| Failed to provided a valid emoji!`
+                        })
+                    ]
+                })
+            }
+
             if (!emj9.first().content.match(/<a:.+?:\d+>|<:.+?:\d+>/g)) {
                 return message.reply({
                     embeds: [
@@ -1099,6 +1341,18 @@ module.exports = {
                 max: 1,
                 time: 60000
             });
+
+            if (!r10.length) {
+                return message.reply({
+                    embeds: [
+                        new MessageEmbed({
+                            color: client.embed.cf,
+                            description: `${client.emoji.fail}| Failed to provided a valid role!`
+                        })
+                    ]
+                })
+            }
+
             try {
                 if (
                     r10.first().content.startsWith("<@&") &&
@@ -1146,6 +1400,18 @@ module.exports = {
                 max: 1,
                 time: 60000
             });
+
+            if (!emj10.length) {
+                return message.reply({
+                    embeds: [
+                        new MessageEmbed({
+                            color: client.embed.cf,
+                            description: `${client.emoji.fail}| Failed to provided a valid emoji!`
+                        })
+                    ]
+                })
+            }
+
             if (!emj10.first().content.match(/<a:.+?:\d+>|<:.+?:\d+>/g)) {
                 return message.reply({
                     embeds: [
