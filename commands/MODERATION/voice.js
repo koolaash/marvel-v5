@@ -21,9 +21,9 @@ module.exports = {
                     ]
                 });
             };
-            let user = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
+            let user = message.mentions.members.first() || message.guild.members.cache.get(args[1]);
             if (!user) {
-                user = await message.guild.members.fetch(args[0]).catch(() => null);
+                user = await message.guild.members.fetch(args[1]).catch(() => null);
             }
             if (!user) {
                 return message.reply({
@@ -74,9 +74,9 @@ module.exports = {
                     ]
                 });
             };
-            let user = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
+            let user = message.mentions.members.first() || message.guild.members.cache.get(args[1]);
             if (!user) {
-                user = await message.guild.members.fetch(args[0]).catch(() => null);
+                user = await message.guild.members.fetch(args[1]).catch(() => null);
             }
             if (!user) {
                 return message.reply({
@@ -115,9 +115,9 @@ module.exports = {
                     ]
                 });
             };
-            let user = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
+            let user = message.mentions.members.first() || message.guild.members.cache.get(args[1]);
             if (!user) {
-                user = await message.guild.members.fetch(args[0]).catch(() => null);
+                user = await message.guild.members.fetch(args[1]).catch(() => null);
             }
             if (!user) {
                 return message.reply({
@@ -169,9 +169,9 @@ module.exports = {
                     ]
                 });
             };
-            let user = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
+            let user = message.mentions.members.first() || message.guild.members.cache.get(args[1]);
             if (!user) {
-                user = await message.guild.members.fetch(args[0]).catch(() => null);
+                user = await message.guild.members.fetch(args[1]).catch(() => null);
             };
             if (!user) {
                 return message.reply({
@@ -227,16 +227,16 @@ module.exports = {
                 return message.reply({
                     embeds: [
                         new MessageEmbed({
-                            description: `${client.emoji.fail}| Mention a user or provide user id first!`,
+                            description: `${client.emoji.fail}| Mention a user or provide channelF id first!`,
                             color: client.embed.cf
                         })
                     ]
                 });
             };
 
-            let user = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
+            let user = message.mentions.members.first() || message.guild.members.cache.get(args[1]);
             if (!user) {
-                user = await message.guild.members.fetch(args[0]).catch(() => null);
+                user = await message.guild.members.fetch(args[1]).catch(() => null);
             };
             if (!user) {
                 return message.reply({
@@ -319,7 +319,7 @@ module.exports = {
             let user = message.mentions.members.first() || message.guild.members.cache.get(args[1]);
 
             if (!user) {
-                user = await message.guild.members.fetch(args[0]).catch(() => null);
+                user = await message.guild.members.fetch(args[1]).catch(() => null);
             };
             if (!user) {
                 return message.reply({
@@ -354,7 +354,7 @@ module.exports = {
                     message.guild.roles.cache.get(args[1])
 
                 if (!item) {
-                    item = await message.guild.members.fetch(args[0]).catch(() => null);
+                    item = await message.guild.members.fetch(args[1]).catch(() => null);
                 }
 
                 if (!item) {
@@ -399,7 +399,7 @@ module.exports = {
                     message.guild.roles.cache.get(args[1])
 
                 if (!item) {
-                    item = await message.guild.members.fetch(args[0]).catch(() => null);
+                    item = await message.guild.members.fetch(args[1]).catch(() => null);
                 }
 
                 if (!item) {
@@ -444,7 +444,7 @@ module.exports = {
                     message.guild.roles.cache.get(args[1])
 
                 if (!item) {
-                    item = await message.guild.members.fetch(args[0]).catch(() => null);
+                    item = await message.guild.members.fetch(args[1]).catch(() => null);
                 }
 
                 if (!item) {
@@ -489,7 +489,7 @@ module.exports = {
                     message.guild.roles.cache.get(args[1])
 
                 if (!item) {
-                    item = await message.guild.members.fetch(args[0]).catch(() => null);
+                    item = await message.guild.members.fetch(args[1]).catch(() => null);
                 }
 
                 if (!item) {
