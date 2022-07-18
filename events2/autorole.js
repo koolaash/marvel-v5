@@ -2,11 +2,13 @@ const { Message } = require("discord.js");
 const db = require("quick.db")
 
 module.exports = function (client, options) {
+
   const description = {
     name: "autorole",
     filename: "autorole.js",
     version: "1.0.0",
   };
+
   console.log(
     ` :: ⬜️ Loaded : ${description.name} from ("${description.filename}")`.blue
   );
@@ -14,9 +16,9 @@ module.exports = function (client, options) {
   client.on("guildMemberAdd", async (member) => {
     //   blacklist check function
 
-  if (client.blguilds.includes(member.guild.id)) {
+    if (client.blguilds.includes(member.guild.id)) {
       return;
-  }
+    }
 
     try {
       const roleAdd = db.get("autorole" + member.guild.id);
