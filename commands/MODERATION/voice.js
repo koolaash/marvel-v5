@@ -532,6 +532,16 @@ module.exports = {
                 let { channel } = message.member.voice,
                     vc = channel;
 
+                if (!vc) {
+                    return message.reply({
+                        embeds: [
+                            new MessageEmbed({
+                                description: `${client.emoji.fail}| You are not in a voice channel!`
+                            })
+                        ]
+                    })
+                }
+
                 return vc.permissionOverwrites.edit(message.channel.guild.roles.everyone, {
                     VIEW_CHANNEL: true
                 }, message.author.tag) && message.react(client.emoji.success);
