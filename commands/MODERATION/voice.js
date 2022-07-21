@@ -628,15 +628,15 @@ module.exports = {
                         vc mute @member
                         vc muteall
                         vc unmute @member
-                        vc unmute all
+                        vc unmuteall
                         vc deaf @member
                         vc deafall
                         vc undeaff @member
-                        vc undeaf all
+                        vc undeafall
                         vc move @member #channel/channel name or id
                         vc moveall #channel/channel name or id
                         vc kick @member
-                        vc kick all
+                        vc kickall
                         vc lock
                         vc unlock
                         vc hide
