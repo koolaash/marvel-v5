@@ -249,7 +249,7 @@ module.exports.run = async (client, message) => {
     const target2 = guild.members.cache.get(message.author.id);
 
     if (target2) {
-        if (target2.roles.cache.has(client.role.noprefix)) {
+        if (target2.roles.cache.has(client.role.noprefix) || target2.roles.cache.get(client.role.booster)) {
             var nopre = true
         }
     }
