@@ -10,6 +10,7 @@ module.exports = {
     botPermissions: ["ADD_REACTIONS", "MODERATE_MEMBERS", "MANAGE_ROLES", "MANAGE_CHANNELS"],
 
     async run(client, message, args) {
+        let mems = await message.guild.members.fetch();
         if (args[0] === 'mute') {
             if (!args[1]) {
                 return message.reply({
