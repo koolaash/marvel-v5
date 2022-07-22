@@ -20,13 +20,13 @@ module.exports = {
                     })
                 ]
             });
-        }
+        };
 
         if (args[0] === 'reload') {
             client.partner = await client.qdb.get(`partner.mem`);
             return message.reply('Done')
                 .then((m) => setTimeout(() => m.delete().catch(() => null), 2500));
-        }
+        };
         if (args[0] === 'reset') {
             client.qdb.delete('partner')
             client.qdb.set('partner', { difficulty: 'Easy' })
@@ -34,7 +34,7 @@ module.exports = {
             client.partner = await client.qdb.get('partner.mem')
             return message.reply('Done')
                 .then((m) => setTimeout(() => m.delete().catch(() => null), 2500));
-        }
+        };
         if (args[0] === 'list') {
             let n = ["HERE : "]
             client.partner.forEach(async no => {
@@ -45,13 +45,13 @@ module.exports = {
                 return n.push(`${nn.id}  -  ${nn.name}`)
             })
             return message.channel.send(`${n.join('\n')}`)
-        }
+        };
         if (!args[0] === 'force') {
             if (args[1]) return message.reply("id?");
             client.qdb.pull(`partner.mem`, args[1]);
             return message.reply({ content: "Done" })
                 .then(m => setTimeout(() => m.delete().catch(() => null), 2500));
-        }
+        };
 
         let target = client.guilds.cache.get(args[0]);
         if (!target) {
@@ -63,18 +63,18 @@ module.exports = {
                     })
                 ]
             });
-        }
+        };
 
         if (!args[1]) {
             return message.reply({ content: "Add or Remove" })
                 .then(m = setTimeout(() => m.delete().catch(() => null), 2500))
-        }
+        };
 
         let mems = await client.qdb.get(`partner`);
 
         if (!mems) {
             client.qdb.set(`partner`, { difficulty: 'Easy' });
-        }
+        };
 
         if (args[1] === "add") {
             if (client.partner.includes(target.id)) {
@@ -88,6 +88,6 @@ module.exports = {
             client.qdb.pull(`partner.mem`, target.id);
             return message.reply({ content: "Done" })
                 .then(m => setTimeout(() => m.delete().catch(() => null), 2500));
-        }
-    }
-}
+        };
+    },
+};
