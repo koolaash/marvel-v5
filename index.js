@@ -50,6 +50,7 @@ const Discord = require("discord.js"),
 
 client.commands = new Collection();
 client.aliases = new Collection();
+client.slashCommands = new Collection();
 client.emoji = require("./json/emoji.json");
 client.embed = require("./json/colors.json");
 client.color = require("./json/colors.json");
@@ -101,7 +102,7 @@ client.prefixModel = require('./models/prefixes.js');
 
 require('events').EventEmitter.defaultMaxListeners = 100;
 process.setMaxListeners(100);
-["command", "events",].forEach(handler => {
+["command", "events", "slash"].forEach(handler => {
     require(`./handlers/${handler}`)(client);
 });
 
