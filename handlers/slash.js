@@ -13,11 +13,11 @@ module.exports = client => {
             if (!slashCommand.description) return console.error(`slashCommandDescriptionError: ${slashCommand.split(".")[0]} application command description is required.`);
 
             client.slashCommands.set(slashCommand.name, slashCommand);
-            console.log(`[ / ] Slash Command Loaded: ${slashCommand.name}`, "cmd");
+            console.log(` :: ⬜️ Loaded Slash : ${slashCommand.name}.js`.red);
             data.push(slashCommand);
         }
     });
     client.on("ready", async () => {
-        await client.application.commands.set(data).then(() => console.log(`Successfully Loaded All Slash Commands`, "cmd")).catch((e) => console.log(e));
+        await client.application.commands.set(data).then(() => console.log(`:: ⬜️ Loaded : All Slash Commands`.red)).catch((e) => console.log(e));
     });
 }
