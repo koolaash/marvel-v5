@@ -10,6 +10,6 @@ module.exports = {
      * @param {String[]} args 
      */
     run: async (client, interaction, args) => {
-        interaction.reply({ content: `${client.ws.ping}ms`, ephemeral: true })
+        return interaction.reply({ content: `${client.ws.ping}ms`, ephemeral: true });
     },
 };
