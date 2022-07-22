@@ -40,7 +40,8 @@ module.exports.run = async (client, interaction) => {
         } catch (error) {
             if (interaction.replied) {
                 await interaction
-                    .editReply({
+                    .followUp({
+                        ephemeral: true,
                         content: `An unexcepted error occured.`,
                     })
                     .catch(() => { });
@@ -55,4 +56,4 @@ module.exports.run = async (client, interaction) => {
             console.error(error);
         }
     }
-}
+};
