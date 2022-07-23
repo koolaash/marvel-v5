@@ -113,7 +113,7 @@ module.exports = {
             return message.reply({
                 embeds: [
                     new MessageEmbed({
-                        description: `${client.emoji.success}| Unuted ${kickMember} for : ${reason}`,
+                        description: `${client.emoji.success}| Unmuted ${kickMember} for : ${reason}`,
                         color: client.embed.cr
                     })
                 ]
