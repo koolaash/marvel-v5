@@ -28,7 +28,7 @@ module.exports = {
                 time: 30000
             });
 
-        if (!amount.length) {
+        if (!amount.size) {
             return message.reply({
                 embeds: [
                     new MessageEmbed({
@@ -85,7 +85,7 @@ module.exports = {
             time: 30000
         });
 
-        if (!ch.length) {
+        if (!ch.size) {
             return message.reply({
                 embeds: [
                     new MessageEmbed({
@@ -172,7 +172,7 @@ module.exports = {
                 time: 60000
             });
 
-            if (!r1.length) {
+            if (!r1.size) {
                 return message.reply({
                     embeds: [
                         new MessageEmbed({
@@ -231,7 +231,7 @@ module.exports = {
                 time: 60000
             });
 
-            if (!emj1.length) {
+            if (!emj1.size) {
                 return message.reply({
                     embeds: [
                         new MessageEmbed({
@@ -298,7 +298,7 @@ module.exports = {
                 time: 60000
             });
 
-            if (!r2.length) {
+            if (!r2.size) {
                 return message.reply({
                     embeds: [
                         new MessageEmbed({
@@ -357,7 +357,7 @@ module.exports = {
                 time: 60000
             });
 
-            if (!emj2.length) {
+            if (!emj2.size) {
                 return message.reply({
                     embeds: [
                         new MessageEmbed({
@@ -425,7 +425,7 @@ module.exports = {
                 time: 60000
             });
 
-            if (!r3.length) {
+            if (!r3.size) {
                 return message.reply({
                     embeds: [
                         new MessageEmbed({
@@ -484,7 +484,7 @@ module.exports = {
                 time: 60000
             });
 
-            if (!emj3.length) {
+            if (!emj3.size) {
                 return message.reply({
                     embeds: [
                         new MessageEmbed({
@@ -553,7 +553,7 @@ module.exports = {
                 time: 60000
             });
 
-            if (!r4.length) {
+            if (!r4.size) {
                 return message.reply({
                     embeds: [
                         new MessageEmbed({
@@ -612,7 +612,7 @@ module.exports = {
                 time: 60000
             });
 
-            if (!emj4.length) {
+            if (!emj4.size) {
                 return message.reply({
                     embeds: [
                         new MessageEmbed({
@@ -682,7 +682,7 @@ module.exports = {
                 time: 60000
             });
 
-            if (!r5.length) {
+            if (!r5.size) {
                 return message.reply({
                     embeds: [
                         new MessageEmbed({
@@ -741,7 +741,7 @@ module.exports = {
                 time: 60000
             });
 
-            if (!emj5.length) {
+            if (!emj5.size) {
                 return message.reply({
                     embeds: [
                         new MessageEmbed({
@@ -812,7 +812,7 @@ module.exports = {
                 time: 60000
             });
 
-            if (!r6.length) {
+            if (!r6.size) {
                 return message.reply({
                     embeds: [
                         new MessageEmbed({
@@ -871,7 +871,7 @@ module.exports = {
                 time: 60000
             });
 
-            if (!emj6.length) {
+            if (!emj6.size) {
                 return message.reply({
                     embeds: [
                         new MessageEmbed({
@@ -943,7 +943,7 @@ module.exports = {
                 time: 60000
             });
 
-            if (!r7.length) {
+            if (!r7.size) {
                 return message.reply({
                     embeds: [
                         new MessageEmbed({
@@ -1002,7 +1002,7 @@ module.exports = {
                 time: 60000
             });
 
-            if (!emj7.length) {
+            if (!emj7.size) {
                 return message.reply({
                     embeds: [
                         new MessageEmbed({
@@ -1075,7 +1075,7 @@ module.exports = {
                 time: 60000
             });
 
-            if (!r8.length) {
+            if (!r8.size) {
                 return message.reply({
                     embeds: [
                         new MessageEmbed({
@@ -1134,7 +1134,7 @@ module.exports = {
                 time: 60000
             });
 
-            if (!emj8.length) {
+            if (!emj8.size) {
                 return message.reply({
                     embeds: [
                         new MessageEmbed({
@@ -1208,7 +1208,7 @@ module.exports = {
                 time: 60000
             });
 
-            if (!r9.length) {
+            if (!r9.size) {
                 return message.reply({
                     embeds: [
                         new MessageEmbed({
@@ -1267,7 +1267,7 @@ module.exports = {
                 time: 60000
             });
 
-            if (!emj9.length) {
+            if (!emj9.size) {
                 return message.reply({
                     embeds: [
                         new MessageEmbed({
@@ -1342,7 +1342,7 @@ module.exports = {
                 time: 60000
             });
 
-            if (!r10.length) {
+            if (!r10.size) {
                 return message.reply({
                     embeds: [
                         new MessageEmbed({
@@ -1401,7 +1401,7 @@ module.exports = {
                 time: 60000
             });
 
-            if (!emj10.length) {
+            if (!emj10.size) {
                 return message.reply({
                     embeds: [
                         new MessageEmbed({
