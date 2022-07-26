@@ -114,15 +114,9 @@ module.exports = {
 
             var sembed = new MessageEmbed()
                 .setColor(client.embed.cr)
-                .setTitle("Kicked")
-                .setThumbnail(av)
                 .setDescription(
                     `**${client.emoji.success}| ${kickMember.user.username}** has been kicked for ${reason || " No Reason Provided"}`
-                )
-                .setFooter({
-                    text: `Kicked By : ${message.author.tag}`,
-                    iconURL: message.author.displayAvatarURL({ dynamic: true })
-                });
+                );
             return message.reply({ embeds: [sembed] });
         } catch (e) {
             var sd = new MessageEmbed()
