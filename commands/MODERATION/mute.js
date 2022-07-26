@@ -107,7 +107,7 @@ module.exports = {
                 ]
             })
         }
-        let time = args[0] ? ms(args[0]) : ms('4w');
+        let time = args[1] ? ms(args[1]) : ms('4w');
 
         let reason = 'No Reason';
 
