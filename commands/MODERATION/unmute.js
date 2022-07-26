@@ -109,7 +109,7 @@ module.exports = {
             reason = args.slice(1).join(' ')
         }
         try {
-            await kickMember.timeout(time, `${message.author.tag} - ${reason}`)
+            await kickMember.timeout(time, `${message.author.tag} - ${reason}`);
             return message.reply({
                 embeds: [
                     new MessageEmbed({
@@ -117,7 +117,7 @@ module.exports = {
                         color: client.embed.cr
                     })
                 ]
-            })
+            });
         } catch (e) {
             return message.reply({
                 embeds: [
@@ -126,7 +126,7 @@ module.exports = {
                         color: client.embed.cf
                     })
                 ]
-            })
+            });
         }
     }
 };
