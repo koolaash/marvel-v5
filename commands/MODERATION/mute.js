@@ -107,20 +107,20 @@ module.exports = {
                 ]
             })
         }
-        let time = ms('4w')
-        if (args[1]) {
-            time = ms(args[1]);
-        }
-        let reason = 'No Reason'
+        let time = args[0] ? ms(args[0]) : ms('4w');
+
+        let reason = 'No Reason';
+
         if (args[2]) {
-            reason = args.slice(2).join(' ')
+            reason = args.slice(2).join(' ');
         }
+
         try {
             await kickMember.timeout(time, `${message.author.tag} - ${reason}`)
             return message.reply({
                 embeds: [
                     new MessageEmbed({
-                        description: `${client.emoji.success}| Muted ${kickMember} for ${args[1]} time and for : ${reason}`,
+                        description: `${client.emoji.success}| Muted ${kickMember} for ${time} time and for : ${reason}`,
                         color: client.embed.cr
                     })
                 ]
