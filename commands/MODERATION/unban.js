@@ -75,15 +75,9 @@ module.exports = {
 
             var sembed = new MessageEmbed()
                 .setColor(client.embed.cr)
-                .setThumbnail(av)
-                .setTitle("Unbanned")
                 .setDescription(
                     `**${client.emoji.success}| ${kickMember.user.username}** has been unbanned for ${reason || " No Reason Provided"}`
-                )
-                .setFooter({
-                    text: `Unbanned By : ${message.author.tag}`,
-                    iconURL: message.author.displayAvatarURL({ dynamic: true })
-                });
+                );
             return message.reply({ embeds: [sembed] });
         } catch (e) {
             var sd = new MessageEmbed()
