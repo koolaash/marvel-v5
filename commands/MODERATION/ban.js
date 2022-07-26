@@ -113,15 +113,9 @@ module.exports = {
 
             var sembed = new MessageEmbed()
                 .setColor(client.embed.cr)
-                .setThumbnail(av)
-                .setTitle("Banned")
                 .setDescription(
                     `**${client.emoji.success}| ${kickMember.user.username}** has been banned for ${reason || " No Reason Provided"}`
                 )
-                .setFooter({
-                    text: `Banned By : ${message.author.tag}`,
-                    iconURL: message.author.displayAvatarURL({ dynamic: true })
-                });
             return message.reply({ embeds: [sembed] });
         } catch (e) {
             var sd = new MessageEmbed()
