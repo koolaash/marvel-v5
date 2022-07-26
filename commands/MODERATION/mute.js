@@ -107,7 +107,8 @@ module.exports = {
                 ]
             })
         }
-        let time = args[1] ? ms(args[1]) : ms('4w');
+        let time = args[1] ? ms(args[1]) : ms('4w'),
+            t = args[1] ? args[1] : '4 weeks';
 
         let reason = 'No Reason';
 
@@ -120,7 +121,7 @@ module.exports = {
             return message.reply({
                 embeds: [
                     new MessageEmbed({
-                        description: `${client.emoji.success}| Muted ${kickMember} for ${time} time and for : ${reason}`,
+                        description: `${client.emoji.success}| Muted ${kickMember} for ${t} time and for : ${reason}`,
                         color: client.embed.cr
                     })
                 ]
