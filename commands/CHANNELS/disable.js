@@ -27,14 +27,7 @@ module.exports = {
             }
         }
         if (!args[0]) {
-            return message.reply({
-                embeds: [
-                    new discord.MessageEmbed({
-                        description: `${client.emoji.fail}| You Forgot To Provide The Channel To disable`,
-                        color: client.embed.cf
-                    })
-                ]
-            })
+            return require('../../function/getcmd')(client, message);
         }
         const chan = message.mentions.channels.first() || message.guild.channels.cache.get(args[0])
         if (!chan) {
