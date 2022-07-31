@@ -13,14 +13,7 @@ module.exports = {
 
     run: async (client, message, args) => {
         if (args.length < 1) {
-            return message.reply({
-                embeds: [
-                    new MessageEmbed({
-                        description: `${client.emoji.fail}| Provide some text to flip!`,
-                        color: client.embed.cf
-                    })
-                ]
-            });
+            return require('../../function/getcmd')(client, message);
         }
         if (args.length > 500) {
             return message.reply({

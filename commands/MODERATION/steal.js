@@ -13,14 +13,9 @@ module.exports = {
 
     async run(client, message, args) {
 
-        if (!args[0]) return message.reply({
-            embeds: [
-                new MessageEmbed({
-                    description: `${client.emoji.fail}| steal <emoji> [name]`,
-                    color: client.embed.cf
-                })
-            ]
-        });
+        if (!args[0]) {
+            return require('../../function/getcmd')(client, message);
+        }
         const emoji = args[0];
         let customemoji = discord.Util.parseEmoji(emoji);
 

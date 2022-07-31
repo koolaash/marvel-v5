@@ -11,41 +11,19 @@ module.exports = {
 
     async run(client, message, args) {
         if (!args[0]) {
-            return message.reply({
-                embeds: [
-                    new discord.MessageEmbed({
-                        description: `${client.emoji.fail}| You forgot to provide the role!`,
-                        color: client.embed.cf
-                    })
-                ]
-            })
-        }
+            return require('../../function/getcmd')(client, message);
+        };
+
         let role = await message.mentions.roles.first() || await message.guild.roles.cache.find(r => r.id === args[0]) ||
-            message.guild.roles.cache.find(
-                r => r.name.toLowerCase() === args[0].toLocaleLowerCase()
-            )
+            message.guild.roles.cache.find(r => r.name.toLowerCase() === args[0].toLocaleLowerCase());
 
         if (!role) {
-            return message.reply({
-                embeds: [
-                    new discord.MessageEmbed({
-                        description: `${client.emoji.fail}| You forgot to provide the valid role!`,
-                        color: client.embed.cf
-                    })
-                ]
-            })
-        }
+            return require('../../function/getcmd')(client, message);
+        };
 
         if (!args[1]) {
-            return message.reply({
-                embeds: [
-                    new discord.MessageEmbed({
-                        description: `${client.emoji.fail}| You forgot to provide the emoji!`,
-                        color: client.embed.cf
-                    })
-                ]
-            })
-        }
+            return require('../../function/getcmd')(client, message);
+        };
 
         let emoji = args[1];
         if (!emoji.match(/<a:.+?:\d+>|<:.+?:\d+>/g)) {

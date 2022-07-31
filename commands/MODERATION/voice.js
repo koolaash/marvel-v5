@@ -5,7 +5,7 @@ module.exports = {
     aliases: ["vc"],
     description: "help you quickly voice mute members",
     category: "MODERATION",
-    usage: "vcmute <all | @user>",
+    usage: "vc <subcommand>",
     userPermissions: ["ADMINISTRATOR"],
     botPermissions: ["ADD_REACTIONS", "MODERATE_MEMBERS", "MANAGE_ROLES", "MANAGE_CHANNELS"],
 

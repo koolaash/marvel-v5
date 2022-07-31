@@ -29,14 +29,7 @@ module.exports = {
             }
         }
         if (!args[0]) {
-            return message.reply({
-                embeds: [
-                    new MessageEmbed({
-                        color: client.embed.cf,
-                        description: "mmode <on | off>"
-                    })
-                ]
-            });
+            return require('../../function/getcmd')(client, message);
         }
 
         let item

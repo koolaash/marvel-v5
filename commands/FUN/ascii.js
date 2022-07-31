@@ -13,14 +13,7 @@ module.exports = {
     run: async (client, message, args) => {
         let text = args.join(" ");
         if (!text) {
-            return message.reply({
-                embeds: [
-                    new MessageEmbed({
-                        description: `${client.emoji.cross}| Please provide text for the ascii conversion!`,
-                        color: client.embed.cf
-                    })
-                ]
-            });
+            return require('../../function/getcmd')(client, message);
         }
         if (text.length > 20) {
             return message.reply({

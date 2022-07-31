@@ -10,14 +10,7 @@ module.exports = {
 
     run: async (client, message, args) => {
         if (!args[0]) {
-            return message.reply({
-                embeds: [
-                    new Discord.MessageEmbed({
-                        description: `${client.emoji.fail}| Woah.... Slow Down!! Who's gaytest are we doing..??`,
-                        color: client.embed.cf
-                    })
-                ]
-            });
+            return require('../../function/getcmd')(client, message);
         }
         let target = message.mentions.members.first();
 

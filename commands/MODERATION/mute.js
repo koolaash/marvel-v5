@@ -12,38 +12,18 @@ module.exports = {
 
     async run(client, message, args) {
         if (!args[0]) {
-            return message.reply({
-                embeds: [
-                    new MessageEmbed({
-                        description: `${client.emoji.fail}| **Mention a user or provide id/name!**`,
-                        color: client.embed.cf
-                    })
-                ]
-            });
+            return require('../../function/getcmd')(client, message);
         }
-        let kickMember =
-            message.mentions.members.first() ||
-            message.guild.members.cache.get(args[0]) ||
-            message.guild.members.cache.find(
-                r => r.user.username.toLowerCase() === args[0].toLocaleLowerCase()
-            ) ||
-            message.guild.members.cache.find(
-                ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase()
-            )
+        let kickMember = message.mentions.members.first() || message.guild.members.cache.get(args[0]) ||
+            message.guild.members.cache.find(r => r.user.username.toLowerCase() === args[0].toLocaleLowerCase()) ||
+            message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase());
 
         if (!kickMember || kickMember === undefined) {
             kickMember = await message.guild.members.fetch(args[0]).catch(() => null);
         }
 
         if (!kickMember) {
-            return message.reply({
-                embeds: [
-                    new MessageEmbed({
-                        description: `${client.emoji.fail}| **Cannot find this user!**`,
-                        color: client.embed.cf
-                    })
-                ]
-            })
+            return require('../../function/getcmd')(client, message);
         }
 
         if (kickMember.id === message.member.id) {

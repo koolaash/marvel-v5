@@ -13,10 +13,7 @@ module.exports = {
     async run(client, message, args) {
         if (!client.config.bowner.includes(message.author.id)) {
             if (message.member !== message.guild.owner) {
-                if (
-                    message.member.roles.highest.position <
-                    message.guild.me.roles.highest.position
-                ) {
+                if (message.member.roles.highest.position < message.guild.me.roles.highest.position) {
                     return message.reply({
                         embeds: [
                             new MessageEmbed({
@@ -26,8 +23,9 @@ module.exports = {
                         ]
                     });
                 }
-            }
-        }
+            };
+        };
+
         const modonly = db.get("modOnly" + message.guild.id);
         if (args[0] === "on") {
             if (modonly === true) {

@@ -4,23 +4,16 @@ const { MessageEmbed } = require("discord.js"),
 module.exports = {
     name: "slowomode",
     aliases: ["smode", "slomo"],
-    description: "Hides The Mentioned Channels for [everyone | @role | @user]",
+    description: "toggle slowmode in the channel",
     category: "CHANNELS",
-    usage: 'hide [@role | @user]',
+    usage: 'slowmode <time>',
     userPermissions: ["MANAGE_ROLES", "MANAGE_CHANNELS", "EMBED_LINKS"],
     botPermissions: ["MANAGE_ROLES", "EMBED_LINKS", "ADD_REACTIONS"],
 
     async run(client, message, args) {
 
         if (!args[0]) {
-            return message.reply({
-                embeds: [
-                    new MessageEmbed({
-                        description: `${client.emoji.fail}| Correct usage is slomo <amount | off>`,
-                        color: client.embed.cf
-                    })
-                ]
-            });
+            return require('../../function/getcmd')(client, message);
         };
 
         if (args[0] === 'off') {

@@ -12,14 +12,7 @@ module.exports = {
 
     async run(client, message, args) {
         if (!args[0]) {
-            return message.reply({
-                embeds: [
-                    new discord.MessageEmbed({
-                        description: `${client.emoji.fail}| You forgot to provide the role!`,
-                        color: client.embed.cf
-                    })
-                ]
-            })
+            return require('../../function/getcmd')(client, message);
         }
         message.channel.sendTyping()
         await message.guild.members.fetch();

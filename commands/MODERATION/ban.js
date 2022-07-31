@@ -13,14 +13,7 @@ module.exports = {
     async run(client, message, args) {
         try {
             if (!args[0]) {
-                return message.reply({
-                    embeds: [
-                        new MessageEmbed({
-                            description: client.emoji.fail + "| **Mention a user or provide id/name!**",
-                            color: client.embed.cf
-                        })
-                    ]
-                });
+                return require('../../function/getcmd')(client, message);
             }
             let kickMember =
                 message.mentions.members.first() ||

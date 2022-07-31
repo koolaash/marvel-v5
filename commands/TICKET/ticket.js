@@ -15,14 +15,7 @@ module.exports = {
             arg = mer.toLowerCase().split(/ +/g);
 
         if (!args[0]) {
-            return message.reply({
-                embeds: [
-                    new MessageEmbed({
-                        color: client.embed.cf,
-                        description: `${client.emoji.fail}| Argument <channel | role>`,
-                    })
-                ]
-            });
+            return require('../../function/getcmd')(client, message);
         } else if (arg[0] === "channel") {
             const prevchan = db.get("ticketChannel" + message.guild.id),
                 prevmsg = db.get("ticketMessage" + message.guild.id),

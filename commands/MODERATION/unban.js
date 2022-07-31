@@ -6,22 +6,16 @@ module.exports = {
     aliases: ["ub"],
     description: "helps you ban a user",
     category: "MODERATION",
-    usage: "ban <@user | username | userid> [reason]",
+    usage: "unban <@user | username | userid> [reason]",
     userPermissions: ["BAN_MEMBERS"],
     botPermissions: ["EMBED_LINKS", "BAN_MEMBERS"],
 
     async run(client, message, args) {
         try {
             if (!args[0]) {
-                return message.reply({
-                    embeds: [
-                        new MessageEmbed({
-                            description: `${client.emoji.fail}| **Mention a user or provide id/name!**`,
-                            color: client.embed.cf
-                        })
-                    ]
-                });
-            }
+                return require('../../function/getcmd')(client, message);
+            };
+
             try {
                 var kickMember = await message.guild.bans.fetch(args[0]);
             } catch (e) {

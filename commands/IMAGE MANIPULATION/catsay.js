@@ -4,7 +4,7 @@ module.exports = {
     name: "catsay",
     // aliases: [],
     category: "Fun",
-    usage: "ascii <text>",
+    usage: "catsay <text>",
     description: "Returns provided text in ascii format.",
     userPermissions: [],
     botPermissions: ["ATTACH_FILES"],
@@ -12,14 +12,7 @@ module.exports = {
     run: async (client, message, args) => {
         const msg = args.join(" ");
         if (!msg) {
-            return message.reply({
-                embeds: [
-                    new MessageEmbed({
-                        description: client.emoji.fail + "What you want the cat to say?",
-                        color: client.embed.cf
-                    })
-                ]
-            });
+            return require('../../function/getcmd')(client, message);
         }
         let im = `https://cataas.com/cat/cute/says/${msg}`;
         message.channel.sendTyping();

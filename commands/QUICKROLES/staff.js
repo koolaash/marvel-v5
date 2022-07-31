@@ -21,14 +21,7 @@ module.exports = {
             arrow = client.emoji.ar
 
         if (!args[0]) {
-            return message.reply({
-                embeds: [
-                    new MessageEmbed({
-                        color: fail,
-                        description: `${cross}| Missed the argument <role | show | reset | @user>`,
-                    })
-                ]
-            });
+            return require('../../function/getcmd')(client, message);
         }
 
         let mer = args.join(" "),

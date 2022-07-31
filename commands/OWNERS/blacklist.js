@@ -5,6 +5,7 @@ module.exports = {
     name: "blacklist",
     aliases: ['bl'],
     category: "OWNERS",
+    usage: "bl <user | server> <id> <add | remove>",
     userPermissions: [],
     botPermissions: ["EMBED_LINKS"],
 
@@ -12,17 +13,10 @@ module.exports = {
         setTimeout(() => message.delete().catch(() => null), 2500);
         if (!client.config.bowner.includes(message.author.id)) return;
         if (!args[0]) {
-            return message.reply({
-                embeds: [
-                    new MessageEmbed({
-                        color: client.embed.cf,
-                        description: `${client.emoji.fail}| Guild or User!`
-                    })
-                ]
-            });
+            return require('../../function/getcmd')(client, message);
         }
 
-        if (args[0] === 'guild') {
+        if (args[0] === 'guild' | args[0] === 'server') {
             if (args[1] === 'reload') {
                 client.blguilds = await client.qdb.get(`blguild.mem`);
                 return message.reply('Done')

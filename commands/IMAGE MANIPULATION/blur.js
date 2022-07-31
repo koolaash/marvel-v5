@@ -20,14 +20,7 @@ module.exports = {
         }
         if (args[0] && isNaN(args[0])) {
             if (args[1]) {
-                return message.reply({
-                    embeds: [
-                        new Discord.MessageEmbed({
-                            description: `${client.emoji.fail}| Provide a effect amount in numbers!`,
-                            color: client.embed.cf
-                        })
-                    ]
-                });
+                return require('../../function/getcmd')(client, message);
             }
             img = args[0]
             amt = args[1]

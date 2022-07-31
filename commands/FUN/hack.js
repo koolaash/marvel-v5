@@ -11,14 +11,7 @@ module.exports = {
 
     run: async (client, message, args) => {
         if (!args[0]) {
-            return message.reply({
-                embeds: [
-                    new MessageEmbed({
-                        description: `${client.emoji.fail}| Woah.... Slow Down!! Who are we hacking..??`,
-                        color: client.embed.cf
-                    })
-                ]
-            });
+            return require('../../function/getcmd')(client, message);
         }
         const tohack = message.mentions.members.first();
         if (!tohack) {
