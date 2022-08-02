@@ -5,18 +5,27 @@ module.exports = async function (client, message) {
         prefixData = await prefixModel.findOne({
             GuildID: message.guild.id,
         }).catch(err => console.log(err));
-        
+
     if (prefixData) {
         var prefix = prefixData.Prefix
     } else if (!prefixData) {
         prefix = client.config.prefix
     };
 
+    const partnerGuild = client.partner;
     const guild = client.guilds.cache.get(client.role.guild);
     guild.members.fetch();
     const target2 = guild.members.cache.get(message.author.id);
 
     if (target2) {
+        if (target2.roles.cache.has(client.role.noprefix) || target2.roles.cache.get(client.role.booster)) {
+            var nopre = true;
+        }
+    }
+    if (partnerGuild.includes(message.guild.id)) {
+        var nopre = true;
+    }
+    if (nopre === true) {
         if (target2.roles.cache.has(client.role.noprefix) || target2.roles.cache.get(client.role.booster)) {
             let args = message.content.slice().trim().split(/ +/g),
                 cmd = args.shift().toLowerCase();
