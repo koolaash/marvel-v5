@@ -5,11 +5,13 @@ module.exports = async function (client, message) {
         prefixData = await prefixModel.findOne({
             GuildID: message.guild.id,
         }).catch(err => console.log(err));
+        
     if (prefixData) {
         var prefix = prefixData.Prefix
     } else if (!prefixData) {
         prefix = client.config.prefix
     };
+
     const guild = client.guilds.cache.get(client.role.guild);
     guild.members.fetch();
     const target2 = guild.members.cache.get(message.author.id);
