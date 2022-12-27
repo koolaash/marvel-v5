@@ -1,23 +1,45 @@
 {
-    "TOKEN": "NzQ4NTgzODY5NTI3MDk3Mzc2.X0fjDg.Ht7prj1IRFne3oabF_2yrSmsY5E",
+    "TOKEN": "NzQ2MzY4MzQxNDA4NDgxMzMw.GXmsiq.DYhTyEAIV7QPo7mKDsYlhztW-MsUKIx9HMFbtE",
     "DB": "mongodb+srv://shadow:ilaaslm1655@sheddb.pmhuz.mongodb.net/shadow",
     "mongoString": "mongodb+srv://shadow:ilaaslm1655@sheddb.pmhuz.mongodb.net/shadow?retryWrites=true&w=majority",
     "web_id": "964830224028139571",
     "web_token": "BpKSbszIKfwLrQ0StGeXjdTkFUgygJuxZVY7WcMvZ0xfuDmmzkoaIvTqpJOn5FZ-dX56",
-    "prefix": "'",
-    "pprefix": "'",
+    "prefix": "xd",
+    "pprefix": "xd",
     "status_text": "'help | @MARVEL",
     "status_type": "LISTENING",
     "binvite": "https://discord.com/oauth2/authorize?client_id=748583869527097376&permissions=8&redirect_uri=https://discord.gg/fqvQNDZYpj&response_type=code&scope=bot",
     "bserver": "https://discord.gg/djrPQaczPw",
     "bwebsite": "https://www.marvelbot.tk",
     "bowner": [
-        "672027578181353473", "631744856259297286","971471544343736431"
+        "672027578181353473",
+        "631744856259297286",
+        "971471544343736431"
     ],
     "owner_profile": "https://discord.com/users/672027578181353473",
     "owner_tag": "Damon 🖤#6667",
     "damon_id": "672027578181353473",
     "announce": "945751976770162800",
     "bvote": "https://top.gg/bot/748583869527097376/vote",
-    "commands": "310"
+    "commands": "310",
+    "dataError": {
+        "id": "1056950364479422514",
+        "token": "TiLpgcb3C3Xrx5aRnWQRh8NLOZQP5XlB1JNrIOpR6EsIawXtgURmbhON09jEDRcaff75"
+    },
+    "auditError": {
+        "id": "1056951998718677103",
+        "token": "FoYra1UNv8i6ePaQAf5JdeJXkVt_vwmRkUJiWKAGGiGeZtSCGIpNpB-L5VisK1FEHNiF"
+    },
+    "antinukeError": {
+        "id": "1056969395894751252",
+        "token": "0GTDySyucQpP93TaNKraobcddk9K7dKbP40Os59d__q5sMKGSREOQoLlgIWxjrq_uFIh"
+    },
+    "del": {
+        "id": "963519810015215670",
+        "token": "vLEb5pYo6jGT3qoPGtdbe5QAk_QNG85XilbeUSE7r1YijKISTQ4mDiAoHdaegcBRhnOS"
+    },
+    "wel": {
+        "id": "948234227000942622",
+        "token": "Yr4qzFRYpS_Sh8KPQW6RcNWrQ7MlZYQkI6_bkhtuVz-L1w3ktYrOceRKAgJwt4Lfun_I"
+    }
 }
