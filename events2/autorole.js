@@ -1,4 +1,3 @@
-const { Message } = require("discord.js");
 const db = require("quick.db")
 
 module.exports = function (client, options) {
