@@ -151,8 +151,7 @@ module.exports = function (client, options) {
         if (client.links.links.some((word) => msg.includes(word))) {
           return (
             message.delete() && message.member.timeout(ms('10m'), "Automod").catch(() => null) &&
-            message
-              .channel.send(`<@${message.author.id}>Sending links not allowed!`)
+            message.channel.send(`<@${message.author.id}>Sending links not allowed!`)
               .then((m) => setTimeout(() => m.delete().catch(() => null), 3000))
           );
         }
@@ -163,7 +162,8 @@ module.exports = function (client, options) {
         let swearWords = db.get(`badword.word_${message.guild.id}`);
         if (!swearWords || swearWords === null) {
           db.push(`badword.word_${message.guild.id}`, "fuck");
-        }
+        };
+
         const swears = db.get(`badword.word_${message.guild.id}`),
           agss = message.content.toLowerCase(),
           ags = agss.split(" ");

@@ -14,7 +14,7 @@ module.exports = async (client) => {
                 return client.auditError.send(`${role.guild.name} Unable to fetch the audit log data`);
             };
 
-            const { executor } = logs,
+            const { executor, target } = logs,
                 embed = new MessageEmbed()
                     .setColor(client.color.cf)
                     .setAuthor({
@@ -33,30 +33,35 @@ module.exports = async (client) => {
                     );
 
             const antinuke = quick.get(`${role.guild.id}_antinuke`);
-            const trusted = await db.get(`${role.guild.id}_trusted`);
-            let wluser = await db.get(`${role.guild.id}_whiteised`);
+            let trusted = await db.get(`${role.guild.id}_trusted.whitelisted`);
+            let wluser = await db.get(`${role.guild.id}_whiteised.whitelisted`);
 
             if (executor.id === role.guild.ownerId) return;
             if (executor.id === client.user.id) return;
 
             if (antinuke !== true) return;
+            if (target.id !== role.id) return;
+
+            if (trusted) { } else { trusted = ["1"] };
             if (trusted) {
                 if (trusted.includes(executor.id)) return;
             };
 
             if (wluser) { } else { wluser = ["1"] };
-            if (!wluser.includes(executor.id)) {
-                try {
-                    await role.guild.members.ban(executor.id, {
-                        reason: "SECURITY AUTOMOD - [ Creating Role ]"
-                    });
-                    embed.addFields({ name: `Banned`, vlaue: "Yep Banned The Imposter" });
-                } catch {
-                    embed.addFields({ name: `Banned`, value: "Nope - `Unable To Ban This User`" });
-                };
+            if (wluser) {
+                if (wluser.includes(executor.id)) return;
             };
 
-            await role.delete().catch(() => null);
+            try {
+                await role.guild.members.ban(executor.id, {
+                    reason: "SECURITY AUTOMOD - [ Creating Role ]"
+                });
+                embed.addFields({ name: `Banned`, vlaue: "Yep Banned The Imposter" });
+            } catch {
+                embed.addFields({ name: `Banned`, value: "Nope - `Unable To Ban This User`" });
+            };
+
+            await role.delete({ reason: `Created by non whitelisted user` }).catch(() => null);
 
             let owner = await role.guild.members.fetch(role.guild.ownerId).catch(() => null);
             return owner.send({ embeds: [embed] });

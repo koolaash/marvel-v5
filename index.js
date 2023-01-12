@@ -98,6 +98,7 @@ const { Database } = require("quickmongo"),
   });
 
 client.qdb = new Database(client.config.DB || process.env.DB);
+client.qdb.connect();
 client.qdb.on("ready", async () => { console.log(`MONGOOSE QUICK DAATABASE CONNECTED`.yellow); });
 client.errweb = errweb;
 client.prefixModel = require('./models/prefixes.js');
@@ -114,6 +115,10 @@ client.auditError = new WebhookClient({
 client.antiNukeError = new WebhookClient({
   id: process.env.antinukeError_id || config.antinukeError.id,
   token: process.env.antinukeError_token || config.antinukeError.token,
+});
+client.slashError = new WebhookClient({
+  id: process.env.slashError_id || config.slashError.id,
+  token: process.env.slashError_token || config.slashError.token,
 });
 
 require('events').EventEmitter.defaultMaxListeners = 100;
@@ -155,7 +160,6 @@ process.on("beforeExit", (code) => {
   errweb.send(`\`\`\`js\n${code}\`\`\``);
 });
 process.on("exit", (code) => {
-  errweb.send(`\`\`\`js\n${code}\`\`\``);
 });
 process.on("multipleResolves", (type, promise, reason) => {
   errweb.send(`\`\`\`js\n${type}\n${promise}\n${reason}\`\`\``);
