@@ -34,8 +34,20 @@ module.exports.run = async (client, interaction) => {
             });
         };
 
+        const args = {};
+        for (const option of interaction.options.data) {
+            if (option.type === "SUB_COMMAND") {
+                if (option.name) args[option.name] = true;
+                option.options?.forEach((x) => {
+                    args[x.name] = x.value;
+                });
+            } else if (option.value) {
+                args[option.name] = option.value;
+            }
+        }
+
         try {
-            await SlashCommands.run(client, interaction);
+            await SlashCommands.run(client, interaction, args);
         } catch (error) {
             return client.slashError.send(`\`\`\`js\n${error.stack}\`\`\``) &&
                 interaction.reply({
