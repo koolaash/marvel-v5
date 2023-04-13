@@ -6,10 +6,11 @@ module.exports.run = async (client, interaction) => {
 
         if (!SlashCommands) return;
 
-        if (!interaction.guild.me.permissionsIn(interaction.channel).has(Permissions.FLAGS.SEND_MESSAGES))
+        if (!interaction.guild.me.permissionsIn(interaction.channel).has(Permissions.FLAGS.SEND_MESSAGES)) {
             return await interaction.user.dmChannel.send({
                 content: `I don't have **\`SEND_interactionS\`** permission in <#${interaction.channelId}> to execute this **\`${SlashCommands.name}\`** command.`,
             });
+        };
 
         if (!interaction.guild.me.permissionsIn(interaction.channel).has(Permissions.FLAGS.VIEW_CHANNEL)) return;
 
@@ -43,17 +44,14 @@ module.exports.run = async (client, interaction) => {
                 });
             } else if (option.value) {
                 args[option.name] = option.value;
-            }
-        }
+            };
+        };
 
         try {
             await SlashCommands.run(client, interaction, args);
         } catch (error) {
             return client.slashError.send(`\`\`\`js\n${error.stack}\`\`\``) &&
-                interaction.reply({
-                    content: `\`\`\`js\n${error.stack}\`\`\``,
-                    ephemeral: true
-                });
+                interaction.reply({ content: `\`\`\`js\n${error.stack}\`\`\``, ephemeral: true });
         };
     };
 };
